@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>학사관리시스템_학사운영_교육운영현황</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+
+  body{
+    font-family:'Noto Sans KR', Arial, system-ui, sans-serif;
+    color:#222; background:#f9f9f9;
+  }
+
+  /* 상단 파란 메뉴 바 */
+  .top-menu{ background:#00518C; height:30px; display:flex; align-items:center; }
+  .top-menu__inner{ width:100%; display:flex; justify-content:flex-end; align-items:center; padding:0 40px; }
+  .top-menu__link{ color:#fff; font-size:12px; line-height:20px; margin-top:4px; text-decoration:none; position:relative; padding:0 10px; }
+  .top-menu__link + .top-menu__link::before{ content:""; position:absolute; left:0; top:4px; width:1px; height:11px; background:rgba(255,255,255,.3); }
+
+  /* 다크 브랜드 바 */
+  .brand-bar{ background:#1F2838; height:90px; border-bottom:1px solid #dcdcdc; position:relative; }
+  .brand-logo{ position:absolute; left:260px; top:16px; width:352px; height:52px; display:block; object-fit:contain; }
+  @media (max-width:1200px){ .brand-logo{ left:24px; } }
+
+  /*  레이아웃: 사이드바 + 본문 */
+  .layout{
+    display:flex; align-items:flex-start;
+    width:min(1400px, 96vw);
+    margin:22px auto 56px;
+    gap:20px;
+  }
+
+  /* 좌측 사이드바 */
+  .sidebar{
+    flex:0 0 270px;                 /* 고정폭 */
+    min-height:840px;
+    border-right:1px solid #C0C0C0;
+    background:#F5F6F7;
+  }
+  .sidebar-menu{ padding:20px 16px; font-size:14px; color:#333; }
+  .sidebar-menu h3{ font-size:14px; font-weight:bold; margin:18px 0 8px; color:#222; }
+  .sidebar-menu ul{ list-style-type:none; padding-left:0; margin:0; }
+  .sidebar-menu li{ margin-bottom:6px; padding-left:12px; position:relative; }
+  .sidebar-menu li::before{
+    content:"·"; position:absolute; left:0; top:0;
+    color:#333; font-size:14px; line-height:1.2;
+  }
+  .sidebar-menu a{ text-decoration:none; color:#333; }
+  .sidebar-menu a:hover{ color:#00518C; }
+  .menu-icon{ width:18px; height:18px; margin-right:6px; vertical-align:middle; }
+  .sidebar-logo{ width:180px; margin:10px auto 20px; display:block; }
+
+  /* 본문 래퍼 */
+  .main-area{ flex:1; }
+
+  /* 페이지 카드 */
+  .page{
+    width:1130px; background:#fff; border:1px solid #C0C0C0; margin:0;
+  }
+  .page__header{
+  height:46px;
+  border-bottom:1px solid #C0C0C0; /* 이 선이 제목 아래에 위치 */
+  padding:0 20px;
+  display:flex; align-items:center; justify-content:space-between;
+  }
+  .page__title{ font-size:20px; font-weight:700; color:#333; }
+  .page__path{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    white-space:nowrap;         /* 세로로 줄바꿈되는 문제 방지 */
+  }
+
+  /* 작은 화살표 아이콘 크기 고정 */
+  .path__sep{
+    display:inline-flex;
+    width:12px;                 /* 원하는 픽셀 크기 */
+    height:6px;
+    flex:0 0 auto;              /* 컨테이너가 이 크기보다 작아지지 않게 */
+  }
+
+  /* 혹시 span이 아니라 svg 요소 자신에게 클래스가 붙어도 대응 */
+  .path__sep svg{
+    width:12px;
+    height:6px;
+    display:block;              /* 인라인에서 생기는 빈 여백 제거 */
+  }
+
+/* 색상은 취향에 맞게 */
+.path__dim { color:#333333; } /* '학사운영' */
+  .path__dim{ color:#145074; }
+  .page__body{
+  padding:20px;
+  margin-top:4px;  /* ← 제목/경로 아래 선과 검색창 사이 간격 */
+  }
+
+
+  /* 검색바 */
+  .search-bar{
+  display:flex; align-items:center; gap:8px;
+  margin-bottom:14px;
+  width:100%;                 /* 폼이 줄 전체를 차지하게 */
+  justify-content:flex-end;   /* 항목들을 오른쪽으로 몰기 */
+  }
+
+  .search-select{ height:36px; padding:0 10px; font-size:14px; border:1px solid #cfd6df; background:#fff; min-width:120px; }
+  .search-input{
+  height:36px;
+  flex:0 0 366.28px;   /*  원하는 폭으로 고정 (예: 560px). 숫자만 조절 */
+  min-width:320px;
+  padding:0 12px;
+  border:2px solid #f0b93a; outline:none;
+  }
+  .search-input:focus{ border-color:#f2a900; }
+  .search-btn{ height:36px; padding:0 18px; border:none; cursor:pointer; background:#2d5078; color:#fff; font-size:14px; }
+
+  /* ===== 테이블 카드 (첫 번째 스샷 스타일) ===== */
+  .table-card{ border:1px solid #C0C0C0; background:#fff; }
+  .table-card__topbar{ height:6px; background:#2d5b8d; border-bottom:1px solid #C0C0C0; }
+
+  .gu-table{
+    width:100%; border-collapse:separate; border-spacing:0; table-layout:fixed;
+    font-size:14px; color:#333;
+  }
+  .gu-table thead th{
+    height:44px; background:#f6f8fb; border-bottom:1px solid #e1e6ee;
+    padding:0 12px; text-align:left; font-weight:600;
+  }
+  .gu-table tbody td{
+    height:42px; padding:0 12px; background:#fff; border-bottom:1px solid #e9edf3;
+    white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+  }
+  .gu-table tbody tr:nth-child(even) td{ background:#fcfdff; }
+  .gu-table tbody tr:hover td{ background:#f4f8ff; }
+  .gu-table thead th:first-child, .gu-table tbody td:first-child{ border-left:1px solid #d8dee8; }
+  .gu-table thead th:last-child,  .gu-table tbody td:last-child { border-right:1px solid #d8dee8; }
+
+  .gu-paging{ display:flex; justify-content:center; gap:6px; padding:12px 0 16px; }
+  .gu-page-btn{
+    width:28px; height:28px; display:inline-flex; align-items:center; justify-content:center;
+    border:1px solid #d6d9df; background:#fff; font-size:13px; color:#3c4150; cursor:pointer;
+  }
+  .gu-page-btn:hover{ background:#f4f6f9; }
+  .gu-page-btn.is-active{ background:#1f5e95; color:#fff; border-color:#1f5e95; }
+  .gu-page-btn.is-disabled{ opacity:.45; cursor:not-allowed; background:#fff; }
+  .gu-page-btn--square{ width:22px; height:22px; font-size:12px; }
+
+  /* 접근성 숨김 */
+  .sr-only{ position:absolute;width:1px;height:1px;margin:-1px;border:0;padding:0; clip-path:inset(50%); clip:rect(0 0 0 0); overflow:hidden; white-space:nowrap; }
+
+  /* ===== Footer ===== */
+  .site-footer{
+    background:#19202D;              /* 피그마 색 */
+    color:#cfd3db;                   /* 살짝 회색 텍스트 */
+    height:60px;                     /* 피그마 높이 */
+    display:flex; align-items:center;
+  }
+
+  /* 상단 레이아웃과 같은 가로폭 정렬 */
+  .site-footer .footer-inner{
+    width:min(1400px, 96vw);         /* .layout 과 동일한 폭 기준 */
+    margin:0 auto;
+    padding:0 20px;
+    font-size:12px;
+    letter-spacing:.02em;
+  }
+
+  /* (선택) 콘텐츠가 짧을 때도 바닥에 붙도록 */
+  body{ min-height:100vh; display:flex; flex-direction:column; }
+  .layout{ flex:1; }                  /* 레이아웃이 남는 높이를 차지 */
+
+  /* 브레드크럼 색상 지정 */
+  .page__path .path__dim {   /* 학사운영 */
+    color: #333333 !important;
+  }
+  .page__path strong {       /* 교육 운영 현황 */
+    color: #145074 !important;
+  }
+
+  /* 구분 기호 색 (둘 중 하나 사용) */
+
+  /* 1) 텍스트 '>'를 쓰는 경우 */
+  .page__path .path__sep { color: #145074; }
+
+  /* 2) SVG 화살표를 쓰는 경우 */
+  .page__path .path__sep path { stroke: #145074; }
+</style>
+</head>
+<body>
+
+  <!-- 상단 파란 메뉴 바 -->
+  <div class="top-menu">
+    <nav class="top-menu__inner">
+      <a class="top-menu__link" href="#">HOME</a>
+      <a class="top-menu__link" href="#">사이트맵</a>
+      <a class="top-menu__link" href="#">로그아웃</a>
+    </nav>
+  </div>
+
+  <!-- 다크 로고 바 -->
+  <header class="brand-bar">
+    <!-- 경로: academic/operation/overview.html 기준 -->
+    <img class="brand-logo" src="../../images/admin_logo.png" alt="그린대학교 학사관리시스템 로고">
+  </header>
+
+  <!-- 레이아웃 시작 -->
+  <div class="layout">
+
+    <!-- 좌측 사이드 메뉴 -->
+    <aside class="sidebar">
+      <nav class="sidebar-menu">
+        <div class="menu-group">
+          <h3><img src="../../images/ico-admin-setting.png" alt="환경설정 아이콘" class="menu-icon">환경설정</h3>
+          <ul>
+            <li><a href="#">기본환경정보</a></li>
+            <li><a href="#">약관관리</a></li>
+          </ul>
+        </div>
+
+        <div class="menu-group">
+          <h3><img src="../../images/ico-admin-academic.png" alt="학사 운영 아이콘" class="menu-icon">학사운영</h3>
+          <ul>
+            <li><a href="#">교육 운영 현황</a></li>
+            <li><a href="#">학번별 학생 현황</a></li>
+            <li><a href="#">학적부 학생 현황</a></li>
+            <li><a href="#">강의 목록</a></li>
+            <li><a href="#">수강 현황</a></li>
+          </ul>
+        </div>
+
+        <div class="menu-group">
+          <h3><img src="../../images/ico-admin-persons.png" alt="인사관리 아이콘" class="menu-icon">인사관리</h3>
+          <ul>
+            <li><a href="#">학생 목록 및 등록</a></li>
+            <li><a href="#">교수 목록 및 등록</a></li>
+            <li><a href="#">임직원 등록</a></li>
+          </ul>
+        </div>
+
+        <div class="menu-group">
+          <h3><img src="../../images/ico-admin-college.png" alt="대학 및 학과 아이콘" class="menu-icon">대학 및 학과</h3>
+          <ul>
+            <li><a href="#">대학 및 학과 목록</a></li>
+            <li><a href="#">대학 및 학과 등록</a></li>
+          </ul>
+        </div>
+
+        <div class="menu-group">
+          <h3><img src="../../images/ico-admin-board.png" alt="게시판관리 아이콘" class="menu-icon">게시판관리</h3>
+          <ul>
+            <li><a href="#">일반학사 공지사항</a></li>
+            <li><a href="#">학사관리 공지사항</a></li>
+            <li><a href="#">커뮤니티 공지사항</a></li>
+            <li><a href="#">입학안내</a></li>
+            <li><a href="#">질문 및 답변</a></li>
+            <li><a href="#">사이트안내</a></li>
+            <li><a href="#">자료실</a></li>
+          </ul>
+        </div>
+      </nav>
+    </aside>
+
+    <!-- 우측 본문 -->
+    <main class="main-area">
+      <section class="page">
+        <div class="page__header">
+          <h3 class="page__title">교육 운영 현황</h3>
+          <div class="page__path">
+            <span class="path__dim">학사운영</span>
+            <svg class="path__sep" viewBox="0 0 12 6" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M1 1l5 4 5-4" fill="none" stroke="#145074" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <strong>교육 운영 현황</strong>
+          </div>
+        </div>
+
+        <div class="page__body">
+          <!-- 검색 바 -->
+          <form class="search-bar" onsubmit="return false;">
+            <label class="sr-only" for="cond">검색조건</label>
+            <select id="cond" class="search-select">
+              <option value="subject">강의명</option>
+              <option value="major">학과</option>
+              <option value="prof">담당교수</option>
+            </select>
+            <label class="sr-only" for="q">검색어</label>
+            <input id="q" class="search-input" type="text" placeholder="검색어를 입력하세요" />
+            <button class="search-btn" type="submit">검색</button>
+          </form>
+
+          <!-- 테이블 카드 -->
+          <div class="table-card">
+            <div class="table-card__topbar"></div>
+            <table class="gu-table">
+              <colgroup>
+                <col style="width:12%"><col style="width:10%"><col style="width:14%">
+                <col style="width:8%"><col style="width:10%"><col style="width:18%">
+                <col style="width:10%"><col style="width:8%"><col style="width:10%">
+              </colgroup>
+              <thead>
+                <tr>
+                  <th>학과</th><th>과목코드</th><th>강의명</th><th>학년</th>
+                  <th>담당교수</th><th>강의장</th><th>수강인원</th><th>수강률</th><th>구분</th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- DB 루프 지점 -->
+                <tr>
+                  <td>국어국문학과</td><td>120001</td><td>고전소설1</td><td>2학년</td>
+                  <td>김국어</td><td>인문관101</td><td>32/46</td><td>70%</td><td>전공</td>
+                </tr>
+                <tr>
+                  <td>컴퓨터과학과</td><td>830003</td><td>자바프로그래밍</td><td>2학년</td>
+                  <td>김자바</td><td>컴퓨터실</td><td>32/46</td><td>70%</td><td>전공</td>
+                </tr>
+                <tr>
+                  <td>컴퓨터과학과</td><td>830001</td><td>프로그래밍의 이해</td><td>1학년</td>
+                  <td>김코딩</td><td>공학관101</td><td>32/46</td><td>70%</td><td>전공</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <nav class="gu-paging" aria-label="페이지 이동">
+              <button class="gu-page-btn gu-page-btn--square is-disabled" aria-disabled="true" title="처음">«</button>
+              <button class="gu-page-btn gu-page-btn--square is-disabled" aria-disabled="true" title="이전">‹</button>
+              <button class="gu-page-btn is-active" aria-current="page">1</button>
+              <button class="gu-page-btn">2</button>
+              <button class="gu-page-btn">3</button>
+              <button class="gu-page-btn gu-page-btn--square" title="다음">›</button>
+              <button class="gu-page-btn gu-page-btn--square" title="마지막">»</button>
+            </nav>
+          </div>
+        </div> <!-- /.page__body -->
+      </section>
+    </main>
+
+  </div><!-- /.layout -->
+
+<footer class="site-footer" role="contentinfo">
+  <div class="footer-inner">
+    Copyright &copy;Green University All rights reserved.
+    ADMINISTRATOR Version 1.4.1
+  </div>
+</footer>
+
+</body>
+</html>
