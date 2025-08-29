@@ -6,6 +6,9 @@
     <title>그린대학교</title>
 
 <style>
+    /*======================================================================*/
+    /*===============================hearder================================*/
+    /*======================================================================*/
     * {
         font-family: Noto Sans KR;
         font-weight: 350;
@@ -75,6 +78,8 @@
     }
 
     /*======================================================================*/
+    /*=================================body=================================*/
+    /*======================================================================*/
 
 
     .body {
@@ -82,14 +87,30 @@
         height: 1629px;
         border: 3px solid aqua;
         position: relative;
+        background-color: #F3F5F9;
     }
+    #main-bg {
+        position: absolute;
+        width: 100%;
+        height: 560px;
+        
+        background-image: url('/images/bg-main-vi01.jpg');
+        background-position: center;
+        background-size: cover;
+    }
+    #body1200 {   
+        width: 1200px;
+        height: 1629px;
+        border: 3px solid seagreen;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
     #main-on {
         width: 100%;
         height: 560px;
 
-        background-image: url('/images/bg-main-vi01.jpg');
-        background-position: center;
-        background-size: cover;
 
         color: #ffffff;
         
@@ -201,6 +222,7 @@
     #main-mid {
         width: 1200px;
         height: 350px;
+        display: flex;
         position: absolute;
         top: 455px;
         left: 50%;
@@ -208,6 +230,79 @@
         border: 3px solid darkblue;
     }
 
+    #box-left{
+        width: 600px;
+        height: 290px;
+        border: 3px solid peru;
+    }
+    #box-right{
+        width: 600px;
+        height: 290px;
+        border: 3px solid peru;
+    }
+
+    #gallery{
+        color: #3F97F6;
+        font-family: Noto Sans KR;
+        font-weight: 700;
+        font-style: Bold;
+        font-size: 20px;
+        line-height: 25px;
+        letter-spacing: 0%;
+        vertical-align: middle;
+
+        position: absolute;
+        top: 806px;
+    }
+    
+    #gallery-photo {
+        position: absolute;
+        top: 860px;
+        width: 100%;
+        height: 220px;
+        border: 3px solid;
+
+    }
+    #gallery-photo > ul {
+        list-style: none;
+        display: flex;
+        gap: 20px;
+        margin: 0;
+        padding: 0;
+    }
+    #gallery-photo > ul > li{
+        width: 285px;
+        height: 220px;
+        border: 1px solid pink;
+    }
+
+    .helper {
+        position: absolute;
+        width: 100%;
+        height: 152px;
+        top: 1140px;
+        background-image: url("/images/bg-main-banner.gif");
+        border: 3px solid gold;
+    }
+
+    .main-under{
+        position: absolute;
+        top: 1292px;
+        width: 100%;
+        height: 337px;
+        border: 3px solid violet;
+        display: flex;
+    }
+    .main-under > div {
+        width: 960px;
+        height: 337px;
+        border: 1px solid;
+    }
+    #main-under-leftbox {
+        background-color: #ffffff;
+    }
+    /*======================================================================*/
+    /*================================footer=================================*/
     /*======================================================================*/
 
     .foo {
@@ -314,26 +409,64 @@
     </header>
     
     <div class="body">
-        <div id="main-on">
-            <h3>IT 기술로 세상을 변화시키는 인재를 양성</h3>
-            <h1>그린대학교 컴퓨터과학과</h1>
-            <p>급변하는 컴퓨터 기술의 발전에 선도적으로 참여하고 컴퓨터의 활용을 통하여 미래를 만들어 나갈 수 있는 인력을 배양</p>
-            
-            <div id="main-pagemove">
-                <img src="/images/btn-prev01.png" alt="전페이지" id="prev-page">
-                <img src="/images/btn-next01.png" alt="다음페이지" id="next-page">
+        <div id="main-bg"></div>
+        <div id="body1200">
+            <div id="main-on">
+                <h3>IT 기술로 세상을 변화시키는 인재를 양성</h3>
+                <h1>그린대학교 컴퓨터과학과</h1>
+                <p>급변하는 컴퓨터 기술의 발전에 선도적으로 참여하고 컴퓨터의 활용을 통하여 미래를 만들어 나갈 수 있는 인력을 배양</p>
+                
+                <div id="main-pagemove">
+                    <img src="/images/btn-prev01.png" alt="전페이지" id="prev-page">
+                    <img src="/images/btn-next01.png" alt="다음페이지" id="next-page">
+                </div>
+                <div id="main-departmentIntro">
+                    <span><a href="/university/about/president.html">학과소개 바로가기</a></span>
+                    <span><img src="/images/bg-link-arr.png" alt=""></span>
+                </div>
+                <div id="slide">
+                    <span id="page1"></span>
+                    <span id="page2"></span>
+                    <span id="page3"></span>
+                </div>
             </div>
-            <div id="main-departmentIntro">
-                <span><a href="/university/about/president.html">학과소개 바로가기</a></span>
-                <span><img src="/images/bg-link-arr.png" alt=""></span>
+            <div id="main-mid">
+                <div id="box-left">
+
+                </div>
+                <div id="box-right">
+                    
+                </div>
             </div>
-            <div id="slide">
-                <span id="page1"></span>
-                <span id="page2"></span>
-                <span id="page3"></span>
+            <div id="gallery">
+                <h3>PHOTO GALLERY</h3>
+            </div>
+            <div id="gallery-photo">
+                <ul>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+            </div>
+            <div class="main-under">
+                <div class="main-under-rightbox">
+                    <h3>뉴스 및 칼럼</h3>
+                    <hr>
+                    <ul>
+                        <li>교과목 폐지 및 신설 안내</li>
+                        <li>2019-2학기 진로취업 프로그램 설계를 위한 학생 대상...</li>
+                        <li>제8회 KNDA 학술논문상 공모</li>
+                        <li>대학 진로취업지원 현황 조사 안내</li>
+                        <li>[진로취업특강] 유망직무 전문가 초청 특강, 여대생 커...</li>
+                    </ul>
+                </div>
+                <div id="main-under-leftbox">
+
+                </div>
             </div>
         </div>
-        <div id="main-mid">
+        <div class="helper">
 
         </div>
     </div>
