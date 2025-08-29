@@ -74,17 +74,141 @@
         text-align: right;
     }
 
+    /*======================================================================*/
+
+
     .body {
+        width: 100%;
         height: 1629px;
         border: 3px solid aqua;
+        position: relative;
     }
-    .body-content {
+    #main-on {
+        width: 100%;
+        height: 560px;
+
+        background-image: url('/images/bg-main-vi01.jpg');
+        background-position: center;
+        background-size: cover;
+
+        color: #ffffff;
+        
+        position: relative;
+
+        border: 3px solid khaki;
+    }
+    #main-on > img {
+        width: 100%;
+        height: 560px;
+    }
+    #main-on > h3{
+        position: absolute;
+        top: 108.5px;
+        left: 50%;
+        transform: translateX(-50%);
+        height: 28px;
+        font-size: 24px;
+        margin: 0;
+        padding: 0;
+
+    }
+    #main-on > h1{
+        position: absolute;
+        top: 149.5px;
+        left: 50%;
+        transform: translateX(-50%);
+        height: 53px;
+        margin: 0;
+        padding: 0;
+
+        font-size: 48px;
+    }
+    #main-on > p{
+        position: absolute;
+        top: 225.5px;
+        left: 50%;
+        transform: translateX(-50%);
+        height: 23px;
+        margin: 0;
+        padding: 0;
+        font-size: 16px;
+
+    }
+    #main-on > img{
+        width: 27px;
+        height: 50px;
+    }
+    
+
+    #main-departmentIntro {
+        width: 211.86px;
+        height: 48px;
+
+        color: #ffffff;
+        text-align: center;
+        line-height: 48px;
+
+        position: absolute;
+        top: 292.5px;
+        left: 50%;
+        transform: translateX(-50%);
+
+        border: 1px solid #ffffff;
+    }
+    #main-departmentIntro > span > a {
+        color: #ffffff;
+    }
+    #main-pagemove {
         width: 1200px;
-        height: 1629px;
-        margin: 0 auto;
-        border: 3px solid palegreen;
-            
+        height: 1px;
+
+        position: absolute;
+        top: 227px;
+        left: 50%;
+        transform: translateX(-50%);
     }
+    #prev-page{
+        position: absolute;
+        left: -27px;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+    #next-page{
+        position: absolute;
+        right: -27px;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+    #slide {
+        position: absolute;
+        bottom: 140.5px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    #slide > span {
+        display: inline-block;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        border: 1px solid;
+        margin: 0 5px;
+        cursor: pointer;
+    }
+    #page1 {
+        background-color: #ffffff;
+    }
+
+    #main-mid {
+        width: 1200px;
+        height: 350px;
+        position: absolute;
+        top: 455px;
+        left: 50%;
+        transform: translateX(-50%);
+        border: 3px solid darkblue;
+    }
+
+    /*======================================================================*/
 
     .foo {
         height: 219px;
@@ -145,6 +269,15 @@
         margin-top: 0;
         margin-left: 20px;
     }
+
+    #dropdown {
+        width: 200px;
+        height: 36px;
+        background-color: #121721;
+        color: #A7A7A9;
+        margin-left: 350px;
+        border: 0px;
+    }
 </style>
 
 </head>
@@ -165,7 +298,7 @@
         </div>
         
         <nav class="main-nav" >
-            <img src="./images/header_logo.png" alt="그린대학교">
+            <img src="/images/header_logo.png" alt="그린대학교">
             <div>
                 <ul>
                     <li><a href="#">대학소개</a></li>
@@ -181,7 +314,26 @@
     </header>
     
     <div class="body">
-        <div class="body-content">
+        <div id="main-on">
+            <h3>IT 기술로 세상을 변화시키는 인재를 양성</h3>
+            <h1>그린대학교 컴퓨터과학과</h1>
+            <p>급변하는 컴퓨터 기술의 발전에 선도적으로 참여하고 컴퓨터의 활용을 통하여 미래를 만들어 나갈 수 있는 인력을 배양</p>
+            
+            <div id="main-pagemove">
+                <img src="/images/btn-prev01.png" alt="전페이지" id="prev-page">
+                <img src="/images/btn-next01.png" alt="다음페이지" id="next-page">
+            </div>
+            <div id="main-departmentIntro">
+                <span><a href="/university/about/president.html">학과소개 바로가기</a></span>
+                <span><img src="/images/bg-link-arr.png" alt=""></span>
+            </div>
+            <div id="slide">
+                <span id="page1"></span>
+                <span id="page2"></span>
+                <span id="page3"></span>
+            </div>
+        </div>
+        <div id="main-mid">
 
         </div>
     </div>
@@ -204,14 +356,19 @@
         </div>
         <div class="foo-foo">
             <div>
-                <img src="./images/footer_logo.png" alt="">
+                <img src="/images/footer_logo.png" alt="">
                 <ul>
                     <li>그린대학교</li>
                     <li>[12345] 부산광역시 부산진구 부전대로 123 그린대학교 / 대표전화 : 051-123-1000 /</li>
                     <li>입학안내 : 051-123-1302 팩스 : 051-123-3333</li>
-                    <li>&nbsp;</li>
+                    <p></p>
                     <li>copyright ©Green University All rights reserved.</li>
                 </ul>
+                <select name="sites" id="dropdown">
+                    <option value="#">주요사이트</option>
+                    <option value="https://www.busanbank.co.kr/ib20/mnu/BHP00001">BNK부산은행</option>
+                    <option value="/academic/index.html">학사관리시스템</option>
+                </select>
             </div>
         </div>
     </footer>
