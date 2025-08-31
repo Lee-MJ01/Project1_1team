@@ -11,6 +11,7 @@
         내용 : notice 제작 
     -->
 </head>
+
 <body>
     <header>
         <div class="header-top">
@@ -22,7 +23,8 @@
                     <li><a href="#">학생지원</a></li>
                 </ul>
             </div>
-        </div>    
+        </div>  
+
         <div class="header-main">
             <div class="container">
                 <div class="logo">
@@ -43,6 +45,7 @@
             </div>
         </div>
     </header>
+
     <div class=background>
         <div class="container">
             <div class="sub-nav">
@@ -59,25 +62,126 @@
             </div>
         </div>
     </div>
+
     <main>
         <div class="container">
-            <aside class="sidebar">
+            <aside class="side-nav">
+                <h2>학사안내</h2>
                 <ul>
-                    <li></li>
+                    <li class="active"><a href="#">공지사항</a></li>
+                    <li><a href="#">학사일정</a></li>
+                    <li><a href="#">수강신청</a></li>
+                    <li><a href="#">성적</a></li>
+                    <li><a href="#">수료 및 졸업</a></li>
+                    <li><a href="#">자주묻는질문</a></li>
                 </ul>
             </aside>
 
             <section class="content">
-                <header class="content-header">
+                    <h3>공지사항</h3>
 
-                </header>
+                    <div class="search-bar">
+                        <select>
+                            <option>전체</option>
+                            <option>제목</option>
+                            <option>작성자</option>
+                        </select>
+
+                        <div class="search-box">
+                            <input type="text" placeholder="검색어를 입력해 주세요">
+                            <button>검색</button>
+                        </div>
+                    </div>
+
+                <table class="board">
+                    <thead>
+                        <tr>
+                            <th>번호</th>
+                            <th>제목</th>
+                            <th>작성자</th>
+                            <th>작성일</th>
+                            <th>조회</th>
+                        </tr>
+                    </thead>
+                
+                    <tbody>
+                        <tr>
+                            <td>3</td>
+                            <td>
+                                <img src="/images/ico-new01.gif" alt="N" class="icon-n">
+                                2025학년도 신입학 3차 추가모집 모집요강 및 모집인원 공지
+                            </td>
+                            <td>담당자</td>
+                            <td>24.04.09</td>
+                            <td>160</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>
+                                <img src="/images/ico-new01.gif" alt="N" class="icon-n">
+                                2025학년도 신입학 2차 추가모집 모집요강 및 모집인원 공지
+                            </td>
+                            <td>담당자</td>
+                            <td>24.04.09</td>
+                            <td>160</td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>
+                                2025학년도 신입학 추가모집 모집요강 및 모집인원 공지
+                            </td>
+                            <td>담당자</td>
+                            <td>24.04.09</td>
+                            <td>160</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="pagination">
+                    <a href="#" class="first"><img src="/images/btn-first-page.png" alt="처음"></a>
+                    <a href="#" class="prev"><img src="/images/btn-prev-page.png" alt="이전"></a>
+                    <a href="#" class="active">1</a>
+                    <a href="#">2</a>
+                    <a href="#">3</a>
+                    <a href="#" class="next"><img src="/images/btn-next-page.png" alt="다음"></a>
+                    <a href="#" class="last"><img src="/images/btn-last-page.png" alt="끝"></a>
+                </div>
             </section>
         </div>
     </main>
+    
     <footer>
-        <div class="container">
-            <div class="footer-nav"></div>
-            <div class="footer-text"></div>
+        <div class="footer-top">
+            <div class="container">
+                <ul>
+                    <li><a href="#">개인정보처리방침</a></li>
+                    <li><a href="#">종합정보시스템</a></li>
+                    <li><a href="#">학사일정</a></li>
+                    <li><a href="#">주요인원 연락처</a></li>
+                    <li><a href="#">교내공지사항</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="footer-left">
+                    <img src="/images/footer_logo.png" alt="그린대학교 로고" class="footer-logo">
+                    <div class="footer-text">
+                        <p>그린대학교</p>
+                        <p>[12345] 부산광역시 부산진구 부전대로 123 그린대학교</p>
+                        <p>대표전화 : 051-123-1000 / 학과안내 : 051-123-1302 팩스 : 051-123-3333</p>
+                        <p class="copy">copyright ⓒ Green University All rights reserved.</p>
+                    </div>
+                </div>
+                <div class="footer-right">
+                    <select>
+                        <option>주요사이트</option>
+                        <option>도서관</option>
+                        <option>포털</option>
+                    </select>
+                </div>
+            </div>
         </div>
     </footer>
 </body>
