@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>오시는 길</title>
+    <!-- 
+        이름: 설유진
+        내용: 대학소개 / 오시는 길
+    -->
+    <style>
+        /* -----------------폰트 설정----------------- */
+        @font-face {
+            font-family: 'Noto Sans KR';
+            src: url('/font/NotoSansKR-Light.woff2') format('woff2'),
+                url('/font/NotoSansKR-Light.woff') format('woff'),
+                url('/font/NotoSansKR-Light.otf') format('opentype');
+            font-weight: 300;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'Noto Sans KR';
+            src: url('/font/NotoSansKR-Regular.woff2') format('woff2'),
+                url('/font/NotoSansKR-Regular.woff') format('woff'),
+                url('/font/NotoSansKR-Regular.otf') format('opentype');
+            font-weight: 400;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'Noto Sans KR';
+            src: url('/font/NotoSansKR-Medium.woff2') format('woff2'),
+                url('/font/NotoSansKR-Medium.woff') format('woff'),
+                url('/font/NotoSansKR-Medium.otf') format('opentype');
+            font-weight: 500;
+            font-style: normal;
+        }
+
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            font-weight: 300; 
+            font-size: 14px;
+            line-height: 22px;
+            letter-spacing: 0;
+        }
+
+        .container{
+            width: 1200px;
+            display: flex;
+            align-items: center;
+            margin: 0 auto;
+        }
+
+        ul {
+            display: flex;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        /* -----------------header----------------- */
+        .header-topbar{
+            display: flex;
+            background-color: #3f97f6;
+            height: 27px;
+        }
+
+        .header-topbar .container{
+            justify-content: flex-end;
+        }
+
+        .header-topbar ul li {
+            position: relative;       
+            padding: 0 18px;    
+            height: 27px;             
+            display: flex;
+            align-items: center;  
+            font-weight: 300; 
+        }
+
+        .header-topbar ul li:last-child { padding-right: 0; }
+
+        .header-topbar ul li:not(:last-child)::after {
+            content: "";
+            position: absolute;
+            width: 0;               
+            height: 11px;           
+            right: 0;
+            border-right: 1px solid #ffffff4d;
+        }
+
+        .header-topbar a{
+            font-size: 12px;
+            line-height: 1;
+            text-decoration: none;
+            color : #ffffff;
+        }
+
+        .header-main {
+            display: flex;
+            height: 77px;
+        }
+
+        .header-main .container {
+            justify-content: space-between; 
+        }
+
+        .header-logo img {
+            width: 196px;
+            height: auto;
+        }
+
+        .header-main nav ul {
+            gap: 52px; 
+        }
+
+        .header-main nav ul li a {
+            font-weight: 500; 
+            font-size: 16px;
+            line-height: 21px;
+            display: flex;
+            align-items: center;
+            color: #333333;
+            text-decoration: none;
+        }
+
+        .header-subnav{
+            display: flex;
+            height: 42px;
+            background-color: #ECF2F6;
+            align-items: center;
+        }
+
+        .header-subnav .container{
+            justify-content: flex-end;
+        }
+
+        .header-subnav ul li {
+            position: relative;       
+            padding: 0 7px;    
+            display: flex;
+            align-items: center;  
+            font-weight: 300; 
+        }
+
+        .header-subnav ul li.home img {
+            width: 23px;  
+            height: 16px;
+        }
+
+        .header-subnav ul li.arrow img {
+            width:auto; 
+            height: 22px;
+        }
+
+        .header-subnav ul li:last-child { padding-right: 0; }
+
+        .header-subnav a{
+            font-size: 14px;
+            line-height: 1;
+            text-decoration: none;
+            color : #071F4B;
+        }
+
+        main{
+            height: 600px;
+        }
+
+        /* -----------------footer----------------- */
+        .footer-topbar{
+            display: flex;
+            background-color: #1F2838;
+            height: 50px;
+        }
+
+        .footer-topbar .container{
+            justify-content: space-between;
+        }
+
+        .footer-topbar ul li {
+            position: relative;       
+            width: 240px;
+            height: 20px;             
+            display: flex;
+            align-items: center;  
+            justify-content: center;
+            border-left: 1px solid #ffffff4d; 
+            border-right: 1px solid #ffffff4d;
+            font-weight: 300; 
+        }
+
+        .footer-topbar a{
+            font-weight: 300; 
+            font-size: 14px;
+            line-height: 1;
+            text-decoration: none;
+            color : #ffffff;
+        }
+
+        .footer-main{
+            display: flex;
+            background-color: #19202D;
+            height: 169px;
+        }
+
+        .footer-main .container{
+            align-items: flex-start;
+            padding-top: 35px;
+            justify-content: space-between;
+        }
+
+        .footer-left {
+            display: flex;
+            gap: 20px; 
+            align-items: flex-start;
+        }
+
+        footer img {
+            width: 160px; 
+            height: auto;
+            display: block;
+        }
+
+        .footer-info{
+            display: flex;
+            flex-direction: column;
+            color: #A8A9AC;
+            font-weight: 300; 
+            font-size: 14px;
+        }
+
+        .footer-info p{
+            margin: 0;
+        }
+
+        .dropdown-wrap {
+            position: relative;
+            width: 200px;
+        }
+
+        #dropdown {
+            width: 100%;
+            font-size: 16px;
+            padding: 0 30px 0 25px;
+            appearance: none;
+            background-color: #121721;
+            color: #A7A7A9;
+            border: none;
+            height: 36px;
+            font-weight: 300; 
+        }
+
+        .dropdown-wrap .arrow {
+            position: absolute;
+            font-size: 7px;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            pointer-events: none;
+            color: #A7A7A9;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <div class="header-topbar">
+        <div class="container">
+            <ul>
+                <li><a href="#">HOME</a></li>
+                <li><a href="#">사이트맵</a></li>
+                <li><a href="#">로그인</a></li>
+                <li><a href="#">학생지원</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="header-main">
+        <div class="container">
+            <div class="header-logo">
+                <a href="/index.html">
+                    <img src="/images/header_logo.png" alt="대학 로고">
+                </a>
+            </div>
+
+            <nav>
+                <ul>
+                    <li><a href="#">대학소개</a></li>
+                    <li><a href="#">입학안내</a></li>
+                    <li><a href="#">대학·대학원</a></li>
+                    <li><a href="#">학사안내</a></li>
+                    <li><a href="#">대학생활</a></li>
+                    <li><a href="#">커뮤니티</a></li>                
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+    <div class="header-subnav">
+        <div class="container">
+            <ul>
+                <li class="header-homeimg"><a href="#"><img src="/images/ico-home.png"></a></li>
+                <li class="header-arrowimg"><img src="/images/bg-path-arrow.png"></li>
+                <li><a href="#">학사안내</a></li>
+                <li class="header-arrowimg"><img src="/images/bg-path-arrow.png"></li>
+                <li><a href="#">공지사항</a></li>
+            </ul>
+        </div>    
+    </div>
+</header>
+
+<main>메인</main>
+
+<footer>
+    <div class="footer-topbar">
+        <div class="container">
+            <ul>
+                <li><a href="#">개인정보처리방침</a></li>
+                <li><a href="#">통합정보시스템</a></li>
+                <li><a href="#">학사일정</a></li>
+                <li><a href="#">주요민원 연락처</a></li>
+                <li><a href="#">교내공지사항</a></li>
+            </ul>               
+        </div>
+    </div>
+
+    <div class="footer-main">
+        <div class="container">
+            <div class="footer-left">
+                <img src="/images/footer_logo.png" alt="footer_logo">
+                <div class="footer-info">
+                    <p>그린대학교</p>
+                    <p>[12345] 부산광역시 부산진구 부전대로 123 그린대학교 / 대표전화 : 051-123-1000</p>
+                    <p>입학안내 : 051-123-1302 팩스 : 051-123-3333</p>
+                    <br>
+                    <p>copyright © Green University All rights reserved.</p>
+                </div>
+            </div>
+
+            <div class="dropdown-wrap">
+                <select name="sites" id="dropdown">
+                    <option value="#">주요사이트</option>
+                    <option value="https://www.busanbank.co.kr/ib20/mnu/BHP00001">BNK부산은행</option>
+                    <option value="/academic/index.html">학사관리시스템</option>
+                </select>
+                <span class="arrow">▼</span>
+            </div>
+        </div>
+    </div>
+</footer>
+</body>
+</html>
