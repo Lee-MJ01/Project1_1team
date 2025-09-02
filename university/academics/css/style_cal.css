@@ -172,7 +172,6 @@ a {text-decoration: none; color: #111;}
 /* main */
 main .container {
     width: 1200px;
-    min-height: 470px;
     height: auto;
     margin: 0 auto;
     padding-top: 50px;
@@ -203,7 +202,7 @@ main .container {
     font-size: 11pt;
     font-weight: 300;
     display: block;
-    padding: 20px;
+    padding: 18px;
     color: #333333;
     text-decoration: none;
     border-bottom: 1px solid #ddd;
@@ -214,7 +213,7 @@ main .container {
     color: white;
 }
 
-/* calendar */
+/* content */
 .content {
     width: 930px;
 }
@@ -228,6 +227,7 @@ main .container {
     line-height: 1.5;
 }
 
+/* calendar */
 .calendar-header {
     display: flex;
     justify-content: center;
@@ -327,12 +327,11 @@ main .container {
     font-size: 15px;
     font-weight: 300;
     color: #666666;
-    margin-top: 5px;
 }
 
 /* footer */
 footer {
-    margin-top: 60px;
+    margin-top: 120px;
     font-size: 13px;
 }
 
