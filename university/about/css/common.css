@@ -59,7 +59,7 @@
 
         .header-subnav ul li {
             position: relative;       
-            padding: 0 7px;    
+            padding: 0 6px;    
             display: flex;
             align-items: center;  
         }
@@ -88,6 +88,73 @@
 
         
   /* 메인  */
+main {
+  display: flex;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 60px;
+  gap: 60px;
+}
+
+/* 메인 - 사이드 */
+aside { width: 210px; }
+
+.aside-title {
+  font-weight: 700;
+  font-size: 34px;
+  margin: 0;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #333;
+}
+
+aside nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+aside nav ul li {
+  height: 60px;
+  border-bottom: 1px solid #eee;
+}
+
+aside nav ul li a {
+  display: block;
+  padding: 8px 10px;
+  font-size: 16px;
+  line-height: 40px;
+  color: #333;
+  text-decoration: none;
+  transition: background .2s;
+}
+
+aside nav ul li a:hover {
+  text-decoration: none;
+  font-weight: bold;
+
+
+}
+
+a[aria-current="page"] {
+  background-color: #3F97F6;
+  color: #ffffff;
+}
+
+
+/* 메인 - 본문 */
+section { flex: 1; min-height: 500px; }
+
+.main-title {
+  font-size: 26px;
+  font-weight: 700;
+  margin: 0;
+  padding-top: 8px;
+  padding-bottom: 13px;
+  border-bottom: 2px solid #333;
+}
+
+.content-body { margin-top: 16px; }
+
 
   /* 푸터 */
   .footer{background:var(--dark);color:#c7cfdd}

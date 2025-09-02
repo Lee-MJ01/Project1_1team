@@ -41,39 +41,77 @@
             <ul>
                 <li class="header-homeimg"><a href="#"><img src="/images/ico-home.png"></a></li>
                 <li class="header-arrowimg"><img src="/images/bg-path-arrow.png"></li>
-                <li><a href="#">대학소개</a></li>
+                <li>대학소개</li>
                 <li class="header-arrowimg"><img src="/images/bg-path-arrow.png"></li>
-                <li><a class="subnav-lasta" href="#">오시는길</a></li>
+                <li class="subnav-lasta">오시는길</li>
             </ul>
         </div>    
     </div>
   </header>
 
   <!-- 메인 -->
-  <main class="main-container">
-    <aside>
-    <p>대학소개</p>
-      <nav>
-        <ul>
-          <li><a href="./president.html">총장 인사말</a></li>
-          <li><a href="./philosophy.html">교육이념</a></li>
-          <li><a href="./history.html">연혁</a></li>
-          <li><a href="./organization.html">조직도</a></li>
-          <li><a href="./directions.html">오시는길</a></li>
-        </ul>
-      </nav>
-    </aside>
+<main class="main-container">
+  <aside>
+    <p class="aside-title">대학소개</p>
+    <nav aria-label="대학소개 사이드 메뉴">
+      <ul>
+        <li><a href="./president.html">총장 인사말</a></li>
+        <li><a href="./philosophy.html">교육이념</a></li>
+        <li><a href="./history.html">연혁</a></li>
+        <li><a href="./organization.html">조직도</a></li>
+        <li><a href="./directions.html" aria-current="page">오시는길</a></li>
+      </ul>
+    </nav>
+  </aside>
 
-    <section>
-      <p>오시는길</p>
-      <p>컨텐츠 내용 꾸미기</p>
-    </section>
+<section>
+  <h2 class="main-title">오시는길</h2>
+지도 추가 
+  <!-- 필요하면 지도로 대체 -->
+  <!-- <div class="dir-map"><img src="./about_img/map_placeholder.jpg" alt="캠퍼스 지도"></div> -->
+
+  <div class="directions">
+    <div class="dir-block">
+      <h3 class="dir-title"><span class="dir-tag">지하철 이용</span></h3>
+      <ul class="dir-list">
+        <li><strong>부산고속버스터미널</strong> 하차 → 지하철 1호선 <strong>노포역</strong> 이용</li>
+      </ul>
+    </div>
+    <div class="dir-block">
+      <h3 class="dir-title"><span class="dir-tag">버스 이용</span></h3>
+      <ul class="dir-list">
+        <li><strong>부산고속버스터미널</strong> 하차 → 지하철 1호선 <strong>노포역</strong> 이용</li>
+      </ul>
+    </div>
+    <div class="dir-block">
+      <h3 class="dir-title"><span class="dir-tag">승용차 이용</span></h3>
+      <ul class="dir-list">
+        <li><strong>부산고속버스터미널</strong> 하차 → 지하철 1호선 <strong>노포역</strong> 이용</li>
+      </ul>
+    </div>
+    <div class="dir-block">
+      <h3 class="dir-title"><span class="dir-tag">철도 이용</span><small>(고속철도, 일반철도)</small></h3>
+      <ul class="dir-list">
+        <li><strong>부산역 하차</strong> → 지하철 1호선 <strong>부산역</strong> 승차(대연·대모마을 방면) → <strong>사상역</strong> 환승 참고</li>
+        <li><strong>부산역 하차</strong> → 지하철 1호선 <strong>부산역 7번 출구</strong> 앞 정류장 → <strong>2번, 1001번</strong> 버스 이용 → <strong>에덴공원입구</strong> 하차 → <strong>향학서점</strong> 앞에서 <strong>그린대학교 순환버스</strong> 이용(도보 5분)</li>
+      </ul>
+    </div>
+
+    <div class="dir-block">
+      <h3 class="dir-title"><span class="dir-tag">고속버스 이용</span></h3>
+      <ul class="dir-list">
+        <li><strong>부산고속버스터미널</strong> 하차 → 지하철 1호선 <strong>노포역</strong> 이용</li>
+      </ul>
+    </div>
+
+
+  </div>
+</section>
+
+</main>
 
 
 
-
-
-  </main>
 
   <!-- 푸터 -->
   <footer class="footer">
