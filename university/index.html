@@ -52,7 +52,6 @@
     .body {
         width: 100%;
         height: 1629px;
-        border: 3px solid aqua;
         position: relative;
         background-color: #F3F5F9;
     }
@@ -68,10 +67,10 @@
     #body1200 {   
         width: 1200px;
         height: 1629px;
-        border: 3px solid seagreen;
         position: absolute;
         left: 50%;
         transform: translateX(-50%);
+        border: 3px solid ;
     }
 
     #main-on {
@@ -337,6 +336,27 @@
         width: 100%;
         height: 100%;
     }
+    #gallary-photo > ul > li > a{
+        position: relative;
+        overflow: hidden;
+    }
+    .overlay {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 53px;
+        background-color: rgba(2, 130, 213, 0.75);
+        color: #ffffff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+    #gallary-photo > ul > li > a:hover .overlay {
+        opacity: 1;
+    }
 
     .helper {
         position: absolute;
@@ -344,7 +364,45 @@
         height: 152px;
         top: 1140px;
         background-image: url("/images/bg-main-banner.gif");
+        color: #ffffff;
         border: 3px solid gold;
+        padding-top: 5px;
+        padding-left: 360px;
+    }
+    .helper > h3 {
+        padding: 0;
+        margin: 0;
+    }
+    .helper > div {
+        padding: 0;
+        margin: 0;
+        width: 600px;
+    }
+    #helper-h3 {
+        position: absolute;
+        top: 1176px;
+        left: 0;
+        margin: 0;
+        padding: 0;
+        color: #ffffff;
+    }
+    #helper-p {
+        position: absolute;
+        top: 1213px;
+        left: 0;
+        margin: 0;
+        padding: 0;
+        width: 600px;
+        color: #ffffff;
+    }
+    #helper-div {
+        border: 1px solid #ffffff;
+        position: absolute;
+        top: 1195px;
+        right: 0;
+        margin: 0;
+        padding: 0;
+        color: #ffffff;
     }
 
     .main-under{
@@ -363,6 +421,7 @@
     #main-under-leftbox {
         background-color: #ffffff;
     }
+
     /*======================================================================*/
     /*================================footer=================================*/
     /*======================================================================*/
@@ -505,24 +564,42 @@
             </div>
             <div id="gallary-photo">
                 <ul>
-                    <li><a href="#">
-                        <img src="/images/gallary_sample1.jpg" alt="">
-                        <div>글로벌 명문대학 그린대</div>
-                    </a></li>
-                    <li><a href="#">
-                        <img src="/images/gallary_sample2.jpg" alt="">
-                        <div>글로벌 명문대학 그린대</div>
-                    </a></li>
-                    <li><a href="#">
-                        <img src="/images/gallary_sample3.jpg" alt="">
-                        <div>글로벌 명문대학 그린대</div>
-                    </a></li>
-                    <li><a href="#">
-                        <img src="/images/gallary_sample4.png" alt="">
-                        <div>글로벌 명문대학 그린대</div>
-                    </a></li>
+                    <li>
+                        <a href="#">
+                            <img src="/images/gallary_sample1.jpg" alt="">
+                            <div class="overlay">글로벌 명문대학 그린대</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="/images/gallary_sample2.jpg" alt="">
+                            <div class="overlay">글로벌 명문대학 그린대</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="/images/gallary_sample3.jpg" alt="">
+                            <div class="overlay">글로벌 명문대학 그린대</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="/images/gallary_sample4.png" alt="">
+                            <div class="overlay">글로벌 명문대학 그린대</div>
+                        </a>
+                    </li>
                 </ul>
             </div>
+            <div id="helper-h3">
+                <h3>동아리 HELPER</h3>
+            </div>
+            <div id="helper-p">
+                <p>공무원 시험 준비반을 운용함으로써 정치행정학과에서 공무원 시험을 준비하는 학생들에게
+인터넷 강의, 교재를 제공하고 스터디 그룹의 활동을 도와주고 있습니다.</p>
+            </div>
+            <a href="#">
+                <div id="helper-div">자세히 보기</div>
+            </a>
             <div class="main-under">
                 <div class="main-under-rightbox">
                     <h3>뉴스 및 칼럼</h3>
@@ -541,9 +618,10 @@
             </div>
         </div>
         <div class="helper">
-
+            
         </div>
     </div>
+    
 
     <footer class="footer">
         <div class="footer__top">
