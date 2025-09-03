@@ -1,8 +1,8 @@
 :root{
-  --blue:#2f7ae5;   /* 포인트 */
-  --ink:#1e293b;    /* 진한 글자 */
-  --muted:#9aa3b2;  /* 흐린 글자 */
-  --bg:#f7f8fb;     /* 아주 연한 배경 무늬 대용 */
+  --blue:#2f7ae5;   
+  --ink:#1e293b;    
+  --muted:#9aa3b2;  
+  --bg:#f7f8fb;     
 }
 
 /* 섹션 공통 */
@@ -59,10 +59,15 @@
   margin:0; color:#374151; line-height:1.8; font-size:16px;
 }
 
-/* 점선 라인(세로) */
-.timeline .dotline{
-  position:absolute; left:44px; top:0; bottom:-12px;
-  width:0; border-left:6px dotted #cfe0ff; z-index:0;
+/* 세로 직선 라인 */
+.timeline .line {
+  position: absolute;
+  left: 44px;
+  top: 0;
+  bottom: -12px;
+  width: 0;
+  border-left: 2px solid #3F97F6; /* 굵기/색상 조정 가능 */
+  z-index: 0;
 }
 
 /* 반응형 */

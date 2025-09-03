@@ -1,0 +1,14 @@
+.search{
+    background-color: aqua;
+    display: flex;
+    height: 40px;
+    margin-top: 25px;
+    margin-bottom: 10px;
+
+
+}
+
+.main-wrapper{
+    background-color: peru;
+    min-height: 393px;
+}
