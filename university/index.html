@@ -70,7 +70,6 @@
         position: absolute;
         left: 50%;
         transform: translateX(-50%);
-        border: 3px solid ;
     }
 
     #main-on {
@@ -365,44 +364,30 @@
         top: 1140px;
         background-image: url("/images/bg-main-banner.gif");
         color: #ffffff;
-        border: 3px solid gold;
-        padding-top: 5px;
-        padding-left: 360px;
     }
-    .helper > h3 {
-        padding: 0;
-        margin: 0;
-    }
-    .helper > div {
-        padding: 0;
-        margin: 0;
-        width: 600px;
-    }
-    #helper-h3 {
+    .helper > div{
+        width: 1200px;
+        height: 100%;
         position: absolute;
-        top: 1176px;
-        left: 0;
+        left: 50%;
+        transform: translateX(-50%);
         margin: 0;
-        padding: 0;
-        color: #ffffff;
+        padding-top: 10px;
     }
     #helper-p {
-        position: absolute;
-        top: 1213px;
-        left: 0;
-        margin: 0;
-        padding: 0;
         width: 600px;
-        color: #ffffff;
     }
     #helper-div {
-        border: 1px solid #ffffff;
         position: absolute;
-        top: 1195px;
+        top: 50%;
+        transform: translateY(-50%);
         right: 0;
-        margin: 0;
-        padding: 0;
-        color: #ffffff;
+        border: 1px solid #ffffff;
+        width: 182px;
+        height: 42px;
+        line-height: 37px;
+        text-align: center;
+
     }
 
     .main-under{
@@ -410,17 +395,95 @@
         top: 1292px;
         width: 100%;
         height: 337px;
-        border: 3px solid violet;
         display: flex;
+        justify-content: space-between;
+        padding-left: calc((100% - var(--wrap)) / 2);
+        border: 5px solid paleturquoise;
     }
-    .main-under > div {
-        width: 960px;
+    .main-under-leftbox {
+        width: 50%;
         height: 337px;
-        border: 1px solid;
+        flex-shrink: 0;
+        position: absolute;
+        left: 0;
+        background-color: #F3F5F9;
+        border: 3px solid;
     }
-    #main-under-leftbox {
+    .main-under-leftbox > div {
+        width: 600px;
+        position: absolute;
+        right: 0;
+    }
+    .news-page > ul {
+        display: inline-block;
+        list-style: none;
+        margin: 0;
+        padding-top: 10px;
+        padding-left: 0;
+        font-weight: 500;
+    }
+    .news-page > ul >li{
+        padding-top: 7px;
+    }
+    .main-under-news {
+        width: 560px;
+        height: 42px;
+        margin-top: 60px;
+        padding: 0;
+        position: relative;
+        border: 2px solid olive;
+    }
+    .news-header{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: relative;
+    }
+    
+    .main-under-news h3 {
+        margin: 0;
+        color: #3F97F6;
+    }
+    .main-under-news > hr{
+        position: absolute;
+        width: 100%;
+        bottom: 0;
+
+        margin: 0;
+        border: none;
+        border-top: 1px solid #3F97F6;
+    }
+    .main-under-news > img{
+        width: 17px;
+        height: 17px;
+    }
+    .news-page{
+        position: relative;
+        width: 560px;
+    }
+    .news-date {
+        position: absolute;
+        right: 0;
+    }
+    
+
+    #main-under-rightbox {
+        width: 50%;
+        height: 337px;
+        flex-shrink: 0;
+        position: absolute;
+        right: 0;
         background-color: #ffffff;
     }
+    #rightBox {
+        width: 600px;
+        height: 100%;
+        border: 3px solid;
+    }
+    #rightBox > div {
+        margin-left: 40px;
+    }
+    
 
     /*======================================================================*/
     /*================================footer=================================*/
@@ -590,7 +653,10 @@
                     </li>
                 </ul>
             </div>
-            <div id="helper-h3">
+        </div>
+        <div class="helper">
+            <div>
+                <div id="helper-h3">
                 <h3>동아리 HELPER</h3>
             </div>
             <div id="helper-p">
@@ -600,25 +666,55 @@
             <a href="#">
                 <div id="helper-div">자세히 보기</div>
             </a>
-            <div class="main-under">
-                <div class="main-under-rightbox">
-                    <h3>뉴스 및 칼럼</h3>
-                    <hr>
-                    <ul>
-                        <li>교과목 폐지 및 신설 안내</li>
-                        <li>2019-2학기 진로취업 프로그램 설계를 위한 학생 대상...</li>
-                        <li>제8회 KNDA 학술논문상 공모</li>
-                        <li>대학 진로취업지원 현황 조사 안내</li>
-                        <li>[진로취업특강] 유망직무 전문가 초청 특강, 여대생 커...</li>
-                    </ul>
-                </div>
-                <div id="main-under-leftbox">
-
-                </div>
             </div>
         </div>
-        <div class="helper">
-            
+        <div class="main-under">
+            <div class="main-under-leftbox">
+                <div>
+                    <div class="main-under-news">
+                        <div class="news-header">
+                            <h3>뉴스 및 칼럼</h3>
+                            <img src="/images/bg-viewmore01.png" alt="더보기">
+                        </div>
+                        <hr>
+                    </div>
+                    <div class="news-page">
+                        <ul>
+                            <li>
+                                <span>교과목 폐지 및 신설 안내</span>
+                                <span class="news-date">2025.09.03</span>
+                            </li>
+                            <li>
+                                <sapn>2019-2학기 진로취업 프로그램 설계를 위한 학생 대상...</sapn>
+                                <span class="news-date">2025.09.03</span>
+                            </li>
+                            <li>
+                                <sapn>제8회 KNDA 학술논문상 공모</sapn>
+                                <span class="news-date">2025.09.03</span>
+                            </li>
+                            <li>
+                                <sapn>대학 진로취업지원 현황 조사 안내</sapn>
+                                <span class="news-date">2025.09.03</span>
+                            </li>
+                            <li>
+                                <sapn>[진로취업특강] 유망직무 전문가 초청 특강, 여대생 커...</sapn>
+                                <span class="news-date">2025.09.03</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div id="main-under-rightbox">
+                <div id="rightBox">
+                    <div class="main-under-news">
+                        <h3>SMART LINK</h3>
+                        <hr>
+                    </div>
+                    <div class="news-page">
+                        
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     
