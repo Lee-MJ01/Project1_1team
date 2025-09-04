@@ -176,7 +176,6 @@ a {text-decoration: none; color: #111;}
 main .container {
     width: 100%;
     max-width: 1200px;
-    min-height: 470px;
     height: auto;
     margin: 0 auto;
     padding-top: 50px;
@@ -236,111 +235,93 @@ main .container {
 /* main-content */
 .main-content {
     line-height: 1;
-    margin-bottom: 40px;
 }
 
 /* title */
 .main-title {
     font-size: 18px;
     font-weight: 400;
-    margin: 50px 0 5px;
+    margin: 50px 0 15px;
     padding-left: 6px;
     border-left: 4px solid #145074;
     color: #145074;
-}
-
-.main-underline {
-    width: 100%;
-    height: 2px;
-    background: black;
-    margin-top: 10px;
 }
 
 .main-title:first-of-type {
     margin-top: 0;
 }
 
-.sub-title {
-    font-size: 15px;
-    font-weight: 500;
-    margin-top: 8px;
-    margin-bottom: 13px;
-    color: #0067B3;
-}
-
-/* text */
-.main-text {
-    margin-bottom: 30px;
-}
-
-.main-text li {
-    margin-bottom: 12px;
-    font-size: 14px;
-    font-weight: 400;
-    color: #666666;
-}
-
-/* F&Q style */
-.faq-item {
-    margin-bottom: 10px;
-}
-
-.faq-question {
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-    gap: 10px;
-    padding: 15px;
-    font-size: 15px;
-    font-weight: 400;
-    color: #333333;
-    border-bottom: 1.5px solid #D8D8D8;
-}
-
-.faq-answer {
-    display: none;
-    display: flex;
-    align-items: flex-start;
-    gap: 10px;
-    padding: 15px;
-    font-size: 15px;
-    font-weight: 400;
-    line-height: 1.5;
-    color: #333333;
-    background-color: #ececec;
-    border-bottom: 1.5px solid #D8D8D8;
-}
-
-.faq-icon {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 26px;
-    height: 26px;
-    font-size: 14px;
-    font-weight: 600;
-    flex-shrink: 0;
-}
-
-.faq-icon.q {
-    font-weight: 400;
-    color: #ffffff;
-    background: #3282D3;
-}
-
-.faq-icon.a {
-    font-weight: 400;
-    color: #ffffff;
-    background: #999999;
-}
-
-/* 마지막 콘텐츠 간격 줄이기 */
-.content .main-content {
+/* gallery */
+.gallery-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
     margin-bottom: 40px;
 }
 
-.content .main-content:last-of-type {
-    margin-bottom: 0;
+.gallery-card {
+    background: #fff;
+    text-align: left;
+}
+
+.gallery-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-bottom: 1px solid #ddd;
+}
+
+.gallery-title {
+    font-size: 16px;
+    font-weight: 400;
+    padding: 7px 0px 7px;
+    color: #000000;
+}
+
+.gallery-meta {
+    font-size: 13px;
+    font-weight: 300;
+    padding: 0 0 7px;
+    color: #888888;
+}
+
+/* pagination */
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin: 30px 0 0 0;
+    gap: 5px;
+}
+
+.pagination a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    border: 1px solid #DEDEDE;
+    color: #888888;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 400;
+    border-radius: 2px;
+    background: #fff;
+}
+
+.pagination a img {
+    width: 10px;
+    height: auto;
+}
+
+.pagination a:hover {
+    background: #f0f0f0;
+}
+
+.pagination a.active {
+    background: #3F97F6;
+    color: #fff;
+    border-color: #3F97F6;
+    font-weight: 400;
 }
 
 /* footer */
