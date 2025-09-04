@@ -92,8 +92,8 @@ main {
   display: flex;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 60px;
   gap: 60px;
+  padding: 60px 20px;
 }
 
 /* 메인 - 사이드 */
