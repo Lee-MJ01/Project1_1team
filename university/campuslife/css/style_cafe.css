@@ -176,7 +176,6 @@ a {text-decoration: none; color: #111;}
 main .container {
     width: 100%;
     max-width: 1200px;
-    min-height: 470px;
     height: auto;
     margin: 0 auto;
     padding-top: 50px;
@@ -187,7 +186,6 @@ main .container {
 /* side-nav */
 .side-nav {
     width: 210px;
-    flex-shrink: 0;
 }
 
 .side-nav h2 {
@@ -233,120 +231,97 @@ main .container {
     line-height: 1.5;
 }
 
-/* main-content */
-.main-content {
-    line-height: 1;
-    margin-bottom: 40px;
-}
-
-/* title */
-.main-title {
-    font-size: 18px;
-    font-weight: 400;
-    margin: 50px 0 5px;
-    padding-left: 6px;
-    border-left: 4px solid #145074;
-    color: #145074;
-}
-
-.main-underline {
-    width: 100%;
-    height: 2px;
-    background: black;
-    margin-top: 10px;
-}
-
-.main-title:first-of-type {
-    margin-top: 0;
-}
-
-.sub-title {
-    font-size: 15px;
-    font-weight: 500;
-    margin-top: 8px;
-    margin-bottom: 13px;
-    color: #0067B3;
-}
-
-/* text */
-.main-text {
-    margin-bottom: 30px;
-}
-
-.main-text li {
-    margin-bottom: 12px;
-    font-size: 14px;
-    font-weight: 400;
-    color: #666666;
-}
-
-/* F&Q style */
-.faq-item {
-    margin-bottom: 10px;
-}
-
-.faq-question {
+/* cafeteria */
+.cafeteria-header {
     display: flex;
+    justify-content: center;
     align-items: center;
-    cursor: pointer;
-    gap: 10px;
-    padding: 15px;
-    font-size: 15px;
-    font-weight: 400;
-    color: #333333;
-    border-bottom: 1.5px solid #D8D8D8;
+    gap: 60px;
+    margin-bottom: 35px;
+    color: #084A87;
+    font-size: 26px;
+    font-weight: 500;
 }
 
-.faq-answer {
-    display: none;
+.strong {
+    font-size: 11pt;
+    font-weight: 400;
+}
+
+.cafeteria-header button {
+    width: 36px;
+    height: 36px;
+    border: none;
+    background: none; 
     display: flex;
-    align-items: flex-start;
-    gap: 10px;
-    padding: 15px;
-    font-size: 15px;
-    font-weight: 400;
-    line-height: 1.5;
-    color: #333333;
-    background-color: #ececec;
-    border-bottom: 1.5px solid #D8D8D8;
-}
-
-.faq-icon {
-    display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 26px;
-    height: 26px;
-    font-size: 14px;
-    font-weight: 600;
-    flex-shrink: 0;
+    cursor: pointer;
+    padding: 0;
 }
 
-.faq-icon.q {
+.cafeteria-header button i {
+    color:  #084A87;
+    font-size: 20px;
+    line-height: 1;
+}
+
+.cafeteria {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+    text-align: left;
+    font-size: 11pt;
     font-weight: 400;
-    color: #ffffff;
-    background: #3282D3;
+    margin-bottom: 10px;
+    border-left: 1px solid #E6EDF3;
 }
 
-.faq-icon.a {
+.sticker {
+    display: inline-block;
+    margin: 5px 0 8px 0;
+    padding: 2px 4px;
+    border: 1px solid #068368;
+    background: #ffffff;
+    color: #068368;
+    font-size: 11pt;
     font-weight: 400;
-    color: #ffffff;
-    background: #999999;
 }
 
-/* 마지막 콘텐츠 간격 줄이기 */
-.content .main-content {
-    margin-bottom: 40px;
+.cafeteria th {
+    background: #084A87;
+    color: #fff;
+    padding: 10px;
+    font-weight: 400;
+    text-align: center;
 }
 
-.content .main-content:last-of-type {
-    margin-bottom: 0;
+.cafeteria td {
+    text-align: center;
+    border-right: 1px solid #E6EDF3;
+    border-bottom: 1px solid #084A87;
+    height: 100px;
+    padding: 10px 5px;
+    color: #555555;
+    position: relative;
+}
+
+.cafeteria-note {
+    font-size: 15px;
+    font-weight: 400;
+    color: #666666;
 }
 
 /* footer */
 footer {
     margin-top: 120px;
     font-size: 13px;
+}
+
+.footer-top .container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .footer-top {

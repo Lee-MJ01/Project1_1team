@@ -176,7 +176,6 @@ a {text-decoration: none; color: #111;}
 main .container {
     width: 100%;
     max-width: 1200px;
-    min-height: 470px;
     height: auto;
     margin: 0 auto;
     padding-top: 50px;
@@ -221,7 +220,7 @@ main .container {
 
 /* content */
 .content {
-    width: 930px;
+    flex: 1;
 }
 
 .content h3 {
@@ -233,114 +232,81 @@ main .container {
     line-height: 1.5;
 }
 
-/* main-content */
-.main-content {
-    line-height: 1;
-    margin-bottom: 40px;
+/* union-content */
+.union-main {
+    position: relative;
+    width: 930px;
+    height: 430px;
 }
 
-/* title */
-.main-title {
-    font-size: 18px;
-    font-weight: 400;
-    margin: 50px 0 5px;
-    padding-left: 6px;
-    border-left: 4px solid #145074;
+.union-main img {
+    display: block;
+    width: auto;
+    height: auto;
+}
+
+/* gradient box */
+.union-box {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    border: 3px solid transparent;
+    background: linear-gradient(white, white) padding-box,
+    linear-gradient(135deg, #145074, #28a745) border-box;
+    padding: 25px 25px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+    width: 250px;
+}
+
+.union-box h3 {
+    font-size: 16pt;
     color: #145074;
+    margin-bottom: 18px;
 }
 
-.main-underline {
-    width: 100%;
-    height: 2px;
-    background: black;
-    margin-top: 10px;
+.union-box p {
+    font-size: 13pt;
+    font-weight: 400;
 }
 
-.main-title:first-of-type {
-    margin-top: 0;
+/* union-info */
+.union-info {
+    position: relative;
+    height: auto;
+    margin-top: 40px;
+    color: #333;
 }
 
-.sub-title {
-    font-size: 15px;
+.logo-bg {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 180px;
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+p.info-strong {
+    font-size: 20pt;
+    font-weight: bold;
+    font-style: italic;
+    color: #145074;
+    text-align: left;
+}
+
+p.info-text {
+    font-size: 12pt;
+    font-weight: 400;
+    line-height: 1.7;
+    padding-bottom: 10px;
+}
+
+p.info-last {
+    font-size: 14pt;
     font-weight: 500;
-    margin-top: 8px;
-    margin-bottom: 13px;
-    color: #0067B3;
-}
-
-/* text */
-.main-text {
-    margin-bottom: 30px;
-}
-
-.main-text li {
-    margin-bottom: 12px;
-    font-size: 14px;
-    font-weight: 400;
-    color: #666666;
-}
-
-/* F&Q style */
-.faq-item {
-    margin-bottom: 10px;
-}
-
-.faq-question {
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-    gap: 10px;
-    padding: 15px;
-    font-size: 15px;
-    font-weight: 400;
-    color: #333333;
-    border-bottom: 1.5px solid #D8D8D8;
-}
-
-.faq-answer {
-    display: none;
-    display: flex;
-    align-items: flex-start;
-    gap: 10px;
-    padding: 15px;
-    font-size: 15px;
-    font-weight: 400;
-    line-height: 1.5;
-    color: #333333;
-    background-color: #ececec;
-    border-bottom: 1.5px solid #D8D8D8;
-}
-
-.faq-icon {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 26px;
-    height: 26px;
-    font-size: 14px;
-    font-weight: 600;
-    flex-shrink: 0;
-}
-
-.faq-icon.q {
-    font-weight: 400;
-    color: #ffffff;
-    background: #3282D3;
-}
-
-.faq-icon.a {
-    font-weight: 400;
-    color: #ffffff;
-    background: #999999;
-}
-
-/* 마지막 콘텐츠 간격 줄이기 */
-.content .main-content {
-    margin-bottom: 40px;
-}
-
-.content .main-content:last-of-type {
-    margin-bottom: 0;
+    line-height: 1.7;
+    margin-top: 20px;
+    color: #145074;
 }
 
 /* footer */

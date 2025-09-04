@@ -187,6 +187,7 @@ main .container {
 /* side-nav */
 .side-nav {
     width: 210px;
+    flex-shrink: 0;
 }
 
 .side-nav h2 {
@@ -425,12 +426,6 @@ main .container {
 footer {
     margin-top: 120px;
     font-size: 13px;
-}
-
-.footer-top .container {
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
 }
 
 .footer-top {
