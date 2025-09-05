@@ -34,7 +34,7 @@ body{font-family:'Noto Sans KR', Arial, system-ui, sans-serif;color:var(--text);
 /* 사이드바 */
 .sidebar{flex:0 0 270px;min-height:840px;border-right:1px solid var(--line);background:var(--sidebar-bg)}
 .sidebar-menu{padding:20px 16px;font-size:14px;color:var(--muted)}
-.sidebar-menu h3{display:flex;align-items:center;gap:8px;margin:20px 0 10px;font-size:16px;font-weight:800;color:#111}
+.sidebar-menu h3{display:flex;align-items:center;gap:8px;margin:20px 0 10px;font-size:16px;font-weight:700;color:#111}
 .menu-icon{width:18px;height:18px;flex:0 0 18px}
 .sidebar-menu .menu-group>ul{list-style:none;margin:0 0 18px 0;padding:0;margin-left:var(--sb-indent)}
 .sidebar-menu li{display:flex;align-items:center;gap:10px;margin:8px 0;line-height:1.7}
@@ -59,7 +59,7 @@ body{font-family:'Noto Sans KR', Arial, system-ui, sans-serif;color:var(--text);
 /* 본문 여백 */
 .page__body{padding:20px;margin-top:4px}
 
-/* 검색바(수강 현황과 동일: 오른쪽 정렬 + 고정 크기) */
+/* 검색바 */
 .search-bar{display:flex;align-items:center;gap:8px;justify-content:flex-end;width:100%;margin-bottom:14px}
 .search-label{
   height:35px;display:inline-flex;align-items:center;justify-content:center;
@@ -70,7 +70,7 @@ body{font-family:'Noto Sans KR', Arial, system-ui, sans-serif;color:var(--text);
 }
 .search-btn{height:35px;padding:0 18px;border:none;cursor:pointer;background:#1f5e95;color:#fff;font-size:13px}
 
-/* 테이블 카드 & 테이블 (index와 동일 타이포/높이) */
+/* 테이블 카드 & 테이블 */
 .table-card{border:1px solid var(--line);border-top:2px solid #8798A3;background:#fff}
 .gu-table{width:100%;border-collapse:separate;border-spacing:0;table-layout:fixed;font-size:13px;color:#333}
 .gu-table thead th{height:45.5px;background:var(--thead);border-bottom:1px solid #e1e6ee;padding:0 12px;text-align:center;font-weight:600;border-left:0;border-right:0}
@@ -113,7 +113,7 @@ body{font-family:'Noto Sans KR', Arial, system-ui, sans-serif;color:var(--text);
 
   <!-- 레이아웃 -->
   <div class="layout">
-    <!-- 좌측 사이드 메뉴 (다른 페이지와 동일 구성/경로) -->
+    <!-- 좌측 사이드 메뉴  -->
     <aside class="sidebar">
       <nav class="sidebar-menu">
 
@@ -121,8 +121,8 @@ body{font-family:'Noto Sans KR', Arial, system-ui, sans-serif;color:var(--text);
         <div class="menu-group">
           <h3><img src="../../images/ico-admin-setting.png" alt="" class="menu-icon">환경설정</h3>
           <ul>
-            <li><a href="/settings/basic.html">기본환경정보</a></li>
-            <li><a href="/settings/terms.html">약관관리</a></li>
+            <li><span>기본환경정보</span></li>
+            <li><span>약관관리</span></li>
           </ul>
         </div>
 
@@ -147,7 +147,6 @@ body{font-family:'Noto Sans KR', Arial, system-ui, sans-serif;color:var(--text);
             <li><a href="/personnel/student-register.html">학생 등록</a></li>
             <li><a href="/personnel/professors.html">교수 목록</a></li>
             <li><a href="/personnel/professor-register.html">교수 등록</a></li>
-            <li><a href="/personnel/student-register.html">학생 등록</a></li>
             <li><span>임직원 목록 및 등록</span></li>
           </ul>
         </div>

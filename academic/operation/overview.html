@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>학사관리시스템_학사운영_교육 운영 현황</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;350;400;500;700&display=swap" rel="stylesheet">
 <style>
   :root{
     --brand-blue:#00518C; --brand-dark:#1F2838;
@@ -13,7 +13,7 @@
     --sidebar-bg:#F5F6F7; --card:#FFFFFF;
     --line:#C0C0C0; --thead:#f6f8fb; --row:#e9edf3; --accent:#1F5E95;
 
-    /* 사이드바 들여쓰기: 아이콘(18px)+간격(8px)=26px */
+    /* 사이드바 들여쓰기 */
     --sb-icon:18px; --sb-gap:8px; --sb-indent:calc(var(--sb-icon) + var(--sb-gap));
   }
 
@@ -44,13 +44,13 @@
   .sidebar-menu{padding:20px 16px;font-size:14px;color:var(--muted);background:transparent}
   .sidebar-menu h3{
     display:flex;align-items:center;gap:8px;
-    margin:20px 0 10px;font-size:16px;font-weight:800;color:#111;
+    margin:20px 0 10px;font-size:16px;font-weight:700;color:#111;
   }
   .menu-icon{width:18px;height:18px;flex:0 0 18px}
   .sidebar-menu .menu-group>ul{list-style:none;margin:0 0 18px 0;padding:0;margin-left:var(--sb-indent)}
   .sidebar-menu li{display:flex;align-items:center;gap:10px;margin:8px 0;line-height:1.7}
   .sidebar-menu li::before{content:"·";font-size:20px;line-height:1;color:#7f8790}
-  .sidebar-menu a,.sidebar-menu span{text-decoration:none;color:#333;font-weight:500;cursor:pointer}
+  .sidebar-menu a,.sidebar-menu span{text-decoration:none;color:#333;font-weight: 500;cursor:pointer}
   .sidebar-menu a:hover,.sidebar-menu span:hover{color:var(--brand-blue)}
 
   /* 페이지 카드 */
@@ -133,8 +133,8 @@
         <div class="menu-group">
           <h3><img src="../../images/ico-admin-setting.png" alt="" class="menu-icon">환경설정</h3>
           <ul>
-            <li><a href="/settings/basic.html">기본환경정보</a></li>
-            <li><a href="/settings/terms.html">약관관리</a></li>
+            <li><span>기본환경정보</span></li>
+            <li><span>약관관리</span></li>
           </ul>
         </div>
 
@@ -159,7 +159,6 @@
             <li><a href="/personnel/student-register.html">학생 등록</a></li>
             <li><a href="/personnel/professors.html">교수 목록</a></li>
             <li><a href="/personnel/professor-register.html">교수 등록</a></li>
-            <li><a href="/personnel/student-register.html">학생 등록</a></li>
             <li><span>임직원 목록 및 등록</span></li>
           </ul>
         </div>
