@@ -1,54 +1,45 @@
-.search{
-    display: flex;
-    margin-top: 22px;
-    margin-bottom: 17px;
-    justify-content: flex-end;
-    text-align: center;
-}
-.search select,
-.search input[type="text"],
-.search input[type="submit"] {
-  border: 1px solid #DEDEDE; 
-  font-size: 14px;        
-  height: 40px;            
+.main-top {
+  display: flex;
+  justify-content: space-between;  /* 좌/우 끝에 배치 */
+  align-items: center;             /* 세로 정렬 */
+  margin-bottom: 17px;
+  font-size: 14px;
+  margin-top: 22px;
+  height: 40px;
 }
 
-.search select {
-  width: 150px;
-  margin-right: 5px;
-  padding: 0 8px;
-   vertical-align: middle;
-   color: #666666;
+.select-wrap {
+  display: flex;
+  align-items: center;
+  gap: 5px;
 }
 
-.search input[type="text"] {
-  border-right: none;
-  width: 237px; 
-  outline: none;
-  padding: 0 10px;
-  font-size: 14px; 
-  vertical-align: middle;
+.select-wrap select {
+  padding: 6px 10px;
+  border: 1px solid #ccc;
+}
+
+.apply-info {
+  font-size: 14px;
+  color: #333;
+  font-weight: bold;
+  padding: 10px;
+  margin-top: 20px;
+}
+
+.apply-info span {
+  color: #b62929; 
+}
+#year {
+  width: 100px; 
   color: #666666;
 }
 
-.search form {
-  font-size: 0; 
+#term {
+  width: 50px; 
+  color: #666666;
 }
 
-.search input[type="submit"] {
-  background-color: #3f97f6; 
-  border-left: none; 
-  
-  color: #ffffff;             
-  cursor: pointer;
-  margin-right: 0px;  
-  width: 70px;  
-   vertical-align: middle;       
-}
-
-.search input[type="submit"]:hover {
-  background-color: #2a6bb7; 
-}
 
 .main-wrapper{
     border-top: 2px solid #333;
@@ -92,14 +83,14 @@
 
 .pagination {
   display: flex;
-  justify-content: center; 
+  justify-content: center;  
   align-items: center;       
   gap: 6px;                  
   margin: 20px 0;
 }
 
 .pagination a {
-  display: inline-flex;      
+  display: inline-flex;       
   justify-content: center;
   align-items: center;
   width: 32px;                

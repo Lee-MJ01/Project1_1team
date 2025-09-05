@@ -24,13 +24,16 @@
   color: #333;
   font-weight: bold;
   padding: 10px;
+  margin-top: 20px;
 }
 #year {
-  width: 100px;  
+  width: 100px; 
+  color: #666666;
 }
 
 #term {
   width: 50px; 
+  color: #666666;
 }
 
 
