@@ -1,0 +1,164 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="00B3DFDA-63DF-474B-B38D-8C23AB1101C5" name="Registrations">
+<createdBy>GGG</createdBy>
+<createdTime>2025-09-05 05:45:49 UTC</createdTime>
+<ownerDesignName>GreenUnivERD</ownerDesignName>
+<ordsAlias>table_12</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="r_no" id="754B0377-98DF-BAA7-F8D9-4C5D31BA557D">
+<createdBy>GGG</createdBy>
+<createdTime>2025-09-05 05:48:39 UTC</createdTime>
+<ownerDesignName>GreenUnivERD</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10 BYTE</dataTypeSize>
+<ownDataTypeParameters>10 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="department" id="FA9E0F1D-D96F-A307-2D0E-F2C99FFB799C">
+<createdBy>GGG</createdBy>
+<createdTime>2025-09-05 05:48:39 UTC</createdTime>
+<ownerDesignName>GreenUnivERD</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50 BYTE</dataTypeSize>
+<ownDataTypeParameters>50 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="category" id="B35D93CF-0740-C308-1EBB-88A58CEA858C">
+<createdBy>GGG</createdBy>
+<createdTime>2025-09-05 05:48:39 UTC</createdTime>
+<ownerDesignName>GreenUnivERD</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50 BYTE</dataTypeSize>
+<ownDataTypeParameters>50 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="grade" id="C19752B2-7D55-ED7B-5082-0BF2B13C052D">
+<createdBy>GGG</createdBy>
+<createdTime>2025-09-05 05:48:39 UTC</createdTime>
+<ownerDesignName>GreenUnivERD</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="crs_cd" id="702AEBB2-247F-3762-3678-B1AA373D3D0B">
+<createdBy>GGG</createdBy>
+<createdTime>2025-09-05 06:59:05 UTC</createdTime>
+<ownerDesignName>ERD_v_1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="2F64417F-0568-773A-6091-EB06191BE818" referredColumn="15EC19E0-3C1D-0DF8-DD80-0C616C7BFFB6"/>
+</associations>
+</Column>
+<Column name="course_name" id="BF459144-B93C-4DB0-AADC-744E29DE14B0">
+<createdBy>GGG</createdBy>
+<createdTime>2025-09-05 05:55:19 UTC</createdTime>
+<ownerDesignName>GreenUnivERD</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100 BYTE</dataTypeSize>
+<ownDataTypeParameters>100 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="credits" id="6856EFA0-E354-5AE1-03D0-85C47E74C67F">
+<createdBy>GGG</createdBy>
+<createdTime>2025-09-05 05:55:19 UTC</createdTime>
+<ownerDesignName>GreenUnivERD</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="professor" id="6677946C-806E-EE3B-995F-C9740C2F0F40">
+<createdBy>GGG</createdBy>
+<createdTime>2025-09-05 05:55:19 UTC</createdTime>
+<ownerDesignName>GreenUnivERD</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 BYTE</dataTypeSize>
+<ownDataTypeParameters>20 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="student_count" id="19C8D9B8-82B7-2F46-F772-2462122BD11D">
+<createdBy>GGG</createdBy>
+<createdTime>2025-09-05 05:55:19 UTC</createdTime>
+<ownerDesignName>GreenUnivERD</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="capacity" id="D466A048-87EF-F4F5-854F-183F6B8249B1">
+<createdBy>GGG</createdBy>
+<createdTime>2025-09-05 05:55:19 UTC</createdTime>
+<ownerDesignName>GreenUnivERD</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="remarks" id="0A0ED079-5B36-98A6-62C3-1D2DD1D3BC85">
+<createdBy>GGG</createdBy>
+<createdTime>2025-09-05 05:55:19 UTC</createdTime>
+<ownerDesignName>GreenUnivERD</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>200 BYTE</dataTypeSize>
+<ownDataTypeParameters>200 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="9421FF02-B1FC-DBFF-3B9A-0BB4CE1D39EA" name="Registrations_PK">
+<createdBy>GGG</createdBy>
+<createdTime>2025-09-05 05:55:19 UTC</createdTime>
+<ownerDesignName>GreenUnivERD</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="754B0377-98DF-BAA7-F8D9-4C5D31BA557D"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="2CE2D9E5-4D9C-E5D0-8C49-A3FBA67A2B79" name="Registrations_course_FK">
+<createdBy>GGG</createdBy>
+<createdTime>2025-09-05 06:59:05 UTC</createdTime>
+<ownerDesignName>ERD_v_1</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="702AEBB2-247F-3762-3678-B1AA373D3D0B"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

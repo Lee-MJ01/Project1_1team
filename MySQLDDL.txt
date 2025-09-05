@@ -1,0 +1,229 @@
+-- Oracle DDL to MySQL Conversion
+-- Conversion Date: 2025-09-05
+
+-- -----------------------------------------------------
+-- Table `college`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `college` (
+  `college_name` VARCHAR(20) NOT NULL,
+  `college_name_en` VARCHAR(50) NULL,
+  `intro_title` VARCHAR(100) NOT NULL,
+  `intro_body` VARCHAR(200) NOT NULL,
+  `image_path` VARCHAR(255) NULL,
+  PRIMARY KEY (`college_name`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `department`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `department` (
+  `dept_id` INT NOT NULL AUTO_INCREMENT,
+  `college_name` VARCHAR(20) NOT NULL,
+  `dept_name` VARCHAR(30) NOT NULL,
+  `dept_name_en` VARCHAR(50) NULL,
+  `established` DATE NOT NULL,
+  `chair_name` VARCHAR(5) NOT NULL,
+  `dept_phone` CHAR(12) NOT NULL,
+  `dept_office` VARCHAR(50) NOT NULL,
+  PRIMARY KEY (`dept_id`),
+  INDEX `fk_department_college_idx` (`college_name` ASC),
+  CONSTRAINT `fk_department_college`
+    FOREIGN KEY (`college_name`)
+    REFERENCES `college` (`college_name`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `professor`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `professor` (
+  `p_code` INT NOT NULL AUTO_INCREMENT,
+  `nation` VARCHAR(20) NULL,
+  `name_ko` VARCHAR(20) NULL,
+  `name_en` VARCHAR(20) NULL,
+  `gender` VARCHAR(10) NULL,
+  `jumin` VARCHAR(30) NULL,
+  `hp` VARCHAR(30) NULL,
+  `email` VARCHAR(50) NULL,
+  `addr_code` INT NULL,
+  `addr` VARCHAR(100) NULL,
+  `addr_detail` VARCHAR(30) NULL,
+  `dept_id` INT NOT NULL,
+  `position_code` VARCHAR(20) NULL,
+  `position_detail` VARCHAR(30) NULL,
+  `hire_date` DATE NULL,
+  `status` VARCHAR(20) NULL,
+  `univ` VARCHAR(30) NULL,
+  `graduate_date` DATE NULL,
+  `course` VARCHAR(30) NULL,
+  `ing` VARCHAR(30) NULL,
+  PRIMARY KEY (`p_code`),
+  INDEX `fk_professor_department_idx` (`dept_id` ASC),
+  CONSTRAINT `fk_professor_department`
+    FOREIGN KEY (`dept_id`)
+    REFERENCES `department` (`dept_id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `course`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `course` (
+  `crs_cd` INT NOT NULL AUTO_INCREMENT,
+  `dept_id` INT NOT NULL,
+  `grade` TINYINT NOT NULL,
+  `div` VARCHAR(50) NULL,
+  `crs_name` VARCHAR(100) NOT NULL,
+  `p_code` INT NOT NULL,
+  `credit` TINYINT NOT NULL,
+  `crs_time` VARCHAR(100) NULL,
+  `crs_room` VARCHAR(50) NULL,
+  `capacity` SMALLINT NULL,
+  PRIMARY KEY (`crs_cd`),
+  INDEX `fk_course_department_idx` (`dept_id` ASC),
+  INDEX `fk_course_professor_idx` (`p_code` ASC),
+  CONSTRAINT `fk_course_department`
+    FOREIGN KEY (`dept_id`)
+    REFERENCES `department` (`dept_id`),
+  CONSTRAINT `fk_course_professor`
+    FOREIGN KEY (`p_code`)
+    REFERENCES `professor` (`p_code`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `student`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `student` (
+  `std_id` INT NOT NULL AUTO_INCREMENT,
+  `resident_number` VARCHAR(14) NOT NULL,
+  `name` VARCHAR(20) NOT NULL,
+  `e_name` VARCHAR(30) NULL,
+  `gender` VARCHAR(5) NULL,
+  `email` VARCHAR(30) NULL,
+  `address` VARCHAR(100) NOT NULL,
+  `entry_year` VARCHAR(5) NOT NULL,
+  `graduation_year` VARCHAR(5) NOT NULL,
+  `division` VARCHAR(5) NOT NULL,
+  `dept_id` INT NOT NULL,
+  `entry_term` VARCHAR(3) NULL,
+  `entry_grade` VARCHAR(10) NULL,
+  `advisor` VARCHAR(10) NOT NULL,
+  `status` VARCHAR(50) NOT NULL,
+  PRIMARY KEY (`std_id`),
+  INDEX `fk_student_department_idx` (`dept_id` ASC),
+  CONSTRAINT `fk_student_department`
+    FOREIGN KEY (`dept_id`)
+    REFERENCES `department` (`dept_id`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `enrollment`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `enrollment` (
+  `e_id` VARCHAR(10) NOT NULL,
+  `year` INT NULL,
+  `semester` INT NULL,
+  `std_id` INT NOT NULL,
+  `department` VARCHAR(50) NULL,
+  `crs_cd` INT NOT NULL,
+  `r_date` DATE NULL,
+  PRIMARY KEY (`e_id`),
+  INDEX `fk_enrollment_student_idx` (`std_id` ASC),
+  INDEX `fk_enrollment_course_idx` (`crs_cd` ASC),
+  CONSTRAINT `fk_enrollment_student`
+    FOREIGN KEY (`std_id`)
+    REFERENCES `student` (`std_id`),
+  CONSTRAINT `fk_enrollment_course`
+    FOREIGN KEY (`crs_cd`)
+    REFERENCES `course` (`crs_cd`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `notice`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `notice` (
+  `n_no` INT NOT NULL AUTO_INCREMENT,
+  `n_type` VARCHAR(20) NOT NULL,
+  `title` VARCHAR(100) NULL,
+  `writer` VARCHAR(20) NULL,
+  `wdate` VARCHAR(10) NULL,
+  `hits` INT NULL,
+  PRIMARY KEY (`n_no`, `n_type`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `score`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `score` (
+  `score_no` VARCHAR(10) NOT NULL,
+  `student_std_id` INT NOT NULL,
+  `course_crs_cd` INT NOT NULL,
+  `mid_score` INT NULL,
+  `final_score` INT NULL,
+  `total_score` INT NULL,
+  `grade` CHAR(2) NULL,
+  PRIMARY KEY (`score_no`),
+  INDEX `fk_score_student_idx` (`student_std_id` ASC),
+  INDEX `fk_score_course_idx` (`course_crs_cd` ASC),
+  CONSTRAINT `fk_score_student`
+    FOREIGN KEY (`student_std_id`)
+    REFERENCES `student` (`std_id`),
+  CONSTRAINT `fk_score_course`
+    FOREIGN KEY (`course_crs_cd`)
+    REFERENCES `course` (`crs_cd`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `student_records`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `student_records` (
+  `sr_no` VARCHAR(10) NOT NULL,
+  `year` INT NULL,
+  `grade` INT NULL,
+  `term` INT NULL,
+  `credits_registered` INT NULL,
+  `credits_major` INT NULL,
+  `credits_elective` INT NULL,
+  `credits_other` INT NULL,
+  `credits_general` INT NULL,
+  `credits_earned_total` INT NULL,
+  `credits_vol` INT NULL,
+  `gpa` DECIMAL(3,2) NULL,
+  `remark` VARCHAR(200) NULL,
+  `std_id` INT NOT NULL,
+  `score_no` VARCHAR(10) NOT NULL,
+  PRIMARY KEY (`sr_no`),
+  INDEX `fk_student_records_student_idx` (`std_id` ASC),
+  INDEX `fk_student_records_score_idx` (`score_no` ASC),
+  CONSTRAINT `fk_student_records_student`
+    FOREIGN KEY (`std_id`)
+    REFERENCES `student` (`std_id`),
+  CONSTRAINT `fk_student_records_score`
+    FOREIGN KEY (`score_no`)
+    REFERENCES `score` (`score_no`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `users`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `users` (
+  `user_id` VARCHAR(20) NOT NULL,
+  `pass` VARCHAR(100) NOT NULL,
+  `user_name` VARCHAR(20) NOT NULL,
+  `hp` CHAR(13) NULL,
+  `email` VARCHAR(50) NULL,
+  `addr1` VARCHAR(100) NULL,
+  `addr2` VARCHAR(100) NULL,
+  PRIMARY KEY (`user_id`))
+ENGINE = InnoDB;

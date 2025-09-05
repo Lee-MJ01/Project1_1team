@@ -32,7 +32,7 @@
     .topbar__list{display:flex;gap:14px;margin:0;padding:0;list-style:none}
     .topbar__item+.topbar__item{position:relative;padding-left:14px}
     .topbar__item+.topbar__item::before{content:"";position:absolute;left:0;top:70%;transform:translateY(-50%);width:1px;height:12px;background:rgba(255,255,255,.35)}
-    .gnb{background:#fff;border-bottom:1px solid var(--line)}
+    .gnb{background:#fff;border-bottom:1px solid var(--line); position: relative;}
     .gnb__inner{height:78px;display:flex;align-items:center;justify-content:space-between}
     .brand__logo{width:196px;height:50px;display:block}
     .menu__list{display:flex;gap:42px;list-style:none;margin:0;padding:0}
@@ -43,7 +43,66 @@
         .gnb__inner{height:auto;padding:12px 0;gap:12px;flex-direction:column;align-items:flex-start}
         .menu__list{flex-wrap:wrap;gap:16px}
     }
+    .submenu {
+        position: absolute; /* gnb를 기준으로 위치 고정 */
+        top: 100%; /* gnb 바로 아래에 붙임 */
+        left: 0;
+        width: 100%; /* 너비를 100%로 설정 */
+        
+        background-color: #ffffff; /* 배경색 */
+        border-top: 1px solid var(--line);
+        box-shadow: 0 4px 12px rgba(0,0,0,0.08); /* 그림자 효과 */
+        padding: 30px 0; /* 내부 상하 여백 */
 
+        /* 평소에는 숨겨둠 */
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-10px); /* 살짝 위에서 나타나는 효과 */
+        transition: all 0.3s ease;
+
+        z-index: 10;
+    }
+    .submenu-title {
+        font-size: 16px;         /* 글자 크기 */
+        font-weight: 700;        /* 굵은 글씨체 (bold) */
+        color: var(--ink);       /* 기본 글자색과 동일하게 */
+        padding: 8px 12px;       /* 다른 항목과 좌우 정렬을 맞추기 위한 여백 */
+        margin-bottom: 8px;      /* 제목과 아래 링크 목록 사이의 간격 */
+        border-bottom: 1px solid var(--line); /* 제목과 내용을 구분하는 선 */
+        cursor: default;         /* 마우스 커서를 기본 모양으로 (클릭 불가 암시) */
+    }
+    .submenu.is-active {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+    .submenuList {
+        display: flex; /* 컬럼들을 가로로 배치 */
+        justify-content: space-between; /* 컬럼들 사이에 균등한 간격 */
+        padding: 0;
+        margin: 0;
+    }
+    .submenuDetail {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        /* 각 컬럼이 차지할 너비 (전체 6개 컬럼 기준) */
+        flex: 1; 
+    }
+    .submenuDetail li a:hover {
+        color: var(--brand);
+        background-color: var(--bg);
+        text-decoration: none;
+        z-index: 1;
+    }
+    .submenuDetail li a {
+        display: block;
+        padding: 8px 12px;
+        color: var(--muted);
+        font-size: 15px;
+        border-radius: 6px;
+        font-weight: 500;
+    }
     /*======================================================================*/
     /*=================================body=================================*/
     /*======================================================================*/
@@ -398,7 +457,6 @@
         display: flex;
         justify-content: space-between;
         padding-left: calc((100% - var(--wrap)) / 2);
-        border: 5px solid paleturquoise;
     }
     .main-under-leftbox {
         width: 50%;
@@ -407,14 +465,13 @@
         position: absolute;
         left: 0;
         background-color: #F3F5F9;
-        border: 3px solid;
     }
     .main-under-leftbox > div {
         width: 600px;
         position: absolute;
         right: 0;
     }
-    .news-page > ul {
+    .main-under-leftbox .news-page > ul {
         display: inline-block;
         list-style: none;
         margin: 0;
@@ -431,7 +488,7 @@
         margin-top: 60px;
         padding: 0;
         position: relative;
-        border: 2px solid olive;
+        text-align: center;
     }
     .news-header{
         display: flex;
@@ -478,13 +535,57 @@
     #rightBox {
         width: 600px;
         height: 100%;
-        border: 3px solid;
     }
     #rightBox > div {
         margin-left: 40px;
     }
     #smartLink {
-        
+        margin: 0;
+        padding: 0;
+    }
+    /* SMART LINK 전체 목록 컨테이너 */
+    .smart-links {
+        list-style: none;
+        display: flex;
+        justify-content: space-around;
+        margin: 20px 0; /* 위아래 적절한 여백 */
+        padding: 0;
+    }
+
+    /* 링크 단위(li) 스타일 */
+    .smart-links li a {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-decoration: none;
+        color: var(--ink);
+    }
+
+    /* ✨ 동그란 배경을 위한 div 스타일 */
+    .smart-links .icon-bg {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        background-color: #9ABEDF; /* 배경색 */
+
+        /* 내부 아이콘을 중앙에 배치하기 위한 flex 설정 */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    /* ✨ 실제 아이콘 이미지 스타일*/
+    .smart-links img {
+        width: 50px; /* 아이콘 크기를 작게 조절 */
+        height: 50px; /* 아이콘 크기를 작게 조절 */
+        /* 기존의 width, height, border-radius, background-color는 .icon-bg로 이동 */
+    }
+
+    /* 링크 텍스트 스타일 */
+    .smart-links .link-text {
+        margin-top: 15px;
+        font-weight: 600;
+        font-size: 16px;
     }
 
     /*======================================================================*/
@@ -507,6 +608,7 @@
 </style>
 
 </head>
+
 <body>
     <header>
     <div class="topbar">
@@ -520,17 +622,72 @@
       </div>
     </div>
     <nav class="gnb" role="navigation" aria-label="주 메뉴">
-      <div class="container gnb__inner">
-        <a href="/" aria-label="그린대학교 홈"><img class="brand__logo" src="/images/header_logo.png" alt="그린대학교"></a>
-        <ul class="menu__list">
-          <li><a class="menu__link" href="#">대학소개</a></li>
-          <li><a class="menu__link" href="#">입학안내</a></li>
-          <li><a class="menu__link" href="#">대학·대학원</a></li>
-          <li><a class="menu__link" href="#">학사안내</a></li>
-          <li><a class="menu__link" href="#">대학생활</a></li>
-          <li><a class="menu__link" href="#">커뮤니티</a></li>
-        </ul>
-      </div>
+        <div class="container gnb__inner">
+            <a href="/" aria-label="그린대학교 홈"><img class="brand__logo" src="/images/header_logo.png" alt="그린대학교"></a>
+            <ul class="menu__list">
+                <li><a class="menu__link" href="#">대학소개</a></li>
+                <li><a class="menu__link" href="#">입학안내</a></li>
+                <li><a class="menu__link" href="#">대학·대학원</a></li>
+                <li><a class="menu__link" href="#">학사안내</a></li>
+                <li><a class="menu__link" href="#">대학생활</a></li>
+                <li><a class="menu__link" href="#">커뮤니티</a></li>
+            </ul>
+        </div>
+        <div class="submenu">
+            <div class="container">
+                <ul class="submenuList">
+                    <ul class="submenuDetail">
+                        <li class="submenu-title">대학소개</li>
+                        <li><a href="">총장 인사말</a></li>
+                        <li><a href="">교육이념</a></li>
+                        <li><a href="">연혁</a></li>
+                        <li><a href="">조직도</a></li>
+                        <li><a href="">오시는길</a></li>
+                    </ul>
+                    <ul class="submenuDetail">
+                        <li class="submenu-title">입학안내</li>
+                        <li><a href="">공지사항</a></li>
+                        <li><a href="">수시모집</a></li>
+                        <li><a href="">정시모집</a></li>
+                        <li><a href="">편입학</a></li>
+                        <li><a href="">입학상담</a></li>
+                    </ul>
+                    <ul class="submenuDetail">
+                        <li class="submenu-title">대학·대학원</li>
+                        <li><a href="">인문사회대학</a></li>
+                        <li><a href="">자연과학대학</a></li>
+                        <li><a href="">공과대학</a></li>
+                        <li><a href="">사범대학</a></li>
+                        <li><a href="">대학원</a></li>
+                    </ul>
+                    <ul class="submenuDetail">
+                        <li class="submenu-title">학사안내</li>
+                        <li><a href="">공지사항</a></li>
+                        <li><a href="">학사일정</a></li>
+                        <li><a href="">수강신청</a></li>
+                        <li><a href="">성적</a></li>
+                        <li><a href="">수료 및 졸업</a></li>
+                        <li><a href="">자주묻는질문</a></li>
+                    </ul>
+                    <ul class="submenuDetail">
+                        <li class="submenu-title">대학생활</li>
+                        <li><a href="">학생회소개</a></li>
+                        <li><a href="">동아리/스터디</a></li>
+                        <li><a href="">식단안내</a></li>
+                        <li><a href="">갤러리</a></li>
+                    </ul>
+                    <ul class="submenuDetail">
+                        <li class="submenu-title">커뮤니티</li>
+                        <li><a href="">공지사항</a></li>
+                        <li><a href="">뉴스 및 칼럼</a></li>
+                        <li><a href="">취업정보</a></li>
+                        <li><a href="">자유게시판</a></li>
+                        <li><a href="">질문과 답변</a></li>
+                        <li><a href="">자료실</a></li>
+                    </ul>
+                </ul>
+            </div>
+        </div>
     </nav>
   </header>
     
@@ -684,10 +841,12 @@
                         <ul>
                             <li>
                                 <span>교과목 폐지 및 신설 안내</span>
+                                <span><img src="/images/ico-new01.gif" alt=""></span>
                                 <span class="news-date">2025.09.03</span>
                             </li>
                             <li>
                                 <sapn>2019-2학기 진로취업 프로그램 설계를 위한 학생 대상...</sapn>
+                                <span><img src="/images/ico-new01.gif" alt=""></span>
                                 <span class="news-date">2025.09.03</span>
                             </li>
                             <li>
@@ -713,7 +872,48 @@
                         <hr>
                     </div>
                     <div class="news-page">
-                        
+                        <ul class="smart-links">
+                            <li>
+                                <a href="#">
+                                    <div class="icon-bg">
+                                        <img src="/images/bg-main-link01.png" alt="입학안내">
+                                    </div>
+                                    <span class="link-text">입학안내</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <div class="icon-bg">
+                                        <img src="/images/bg-main-link02.png" alt="학사일정">
+                                    </div>
+                                    <span class="link-text">학사일정</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <div class="icon-bg">
+                                        <img src="/images/bg-main-link03.png" alt="학생회">
+                                    </div>
+                                    <span class="link-text">학생회</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <div class="icon-bg">
+                                        <img src="/images/bg-main-link04.png" alt="교과과정">
+                                    </div>
+                                    <span class="link-text">교과과정</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <div class="icon-bg">
+                                        <img src="/images/bg-main-link05.png" alt="취업안내">
+                                    </div>
+                                    <span class="link-text">취업안내</span>
+                                </a>
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </div>
@@ -756,5 +956,19 @@
             </div>
         </div>
   </footer>
+  <script>
+        const gnb = document.querySelector('.gnb');
+        const submenu = document.querySelector('.submenu');
+
+        // GNB 영역에 마우스가 들어오면 서브메뉴를 보여줌
+        gnb.addEventListener('mouseenter', () => {
+            submenu.classList.add('is-active');
+        });
+
+        // GNB 영역에서 마우스가 나가면 서브메뉴를 숨김
+        gnb.addEventListener('mouseleave', () => {
+            submenu.classList.remove('is-active');
+        });
+    </script>
 </body>
 </html>
