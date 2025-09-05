@@ -30,6 +30,11 @@ ul, ol {list-style: none;}
     font-style: normal;
 }
 
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
 body {
     font-family: 'Noto Sans KR', sans-serif;
     font-weight: 400;
@@ -41,9 +46,13 @@ a {text-decoration: none; color: #111;}
 
 #wrapper {
     width: 100%;
-    height: 100%;
-    border: 1px solid red;
-    box-sizing: border-box;
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
 }
 
 /* header */
@@ -96,7 +105,7 @@ a {text-decoration: none; color: #111;}
 .header-top li a {
     color: white;
     line-height: 27px;
-    font-size: 8pt;
+    font-size: 12px;
     font-weight: 300;
 }
 
@@ -162,7 +171,7 @@ a {text-decoration: none; color: #111;}
 
 .sub-nav ul li a{
     color: #333333;
-    font-size: 10pt;
+    font-size: 14px;
     font-weight: 400;
     text-decoration: none;
 }
@@ -191,11 +200,11 @@ main .container {
 }
 
 .side-nav h2 {
-    font-size: 18pt;
+    font-size: 32px;
     margin: 0;
     padding: 0 0 10px 0;
     border-bottom: 2px solid black;
-    line-height: 1.2;
+    line-height: 1.5;
 }
 
 .side-nav ul {
@@ -205,10 +214,10 @@ main .container {
 }
 
 .side-nav li a {
-    font-size: 11pt;
+    font-size: 16px;
     font-weight: 400;
     display: block;
-    padding: 18px;
+    padding: 20px;
     color: #333333;
     text-decoration: none;
     border-bottom: 1px solid #ddd;
@@ -221,16 +230,16 @@ main .container {
 
 /* content */
 .content {
-    width: 930px;
+    flex: 1;
 }
 
 .content h3 {
-    font-size: 16pt;
+    font-size: 26px;
     font-weight: 600;
     margin-bottom: 30px;
     padding: 0 0 7px 0;
     border-bottom: 2px solid #333333;
-    line-height: 1.5;
+    line-height: 2;
 }
 
 /* main-content */
@@ -463,7 +472,7 @@ footer {
     width: 200px;
     height: 33px;
     background: #121721;
-    font-size: 11pt;
+    font-size: 16px;
     font-weight: 400;
     color: #A7A7A9;
     border: 1px solid #121721;
