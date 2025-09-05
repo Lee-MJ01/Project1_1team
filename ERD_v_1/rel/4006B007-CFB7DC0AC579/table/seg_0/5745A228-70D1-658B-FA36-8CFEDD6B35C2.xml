@@ -1,0 +1,151 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="5745A228-70D1-658B-FA36-8CFEDD6B35C2" name="course">
+<createdBy>GGG</createdBy>
+<createdTime>2025-09-05 05:13:59 UTC</createdTime>
+<ownerDesignName>GreenUnivERD</ownerDesignName>
+<ordsAlias>table_3</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="crs_cd" id="15EC19E0-3C1D-0DF8-DD80-0C616C7BFFB6">
+<createdBy>GGG</createdBy>
+<createdTime>2025-09-05 06:26:01 UTC</createdTime>
+<ownerDesignName>GreenUnivERD</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementColumn>true</autoIncrementColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="dept_id" id="8CF0F0F6-0074-562C-2DDF-FAB589DF87E1">
+<createdBy>GGG</createdBy>
+<createdTime>2025-09-05 06:26:35 UTC</createdTime>
+<ownerDesignName>GreenUnivERD</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="1E81F4BC-8BDD-DD48-8AD0-1BEF8E1A8ED1" referredColumn="F79AAAD2-2897-81C4-9495-818738863A82"/>
+</associations>
+</Column>
+<Column name="grade" id="C2B26B45-25A9-7270-73CA-EF869E439361">
+<createdBy>GGG</createdBy>
+<createdTime>2025-09-05 06:26:01 UTC</createdTime>
+<ownerDesignName>GreenUnivERD</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>1</dataTypePrecision>
+<ownDataTypeParameters>,1,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="div" id="5E48E143-2D6E-8347-8B8B-FF533833A19A">
+<createdBy>GGG</createdBy>
+<createdTime>2025-09-05 06:26:01 UTC</createdTime>
+<ownerDesignName>GreenUnivERD</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50 BYTE</dataTypeSize>
+<ownDataTypeParameters>50 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="crs_name" id="B9AC22A7-8CEF-83CC-8425-5C6444F3E928">
+<createdBy>GGG</createdBy>
+<createdTime>2025-09-05 06:26:01 UTC</createdTime>
+<ownerDesignName>GreenUnivERD</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100 BYTE</dataTypeSize>
+<ownDataTypeParameters>100 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="prof_id" id="8D699979-13F7-4933-D4E3-4B99F329CC98">
+<createdBy>GGG</createdBy>
+<createdTime>2025-09-05 06:26:01 UTC</createdTime>
+<ownerDesignName>GreenUnivERD</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="credit" id="8A9E204D-DAA4-F3BC-2654-0469D5D6C1B6">
+<createdBy>GGG</createdBy>
+<createdTime>2025-09-05 06:26:01 UTC</createdTime>
+<ownerDesignName>GreenUnivERD</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>1</dataTypePrecision>
+<ownDataTypeParameters>,1,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="crs_time" id="6E7318C5-73B8-878A-25C7-5CC0536AE62E">
+<createdBy>GGG</createdBy>
+<createdTime>2025-09-05 06:26:01 UTC</createdTime>
+<ownerDesignName>GreenUnivERD</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100 BYTE</dataTypeSize>
+<ownDataTypeParameters>100 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="crs_room" id="1789307E-A355-F072-0CB8-BFFE90FC11F3">
+<createdBy>GGG</createdBy>
+<createdTime>2025-09-05 06:26:01 UTC</createdTime>
+<ownerDesignName>GreenUnivERD</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50 BYTE</dataTypeSize>
+<ownDataTypeParameters>50 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="capacity" id="E04FDBCC-AE1E-DF48-F7F9-C372FC7956BC">
+<createdBy>GGG</createdBy>
+<createdTime>2025-09-05 06:26:01 UTC</createdTime>
+<ownerDesignName>GreenUnivERD</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>3</dataTypePrecision>
+<ownDataTypeParameters>,3,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="02B3BFA3-8D34-67AB-D7C3-61ABD96DE9A7" name="course_PK">
+<createdBy>GGG</createdBy>
+<createdTime>2025-09-05 06:26:01 UTC</createdTime>
+<ownerDesignName>GreenUnivERD</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="15EC19E0-3C1D-0DF8-DD80-0C616C7BFFB6"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="29F05942-4D5B-B254-3168-73AF6B880BAA" name="course_department_FK">
+<createdBy>GGG</createdBy>
+<createdTime>2025-09-05 06:26:35 UTC</createdTime>
+<ownerDesignName>GreenUnivERD</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="8CF0F0F6-0074-562C-2DDF-FAB589DF87E1"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

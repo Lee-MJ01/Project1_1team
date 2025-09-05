@@ -1,0 +1,95 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="244CBBED-739E-9A75-DFE8-5E272E68F8C4" name="notice">
+<createdBy>GGG</createdBy>
+<createdTime>2025-09-05 05:20:10 UTC</createdTime>
+<ownerDesignName>GreenUnivERD</ownerDesignName>
+<ordsAlias>table_7</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="n_no" id="D219B161-DE6E-9BBD-61C3-76BF8EBC209F">
+<createdBy>GGG</createdBy>
+<createdTime>2025-09-05 05:38:55 UTC</createdTime>
+<ownerDesignName>GreenUnivERD</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementColumn>true</autoIncrementColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="n_type" id="18C4D66E-FF9C-4E64-C36B-09BF6108630B">
+<createdBy>GGG</createdBy>
+<createdTime>2025-09-05 05:38:55 UTC</createdTime>
+<ownerDesignName>GreenUnivERD</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 BYTE</dataTypeSize>
+<ownDataTypeParameters>20 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="title" id="5535722C-4331-12C4-8F26-C03B0D9FA147">
+<createdBy>GGG</createdBy>
+<createdTime>2025-09-05 05:41:09 UTC</createdTime>
+<ownerDesignName>GreenUnivERD</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100 BYTE</dataTypeSize>
+<ownDataTypeParameters>100 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="writer" id="8D64CFEC-7E1D-B571-16E0-FA96AE8346CF">
+<createdBy>GGG</createdBy>
+<createdTime>2025-09-05 05:38:55 UTC</createdTime>
+<ownerDesignName>GreenUnivERD</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 BYTE</dataTypeSize>
+<ownDataTypeParameters>20 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="wdate" id="B86DECFC-C7AF-4CA3-DDD8-D7CB8F270F5C">
+<createdBy>GGG</createdBy>
+<createdTime>2025-09-05 05:38:55 UTC</createdTime>
+<ownerDesignName>GreenUnivERD</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10 BYTE</dataTypeSize>
+<ownDataTypeParameters>10 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="hits" id="34124FDD-BDFF-B7DF-6C1A-41A8426170F2">
+<createdBy>GGG</createdBy>
+<createdTime>2025-09-05 05:41:09 UTC</createdTime>
+<ownerDesignName>GreenUnivERD</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="9373CA6B-3B76-B650-37C3-7AB61D748EAB" name="notice_PK">
+<createdBy>GGG</createdBy>
+<createdTime>2025-09-05 05:38:55 UTC</createdTime>
+<ownerDesignName>GreenUnivERD</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="D219B161-DE6E-9BBD-61C3-76BF8EBC209F"/>
+<colUsage columnID="18C4D66E-FF9C-4E64-C36B-09BF6108630B"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>
