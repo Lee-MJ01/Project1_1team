@@ -1,0 +1,134 @@
+/* 색상 */
+:root{
+  --primary:#3F97F6;
+  --cyan:#2cc1c6;
+  --navy:#113a6b;
+  --ink:#222;
+  --muted:#666;
+  --card:#f7f9ff;
+  --dot:#cfe3ff;
+}
+
+/* 섹션 레이아웃 */
+.edu-ideology .main-title{ margin-bottom:18px; }
+.ideology-row{
+  display:flex;
+  gap:20px;
+  align-items:flex-start;
+  margin:22px 0;
+}
+
+/* 왼쪽 라벨 */
+.ideology-label{
+  flex:0 0 120px;
+  padding:14px 16px;
+  border-radius:12px;
+  color:#fff;
+  font-weight:700;
+  text-align:center;
+  line-height:1.15;
+}
+.label-blue{ background:var(--primary); }
+.label-cyan{ background:var(--cyan); }
+.label-navy{ background:var(--navy); }
+
+/* 오른쪽 내용: 카드/리스트 공통 */
+.ideology-card,
+.ideology-list,
+.goals{
+  flex:1;
+  margin:0;
+}
+
+.ideology-row{
+  padding: 10px;
+
+}
+
+/* 카드 */
+.ideology-card{
+  background:var(--card);
+  border-radius:14px;
+  padding:18px 20px;
+}
+.ideology-card strong{
+  display:block;
+  font-size:18px;
+  color:var(--ink);
+  margin-bottom:6px;
+}
+.ideology-card p{
+  margin:0;
+  color:#333;
+  line-height:1.7;
+}
+
+/* 리스트(점/화살표) */
+.ideology-list{
+  list-style:none;
+  padding:0;
+  border-radius:14px;
+  background:var(--card);
+  padding:16px 18px;
+}
+.ideology-list li{
+  position:relative;
+  padding-left:20px;
+  margin:8px 0;
+  line-height:1.7;
+  color:#333;
+}
+.ideology-list.bullets li::before{
+  content:"";
+  position:absolute; left:0; top:.7em;
+  width:8px; height:8px; border-radius:50%;
+  background:var(--primary);
+}
+.ideology-list.arrows li::before{
+  content:"➜";
+  position:absolute; left:0; color:var(--primary);
+  font-size:14px; top:.2em;
+}
+
+/* 2열 */
+.two-col{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:10px 18px;
+}
+
+/* 번호 리스트(목표) */
+.goals{
+  counter-reset: g;
+  list-style:none;
+  padding:16px 18px;
+  background:var(--card);
+  border-radius:14px;
+}
+.goals li{
+  counter-increment: g;
+  position:relative;
+  padding-left:44px;
+  margin:8px 0;
+  min-height:28px;
+  display:flex; align-items:center;
+  color:#333;
+}
+.goals li::before{
+  content: counter(g, decimal-leading-zero);
+  position:absolute; left:0;
+  width:36px; height:28px;
+  border-radius:8px;
+  background:var(--dot);
+  color:var(--primary);
+  font-weight:800;
+  display:flex; align-items:center; justify-content:center;
+  font-size:12px;
+}
+
+/* 반응형 */
+@media (max-width: 900px){
+  .ideology-row{ flex-direction:column; }
+  .ideology-label{ width:120px; }
+  .two-col{ grid-template-columns:1fr; }
+}
