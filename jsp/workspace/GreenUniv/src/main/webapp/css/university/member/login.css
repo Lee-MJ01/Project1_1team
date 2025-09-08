@@ -1,0 +1,151 @@
+/* ===== breadcrumb ===== */
+.background {
+  width: 100%;
+  height: 42px;
+  background-color: #ECF2F6;
+  display: flex;
+  align-items: center;
+}
+
+.background .container {
+  width: 100%;
+  max-width: 1200px;
+  height: 100%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;  /* 🔥 왼쪽 정렬 */
+}
+
+.sub-nav ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 8px; /* 🔥 간격 조금 줄임 */
+  align-items: center;
+}
+
+.sub-nav ul li {
+  display: flex;
+  align-items: center;
+}
+
+.sub-nav ul li img {
+  display: block;
+  margin: 0 4px; /* 🔥 화살표 좌우 간격 */
+}
+
+.sub-nav ul li a {
+  color: #333333;
+  font-size: 14px;
+  font-weight: 400;
+  text-decoration: none;
+}
+
+.sub-nav ul li.active a {
+  color: #071F4B;
+  font-weight: 600;
+}
+
+/* ===== 메인: 로그인 ===== */
+main {
+  background: var(--bg);
+  padding: 50px 0 80px;
+}
+
+.login-wrap {
+  max-width: 480px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.login-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--brand);
+  margin-bottom: 8px;
+}
+
+.login-desc {
+  font-size: 13px;
+  color: var(--muted);
+  margin-bottom: 20px;
+}
+
+.login-form {
+  text-align: left;
+  background: #fff;
+  padding: 30px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: 0 6px 20px rgba(0,0,0,.05);
+}
+
+.login-form .role {
+  margin-bottom: 18px;
+  font-size: 14px;
+}
+.login-form .role label {
+  margin-right: 14px;
+}
+
+.login-form input[type="text"],
+.login-form input[type="password"] {
+  width: 100%;
+  height: 42px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 0 12px;
+  margin-bottom: 12px;
+  font-size: 14px;
+  outline: none;
+  transition: .18s border, .18s box-shadow;
+}
+.login-form input:focus {
+  border-color: #cfe6ff;
+  box-shadow: 0 0 0 3px rgba(63,151,246,.18);
+}
+
+.login-form .btn-login {
+  width: 100%;
+  height: 42px;
+  background: var(--brand);
+  border: none;
+  border-radius: 6px;
+  color: #fff;
+  font-weight: 700;
+  cursor: pointer;
+  transition: filter .2s;
+}
+.login-form .btn-login:hover {
+  filter: brightness(.95);
+}
+
+.login-links {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  font-size: 13px;
+}
+.login-links a {
+  color: var(--ink);
+  text-decoration: none;
+}
+.login-links a:hover {
+  text-decoration: underline;
+}
+
+.login-help {
+  margin-top: 20px;
+  font-size: 13px;
+  color: #444;
+  line-height: 1.6;
+  text-align: left;
+}
+.login-help strong {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--brand);
+  font-weight: 600;
+}

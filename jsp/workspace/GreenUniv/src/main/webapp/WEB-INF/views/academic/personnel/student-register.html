@@ -1,0 +1,219 @@
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>student-regigter</title>
+     <!-- 
+        날짜 : 2025-09-01
+        이름 : 박민규
+        내용 : Personnel-students
+    -->
+</head>
+    <style>
+        body{margin: 0;};
+    
+        .header{height: 20%;}
+        .title{height: 70%; display: flex;}
+
+        .header_top{height: 20%; background-color: #00518C; text-align: right; padding-right: 30px;}
+        .header_top a{color: white;}
+        .header_top span{color: white; margin: 0 5px 0 5px}
+        .header_bottom{height: 80%; background-color: #1F2838; padding-left: 30px;}
+
+        .sideBar {width: 15%; margin-left: 50px; background-color: #eaeaea;}
+        .sideBar img{width: 20px; margin: 10px 5px 0 0 ;}
+        .styleone {text-decoration-line: none; list-style: none;}
+        .styletwo a{text-decoration-line: none; color: black; text-decoration: none;}
+
+        .menu{width: 75%;}
+        .menu_top{display: flex; justify-content: space-between;}
+
+        
+        .menu_top img{margin:0 2px 2px 5px;}
+        .stdlist{color: #145074;}
+        footer{position:absolute;bottom: 0px; background-color: #1F2838; color: white; padding-left: 30px; height: 10%;}
+
+
+    </style>
+<body>
+    <div class="header">
+        <div class="header_top">
+                <a href="#">home</a><span>|</span>
+                <a href="#">사이트맵</a><span>|</span>
+                <a href="#">로그인</a>
+        </div>        
+            <div class="header_bottom">.<img src="images/admin_logo.png" ></div>   
+    </div>           
+    <div class= "title">
+        <div class = "sideBar">
+            <ul>
+                <li class="stylenone"><img src="./images/ico-admin-setting.png">환경설정</li>
+                    <ul class="styletwo">
+                    <li><a href="#">기본환경정보</a></li>
+                    <li><a href="#">약관관리</a></li>
+                    </ul>
+                <li class="stylenone"><img src="./images/ico-admin-academic.png">학사운영</li>
+                    <ul class="styletwo">
+                    <li><a href="#">교육 운영 현황</a></li>
+                    <li><a href="#">학년별 학생현황</a></li>
+                    <li><a href="#">강의 목록</a></li>
+                    <li><a href="#">강의 등록</a></li>
+                    <li><a href="#">수강 현황</a></li>
+                    </ul>
+                <li class="stylenone"><img src="./images/ico-admin-persons.png">인사관리</li>   
+                    <ul class="styletwo">
+                    <li><a href="#">학생 목록 및 등록</a></li>       
+                    <li><a href="#">교수 목록 및 등록</a></li>       
+                    <li><a href="#">임직원 목록 및 등록</a></li>
+                    </ul>
+                <li class="stylenone"><img src="./images/ico-admin-college.png">대학 및 학과</li>
+                    <ul class="styletwo">
+                    <li><a href="#">교육 운영 현황</a></li>        
+                    <li><a href="#">교육 운영 현황</a></li>        
+                    </ul>
+                <li class="stylenone"><img src="./images/ico-admin-board.png">게시판 관리</li>           
+                    <ul class="styletwo">
+                    <li><a href="#">입학안내 공지사항</a></li>    
+                    <li><a href="#">학사안내 공지사항</a></li>    
+                    <li><a href="#">커뮤니티 공지사항</a></li>    
+                    <li><a href="#">입학상담</a></li>    
+                    <li><a href="#">질문 및 답변</a></li>    
+                    <li><a href="#">식단안내</a></li>    
+                    <li><a href="#">교육 운영 현황</a></li>    
+                    </ul>
+            </ul>
+        </div>
+            <div class="menu">
+                <div class="menu_top">
+                    <span>학생 등록</span>   
+                    <div>
+                    <span>인사관리</span><img src="images/bg-link-arr-over.png">
+                    <span class = "stdlist">학생 등록</span>
+                    </div>
+                </div>
+                <hr>
+            <div class="section_all">    
+                <div class="section">
+                <div><img src="images/bullet-h4.png">&nbsp;&nbsp;기본 정보 입력</div>
+                    <div>
+                        <th><img src="images/icon-avatar.png"></th>
+                        <th>학번</th>
+                            <td>연도 + 학과 코드 + 순번 조합 자동 생성<td>
+                        <th>주민등록번호</th>
+                            <td><input type="text" placeholder="-포함 14자리 입력"></td>
+                    </div>
+                    <div>
+                        <th>이름</th>
+                            <td><input type="text" placeholder="학생 이름 입력"></td>
+                        <th>영문명</th>
+                            <td><input type="text" placeholder="여권 등과 동일한 영문 이름"></td></br>
+                    </div>
+                    <div>
+                        <th>성별</th>
+                            <td><input type="radio" name="gender"><label>남</label></td>
+                            <td><input type="radio" name="gender"><label>여</label></td>
+                        <th>국적</th>
+                        <select>
+                            <option>선택</option>
+                            <option>대한민국</option>
+                            <option>일본</option>
+                            <option>중국</option>
+                            <option>싱가포르</option>
+                            <option>미국</option>
+                            <option>호주</option>
+                        </select>
+                    </div>
+                    <div>
+                        <th>주소</th>
+                            <td><input type="text" placeholder="우편번호 선택"></td></br>
+                            <td><input type="text" placeholder="기본주소 선택"></td></br>
+                            <td><input type="text" placeholder="상세주소 입력"></td>
+                    </div>    
+                </div>
+                <div class="section2">
+                    <div class="info"><img src="images/bullet-h4.png">&nbsp;&nbsp;학적 정보 입력</div>
+                    <th>입학년도</th>
+                        <select>
+                            <option>선택</option>
+                            <option>2015년</option>
+                            <option>2016년</option>
+                            <option>2017년</option>
+                            <option>2018년</option>
+                            <option>2019년</option>
+                            <option>2020년</option>
+                            <option>2021년</option>
+                            <option>2022년</option>
+                            <option>2023년</option>
+                            <option>2024년</option>
+                            <option>2025년</option>
+                        </select>
+                    <th>졸업년도</th>
+                        <select>
+                            <option>선택</option>
+                            <option>2019년</option>
+                            <option>2020년</option>
+                            <option>2021년</option>
+                            <option>2022년</option>
+                            <option>2023년</option>
+                            <option>2024년</option>
+                            <option>2025년</option>
+                            <option>2026년</option>
+                            <option>2027년</option>
+                            <option>2028년</option>
+                            <option>2029년</option>
+                        </select></br>
+                        <th>입학 구분</th>
+                            <select>
+                                <option>수시</option>
+                                <option>정시</option>
+                                <option>편입학</option>
+                            </select>
+                        <th>입학학과(전공)</th>
+                            <select>
+                                <option>인문사회대학</option>
+                                <option>자연과학대학</option>
+                                <option>공과대학</option>
+                                <option>인문사회대학</option>
+                                <option>인문사회대학</option>
+                            </select>
+                            <select>
+                                <option>국문학과</option>
+                                <option>영어영문학과</option>
+                                <option>생물학과</option>
+                                <option>물리학과</option>
+                                <option>기계공학과</option>
+                                <option>컴퓨터공학과</option>
+                            </select></br>
+                        <th>입학학년/학기</th>
+                            <select>
+                                <option>1학년</option>
+                                <option>2학년</option>
+                                <option>3학년</option>
+                                <option>4학년</option>
+                                <option>5학년</option>
+                                <option>6학년</option>
+                            </select>
+                            <select>
+                                <option>1학기</option>
+                                <option>2학기</option>
+                            </select>
+                        <th>지도교수</th>
+                            <select>
+                                <option>선택</option>
+                                <option>김국어</option>
+                                <option>김영어</option>
+                                <option>김생물</option>
+                                <option>김물리</option>
+                                <option>김기계</option>
+                                <option>김컴공</option>
+                            </select>
+                     </div>
+            </div>
+    </div>
+    <footer class = "footer">
+        <p>Copyright ©Green University All rights reserved. ADMINISTRATOR Version 1.4.1</p>
+    </footer>       
+</body>
+</html>

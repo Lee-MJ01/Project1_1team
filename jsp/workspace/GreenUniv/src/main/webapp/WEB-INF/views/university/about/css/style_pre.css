@@ -1,0 +1,108 @@
+/* ================================
+   1. 인트로 영역 (슬로건 + 소개문 + 총장사진)
+   ================================ */
+.intro-wrapper {
+  display: flex;
+  align-items: flex-start;
+  gap: 40px;
+  margin-bottom: 40px;
+  margin-top: 30px;
+}
+
+.intro-text {
+  flex: 1;
+}
+
+.main-slogan {
+  margin: 0 0 20px;
+  font-size: clamp(22px, 3vw, 32px);
+  font-weight: 800;
+  line-height: 1.4;
+  color: #222;
+}
+
+.intro {
+  margin: 0 0 16px;
+  font-size: 14px;
+  line-height: 1.7;
+  color: #333;
+}
+
+.president-photo img {
+  width: 320px;
+  height: auto;
+  border-radius: 6px;
+  display: block;
+}
+
+/* ================================
+   2. pledge 영역 (공약 부분)
+   ================================ */
+.pledge {
+  margin-bottom: 32px;
+}
+
+.pledge .title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #3F97F6;
+  margin: 0 0 8px;
+}
+
+.pledge .body {
+  font-size: 16px;
+  line-height: 1.7;
+  color: #333;
+  margin: 0;
+}
+
+/* ================================
+   3. 마무리 영역 (Closing)
+   ================================ */
+.closing-intro {
+  font-weight: 700;
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.closing-content {
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+  margin-bottom: 20px;
+}
+
+.closing-photo img {
+  width: 360px;
+  height: auto;
+  border-radius: 6px;
+  display: block;
+}
+
+.closing-text p {
+  margin: 0 0 16px;
+  font-size: 16px;
+  line-height: 1.7;
+  color: #333;
+}
+
+.closing-line {
+  border: none;
+  border-top: 1px solid #ccc;
+  margin: 30px 0;
+}
+
+.sign {
+  text-align: right;
+}
+
+.sign-small {
+  font-size: 14px;
+  color: #555;
+}
+
+.sign-name {
+  font-size: 22px;
+  font-weight: 700;
+  color: #000;
+}
