@@ -3,6 +3,8 @@
   width: 100%;
   height: 42px;
   background-color: #ECF2F6;
+  display: flex;
+  align-items: center;
 }
 
 .background .container {
@@ -12,7 +14,7 @@
   margin: 0 auto;
   display: flex;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: flex-start;  /* 🔥 왼쪽 정렬 */
 }
 
 .sub-nav ul {
@@ -20,7 +22,18 @@
   list-style: none;
   margin: 0;
   padding: 0;
-  gap: 15px;
+  gap: 8px; /* 🔥 간격 조금 줄임 */
+  align-items: center;
+}
+
+.sub-nav ul li {
+  display: flex;
+  align-items: center;
+}
+
+.sub-nav ul li img {
+  display: block;
+  margin: 0 4px; /* 🔥 화살표 좌우 간격 */
 }
 
 .sub-nav ul li a {
@@ -32,7 +45,7 @@
 
 .sub-nav ul li.active a {
   color: #071F4B;
-  font-weight: 400;
+  font-weight: 600;
 }
 
 /* ===== 메인: 로그인 ===== */
