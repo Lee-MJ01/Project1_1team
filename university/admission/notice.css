@@ -1,0 +1,121 @@
+/* ===== 공지사항 페이지 ===== */
+.notice-wrap {
+  flex: 1;
+}
+
+/* 제목 */
+.notice-wrap h3 {
+  font-size: 22px;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #333;
+  padding-bottom: 6px;
+  font-weight: 600;
+}
+
+/* 검색창 */
+.search-bar {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.search-bar select {
+  width: 120px;
+  padding: 6px;
+  border: 1px solid #DEDEDE;
+  color: #666;
+  font-size: 14px;
+  font-weight: 400;
+  background: #fff url('/images/btn-sel-open01.png') no-repeat right 10px center;
+  background-size: 10px;
+}
+
+.search-box {
+  display: flex;
+}
+
+.search-box input {
+  width: 200px;
+  padding: 6px;
+  border: 1px solid #DEDEDE;
+  border-right: none;
+  font-size: 14px;
+}
+
+.search-box button {
+  width: 60px;
+  background: var(--brand);
+  color: #fff;
+  border: none;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+}
+.search-box button:hover {
+  filter: brightness(.95);
+}
+
+/* 게시판 */
+.board {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 15px;
+  margin-bottom: 20px;
+}
+
+.board thead th {
+  background: #f8f8f8;
+  border-top: 2px solid #000;
+  border-bottom: 1px solid #ddd;
+  padding: 14px;
+  text-align: center;
+  font-weight: 500;
+}
+
+.board tbody td {
+  border-bottom: 1px solid #eee;
+  padding: 14px;
+  text-align: center;
+  color: #333;
+}
+.board tbody td:nth-child(2) {
+  text-align: left;
+}
+
+/* 페이징 */
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 25px;
+  gap: 5px;
+}
+
+.pagination a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border: 1px solid #DEDEDE;
+  color: #666;
+  font-size: 13px;
+  border-radius: 3px;
+  text-decoration: none;
+}
+
+.pagination a img {
+  width: 10px;
+  height: auto;
+}
+
+.pagination a:hover {
+  background: #f0f0f0;
+}
+
+.pagination a.active {
+  background: var(--brand);
+  color: #fff;
+  border-color: var(--brand);
+  font-weight: 600;
+}
