@@ -1,4 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -198,24 +199,24 @@
         <main>
             <div class = "h20p">
                 <div class="title">
-                    <span>학과 목록</span>   
+                    <span>학생 목록</span>   
                     <div class="list">
-                    <span>대학 및 학과</span><img src="images/bg-link-arr-over.png">
-                    <span class = "stdlist">학과 목록</span>
+                    <span>인사관리</span><img src="images/bg-link-arr-over.png">
+                    <span class = "stdlist">학생 목록</span>
                     </div>
                 </div>
                 <hr>
                 <div class="search-bar">
                     <select>
                         <option>검색조건</option>
-                        <option>학과번호</option>
-                        <option>단과대학</option>
+                        <option>학번</option>
+                        <option>이름</option>
+                        <option>휴대폰</option> 
+                        <option>이메일</option> 
                         <option>학과</option> 
-                        <option>학과장</option> 
-                        <option>학과 연락처</option> 
-                        <option>학과 소속 교수 수</option> 
-                        <option>소속 학생 수</option> 
-                        <option>개설 강의 수</option> 
+                        <option>학년</option> 
+                        <option>학기</option> 
+                        <option>상태</option> 
                     </select>
                     <input type="text" placeholder="키워드 입력">
                     <button>검색</button>
@@ -224,120 +225,128 @@
             <div class = "h80p"> 
                 <table class="h100p">
                     <thead>
-                        <th>학과번호</th>
-                        <th>단과대학</th>
+                        <th>학번</th>
+                        <th>이름</th>
+                        <th>주민번호</th>
+                        <th>휴대폰</th>
+                        <th>이메일</th>
                         <th>학과</th>
-                        <th>학과장</th>
-                        <th>학과 연락처</th>
-                        <th>소속 교수 수</th>
-                        <th>소속 학생 수</th>
-                        <th>개설 강의 수</th>
+                        <th>학년</th>
+                        <th>학기</th>
+                        <th>상태</th>
                     </thead>
                     <tbody>
         <!-- 바디 -->
                         <tr>
-                            <td>10</td>
-                            <td>인문사회대학</td>
-                            <td>국문학과</td>
-                            <td>김국어</td>
-                            <td>051-512-1010</td>
-                            <td>23</td>
-                            <td>322</td>
-                            <td>42</td>
-                        </tr>
-                        <tr>
-                            <td>11</td>
-                            <td>인문사회대학</td>
-                            <td>영어영문학과</td>
-                            <td>김영어</td>
-                            <td>051-512-1011</td>
-                            <td>20</td>
-                            <td>312</td>
-                            <td>23</td>
-                        </tr>
-                        <tr>
-                            <td>20</td>
-                            <td>자연과학대학</td>
-                            <td>영문학과</td>
-                            <td>김생물</td>
-                            <td>051-512-1234</td>
-                            <td>23</td>
-                            <td>322</td>
-                            <td>42</td>
-                        </tr>
-                        <tr>
-                            <td>21</td>
-                            <td>자연과학대학</td>
-                            <td>물리학과</td>
-                            <td>김물리</td>
-                            <td>051-512-1234</td>
-                            <td>23</td>
-                            <td>322</td>
-                            <td>42</td>
-                        </tr>
-                        <tr>
-                            <td>30</td>
-                            <td>공과대학</td>
-                            <td>기계공학과</td>
-                            <td>김기계</td>
-                            <td>051-512-1234</td>
-                            <td>23</td>
-                            <td>322</td>
-                            <td>42</td>
-                        </tr>
-                        <tr>
-                            <td>31</td>
-                            <td>공과대학</td>
+                            <td>202001230</td>
+                            <td>홍길동</td>
+                            <td>900103-1234567</td>
+                            <td>010-1234-1001</td>
+                            <td>hong1001@naver.com</td>
                             <td>컴퓨터공학과</td>
-                            <td>김컴공</td>
-                            <td>051-512-1234</td>
-                            <td>23</td>
-                            <td>322</td>
-                            <td>42</td>
+                            <td>3</td>
+                            <td>1</td>
+                            <td class="active">재학중</td>
                         </tr>
                         <tr>
-                            <td>31</td>
-                            <td>공과대학</td>
+                            <td>202001230</td>
+                            <td>홍길동</td>
+                            <td>900103-1234567</td>
+                            <td>010-1234-1001</td>
+                            <td>hong1001@naver.com</td>
                             <td>컴퓨터공학과</td>
-                            <td>김컴공</td>
-                            <td>051-512-1234</td>
-                            <td>23</td>
-                            <td>322</td>
-                            <td>42</td>
+                            <td>3</td>
+                            <td>1</td>
+                            <td class="active">재학중</td>
                         </tr>
                         <tr>
-                            <td>31</td>
-                            <td>공과대학</td>
+                            <td>202001230</td>
+                            <td>홍길동</td>
+                            <td>900103-1234567</td>
+                            <td>010-1234-1001</td>
+                            <td>hong1001@naver.com</td>
                             <td>컴퓨터공학과</td>
-                            <td>김컴공</td>
-                            <td>051-512-1234</td>
-                            <td>23</td>
-                            <td>322</td>
-                            <td>42</td>
+                            <td>3</td>
+                            <td>1</td>
+                            <td class="active">재학중</td>
                         </tr>
                         <tr>
-                            <td>31</td>
-                            <td>공과대학</td>
+                            <td>202001230</td>
+                            <td>홍길동</td>
+                            <td>900103-1234567</td>
+                            <td>010-1234-1001</td>
+                            <td>hong1001@naver.com</td>
                             <td>컴퓨터공학과</td>
-                            <td>김컴공</td>
-                            <td>051-512-1234</td>
-                            <td>23</td>
-                            <td>322</td>
-                            <td>42</td>
+                            <td>3</td>
+                            <td>1</td>
+                            <td class="active">재학중</td>
                         </tr>
                         <tr>
-                            <td>31</td>
-                            <td>공과대학</td>
+                            <td>202001230</td>
+                            <td>홍길동</td>
+                            <td>900103-1234567</td>
+                            <td>010-1234-1001</td>
+                            <td>hong1001@naver.com</td>
                             <td>컴퓨터공학과</td>
-                            <td>김컴공</td>
-                            <td>051-512-1234</td>
-                            <td>23</td>
-                            <td>322</td>
-                            <td>42</td>
+                            <td>3</td>
+                            <td>1</td>
+                            <td class="active">재학중</td>
                         </tr>
-                       
+                        <tr>
+                            <td>202001230</td>
+                            <td>홍길동</td>
+                            <td>900103-1234567</td>
+                            <td>010-1234-1001</td>
+                            <td>hong1001@naver.com</td>
+                            <td>컴퓨터공학과</td>
+                            <td>3</td>
+                            <td>1</td>
+                            <td class="active">재학중</td>
                         </tr>
-                       
+                        <tr>
+                            <td>202001230</td>
+                            <td>홍길동</td>
+                            <td>900103-1234567</td>
+                            <td>010-1234-1001</td>
+                            <td>hong1001@naver.com</td>
+                            <td>컴퓨터공학과</td>
+                            <td>3</td>
+                            <td>1</td>
+                            <td class="out">자퇴</td>
+                        </tr>
+                        <tr>
+                            <td>202001230</td>
+                            <td>홍길동</td>
+                            <td>900103-1234567</td>
+                            <td>010-1234-1001</td>
+                            <td>hong1001@naver.com</td>
+                            <td>컴퓨터공학과</td>
+                            <td>3</td>
+                            <td>1</td>
+                            <td class="drop">제적</td>
+                        </tr>
+                        <tr>
+                            <td>202001230</td>
+                            <td>홍길동</td>
+                            <td>900103-1234567</td>
+                            <td>010-1234-1001</td>
+                            <td>hong1001@naver.com</td>
+                            <td>컴퓨터공학과</td>
+                            <td>3</td>
+                            <td>1</td>
+                            <td class="leave">휴학중</td>
+                        </tr>
+                        <tr>
+                            <td>202001230</td>
+                            <td>홍길동</td>
+                            <td>900103-1234567</td>
+                            <td>010-1234-1001</td>
+                            <td>hong1001@naver.com</td>
+                            <td>컴퓨터공학과</td>
+                            <td>3</td>
+                            <td>1</td>
+                            <td class="graduate">졸업</td>
+                        </tr>
                     </tbody>
                 </table>
                 <div class = "btnDiv">

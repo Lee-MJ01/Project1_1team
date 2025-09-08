@@ -1,12 +1,14 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>학사관리시스템_학사운영_강의 목록</title>
+<title>학사관리시스템_학사운영_수강 현황</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+
 <style>
 :root{
   --brand-blue:#00518C; --brand-dark:#1F2838;
@@ -48,7 +50,7 @@ body{font-family:'Noto Sans KR', Arial, system-ui, sans-serif;color:var(--text);
 .page{background:var(--card);border:1px solid var(--line)}
 .page__body{padding:16px}
 
-/* 페이지 헤더 (index와 동일) */
+/* 페이지 헤더 */
 .page__header{height:46px;border-bottom:1px solid #cfd6df;padding:0 16px;display:flex;align-items:center;justify-content:space-between}
 .page__title{font-size:16px;font-weight:700;color:#222}
 .page__path{font-size:12px;display:flex;align-items:center;gap:6px;white-space:nowrap}
@@ -57,46 +59,79 @@ body{font-family:'Noto Sans KR', Arial, system-ui, sans-serif;color:var(--text);
 .page__path .path__sep svg{width:12px;height:6px;display:block}
 .page__path .path__sep path{stroke:#145074}
 
-/* 본문 여백 */
+/* ===== 내부 구조 유지 + 크기 보정 ===== */
 .page__body{padding:20px;margin-top:4px}
 
-/* 검색바 */
-.search-bar{display:flex;align-items:center;gap:8px;justify-content:flex-end;width:100%;margin-bottom:14px}
-.search-label{
-  height:35px;display:inline-flex;align-items:center;justify-content:center;
-  width:100px;border:1px solid #959595;background:#fff;font-size:13px;color:#333
+/* 검색줄 */
+.search-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: flex-end;   /* 오른쪽 끝 정렬 */
+  width: 100%;
+  margin-bottom: 14px;
 }
-.search-input{
-  height:35px;width:200px;padding:0 12px;border:1px solid #959595;outline:none;font-size:13px
-}
-.search-btn{height:35px;padding:0 18px;border:none;cursor:pointer;background:#1f5e95;color:#fff;font-size:13px}
 
-/* 테이블 카드 & 테이블 */
+/* 라벨 */
+.search-label {
+  height: 35px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100px;                 /* 고정 너비 */
+  border: 1px solid #959595;
+  background: #fff;
+  font-size: 13px;
+  color: #333;
+}
+
+/* 입력창 */
+.search-input {
+  height: 35px;
+  width: 200px;                 /* 고정 너비 */
+  padding: 0 12px;
+  border: 1px solid #959595;
+  outline: none;
+  font-size: 13px;
+}
+
+/* 버튼 */
+.search-btn {
+  height: 35px;
+  width: 60px;
+  padding: 0 18px;
+  border: none;
+  cursor: pointer;
+  background: #1A528E;
+  color: #fff;
+  font-size: 13px;
+}
+/* 테이블 카드 & 테이블  */
 .table-card{border:1px solid var(--line);border-top:2px solid #8798A3;background:#fff}
 .gu-table{width:100%;border-collapse:separate;border-spacing:0;table-layout:fixed;font-size:13px;color:#333}
-.gu-table thead th{height:45.5px;background:var(--thead);border-bottom:1px solid #e1e6ee;padding:0 12px;text-align:center;font-weight:600;border-left:0;border-right:0}
-.gu-table tbody td{height:45.5px;padding:0 12px;background:#fff;border-bottom:1px solid #e9edf3;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;text-align:center;border-left:0;border-right:0}
+.gu-table thead th{height:45.5px;background:var(--thead);border-bottom:1px solid #e1e6ee;padding:0 14px;font-weight:500;text-align:center;border-left:0;border-right:0}
+.gu-table tbody td{height:45.5px;padding:0 14px;background:#fff;border-bottom:1px solid #e9edf3;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;text-align:center;border-left:0;border-right:0}
+.gu-table tbody td:nth-child(8){text-align:left !important}
 .gu-table,.gu-table th,.gu-table td{border-left:0 !important;border-right:0 !important}
 
 /* 페이지네이션 */
 .gu-paging{display:flex;justify-content:center;gap:6px;padding:12px 0 16px}
-.gu-page-btn{width:28px;height:28px;display:inline-flex;align-items:center;justify-content:center;border:1px solid #d6d9df;background:#fff;font-size:13px;color:#3c4150;cursor:pointer}
+.gu-page-btn{width:28px;height:28px;border:1px solid #d6d9df;background:#fff;font-size:13px;color:#3c4150}
+.gu-page-btn--square{width:22px;height:22px;font-size:12px}
 .gu-page-btn:hover{background:#f4f6f9}
 .gu-page-btn.is-active{background:#1f5e95;color:#fff;border-color:#1f5e95}
-.gu-page-btn.is-disabled{opacity:.45;cursor:not-allowed;background:#fff}
-.gu-page-btn--square{width:22px;height:22px;font-size:12px}
 
 /* 접근성 숨김 */
 .sr-only{position:absolute;width:1px;height:1px;margin:-1px;border:0;padding:0;clip-path:inset(50%);clip:rect(0 0 0 0);overflow:hidden;white-space:nowrap}
 
-/* Footer */
+/* 푸터 */
 .site-footer{background:#19202D;color:#cfd3db;height:60px;display:flex;align-items:center}
 .site-footer .footer-inner{width:min(1400px,96vw);margin:0 auto;padding:0 20px;font-size:12px;letter-spacing:.02em}
 </style>
 </head>
 <body>
 
-  <!-- 상단 파란 메뉴 바 -->
+  <!-- 상단 바 -->
   <div class="top-menu">
     <nav class="top-menu__inner">
       <a class="top-menu__link" href="../../index.html">HOME</a>
@@ -105,20 +140,17 @@ body{font-family:'Noto Sans KR', Arial, system-ui, sans-serif;color:var(--text);
     </nav>
   </div>
 
-  <!-- 다크 로고 바 -->
+  <!-- 브랜드 바 -->
   <header class="brand-bar">
     <a href="../index.html">
       <img class="brand-logo" src="../../images/admin_logo.png" alt="그린대학교 학사관리시스템 로고">
     </a>
   </header>
 
-  <!-- 레이아웃 -->
   <div class="layout">
-    <!-- 좌측 사이드 메뉴  -->
+    <!-- 사이드바 -->
     <aside class="sidebar">
       <nav class="sidebar-menu">
-
-        <!-- 환경설정 -->
         <div class="menu-group">
           <h3><img src="../../images/ico-admin-setting.png" alt="" class="menu-icon">환경설정</h3>
           <ul>
@@ -127,7 +159,6 @@ body{font-family:'Noto Sans KR', Arial, system-ui, sans-serif;color:var(--text);
           </ul>
         </div>
 
-        <!-- 학사운영 -->
         <div class="menu-group">
           <h3><img src="../../images/ico-admin-academic.png" alt="" class="menu-icon">학사운영</h3>
           <ul>
@@ -140,19 +171,17 @@ body{font-family:'Noto Sans KR', Arial, system-ui, sans-serif;color:var(--text);
           </ul>
         </div>
 
-        <!-- 인사관리 -->
         <div class="menu-group">
           <h3><img src="../../images/ico-admin-persons.png" alt="" class="menu-icon">인사관리</h3>
-          <ul>
-            <li><a href="/personnel/students.html">학생 목록</a></li>
-            <li><a href="/personnel/student-register.html">학생 등록</a></li>
-            <li><a href="/personnel/professors.html">교수 목록</a></li>
-            <li><a href="/personnel/professor-register.html">교수 등록</a></li>
-            <li><span>임직원 목록 및 등록</span></li>
-          </ul>
+            <ul>
+              <li><a href="/personnel/students.html">학생 목록</a></li>
+              <li><a href="/personnel/student-register.html">학생 등록</a></li>
+              <li><a href="/personnel/professors.html">교수 목록</a></li>
+              <li><a href="/personnel/professor-register.html">교수 등록</a></li>
+              <li><span>임직원 목록 및 등록</span></li>
+            </ul>
         </div>
 
-        <!-- 대학 및 학과 -->
         <div class="menu-group">
           <h3><img src="../../images/ico-admin-college.png" alt="" class="menu-icon">대학 및 학과</h3>
           <ul>
@@ -161,7 +190,6 @@ body{font-family:'Noto Sans KR', Arial, system-ui, sans-serif;color:var(--text);
           </ul>
         </div>
 
-        <!-- 게시판관리 (파일 없음 → 클릭 불가) -->
         <div class="menu-group">
           <h3><img src="../../images/ico-admin-board.png" alt="" class="menu-icon">게시판관리</h3>
           <ul>
@@ -174,15 +202,14 @@ body{font-family:'Noto Sans KR', Arial, system-ui, sans-serif;color:var(--text);
             <li><span>자료실</span></li>
           </ul>
         </div>
-
       </nav>
     </aside>
 
-    <!-- 우측 본문: 강의 목록 -->
+    <!-- 본문 -->
     <main class="main-area">
       <section class="page">
         <div class="page__header">
-          <h3 class="page__title">강의 목록</h3>
+          <h3 class="page__title">수강 현황</h3>
           <div class="page__path">
             <span class="path__dim">학사운영</span>
             <span class="path__sep">
@@ -190,7 +217,7 @@ body{font-family:'Noto Sans KR', Arial, system-ui, sans-serif;color:var(--text);
                 <path d="M1 1l5 4 5-4" fill="none" stroke="#145074" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
             </span>
-            <strong>강의 목록</strong>
+            <strong>수강 현황</strong>
           </div>
         </div>
 
@@ -198,7 +225,8 @@ body{font-family:'Noto Sans KR', Arial, system-ui, sans-serif;color:var(--text);
           <!-- 검색 바 -->
           <form class="search-bar" onsubmit="return false;">
             <span class="search-label">검색조건</span>
-            <input class="search-input" type="text" placeholder="키워드 입력" />
+            <label class="sr-only" for="q">키워드 입력</label>
+            <input id="q" class="search-input" type="text" placeholder="키워드 입력" />
             <button class="search-btn" type="submit">검색</button>
           </form>
 
@@ -206,33 +234,46 @@ body{font-family:'Noto Sans KR', Arial, system-ui, sans-serif;color:var(--text);
           <div class="table-card">
             <table class="gu-table">
               <colgroup>
-                <!-- 과목코드, 학과, 학년, 구분, 과목명, 교수, 학점, 수업시간, 강의실, 최대 수강 인원 -->
-                <col style="width:10%"><col style="width:12%"><col style="width:6%"><col style="width:8%">
-                <col style="width:18%"><col style="width:10%"><col style="width:6%"><col style="width:16%"><col style="width:8%"><col style="width:6%">
+                <col style="width:6%"><col style="width:6%"><col style="width:8%"><col style="width:8%">
+                <col style="width:6%"><col style="width:10%"><col style="width:10%"><col style="width:16%">
+                <col style="width:8%"><col style="width:8%"><col style="width:6%"><col style="width:8%">
               </colgroup>
               <thead>
                 <tr>
-                  <th>과목코드</th>
-                  <th>학과</th>
-                  <th>학년</th>
-                  <th>구분</th>
-                  <th>과목명</th>
-                  <th>교수</th>
-                  <th>학점</th>
-                  <th>수업시간</th>
-                  <th>강의실</th>
-                  <th>최대 수강 인원</th>
+                  <th>년도</th><th>학기</th><th>학번</th><th>이름</th><th>학년</th><th>학과</th>
+                  <th>과목코드</th><th>과목명</th><th>구분</th><th>교수</th><th>학점</th><th>수강 신청일</th>
                 </tr>
               </thead>
-              <tbody>
-                <!-- 서버 바인딩 자리 -->
+<tbody>
+  <!-- 2025학년도 2학기 -->
+  <tr><td>2025</td><td>2</td><td>20230001</td><td>김가온</td><td>1</td><td>컴퓨터과학과</td><td>3025112</td><td>프로그래밍 개론</td><td>전공선택</td><td>김민정</td><td>3</td><td>2025-08-28</td></tr>
+  <tr><td>2025</td><td>2</td><td>20220012</td><td>박하린</td><td>2</td><td>컴퓨터과학과</td><td>3025113</td><td>자료구조</td><td>전공필수</td><td>김철수</td><td>3</td><td>2025-08-28</td></tr>
+  <tr><td>2025</td><td>2</td><td>20210007</td><td>이준호</td><td>3</td><td>컴퓨터과학과</td><td>3025201</td><td>데이터베이스</td><td>전공필수</td><td>한지수</td><td>3</td><td>2025-08-29</td></tr>
+  <tr><td>2025</td><td>2</td><td>20210033</td><td>최유나</td><td>3</td><td>컴퓨터과학과</td><td>3025304</td><td>운영체제</td><td>전공필수</td><td>정도현</td><td>3</td><td>2025-08-29</td></tr>
+  <tr><td>2025</td><td>2</td><td>20220045</td><td>문채원</td><td>2</td><td>컴퓨터과학과</td><td>3025402</td><td>알고리즘</td><td>전공선택</td><td>김상혁</td><td>3</td><td>2025-08-30</td></tr>
+  <tr><td>2025</td><td>2</td><td>20230024</td><td>정시우</td><td>1</td><td>컴퓨터과학과</td><td>3025105</td><td>웹프로그래밍</td><td>전공선택</td><td>박민아</td><td>3</td><td>2025-08-31</td></tr>
+  <tr><td>2025</td><td>2</td><td>20220078</td><td>강다연</td><td>2</td><td>컴퓨터과학과</td><td>3025503</td><td>컴퓨터네트워크</td><td>전공선택</td><td>오지훈</td><td>3</td><td>2025-08-31</td></tr>
 
-                <!-- 샘플 데이터 -->
-                <tr><td>3025112</td><td>컴퓨터과학과</td><td>1</td><td>전공선택</td><td>프로그래밍 개론</td><td>김민정</td><td>3</td><td>월,수 10:00~12:00</td><td>컴퓨터실</td><td>30</td></tr>
-                <tr><td>3025113</td><td>컴퓨터과학과</td><td>2</td><td>전공필수</td><td>자료구조</td><td>김철수</td><td>3</td><td>화,목 13:00~15:00</td><td>공학관201</td><td>40</td></tr>
-                <tr><td>3025114</td><td>컴퓨터과학과</td><td>3</td><td>전공선택</td><td>운영체제</td><td>박지영</td><td>3</td><td>수 15:00~18:00</td><td>공학관305</td><td>35</td></tr>
-                <tr><td>3025115</td><td>컴퓨터과학과</td><td>4</td><td>전공선택</td><td>웹프로그래밍</td><td>이도윤</td><td>3</td><td>금 09:00~12:00</td><td>컴퓨터실</td><td>30</td></tr>
-              </tbody>
+  <!-- 타 학과 혼합: 동일 테이블 컬럼 유지 -->
+  <tr><td>2025</td><td>2</td><td>20210088</td><td>배유진</td><td>3</td><td>경영학과</td><td>5012101</td><td>재무관리</td><td>전공필수</td><td>서미정</td><td>3</td><td>2025-08-28</td></tr>
+  <tr><td>2025</td><td>2</td><td>20210112</td><td>오세진</td><td>3</td><td>경영학과</td><td>5012302</td><td>마케팅원론</td><td>전공선택</td><td>이태경</td><td>3</td><td>2025-08-29</td></tr>
+  <tr><td>2025</td><td>2</td><td>20230045</td><td>김소은</td><td>1</td><td>영어영문학과</td><td>2101105</td><td>영문법</td><td>전공선택</td><td>최은주</td><td>2</td><td>2025-08-30</td></tr>
+  <tr><td>2025</td><td>2</td><td>20220091</td><td>장민규</td><td>2</td><td>영어영문학과</td><td>2101301</td><td>영미소설</td><td>전공선택</td><td>류성진</td><td>3</td><td>2025-08-31</td></tr>
+  <tr><td>2025</td><td>2</td><td>20210021</td><td>유가영</td><td>3</td><td>국어국문학과</td><td>120001</td><td>고전소설Ⅰ</td><td>전공선택</td><td>김국어</td><td>3</td><td>2025-08-29</td></tr>
+  <tr><td>2025</td><td>2</td><td>20230077</td><td>신현우</td><td>1</td><td>디자인학과</td><td>6402104</td><td>타이포그래피</td><td>전공선택</td><td>박도윤</td><td>3</td><td>2025-08-28</td></tr>
+  <tr><td>2025</td><td>2</td><td>20210145</td><td>하나린</td><td>3</td><td>기계공학과</td><td>7303201</td><td>열역학</td><td>전공필수</td><td>정하람</td><td>3</td><td>2025-08-30</td></tr>
+
+  <!-- 교양 과목 예시 -->
+  <tr><td>2025</td><td>2</td><td>20230012</td><td>서도현</td><td>1</td><td>컴퓨터과학과</td><td>9001001</td><td>대학영어</td><td>교양필수</td><td>박연주</td><td>2</td><td>2025-08-28</td></tr>
+  <tr><td>2025</td><td>2</td><td>20220018</td><td>임소민</td><td>2</td><td>경영학과</td><td>9002002</td><td>글쓰기</td><td>교양필수</td><td>김시온</td><td>2</td><td>2025-08-29</td></tr>
+  <tr><td>2025</td><td>2</td><td>20210058</td><td>노서준</td><td>3</td><td>영어영문학과</td><td>9003103</td><td>현대사회와윤리</td><td>교양선택</td><td>이소담</td><td>2</td><td>2025-08-31</td></tr>
+
+  <!-- 2025학년도 1학기(혼합) -->
+  <tr><td>2025</td><td>1</td><td>20230088</td><td>정은비</td><td>1</td><td>컴퓨터과학과</td><td>3025101</td><td>파이썬프로그래밍</td><td>전공선택</td><td>박지현</td><td>3</td><td>2025-03-05</td></tr>
+  <tr><td>2025</td><td>1</td><td>20220002</td><td>김태오</td><td>2</td><td>경영학과</td><td>5012405</td><td>경영정보시스템</td><td>전공선택</td><td>한서윤</td><td>3</td><td>2025-03-06</td></tr>
+  <tr><td>2025</td><td>1</td><td>20210005</td><td>이서하</td><td>3</td><td>국어국문학과</td><td>1202102</td><td>현대시강독</td><td>전공선택</td><td>박현우</td><td>3</td><td>2025-03-06</td></tr>
+</tbody>
+
             </table>
 
             <nav class="gu-paging" aria-label="페이지 이동">
