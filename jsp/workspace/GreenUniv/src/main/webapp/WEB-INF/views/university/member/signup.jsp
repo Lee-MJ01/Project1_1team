@@ -7,11 +7,11 @@
   <title>그린대학교 | 회원가입</title>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;600;700&display=swap" rel="stylesheet">
   <!-- 공통 스타일 -->
-  <link rel="stylesheet" href="./common.css">
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/css/university/member/common.css">
   <!-- 회원가입 전용 스타일 -->
-  <link rel="stylesheet" href="./member.css">
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/css/university/member/member.css">
   <!-- signup 전용 스타일 -->
-  <link rel="stylesheet" href="./signup.css">
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/css/university/member/signup.css">
 </head>
 <body>
   <div id="wrapper">
@@ -29,7 +29,7 @@
       </div>
       <nav class="gnb" role="navigation" aria-label="주 메뉴">
         <div class="container gnb__inner">
-          <a href="/" aria-label="그린대학교 홈"><img class="brand__logo" src="/images/header_logo.png" alt="그린대학교"></a>
+          <a href="/" aria-label="그린대학교 홈"><img class="brand__logo" src="${pageContext.request.contextPath}/images/header_logo.png" alt="그린대학교"></a>
           <ul class="menu__list">
             <li><a class="menu__link" href="#">대학소개</a></li>
             <li><a class="menu__link" href="#">입학안내</a></li>
@@ -47,10 +47,10 @@
       <div class="container">
         <div class="sub-nav">
           <ul>
-            <li><a href="/"><img src="/images/ico-home.png" height="15" alt="홈"></a></li>
-            <li><a href="#"><img src="/images/bg-path-arrow.png" height="10" alt=">"></a></li>
+            <li><a href="/"><img src="${pageContext.request.contextPath}/images/ico-home.png" height="15" alt="홈"></a></li>
+            <li><a href="#"><img src="${pageContext.request.contextPath}/images/bg-path-arrow.png" height="10" alt=">"></a></li>
             <li><a href="#">회원</a></li>
-            <li><a href="#"><img src="/images/bg-path-arrow.png" height="10" alt=">"></a></li>
+            <li><a href="#"><img src="${pageContext.request.contextPath}/images/bg-path-arrow.png" height="10" alt=">"></a></li>
             <li class="active"><a href="#">회원가입</a></li>
           </ul>
         </div>
@@ -158,7 +158,7 @@
       </div>
       <div class="footer__body">
         <div class="container footer__inner">
-          <img class="footer__logo" src="/images/footer_logo.png" alt="그린대학교 로고">
+          <img class="footer__logo" src="${pageContext.request.contextPath}/images/footer_logo.png" alt="그린대학교 로고">
           <div>
             <ul class="footer__info">
               <li><strong>그린대학교</strong></li>
