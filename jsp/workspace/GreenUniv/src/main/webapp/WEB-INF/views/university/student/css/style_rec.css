@@ -1,0 +1,88 @@
+
+.tablehead {
+  display: flex;
+  border-bottom: 2px solid #333;
+  font-size: 18px;
+  font-weight: 500;
+  padding-top: 22px;
+  padding-bottom: 9px;
+  color: #145074;
+  align-items: center;
+  gap: 7px;
+
+}
+
+.record-table {
+  width: 100%;
+}
+
+
+.record-table table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+
+}
+
+
+.record-table th,
+.record-table td {
+  border: 1px solid #DEDEDE;
+  padding: 8px 12px;
+  text-align: center;
+}
+
+.record-table th {
+  background-color: #F4F8FC;
+  font-weight: bold;
+}
+
+
+/* 정보표 전용(다른 표와 충돌 방지) */
+.info-table table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 16px;
+}
+
+.info-table th,
+.info-table td {
+  border: 1px solid #DEDEDE;   
+  padding: 10px 12px;
+  width: 186px;
+  height: 50px;
+
+}
+
+.info-table th {
+  background: #F4F8FC;         
+  font-weight: 600;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.info-table td {
+  background: #fff;
+  text-align: center;
+}
+
+/* 왼쪽 아바타 셀 */
+.info-table .avatar {
+  width: 186px;                 
+  height: 200px;
+  text-align: center;
+}
+.info-table .avatar img {
+  width: 90px;
+  height: 90px;
+  object-fit: cover;
+  border-radius: 50%;
+  display: inline-block;
+  opacity: .9;
+}
+
+/* 상태 색상 */
+.info-table .status-ok { color: #0a8a3a; font-weight: 600; }
+.info-table .status-stop { color: #d9534f; font-weight: 600; }   /* 휴학/제적 등 대비 */
+
+

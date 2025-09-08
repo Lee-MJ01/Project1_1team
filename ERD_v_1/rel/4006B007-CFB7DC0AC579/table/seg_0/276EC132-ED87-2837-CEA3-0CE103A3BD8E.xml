@@ -1,0 +1,82 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="276EC132-ED87-2837-CEA3-0CE103A3BD8E" name="college">
+<createdBy>GGG</createdBy>
+<createdTime>2025-09-05 06:46:40 UTC</createdTime>
+<ownerDesignName>GreenUnivERD</ownerDesignName>
+<ordsAlias>table_14</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="college_name" id="9B714AE7-1A65-B0D5-B47D-5EEE7C6652B2">
+<createdBy>GGG</createdBy>
+<createdTime>2025-09-05 06:48:38 UTC</createdTime>
+<ownerDesignName>GreenUnivERD</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 BYTE</dataTypeSize>
+<ownDataTypeParameters>20 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="college_name_en" id="8EAC4993-38A7-DBB1-5EAC-50328871F4FA">
+<createdBy>GGG</createdBy>
+<createdTime>2025-09-05 06:48:38 UTC</createdTime>
+<ownerDesignName>GreenUnivERD</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50 BYTE</dataTypeSize>
+<ownDataTypeParameters>50 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="intro_title" id="EF45235D-6993-9D39-6290-344AA81D97D7">
+<createdBy>GGG</createdBy>
+<createdTime>2025-09-05 06:48:38 UTC</createdTime>
+<ownerDesignName>GreenUnivERD</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100 BYTE</dataTypeSize>
+<ownDataTypeParameters>100 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="intro_body" id="84A3B842-A82D-F61B-B07D-EE2AD2DA139F">
+<createdBy>GGG</createdBy>
+<createdTime>2025-09-05 06:48:38 UTC</createdTime>
+<ownerDesignName>GreenUnivERD</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>200 BYTE</dataTypeSize>
+<ownDataTypeParameters>200 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="image_path" id="34681134-6BAF-D017-4D2A-109CCDD5DBDA">
+<createdBy>GGG</createdBy>
+<createdTime>2025-09-05 06:48:38 UTC</createdTime>
+<ownerDesignName>GreenUnivERD</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>255 BYTE</dataTypeSize>
+<ownDataTypeParameters>255 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="98422980-8640-C023-6818-1C6E58F0A1D2" name="college_PK">
+<createdBy>GGG</createdBy>
+<createdTime>2025-09-05 06:48:38 UTC</createdTime>
+<ownerDesignName>GreenUnivERD</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="9B714AE7-1A65-B0D5-B47D-5EEE7C6652B2"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>
