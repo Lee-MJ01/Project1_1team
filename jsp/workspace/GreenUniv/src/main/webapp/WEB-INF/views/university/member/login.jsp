@@ -49,7 +49,7 @@
             <li><a href="#"><img src="${pageContext.request.contextPath}/images/bg-path-arrow.png" height="10" alt=">"></a></li>
             <li><a href="#">회원</a></li>
             <li><a href="#"><img src="${pageContext.request.contextPath}/images/bg-path-arrow.png" height="10" alt=">"></a></li>
-            <li class="active"><a href="#">로그인</a></li>
+            <li class="active"><a href="${pageContext.request.contextPath}/university/member/login.do">로그인</a></li>
           </ul>
         </div>
       </div>
@@ -69,13 +69,21 @@
             <label><input type="radio" name="role" value="outsider"> 일반인</label>
           </div>
 
-          <!-- 아이디/비밀번호 -->
+          <!-- 25.09.09 수정 전
+          아이디/비밀번호
           <input type="text" id="uid" placeholder="아이디" required>
           <input type="password" id="pw" placeholder="비밀번호" required>
 
-          <!-- 로그인 버튼 -->
+          로그인 버튼
           <button type="submit" class="btn-login">로그인</button>
-
+          -->
+          
+          <!-- 폼 제출로 로그인 (25.09.09 천수빈 수정) -->
+          <form method="post" action="${pageContext.request.contextPath}/university/member/login.do">
+	          <input type="text" 	 id="user_id" name="user_id"  placeholder="아이디" required />
+	          <input type="password" id="pass" 	  name="pass"  placeholder="비밀번호" required />
+	          <button type="submit"  class="btn-login">로그인</button>
+		  </form>
           <!-- 링크 -->
           <div class="login-links">
             <a href="#">아이디/비밀번호 찾기</a>

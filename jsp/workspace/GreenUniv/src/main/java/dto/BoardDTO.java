@@ -1,29 +1,29 @@
 package dto;
 
 public class BoardDTO {
+	private int Number;
 	private String comm_cd;
-	private String number;
 	private String title;
 	private String writer;
 	private String w_date;
-	private String view;
-	private String star_1;
+	private int view_count;
+	private String stat_1;
 	private String division;
 	private String stat_2;
 	private String pass_yn;
 	private String pwd;
 	private String file_yn;
+	public int getNumber() {
+		return Number;
+	}
+	public void setNumber(int number) {
+		Number = number;
+	}
 	public String getComm_cd() {
 		return comm_cd;
 	}
 	public void setComm_cd(String comm_cd) {
 		this.comm_cd = comm_cd;
-	}
-	public String getNumber() {
-		return number;
-	}
-	public void setNumber(String number) {
-		this.number = number;
 	}
 	public String getTitle() {
 		return title;
@@ -43,17 +43,17 @@ public class BoardDTO {
 	public void setW_date(String w_date) {
 		this.w_date = w_date;
 	}
-	public String getView() {
-		return view;
+	public int getView_count() {
+		return view_count;
 	}
-	public void setView(String view) {
-		this.view = view;
+	public void setView_count(int view_count) {
+		this.view_count = view_count;
 	}
-	public String getStar_1() {
-		return star_1;
+	public String getStat_1() {
+		return stat_1;
 	}
-	public void setStar_1(String star_1) {
-		this.star_1 = star_1;
+	public void setStat_1(String stat_1) {
+		this.stat_1 = stat_1;
 	}
 	public String getDivision() {
 		return division;
@@ -87,12 +87,10 @@ public class BoardDTO {
 	}
 	@Override
 	public String toString() {
-		return "BoardDTO [comm_cd=" + comm_cd + ", number=" + number + ", title=" + title + ", writer=" + writer
-				+ ", w_date=" + w_date + ", view=" + view + ", star_1=" + star_1 + ", division=" + division
+		return "BoardDTO [Number=" + Number + ", comm_cd=" + comm_cd + ", title=" + title + ", writer=" + writer
+				+ ", w_date=" + w_date + ", view_count=" + view_count + ", stat_1=" + stat_1 + ", division=" + division
 				+ ", stat_2=" + stat_2 + ", pass_yn=" + pass_yn + ", pwd=" + pwd + ", file_yn=" + file_yn + "]";
 	}
-	
-
 	
 	
 
