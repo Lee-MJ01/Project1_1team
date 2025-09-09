@@ -1,7 +1,6 @@
 package dto;
 
 public class BoardDTO {
-	
 	private int Number;
 	private String comm_cd;
 	private String title;
@@ -92,7 +91,6 @@ public class BoardDTO {
 				+ ", w_date=" + w_date + ", view_count=" + view_count + ", stat_1=" + stat_1 + ", division=" + division
 				+ ", stat_2=" + stat_2 + ", pass_yn=" + pass_yn + ", pwd=" + pwd + ", file_yn=" + file_yn + "]";
 	}
-	
 	
 	
 

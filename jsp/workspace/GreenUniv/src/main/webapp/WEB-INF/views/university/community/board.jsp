@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>board</title>
-    <link rel="stylesheet" href="./css/style_boa.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/university/community/style_boa.css">
     <!-- 
         날짜 : 2025/09/05
         이름 : 이민준
@@ -138,13 +138,13 @@
                     </table>
 
                     <div class="pagination">
-                        <a href="#" class="first"><img src="/images/btn-first-page.png" alt="처음"></a>
-                        <a href="#" class="prev"><img src="/images/btn-prev-page.png" alt="이전"></a>
+                        <a href="#" class="first"><img src="${pageContext.request.contextPath}/images/btn-first-page.png" alt="처음"></a>
+                        <a href="#" class="prev"><img src="${pageContext.request.contextPath}/images/btn-prev-page.png" alt="이전"></a>
                         <a href="#" class="active">1</a>
                         <a href="#">2</a>
                         <a href="#">3</a>
-                        <a href="#" class="next"><img src="/images/btn-next-page.png" alt="다음"></a>
-                        <a href="#" class="last"><img src="/images/btn-last-page.png" alt="끝"></a>
+                        <a href="#" class="next"><img src="${pageContext.request.contextPath}/images/btn-next-page.png" alt="다음"></a>
+                        <a href="#" class="last"><img src="${pageContext.request.contextPath}/images/btn-last-page.png" alt="끝"></a>
                     </div>
                 </section>
             </div>
@@ -166,7 +166,7 @@
             <div class="footer-bottom">
                 <div class="container">
                     <div class="footer-left">
-                        <img src="/images/footer_logo.png" alt="그린대학교 로고" class="footer-logo">
+                        <img src="${pageContext.request.contextPath}/images/footer_logo.png" alt="그린대학교 로고" class="footer-logo">
                         <div class="footer-text">
                             <p>그린대학교</p>
                             <p>[12345] 부산광역시 부산진구 부전대로 123 그린대학교 / 대표전화 : 051-123-1000 /</p>

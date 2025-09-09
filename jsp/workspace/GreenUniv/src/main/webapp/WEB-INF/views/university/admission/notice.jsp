@@ -7,9 +7,9 @@
   <title>그린대학교 | 입학안내 - 공지사항</title>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;600;700&display=swap" rel="stylesheet">
   <!-- 공통 스타일 -->
-  <link rel="stylesheet" href="./common.css">
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/css/university/admission/common.css">
   <!-- 공지사항 전용 스타일 -->
-  <link rel="stylesheet" href="./notice.css">
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/css/university/admission/notice.css">
 </head>
 <body>
   <div id="wrapper">
@@ -45,10 +45,10 @@
       <div class="container">
         <div class="sub-nav">
           <ul>
-            <li><a href="/"><img src="/images/ico-home.png" height="15" alt="홈"></a></li>
-            <li><a href="#"><img src="/images/bg-path-arrow.png" height="10" alt=">"></a></li>
+            <li><a href="/"><img src="${pageContext.request.contextPath}/images/ico-home.png" height="15" alt="홈"></a></li>
+            <li><a href="#"><img src="${pageContext.request.contextPath}/images/bg-path-arrow.png" height="10" alt=">"></a></li>
             <li><a href="#">입학안내</a></li>
-            <li><a href="#"><img src="/images/bg-path-arrow.png" height="10" alt=">"></a></li>
+            <li><a href="#"><img src="${pageContext.request.contextPath}/images/bg-path-arrow.png" height="10" alt=">"></a></li>
             <li class="active"><a href="#">공지사항</a></li>
           </ul>
         </div>
@@ -101,14 +101,14 @@
             <tbody>
               <tr>
                 <td>3</td>
-                <td><img src="/images/ico-new01.gif" alt="N"> 2025학년도 신입학 3차 추가모집 모집요강 및 모집인원 공지</td>
+                <td><img src="${pageContext.request.contextPath}/images/ico-new01.gif" alt="N"> 2025학년도 신입학 3차 추가모집 모집요강 및 모집인원 공지</td>
                 <td>담당자</td>
                 <td>24.04.09</td>
                 <td>160</td>
               </tr>
               <tr>
                 <td>2</td>
-                <td><img src="/images/ico-new01.gif" alt="N"> 2025학년도 신입학 2차 추가모집 모집요강 및 모집인원 공지</td>
+                <td><img src="${pageContext.request.contextPath}/images/ico-new01.gif" alt="N"> 2025학년도 신입학 2차 추가모집 모집요강 및 모집인원 공지</td>
                 <td>담당자</td>
                 <td>24.04.09</td>
                 <td>160</td>
@@ -125,13 +125,13 @@
 
           <!-- 페이지네이션 -->
           <div class="pagination">
-            <a href="#"><img src="/images/btn-first-page.png" alt="처음"></a>
-            <a href="#"><img src="/images/btn-prev-page.png" alt="이전"></a>
+            <a href="#"><img src="${pageContext.request.contextPath}/images/btn-first-page.png" alt="처음"></a>
+            <a href="#"><img src="${pageContext.request.contextPath}/images/btn-prev-page.png" alt="이전"></a>
             <a href="#" class="active">1</a>
             <a href="#">2</a>
             <a href="#">3</a>
-            <a href="#"><img src="/images/btn-next-page.png" alt="다음"></a>
-            <a href="#"><img src="/images/btn-last-page.png" alt="끝"></a>
+            <a href="#"><img src="${pageContext.request.contextPath}/images/btn-next-page.png" alt="다음"></a>
+            <a href="#"><img src="${pageContext.request.contextPath}/images/btn-last-page.png" alt="끝"></a>
           </div>
         </section>
       </div>

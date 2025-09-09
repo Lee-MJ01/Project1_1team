@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>notice</title>
-    <link rel="stylesheet" href="./css/style_not.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/university/academics/style_not.css">
     <!-- 
         날짜 : 2025/09/01
         이름 : 천수빈
@@ -53,12 +53,12 @@
                 <div class="sub-nav">
                     <ul>
                         <li><a href="#">
-                            <img src="/images/ico-home.png" height="15"></a></li>
+                            <img src="${pageContext.request.contextPath}/images/ico-home.png" height="15"></a></li>
                         <li><a href="#">
-                            <img src="/images/bg-path-arrow.png" height="10"></a></li>
+                            <img src="${pageContext.request.contextPath}/images/bg-path-arrow.png" height="10"></a></li>
                         <li><a href="#">학사안내</a></li>
                         <li><a href="#">
-                            <img src="/images/bg-path-arrow.png" height="10"></a></li>
+                            <img src="${pageContext.request.contextPath}/images/bg-path-arrow.png" height="10"></a></li>
                         <li class="active"><a href="#">공지사항</a></li>
                     </ul>
                 </div>
@@ -110,7 +110,7 @@
                             <tr>
                                 <td>3</td>
                                 <td>
-                                    <img src="/images/ico-new01.gif" alt="N" class="icon-n">
+                                    <img src="${pageContext.request.contextPath}/images/ico-new01.gif" alt="N" class="icon-n">
                                     2025학년도 신입학 3차 추가모집 모집요강 및 모집인원 공지
                                 </td>
                                 <td>담당자</td>
@@ -120,7 +120,7 @@
                             <tr>
                                 <td>2</td>
                                 <td>
-                                    <img src="/images/ico-new01.gif" alt="N" class="icon-n">
+                                    <img src="${pageContext.request.contextPath}/images/ico-new01.gif" alt="N" class="icon-n">
                                     2025학년도 신입학 2차 추가모집 모집요강 및 모집인원 공지
                                 </td>
                                 <td>담당자</td>
@@ -140,13 +140,13 @@
                     </table>
 
                     <div class="pagination">
-                        <a href="#" class="first"><img src="/images/btn-first-page.png" alt="처음"></a>
-                        <a href="#" class="prev"><img src="/images/btn-prev-page.png" alt="이전"></a>
+                        <a href="#" class="first"><img src="${pageContext.request.contextPath}/images/btn-first-page.png" alt="처음"></a>
+                        <a href="#" class="prev"><img src="${pageContext.request.contextPath}/images/btn-prev-page.png" alt="이전"></a>
                         <a href="#" class="active">1</a>
                         <a href="#">2</a>
                         <a href="#">3</a>
-                        <a href="#" class="next"><img src="/images/btn-next-page.png" alt="다음"></a>
-                        <a href="#" class="last"><img src="/images/btn-last-page.png" alt="끝"></a>
+                        <a href="#" class="next"><img src="${pageContext.request.contextPath}/images/btn-next-page.png" alt="다음"></a>
+                        <a href="#" class="last"><img src="${pageContext.request.contextPath}/images/btn-last-page.png" alt="끝"></a>
                     </div>
                 </section>
             </div>

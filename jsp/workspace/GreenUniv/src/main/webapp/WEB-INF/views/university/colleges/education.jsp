@@ -7,9 +7,9 @@
   <title>그린대학교 | 사범대학</title>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;600;700&display=swap" rel="stylesheet">
   <!-- 공통 스타일 -->
-  <link rel="stylesheet" href="./common.css">
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/css/university/colleges/common.css">
   <!-- 전용 스타일 -->
-  <link rel="stylesheet" href="./education.css">
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/css/university/colleges/education.css">
 </head>
 <body>
   <div id="wrapper">
@@ -73,7 +73,7 @@
           <h3>사범대학</h3>
 
           <div class="college-intro">
-            <img src="./images/college-introduce-4.jpg" alt="사범대학" class="intro-img">
+            <img src="${pageContext.request.contextPath}/images/college-introduce-4.jpg" alt="사범대학" class="intro-img">
             <div class="intro-text">
               <p class="en-title">Education</p>
               <p class="ko-title">미래를 움직이는 큰 인재, 세계의 주역!</p>
@@ -97,15 +97,15 @@
               </tr>
             </thead>
             <tbody>
-              <tr><td>국어교육과 <img src="./images/ico_link.png" alt="링크"></td><td>김국어</td><td>051-123-4001</td><td></td></tr>
-              <tr><td>영어교육과 <img src="./images/ico_link.png" alt="링크"></td><td>김영어</td><td>051-123-4002</td><td></td></tr>
-              <tr><td>수학교육과 <img src="./images/ico_link.png" alt="링크"></td><td>김수학</td><td>051-123-4003</td><td></td></tr>
-              <tr><td>음악교육과 <img src="./images/ico_link.png" alt="링크"></td><td>김음악</td><td>051-123-4004</td><td></td></tr>
-              <tr><td>교육학과 <img src="./images/ico_link.png" alt="링크"></td><td>김교육</td><td>051-123-4005</td><td></td></tr>
-              <tr><td>사회교육과 <img src="./images/ico_link.png" alt="링크"></td><td>김사회</td><td>051-123-4006</td><td></td></tr>
-              <tr><td>유아교육과 <img src="./images/ico_link.png" alt="링크"></td><td>김유아</td><td>051-123-4007</td><td></td></tr>
-              <tr><td>체육교육과 <img src="./images/ico_link.png" alt="링크"></td><td>김체육</td><td>051-123-4008</td><td></td></tr>
-              <tr><td>특수교육과 <img src="./images/ico_link.png" alt="링크"></td><td>김특수</td><td>051-123-4009</td><td></td></tr>
+              <tr><td>국어교육과 <img src="${pageContext.request.contextPath}/images/ico_link.png" alt="링크"></td><td>김국어</td><td>051-123-4001</td><td></td></tr>
+              <tr><td>영어교육과 <img src="${pageContext.request.contextPath}/images/ico_link.png" alt="링크"></td><td>김영어</td><td>051-123-4002</td><td></td></tr>
+              <tr><td>수학교육과 <img src="${pageContext.request.contextPath}/images/ico_link.png" alt="링크"></td><td>김수학</td><td>051-123-4003</td><td></td></tr>
+              <tr><td>음악교육과 <img src="${pageContext.request.contextPath}/images/ico_link.png" alt="링크"></td><td>김음악</td><td>051-123-4004</td><td></td></tr>
+              <tr><td>교육학과 <img src="${pageContext.request.contextPath}/images/ico_link.png" alt="링크"></td><td>김교육</td><td>051-123-4005</td><td></td></tr>
+              <tr><td>사회교육과 <img src="${pageContext.request.contextPath}/images/ico_link.png" alt="링크"></td><td>김사회</td><td>051-123-4006</td><td></td></tr>
+              <tr><td>유아교육과 <img src="${pageContext.request.contextPath}/images/ico_link.png" alt="링크"></td><td>김유아</td><td>051-123-4007</td><td></td></tr>
+              <tr><td>체육교육과 <img src="${pageContext.request.contextPath}/images/ico_link.png" alt="링크"></td><td>김체육</td><td>051-123-4008</td><td></td></tr>
+              <tr><td>특수교육과 <img src="${pageContext.request.contextPath}/images/ico_link.png" alt="링크"></td><td>김특수</td><td>051-123-4009</td><td></td></tr>
             </tbody>
           </table>
         </section>

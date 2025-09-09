@@ -6,8 +6,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>그린대학교 | 학적  </title>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="./css/common.css">
-<link rel="stylesheet" href="./css/style_rec.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/university/student/common.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/university/student/style_rec.css">
 
 </head>
 <body>
@@ -77,7 +77,7 @@
           <tr>
             <!-- 왼쪽 프로필 셀: 전체 4행 합침 -->
             <td class="avatar" rowspan="4">
-              <img src="/images/icon-avatar.png" alt="프로필 사진">
+              <img src="${pageContext.request.contextPath}/images/icon-avatar.png" alt="프로필 사진">
             </td>
 
             <th>학번</th>
@@ -109,7 +109,7 @@
 
     
     <div class="tablehead">
-      <img src="/images/bullet-h4.png" >
+      <img src="${pageContext.request.contextPath}/images/bullet-h4.png" >
       취득학점현황
     </div>
     <div class="record-table">
@@ -143,7 +143,7 @@
     </div>
 
     <div class="tablehead">
-      <img src="/images/bullet-h4.png" >
+      <img src="${pageContext.request.contextPath}/images/bullet-h4.png" >
       년도/학기별 취득학점현황
     </div>
     <div class="record-table">

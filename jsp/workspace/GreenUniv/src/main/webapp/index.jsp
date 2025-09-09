@@ -1,4 +1,7 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="jakarta.tags.core" %>
+<%@ taglib prefix="fmt" uri="jakarta.tags.fmt" %>
+<%@ taglib prefix="fn" uri="jakarta.tags.functions" %>
 <%@ page isELIgnored="false" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -19,21 +22,21 @@
         <ul class="topbar__list">
           <li class="topbar__item"><a href="#">HOME</a></li>
           <li class="topbar__item"><a href="#">사이트맵</a></li>
-          <li class="topbar__item"><a href="./member/login.do">로그인</a></li>
-          <li class="topbar__item"><a href="#">학사지원</a></li>
+          <li class="topbar__item"><a href="${pageContext.request.contextPath}/member/login.do">로그인</a></li>
+          <li class="topbar__item"><a href="./student/registration.do">학사지원</a></li>
         </ul>
       </div>
     </div>
     <nav class="gnb" role="navigation" aria-label="주 메뉴">
         <div class="container gnb__inner">
-            <a href="/" aria-label="그린대학교 홈"><img class="brand__logo" src="${pageContext.request.contextPath}/images/header_logo.png" alt="그린대학교"></a>
+            <a href="#" aria-label="그린대학교 홈"><img class="brand__logo" src="${pageContext.request.contextPath}/images/header_logo.png" alt="그린대학교"></a>
             <ul class="menu__list">
-                <li><a class="menu__link" href="#">대학소개</a></li>
-                <li><a class="menu__link" href="#">입학안내</a></li>
-                <li><a class="menu__link" href="#">대학·대학원</a></li>
-                <li><a class="menu__link" href="#">학사안내</a></li>
-                <li><a class="menu__link" href="#">대학생활</a></li>
-                <li><a class="menu__link" href="#">커뮤니티</a></li>
+                <li><a class="menu__link" href="${pageContext.request.contextPath}/about/president.do">대학소개</a></li>
+                <li><a class="menu__link" href="${pageContext.request.contextPath}/admission/notice.do">입학안내</a></li>
+                <li><a class="menu__link" href="${pageContext.request.contextPath}/colleges/humanities.do">대학·대학원</a></li>
+                <li><a class="menu__link" href="${pageContext.request.contextPath}/academics/notice.do">학사안내</a></li>
+                <li><a class="menu__link" href="${pageContext.request.contextPath}/campuslife/student-union.do">대학생활</a></li>
+                <li><a class="menu__link" href="${pageContext.request.contextPath}/community/notice.do">커뮤니티</a></li>
             </ul>
         </div>
         <div class="submenu">
@@ -41,52 +44,52 @@
                 <ul class="submenuList">
                     <ul class="submenuDetail">
                         <li class="submenu-title">대학소개</li>
-                        <li><a href="">총장 인사말</a></li>
-                        <li><a href="">교육이념</a></li>
-                        <li><a href="">연혁</a></li>
-                        <li><a href="">조직도</a></li>
-                        <li><a href="">오시는길</a></li>
+                        <li><a href="${pageContext.request.contextPath}/about/president.do">총장 인사말</a></li>
+                        <li><a href="${pageContext.request.contextPath}/about/philosophy.do">교육이념</a></li>
+                        <li><a href="${pageContext.request.contextPath}/about/history.do">연혁</a></li>
+                        <li><a href="${pageContext.request.contextPath}/about/organization.do">조직도</a></li>
+                        <li><a href="${pageContext.request.contextPath}/about/directions.do">오시는길</a></li>
                     </ul>
                     <ul class="submenuDetail">
                         <li class="submenu-title">입학안내</li>
-                        <li><a href="">공지사항</a></li>
-                        <li><a href="">수시모집</a></li>
-                        <li><a href="">정시모집</a></li>
-                        <li><a href="">편입학</a></li>
-                        <li><a href="">입학상담</a></li>
+                        <li><a href="${pageContext.request.contextPath}/admission/notice.do">공지사항</a></li>
+                        <li><a href="${pageContext.request.contextPath}/admission/early.do">수시모집</a></li>
+                        <li><a href="${pageContext.request.contextPath}/admission/regular.do">정시모집</a></li>
+                        <li><a href="${pageContext.request.contextPath}/admission/transfer.do">편입학</a></li>
+                        <li><a href="${pageContext.request.contextPath}/admission/counseling.do">입학상담</a></li>
                     </ul>
                     <ul class="submenuDetail">
                         <li class="submenu-title">대학·대학원</li>
-                        <li><a href="">인문사회대학</a></li>
-                        <li><a href="">자연과학대학</a></li>
-                        <li><a href="">공과대학</a></li>
-                        <li><a href="">사범대학</a></li>
-                        <li><a href="">대학원</a></li>
+                        <li><a href="${pageContext.request.contextPath}/colleges/humanities.do">인문사회대학</a></li>
+                        <li><a href="${pageContext.request.contextPath}/colleges/science.do">자연과학대학</a></li>
+                        <li><a href="${pageContext.request.contextPath}/colleges/engineering.do">공과대학</a></li>
+                        <li><a href="${pageContext.request.contextPath}/colleges/education.do">사범대학</a></li>
+                        <li><a href="${pageContext.request.contextPath}/colleges/graduate.do">대학원</a></li>
                     </ul>
                     <ul class="submenuDetail">
                         <li class="submenu-title">학사안내</li>
-                        <li><a href="">공지사항</a></li>
-                        <li><a href="">학사일정</a></li>
-                        <li><a href="">수강신청</a></li>
-                        <li><a href="">성적</a></li>
-                        <li><a href="">수료 및 졸업</a></li>
-                        <li><a href="">자주묻는질문</a></li>
+                        <li><a href="${pageContext.request.contextPath}/academics/notice.do">공지사항</a></li>
+                        <li><a href="${pageContext.request.contextPath}/academics/calendar.do">학사일정</a></li>
+                        <li><a href="${pageContext.request.contextPath}/academics/registration.do">수강신청</a></li>
+                        <li><a href="${pageContext.request.contextPath}/academics/grades.do">성적</a></li>
+                        <li><a href="${pageContext.request.contextPath}/academics/graduation.do">수료 및 졸업</a></li>
+                        <li><a href="${pageContext.request.contextPath}/academics/faq.do">자주묻는질문</a></li>
                     </ul>
                     <ul class="submenuDetail">
                         <li class="submenu-title">대학생활</li>
-                        <li><a href="">학생회소개</a></li>
-                        <li><a href="">동아리/스터디</a></li>
-                        <li><a href="">식단안내</a></li>
-                        <li><a href="">갤러리</a></li>
+                        <li><a href="${pageContext.request.contextPath}/campuslife/student-union.do"">학생회소개</a></li>
+                        <li><a href="${pageContext.request.contextPath}/campuslife/clubs.do"">동아리/스터디</a></li>
+                        <li><a href="${pageContext.request.contextPath}/campuslife/cafeteria.do"">식단안내</a></li>
+                        <li><a href="${pageContext.request.contextPath}/campuslife/gallery.do"">갤러리</a></li>
                     </ul>
                     <ul class="submenuDetail">
                         <li class="submenu-title">커뮤니티</li>
-                        <li><a href="">공지사항</a></li>
-                        <li><a href="">뉴스 및 칼럼</a></li>
-                        <li><a href="">취업정보</a></li>
-                        <li><a href="">자유게시판</a></li>
-                        <li><a href="">질문과 답변</a></li>
-                        <li><a href="">자료실</a></li>
+                        <li><a href="${pageContext.request.contextPath}/community/notice.do">공지사항</a></li>
+                        <li><a href="${pageContext.request.contextPath}/community/news.do">뉴스 및 칼럼</a></li>
+                        <li><a href="${pageContext.request.contextPath}/community/jobs.do">취업정보</a></li>
+                        <li><a href="${pageContext.request.contextPath}/community/board.do">자유게시판</a></li>
+                        <li><a href="${pageContext.request.contextPath}/community/qna.do">질문과 답변</a></li>
+                        <li><a href="${pageContext.request.contextPath}/community/resources.do">자료실</a></li>
                     </ul>
                 </ul>
             </div>
@@ -103,11 +106,11 @@
                 <p>급변하는 컴퓨터 기술의 발전에 선도적으로 참여하고 컴퓨터의 활용을 통하여 미래를 만들어 나갈 수 있는 인력을 배양</p>
                 
                 <div id="main-pagemove">
-                    <img src="${pageContext.request.contextPath}/images/btn-prev01.png" alt="전페이지" id="prev-page">
-                    <img src="${pageContext.request.contextPath}/images/btn-next01.png" alt="다음페이지" id="next-page">
+                    <a href="#"><img src="${pageContext.request.contextPath}/images/btn-prev01.png" alt="전페이지" id="prev-page"></a>
+                    <a href="#"><img src="${pageContext.request.contextPath}/images/btn-next01.png" alt="다음페이지" id="next-page"></a>
                 </div>
                 <div id="main-departmentIntro">
-                    <span><a href="/university/about/president.html">학과소개 바로가기</a></span>
+                    <span><a href="${pageContext.request.contextPath}/colleges/humanities.do">학과소개 바로가기</a></span>
                     <span><img src="${pageContext.request.contextPath}/images/bg-link-arr.png" alt=""></span>
                 </div>
                 <div id="slide">
@@ -120,66 +123,53 @@
                 <div id="box-left">
                     <div>
                         <h3>학사안내</h3>
-                        <a href="/university/academics/notice.html">
+                        <a href="${pageContext.request.contextPath}/academics/notice.do">
                             <img src="${pageContext.request.contextPath}/images/bg-viewmore01.png" alt="">
                         </a>
                         <hr>
                         <ul>
-                            <li>
-                                <span>교과목 폐지 및 신설 안내</span>
-                                <span><img src="${pageContext.request.contextPath}/images/ico-new01.gif" alt=""></span>
-                                <span class="box-left-date">2025.09.01</span>
-                            </li>
-                            <li>
-                                <span>2019-2학기 진로취업 프로그램 설계를 위한 학생 대상...</span>
-                                <span><img src="${pageContext.request.contextPath}/images/ico-new01.gif" alt=""></span>
-                                <span class="box-left-date">2025.09.01</span>
-                            </li>
-                            <li>
-                                <span>제8회 KNDA 학술논문상 공모</span>
-                                <span class="box-left-date">2025.09.01</span>
-                            </li>
-                            <li>
-                                <span>대학 진로취업지원 현황 조사 안내</span>
-                                <span class="box-left-date">2025.09.01</span>
-                            </li>
-                            <li>
-                                <span>[진로취업특강] 유망직무 전문가 초청 특강, 여대생 커...</span>
-                                <span class="box-left-date">2025.09.01</span>
-                            </li>
-                        </ul>
+						    <jsp:useBean id="now" class="java.util.Date" />
+						    <fmt:formatDate value="${now}" pattern="yyyy-MM-dd" var="today" />
+						
+						    <c:forEach var="notice" items="${dtoAcademicsList}" varStatus="loop">
+						        <a href="${pageContext.request.contextPath}/academics/notice.do">
+						            <li>
+						                <span>${notice.title}</span>
+						                <span>
+						                    <c:if test="${fn:startsWith(notice.w_date, today)}">
+						                        <img src="${pageContext.request.contextPath}/images/ico-new01.gif" alt="new">
+						                    </c:if>
+						                </span>
+						                
+						                <span class="box-left-date">${fn:substring(notice.w_date, 0, 10)}</span>
+						            </li>
+						        </a>
+						    </c:forEach>
+						</ul>
                     </div>
                 </div>
                 <div id="box-right">
                     <div>
                         <h3>공지사항</h3>
-                        <a href="/university/academics/notice.html">
+                        <a href="${pageContext.request.contextPath}/academics/notice.do"">
                             <img src="${pageContext.request.contextPath}/images/bg-viewmore02.png" alt="">
                         </a>
                         <hr>
                         <ul>
-                            <li>
-                                <span>교과목 폐지 및 신설 안내</span>
-                                <span><img src="${pageContext.request.contextPath}/images/ico-new02.gif" alt=""></span>
-                                <span class="box-left-date">2025.09.01</span>
-                            </li>
-                            <li>
-                                <span>2019-2학기 진로취업 프로그램 설계를 위한 학생 대상...</span>
-                                <span><img src="${pageContext.request.contextPath}/images/ico-new02.gif" alt=""></span>
-                                <span class="box-left-date">2025.09.01</span>
-                            </li>
-                            <li>
-                                <span>제8회 KNDA 학술논문상 공모</span>
-                                <span class="box-left-date">2025.09.01</span>
-                            </li>
-                            <li>
-                                <span>대학 진로취업지원 현황 조사 안내</span>
-                                <span class="box-left-date">2025.09.01</span>
-                            </li>
-                            <li>
-                                <span>[진로취업특강] 유망직무 전문가 초청 특강, 여대생 커...</span>
-                                <span class="box-left-date">2025.09.01</span>
-                            </li>
+                        	<c:forEach var="notice" items="${dtoCommunityList}" varStatus="loop">
+						        <a href="${pageContext.request.contextPath}/academics/notice.do">
+						            <li>
+						                <span>${notice.title}</span>
+						                <span>
+						                    <c:if test="${fn:startsWith(notice.w_date, today)}">
+						                        <img src="${pageContext.request.contextPath}/images/ico-new02.gif" alt="new">
+						                    </c:if>
+						                </span>
+						                
+						                <span class="box-left-date">${fn:substring(notice.w_date, 0, 10)}</span>
+						            </li>
+						        </a>
+						    </c:forEach>
                         </ul>
                     </div>
                 </div>

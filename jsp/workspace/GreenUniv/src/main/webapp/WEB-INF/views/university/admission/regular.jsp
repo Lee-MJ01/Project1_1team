@@ -7,9 +7,9 @@
   <title>그린대학교 | 정시모집</title>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;600;700&display=swap" rel="stylesheet">
   <!-- 공통 스타일 -->
-  <link rel="stylesheet" href="./common.css">
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/css/university/admission/common.css">
   <!-- 정시모집 전용 스타일 -->
-  <link rel="stylesheet" href="./regular.css">
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/css/university/admission/regular.css">
 </head>
 <body>
   <div id="wrapper">
@@ -45,10 +45,10 @@
       <div class="container">
         <div class="sub-nav">
           <ul>
-            <li><a href="/"><img src="/images/ico-home.png" height="15" alt="홈"></a></li>
-            <li><a href="#"><img src="/images/bg-path-arrow.png" height="10" alt=">"></a></li>
+            <li><a href="/"><img src="${pageContext.request.contextPath}/images/ico-home.png" height="15" alt="홈"></a></li>
+            <li><a href="#"><img src="${pageContext.request.contextPath}/images/bg-path-arrow.png" height="10" alt=">"></a></li>
             <li><a href="#">입학안내</a></li>
-            <li><a href="#"><img src="/images/bg-path-arrow.png" height="10" alt=">"></a></li>
+            <li><a href="#"><img src="${pageContext.request.contextPath}/images/bg-path-arrow.png" height="10" alt=">"></a></li>
             <li class="active"><a href="#">정시모집</a></li>
           </ul>
         </div>

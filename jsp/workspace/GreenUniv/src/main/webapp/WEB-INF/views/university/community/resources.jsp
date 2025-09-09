@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>resources</title>
-    <link rel="stylesheet" href="./css/style_res.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/university/community/style_res.css">
     <!-- 
         날짜 : 2025/09/05
         이름 : 이민준
@@ -110,7 +110,7 @@
                             <tr>
                                 <td>3</td>
                                 <td>
-                                    <img src="/images/ico-file01.png" alt="file" class="icon-file">
+                                    <img src="${pageContext.request.contextPath}/images/ico-file01.png" alt="file" class="icon-file">
                                     교원자격증 재교부 및 기재사항 정정신청 안내(서식)
                                 </td>
                                 <td>학사관리과</td>
@@ -120,7 +120,7 @@
                             <tr>
                                 <td>2</td>
                                 <td>
-                                    <img src="/images/ico-file01.png" alt="file" class="icon-file">
+                                    <img src="${pageContext.request.contextPath}/images/ico-file01.png" alt="file" class="icon-file">
                                     2025 융합인재학부 오리엔테이션 자료
                                 </td>
                                 <td>융합인재학부</td>
@@ -130,7 +130,7 @@
                             <tr>
                                 <td>1</td>
                                 <td>
-                                    <img src="/images/ico-file01.png" alt="file" class="icon-file">
+                                    <img src="${pageContext.request.contextPath}/images/ico-file01.png" alt="file" class="icon-file">
                                     2022년 2월 8일 면접 전략 특강 강의 자료
                                 </td>
                                 <td>취업지원실</td>

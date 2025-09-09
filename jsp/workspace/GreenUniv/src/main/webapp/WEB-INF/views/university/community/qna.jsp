@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>qna</title>
-    <link rel="stylesheet" href="./css/style_qna.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/university/community/style_qna.css">
     <!-- 
         날짜 : 2025/09/05
         이름 : 이민준
@@ -110,7 +110,7 @@
                             <tr>
                                 <td>5</td>
                                 <td>
-                                    <img src="/images/ico-lock.png" alt="비밀글" class="icon-lock">
+                                    <img src="${pageContext.request.contextPath}/images/ico-lock.png" alt="비밀글" class="icon-lock">
                                     문의드립니다.
                                 </td>
                                 <td>홍길동</td>
@@ -129,7 +129,7 @@
                             <tr class="reply">
                                 <td>3</td>
                                 <td>
-                                    <img src="/images/ico-reply.png" alt="답변" class="icon-reply">
+                                    <img src="${pageContext.request.contextPath}/images/ico-reply.png" alt="답변" class="icon-reply">
                                     RE : [답변] 취업 진로 상담
                                 </td>
                                 <td>담당자</td>
@@ -140,7 +140,7 @@
                             <tr>
                                 <td>2</td>
                                 <td>
-                                    <img src="/images/ico-lock.png" alt="비밀글" class="icon-lock">
+                                    <img src="${pageContext.request.contextPath}/images/ico-lock.png" alt="비밀글" class="icon-lock">
                                     취업실전전략1 일반선택 교과목 문의입니다
                                 </td>
                                 <td>홍길동</td>
@@ -151,7 +151,7 @@
                             <tr class="reply">
                                 <td>1</td>
                                 <td>
-                                    <img src="/images/ico-reply.png" alt="답변" class="icon-reply">
+                                    <img src="${pageContext.request.contextPath}/images/ico-reply.png" alt="답변" class="icon-reply">
                                     RE : [답변] 취업실전전략1 일반선택 교과목 문의입니다
                                 </td>
                                 <td>담당자</td>

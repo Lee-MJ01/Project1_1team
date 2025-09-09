@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>jobs</title>
-    <link rel="stylesheet" href="./css/style_job.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/university/community/style_job.css">
     <!-- 
         날짜 : 2025/09/05
         이름 : 이민준
@@ -31,7 +31,7 @@
                 <div class="container">
                     <div class="logo">
                         <a href="#">
-                            <img src="/images/header_logo.png" width="196" alt="그린대학교 로고">
+                            <img src="${pageContext.request.contextPath}/images/header_logo.png" width="196" alt="그린대학교 로고">
                         </a>
                     </div>
                     <nav class="main-nav">
@@ -150,13 +150,13 @@
                     </table>
 
                     <div class="pagination">
-                        <a href="#" class="first"><img src="/images/btn-first-page.png" alt="처음"></a>
-                        <a href="#" class="prev"><img src="/images/btn-prev-page.png" alt="이전"></a>
+                        <a href="#" class="first"><img src="${pageContext.request.contextPath}/images/btn-first-page.png" alt="처음"></a>
+                        <a href="#" class="prev"><img src="${pageContext.request.contextPath}/images/btn-prev-page.png" alt="이전"></a>
                         <a href="#" class="active">1</a>
                         <a href="#">2</a>
                         <a href="#">3</a>
-                        <a href="#" class="next"><img src="/images/btn-next-page.png" alt="다음"></a>
-                        <a href="#" class="last"><img src="/images/btn-last-page.png" alt="끝"></a>
+                        <a href="#" class="next"><img src="${pageContext.request.contextPath}/images/btn-next-page.png" alt="다음"></a>
+                        <a href="#" class="last"><img src="${pageContext.request.contextPath}/images/btn-last-page.png" alt="끝"></a>
                     </div>
                 </section>
             </div>
