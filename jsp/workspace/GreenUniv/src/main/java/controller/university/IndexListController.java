@@ -13,7 +13,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import service.BoardService;
 
-@WebServlet("/university/index.do")
+@WebServlet("")
 public class IndexListController extends HttpServlet {
 	private static final long serialVersionUID = 7217574776731435299L;
 	
@@ -26,6 +26,9 @@ public class IndexListController extends HttpServlet {
 		
 		List<BoardDTO> dtoCommunityList = serviceBoard.IndexCommunityfindAll();
 		req.setAttribute("dtoCommunityList", dtoCommunityList);
+		
+		List<BoardDTO> dtoCommuNewsList = serviceBoard.IndexCommuNewsfindAll();
+		req.setAttribute("dtoCommuNewsList", dtoCommuNewsList);
 		
 		RequestDispatcher dipatcher = req.getRequestDispatcher("/index.jsp");
 		dipatcher.forward(req, resp);
