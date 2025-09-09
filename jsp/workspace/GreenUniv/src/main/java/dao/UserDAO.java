@@ -9,8 +9,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import dto.UserDTO;
-import greenuniv.util.DBHelper;
-import greenuniv.util.Sql;
+import util.DBHelper;
+import util.Sql;
 
 public class UserDAO extends DBHelper {
 	

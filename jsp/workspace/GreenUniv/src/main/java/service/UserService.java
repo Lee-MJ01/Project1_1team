@@ -14,7 +14,7 @@ import javax.mail.internet.MimeMessage;
 
 import dao.UserDAO;
 import dto.UserDTO;
-import greenuniv.util.ResultCode;
+import util.ResultCode;
 
 public enum UserService {
 	
