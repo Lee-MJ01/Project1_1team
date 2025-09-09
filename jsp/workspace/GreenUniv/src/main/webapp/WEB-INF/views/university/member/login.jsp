@@ -84,7 +84,6 @@
 	          <input type="password" id="pass" 	  name="pass"  placeholder="비밀번호" required />
 	          <button type="submit"  class="btn-login">로그인</button>
 		  </form>
-		  
           <!-- 링크 -->
           <div class="login-links">
             <a href="#">아이디/비밀번호 찾기</a>
