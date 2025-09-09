@@ -13,7 +13,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
-@WebFilter(urlPatterns = {"/professor/*", "/admin/*"})
+@WebFilter(urlPatterns = {"/professor/*", "/user_role/*"})
 public class AuthFilter implements Filter {
 	
 	@Override

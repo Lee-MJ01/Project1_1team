@@ -1,0 +1,40 @@
+
+.tablehead {
+  display: flex;
+  border-bottom: 2px solid #333;
+  font-size: 18px;
+  font-weight: 500;
+  padding-top: 22px;
+  padding-bottom: 9px;
+  color: #145074;
+  align-items: center;
+  gap: 7px;
+
+}
+
+.subject-table {
+  width: 100%;
+}
+
+
+.subject-table table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+
+}
+
+
+.subject-table th,
+.subject-table td {
+  border: 1px solid #DEDEDE;
+  padding: 8px 12px;
+  text-align: center;
+}
+
+.subject-table th {
+  background-color: #F4F8FC;
+  font-weight: bold;
+}
+
+
