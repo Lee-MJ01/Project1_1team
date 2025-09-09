@@ -9,7 +9,7 @@ public class UserDTO {
 	private String email;
 	private String addr1;
 	private String addr2;
-	private boolean admin;
+	private String user_role;
 	
 	public String getUser_id() {
 		return user_id;
@@ -53,16 +53,17 @@ public class UserDTO {
 	public void setAddr2(String addr2) {
 		this.addr2 = addr2;
 	}
-	public boolean isAdmin() {
-		return admin;
+	public String getUser_role() {
+		return user_role;
 	}
-	public void setAdmin(boolean admin) {
-		this.admin = admin;
+	public void setUser_role(String user_role) {
+		this.user_role = user_role;
 	}
 	
 	@Override
 	public String toString() {
 		return "UserDTO [user_id=" + user_id + ", pass=" + pass + ", user_name=" + user_name + ", hp=" + hp + ", email="
-				+ email + ", addr1=" + addr1 + ", addr2=" + addr2 + ", admin=" + admin + "]";
+				+ email + ", addr1=" + addr1 + ", addr2=" + addr2 + ", user_role=" + user_role + "]";
 	}
 }
+	

@@ -101,9 +101,6 @@ public class Sql {
 	public static final String SELECT_STUDENT_ALL_SIMPLE =
 	  "SELECT std_id, name, resident_number, phone, email, dept_id, entrygrade, entryterm, status " +
 	  "FROM student ORDER BY std_id DESC";
-
-
-	
 	//Department --서현우
 	//학과등록
 	public static final String INSERT_DEPARTMENT= "INSERT INTO department (college_name, dept_name, dept_name_en, established, chair_name, dept_phone, dept_office) VALUES (?,?,?,?,?,?,?)";
