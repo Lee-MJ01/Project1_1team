@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>clubs</title>
-    <link rel="stylesheet" href="./css/style_club.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/university/campuslife/style_club.css">
     <!-- 
         날짜 : 2025/09/04
         이름 : 천수빈
@@ -52,12 +52,12 @@
                 <div class="sub-nav">
                     <ul>
                         <li><a href="#">
-                            <img src="/images/ico-home.png" height="15"></a></li>
+                            <img src="${pageContext.request.contextPath}/images/ico-home.png" height="15"></a></li>
                         <li><a href="#">
-                            <img src="/images/bg-path-arrow.png" height="10"></a></li>
+                            <img src="${pageContext.request.contextPath}/images/bg-path-arrow.png" height="10"></a></li>
                         <li><a href="#">대학생활</a></li>
                         <li><a href="#">
-                            <img src="/images/bg-path-arrow.png" height="10"></a></li>
+                            <img src="${pageContext.request.contextPath}/images/bg-path-arrow.png" height="10"></a></li>
                         <li class="active"><a href="#">동아리/스터디</a></li>
                     </ul>
                 </div>
@@ -85,7 +85,7 @@
                         <div class="club-list">
                             <div class="club-card">
                                 <a href="#">
-                                    <img src="/images/clubs_img1.png" alt="동아리1">
+                                    <img src="${pageContext.request.contextPath}/images/clubs_img1.png" alt="동아리1">
                                     <p class="club-genre">코딩 동아리</p>
                                     <p class="club-name">너어무 쉬운 코딩</p>
                                 </a>
@@ -93,7 +93,7 @@
 
                             <div class="club-card">
                                 <a href="#">
-                                    <img src="/images/clubs_img2.png" alt="동아리2">
+                                    <img src="${pageContext.request.contextPath}/images/clubs_img2.png" alt="동아리2">
                                     <p class="club-genre">독서 동아리</p>
                                     <p class="club-name">책않일그면이러케되</p>
                                 </a>
@@ -101,7 +101,7 @@
 
                             <div class="club-card">
                                 <a href="#">
-                                    <img src="/images/clubs_img3.png" alt="동아리3">
+                                    <img src="${pageContext.request.contextPath}/images/clubs_img3.png" alt="동아리3">
                                     <p class="club-genre">맛집탐방 동아리</p>
                                     <p class="club-name">오늘도뚠뚠</p>
                                 </a>
@@ -109,7 +109,7 @@
 
                             <div class="club-card">
                                 <a href="#">
-                                    <img src="/images/clubs_img4.png" alt="동아리4">
+                                    <img src="${pageContext.request.contextPath}/images/clubs_img4.png" alt="동아리4">
                                     <p class="club-genre">등산 동아리</p>
                                     <p class="club-name">산책하자며</p>
                                 </a>
@@ -117,7 +117,7 @@
 
                             <div class="club-card">
                                 <a href="#">
-                                    <img src="/images/clubs_img5.png" alt="동아리5">
+                                    <img src="${pageContext.request.contextPath}/images/clubs_img5.png" alt="동아리5">
                                     <p class="club-genre">여행 동아리</p>
                                     <p class="club-name">이야날씨쥑인다</p>
                                 </a>
@@ -184,13 +184,13 @@
                         <p class="table-note">※ 동아리/스터디 게시판은 학생회원 이상 글쓰기 가능합니다.</p>
 
                         <div class="pagination">
-                        <a href="#" class="first"><img src="/images/btn-first-page.png" alt="처음"></a>
-                        <a href="#" class="prev"><img src="/images/btn-prev-page.png" alt="이전"></a>
+                        <a href="#" class="first"><img src="${pageContext.request.contextPath}/images/btn-first-page.png" alt="처음"></a>
+                        <a href="#" class="prev"><img src="${pageContext.request.contextPath}/images/btn-prev-page.png" alt="이전"></a>
                         <a href="#" class="active">1</a>
                         <a href="#">2</a>
                         <a href="#">3</a>
-                        <a href="#" class="next"><img src="/images/btn-next-page.png" alt="다음"></a>
-                        <a href="#" class="last"><img src="/images/btn-last-page.png" alt="끝"></a>
+                        <a href="#" class="next"><img src="${pageContext.request.contextPath}/images/btn-next-page.png" alt="다음"></a>
+                        <a href="#" class="last"><img src="${pageContext.request.contextPath}/images/btn-last-page.png" alt="끝"></a>
                     </div>
                 </section>
             </div>

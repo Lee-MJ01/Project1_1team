@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>student-union</title>
-    <link rel="stylesheet" href="./css/style_stu.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/university/campuslife/style_stu.css">
     <!-- 
         날짜 : 2025/09/04
         이름 : 천수빈
@@ -52,12 +52,12 @@
                 <div class="sub-nav">
                     <ul>
                         <li><a href="#">
-                            <img src="/images/ico-home.png" height="15"></a></li>
+                            <img src="${pageContext.request.contextPath}/images/ico-home.png" height="15"></a></li>
                         <li><a href="#">
-                            <img src="/images/bg-path-arrow.png" height="10"></a></li>
+                            <img src="${pageContext.request.contextPath}/images/bg-path-arrow.png" height="10"></a></li>
                         <li><a href="#">대학생활</a></li>
                         <li><a href="#">
-                            <img src="/images/bg-path-arrow.png" height="10"></a></li>
+                            <img src="${pageContext.request.contextPath}/images/bg-path-arrow.png" height="10"></a></li>
                         <li class="active"><a href="#">학생회 소개</a></li>
                     </ul>
                 </div>
@@ -80,7 +80,7 @@
                     <h3>학생회 소개</h3>
 
                     <div class="union-main">
-                        <img src="/images/grub_img.png" alt="그린대학교 총학생회 이미지" width="900" height="400">
+                        <img src="${pageContext.request.contextPath}/images/grub_img.png" alt="그린대학교 총학생회 이미지" width="900" height="400">
 
                         <div class="union-box">
                             <h3>제2대<br>그린대학교 총학생회 GRUB</h3>
@@ -91,7 +91,7 @@
                     </div>
 
                     <div class="union-info">
-                        <img src="/images/header_logo.png" alt="GRUB 백그라운드" class="logo-bg">
+                        <img src="${pageContext.request.contextPath}/images/header_logo.png" alt="GRUB 백그라운드" class="logo-bg">
                         <p class="info-strong">“Groove into the Future, Together with GRUB!”</p><br>
                         <p class="info-text">
                             안녕하세요. 그린대학교 부산캠퍼스 총학생회 GRUB(Green University Busan) 입니다.<br>

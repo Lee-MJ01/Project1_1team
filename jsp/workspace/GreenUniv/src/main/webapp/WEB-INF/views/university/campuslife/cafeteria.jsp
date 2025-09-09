@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>cafeteria</title>
-    <link rel="stylesheet" href="./css/style_cafe.css">
-    <link rel="stylesheet" href="./css/xeicon.min.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/university/campuslife/style_cafe.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/university/campuslife/css/xeicon.min.css">
     <!-- 
         날짜 : 2025/09/04
         이름 : 천수빈
@@ -31,7 +31,7 @@
                 <div class="container">
                     <div class="logo">
                         <a href="#">
-                            <img src="/images/header_logo.png" width="196" alt="그린대학교 로고">
+                            <img src="${pageContext.request.contextPath}/images/header_logo.png" width="196" alt="그린대학교 로고">
                         </a>
                     </div>
                     <nav class="main-nav">
@@ -53,12 +53,12 @@
                 <div class="sub-nav">
                     <ul>
                         <li><a href="#">
-                            <img src="/images/ico-home.png" height="15"></a></li>
+                            <img src="${pageContext.request.contextPath}/images/ico-home.png" height="15"></a></li>
                         <li><a href="#">
-                            <img src="/images/bg-path-arrow.png" height="10"></a></li>
+                            <img src="${pageContext.request.contextPath}/images/bg-path-arrow.png" height="10"></a></li>
                         <li><a href="#">대학생활</a></li>
                         <li><a href="#">
-                            <img src="/images/bg-path-arrow.png" height="10"></a></li>
+                            <img src="${pageContext.request.contextPath}/images/bg-path-arrow.png" height="10"></a></li>
                         <li class="active"><a href="#">식단안내</a></li>
                     </ul>
                 </div>
@@ -195,7 +195,7 @@
             <div class="footer-bottom">
                 <div class="container">
                     <div class="footer-left">
-                        <img src="/images/footer_logo.png" alt="그린대학교 로고" class="footer-logo">
+                        <img src="${pageContext.request.contextPath}/images/footer_logo.png" alt="그린대학교 로고" class="footer-logo">
                         <div class="footer-text">
                             <p>그린대학교</p>
                             <p>[12345] 부산광역시 부산진구 부전대로 123 그린대학교 / 대표전화 : 051-123-1000 /</p>

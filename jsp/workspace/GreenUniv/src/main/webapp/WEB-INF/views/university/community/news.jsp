@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>news</title>
-    <link rel="stylesheet" href="./css/style_news.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/university/community/style_news.css">
     <!-- 
         날짜 : 2025/09/05
         이름 : 이민준

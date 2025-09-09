@@ -7,9 +7,9 @@
   <title>그린대학교 | 대학원</title>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;600;700&display=swap" rel="stylesheet">
   <!-- 공통 스타일 -->
-  <link rel="stylesheet" href="./common.css">
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/css/university/colleges/common.css">
   <!-- 전용 스타일 -->
-  <link rel="stylesheet" href="./graduate.css">
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/css/university/colleges/graduate.css">
 </head>
 <body>
   <div id="wrapper">
@@ -73,7 +73,7 @@
           <h3>대학원</h3>
 
           <div class="college-intro">
-            <img src="./images/college-introduce-5.jpg" alt="대학원" class="intro-img">
+            <img src="${pageContext.request.contextPath}/images/college-introduce-5.jpg" alt="대학원" class="intro-img">
             <div class="intro-text">
               <p class="en-title">GRADUATE SCHOOL</p>
               <p class="ko-title">학문의 이론과 응용방법을 한층 더 심오하게 연구, 교수 및 지도자적 인격을 도야하고 창의력을 함양</p>
@@ -99,11 +99,11 @@
               </tr>
             </thead>
             <tbody>
-              <tr><td>경영대학원 <img src="./images/ico_link.png" alt="링크"></td><td>김경영</td><td>051-123-5001</td><td></td></tr>
-              <tr><td>컴퓨터대학원 <img src="./images/ico_link.png" alt="링크"></td><td>김컴퓨터</td><td>051-123-5002</td><td></td></tr>
-              <tr><td>행정대학원 <img src="./images/ico_link.png" alt="링크"></td><td>김행정</td><td>051-123-5003</td><td></td></tr>
-              <tr><td>교육대학원 <img src="./images/ico_link.png" alt="링크"></td><td>김교육</td><td>051-123-5004</td><td></td></tr>
-              <tr><td>산업대학원 <img src="./images/ico_link.png" alt="링크"></td><td>김산업</td><td>051-123-5005</td><td></td></tr>
+              <tr><td>경영대학원 <img src="${pageContext.request.contextPath}/images/ico_link.png" alt="링크"></td><td>김경영</td><td>051-123-5001</td><td></td></tr>
+              <tr><td>컴퓨터대학원 <img src="${pageContext.request.contextPath}/images/ico_link.png" alt="링크"></td><td>김컴퓨터</td><td>051-123-5002</td><td></td></tr>
+              <tr><td>행정대학원 <img src="${pageContext.request.contextPath}/images/ico_link.png" alt="링크"></td><td>김행정</td><td>051-123-5003</td><td></td></tr>
+              <tr><td>교육대학원 <img src="${pageContext.request.contextPath}/images/ico_link.png" alt="링크"></td><td>김교육</td><td>051-123-5004</td><td></td></tr>
+              <tr><td>산업대학원 <img src="${pageContext.request.contextPath}/images/ico_link.png" alt="링크"></td><td>김산업</td><td>051-123-5005</td><td></td></tr>
             </tbody>
           </table>
         </section>

@@ -6,8 +6,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>그린대학교 | 오시는길  </title>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="./css/common.css">
-<link rel="stylesheet" href="./css/style_dir.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/university/about/common.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/university/about/style_dir.css">
 
 </head>
 <body>
@@ -25,7 +25,7 @@
     </div>
     <nav class="gnb" role="navigation" aria-label="주 메뉴">
       <div class="container gnb__inner">
-        <a href="/" aria-label="그린대학교 홈"><img class="brand__logo" src="/images/header_logo.png" alt="그린대학교"></a>
+        <a href="/" aria-label="그린대학교 홈"><img class="brand__logo" src="${pageContext.request.contextPath}/images/header_logo.png" alt="그린대학교"></a>
         <ul class="menu__list">
           <li><a class="menu__link" href="#">대학소개</a></li>
           <li><a class="menu__link" href="#">입학안내</a></li>
@@ -40,10 +40,10 @@
     <div class="header-subnav">
         <div class="container">
             <ul>
-                <li class="header-homeimg"><a href="#"><img src="/images/ico-home.png"></a></li>
-                <li class="header-arrowimg"><img src="/images/bg-path-arrow.png"></li>
+                <li class="header-homeimg"><a href="#"><img src="${pageContext.request.contextPath}/images/ico-home.png"></a></li>
+                <li class="header-arrowimg"><img src="${pageContext.request.contextPath}/images/bg-path-arrow.png"></li>
                 <li>대학소개</li>
-                <li class="header-arrowimg"><img src="/images/bg-path-arrow.png"></li>
+                <li class="header-arrowimg"><img src="${pageContext.request.contextPath}/images/bg-path-arrow.png"></li>
                 <li class="subnav-lasta">오시는길</li>
             </ul>
         </div>    
@@ -68,7 +68,7 @@
   <section>
     <h2 class="main-title">오시는길</h2>
     <!-- 필요하면 지도로 대체 -->
-    <div class="dir-map"><img src="./about_img/direction.png" alt="캠퍼스 지도"></div>
+    <div class="dir-map"><img src="${pageContext.request.contextPath}/images/direction.png" alt="캠퍼스 지도"></div>
 
     <div class="directions">
       <div class="dir-block">
@@ -116,7 +116,7 @@
     </div>
     <div class="footer__body">
       <div class="container footer__inner">
-        <img class="footer__logo" src="/images/footer_logo.png" alt="그린대학교 로고">
+        <img class="footer__logo" src="${pageContext.request.contextPath}/images/footer_logo.png" alt="그린대학교 로고">
         <div>
           <ul class="footer__info">
             <li>그린대학교</li>
