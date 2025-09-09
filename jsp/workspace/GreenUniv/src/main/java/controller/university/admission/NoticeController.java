@@ -1,4 +1,4 @@
-package controller.admission;
+package controller.university.admission;
 
 import java.io.IOException;
 import java.util.List;
@@ -16,7 +16,7 @@ import service.BoardService;
 public class NoticeController extends HttpServlet{
 	private static final long serialVersionUID = 1L;
 	
-	private BoardService boardService = BoardService.instance;
+	private BoardService boardService = BoardService.INSTANCE;
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

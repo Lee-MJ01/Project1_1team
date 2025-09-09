@@ -1,4 +1,4 @@
-package greenuniv.controller.user;
+package controller.university.member;
 
 import java.io.IOException;
 

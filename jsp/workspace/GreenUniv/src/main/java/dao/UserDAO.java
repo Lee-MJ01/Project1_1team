@@ -1,4 +1,4 @@
-package greenuniv.dao;
+package dao;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -8,7 +8,7 @@ import java.util.Optional;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import greenuniv.dto.UserDTO;
+import dto.UserDTO;
 import greenuniv.util.DBHelper;
 import greenuniv.util.Sql;
 
