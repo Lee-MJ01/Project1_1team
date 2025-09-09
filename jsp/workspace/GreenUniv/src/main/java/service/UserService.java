@@ -1,4 +1,4 @@
-package greenuniv.service;
+package service;
 
 import java.util.Optional;
 import java.util.Properties;
@@ -12,9 +12,9 @@ import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
-import greenuniv.dao.UserDAO;
-import greenuniv.dto.UserDTO;
-import greenuniv.util.ResultCode;
+import dao.UserDAO;
+import dto.UserDTO;
+import util.ResultCode;
 
 public enum UserService {
 	

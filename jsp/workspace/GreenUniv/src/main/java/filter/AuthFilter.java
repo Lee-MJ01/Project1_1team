@@ -1,8 +1,8 @@
-package greenuniv.filter;
+package filter;
 
 import java.io.IOException;
 
-import greenuniv.dto.UserDTO;
+import dto.UserDTO;
 import jakarta.servlet.Filter;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;

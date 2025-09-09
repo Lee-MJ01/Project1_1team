@@ -1,8 +1,8 @@
-package greenuniv.controller.user;
+package controller.university.member;
 
 import java.io.IOException;
 
-import greenuniv.util.ResultCode;
+import util.ResultCode;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;

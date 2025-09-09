@@ -1,4 +1,4 @@
-package greenuniv.dto;
+package dto;
 
 public class UserDTO {
 

@@ -23,4 +23,8 @@ public enum BoardService {
 		List<BoardDTO> dtoList = dao.IndexCommunitySelectAll(); 
 		return dtoList;
 	}
+	
+	public List<BoardDTO> findAll(){
+		return dao.selectAll();
+	}
 }
