@@ -24,6 +24,12 @@ public enum BoardService {
 		return dtoList;
 	}
 	
+	// index에 보여지는 공지사항 select
+	public List<BoardDTO> IndexCommuNewsfindAll() {
+		List<BoardDTO> dtoList = dao.IndexCommuNewsSelectAll(); 
+		return dtoList;
+	}
+	
 	public List<BoardDTO> findAll(){
 		return dao.selectAll();
 	}

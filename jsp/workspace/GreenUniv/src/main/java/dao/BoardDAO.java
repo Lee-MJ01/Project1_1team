@@ -32,6 +32,7 @@ public class BoardDAO extends DBHelper{
 		return null;
 	}
 	
+	// 학사공지사항 검색(index.jsp용)
 	public List<BoardDTO> IndexAcademicsSelectAll() {
 		List<BoardDTO> listDTO = new ArrayList<>();;
 		try {
@@ -63,12 +64,44 @@ public class BoardDAO extends DBHelper{
 		return listDTO;
 	}
 	
+	// 커뮤니티 공지사항 검색(index.jsp용) 
 	public List<BoardDTO> IndexCommunitySelectAll() {
 		List<BoardDTO> listDTO = new ArrayList<>();;
 		try {
 			conn = getConnection();
 			psmt = conn.prepareStatement(Sql.SELECT_BOARD_ALL);
 			psmt.setString(1, "6001");
+			
+			rs = psmt.executeQuery();
+			
+			while(rs.next()) {
+				BoardDTO dto = new BoardDTO();
+				dto.setTitle(rs.getString("title"));
+				dto.setW_date(rs.getString("w_date"));
+				listDTO.add(dto);
+				
+			}
+		} catch (Exception e) {
+			logger.error(e.getMessage());
+		}finally {
+	        try {
+	            closeAll(); 
+	        } catch (SQLException e) {
+	            logger.error("자원 해제 중 오류 발생", e);
+	        }
+	    }
+		
+		
+		return listDTO;
+	}
+	
+	// 커뮤니티 뉴스및칼럼 검색(index.jsp용) 
+	public List<BoardDTO> IndexCommuNewsSelectAll() {
+		List<BoardDTO> listDTO = new ArrayList<>();;
+		try {
+			conn = getConnection();
+			psmt = conn.prepareStatement(Sql.SELECT_BOARD_ALL);
+			psmt.setString(1, "6002");
 			
 			rs = psmt.executeQuery();
 			
