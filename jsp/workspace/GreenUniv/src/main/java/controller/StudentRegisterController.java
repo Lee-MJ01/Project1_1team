@@ -21,7 +21,7 @@ public class StudentRegisterController extends HttpServlet {
             throws ServletException, IOException {
   
         RequestDispatcher rd =
-            req.getRequestDispatcher("/WEB-INF/views/student/students-register.jsp");
+            req.getRequestDispatcher("/WEB-INF/views/student/student-register.jsp");
         rd.forward(req, resp);
     }
 

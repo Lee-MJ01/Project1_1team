@@ -17,17 +17,17 @@
 --><!-- The contents of this file will be loaded for each web application -->
 <Context>
 
-	<Resource
-    	name="jdbc/studydb"
-    	auth="Container"
-    	type="javax.sql.DataSource"
-    	driverClassName="com.mysql.cj.jdbc.Driver"
-    	url="jdbc:mysql://13.125.98.52:3306/"
-    	username="alswnstl23"
-    	password="abc1234!"
-    	maxTotal="13"
-    	maxIdle="13"
-    	maxWaitMillis="3000"
+<Resource
+       name="jdbc/greendea1"
+       auth="Container"
+       type="javax.sql.DataSource"
+       driverClassName="com.mysql.cj.jdbc.Driver"
+       url="jdbc:mysql://13.125.98.52:3306/greendea1"
+       username="airforceleather"
+       password="abc1234!"
+       maxTotal="13"
+       maxIdle="13"
+       maxWaitMillis="3000"
     />
     
     <!-- Default set of monitored resources. If one of these changes, the    -->
