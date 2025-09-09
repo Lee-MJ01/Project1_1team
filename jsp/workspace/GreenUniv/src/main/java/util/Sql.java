@@ -42,6 +42,50 @@ public class Sql {
 	public static final String SELECT_STUDENT_ALL_SIMPLE =
 	  "SELECT std_id, name, resident_number, phone, email, dept_id, entrygrade, entryterm, status " +
 	  "FROM student ORDER BY std_id DESC";
+   // 총 개수
+   public static final String SELECT_STUDENT_LIST_COUNT =
+       "SELECT COUNT(*) " +
+       "FROM student s JOIN department d ON d.dept_id = s.dept_id %s";
+
+   // 목록 (MySQL: LIMIT ? OFFSET ?)
+   public static final String SELECT_STUDENT_LIST_MYSQL =
+       "SELECT s.std_id, s.name, s.resident_number, s.phone, s.email, " +
+       "       d.dept_name AS dept_name, s.entrygrade, s.entryterm, s.status " +
+       "FROM student s JOIN department d ON d.dept_id = s.dept_id %s " +
+       "ORDER BY s.std_id DESC " +
+       "LIMIT ? OFFSET ?";
+
+   
+   // util/Sql.java 에 추가
+
+   // ── professor ────
+   public static final String INSERT_PROFESSOR =
+     "INSERT INTO professor (" +
+     " prof_id, resident_number, name, e_name, gender, division, phone, email," +
+     " zip, addr1, addr2," +
+     " graduated_univ, graduation_date, major_field, degree, dept_id, hire_date" +
+     ") VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+
+   public static final String SELECT_PROFESSOR =
+     "SELECT p.prof_id, p.resident_number, p.name, p.e_name, p.gender, p.division, p.phone, p.email," +
+     "       p.zip, p.addr1, p.addr2, p.graduated_univ, p.graduation_date, p.major_field, p.degree," +
+     "       p.dept_id, p.hire_date, d.dept_name " +
+     "FROM professor p JOIN department d ON d.dept_id = p.dept_id WHERE p.prof_id=?";
+
+   // 총 개수
+   public static final String SELECT_PROFESSOR_LIST_COUNT =
+     "SELECT COUNT(*) FROM professor p JOIN department d ON d.dept_id = p.dept_id %s";
+
+   // 목록 (MySQL LIMIT ? OFFSET ?)
+   public static final String SELECT_PROFESSOR_LIST_MYSQL =
+     "SELECT p.prof_id, p.name, p.phone, p.email, d.dept_name, p.degree, p.hire_date " +
+     "FROM professor p JOIN department d ON d.dept_id = p.dept_id %s " +
+     "ORDER BY p.prof_id DESC " +
+     "LIMIT ? OFFSET ?";
+
+	   
+	
+	
 	//Department --서현우
 	//학과등록
 	public static final String INSERT_DEPARTMENT= "INSERT INTO department (college_name, dept_name, dept_name_en, established, chair_name, dept_phone, dept_office) VALUES (?,?,?,?,?,?,?)";
