@@ -1,0 +1,41 @@
+/* 오시는길 */
+.directions { margin-top: 16px; }
+
+.dir-map img {
+  margin-top: 10px;
+  width: 100%; height: auto; border-radius: 8px;
+  display: block; margin-bottom: 22px;
+}
+
+.dir-block { padding: 18px 0; }
+.dir-block + .dir-block { border-top: 1px solid #e9edf3; }
+
+.dir-title {
+  display: flex; align-items: baseline; gap: 10px;
+  margin: 0 0 10px; font-size: 22px; font-weight: 800; color: #111827;
+}
+.dir-title small { font-size: 14px; color: #6b7280; font-weight: 600; }
+
+.dir-tag {
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 22px; font-weight: 800; letter-spacing: .2px;
+}
+
+.dir-list {
+  list-style: none; margin: 0; padding: 0 0 0 16px;
+}
+.dir-list li {
+  position: relative; margin: 8px 0; line-height: 1.8; color: #374151; font-size: 15px;
+}
+.dir-list li::before {
+  content: "•"; position: absolute; left: -12px; color: #3F97F6; font-weight: 900;
+}
+.dir-list strong { color: #111827; font-weight: 800; }
+
+@media (max-width: 640px){
+  .dir-title { font-size: 18px; }
+  .dir-tag { font-size: 13px; padding: 5px 10px; }
+  .dir-list li { font-size: 14px; }
+}

@@ -19,9 +19,9 @@ public class StudentRegisterController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-  
+
         RequestDispatcher rd =
-            req.getRequestDispatcher("/WEB-INF/views/student/student-register.jsp");
+            req.getRequestDispatcher("/WEB-INF/views/academic/personnel/student-register.jsp");
         rd.forward(req, resp);
     }
 
@@ -40,7 +40,18 @@ public class StudentRegisterController extends HttpServlet {
             d.setDivision(req.getParameter("division"));
             d.setPhone(req.getParameter("phone"));
             d.setEmail(req.getParameter("email"));
-            d.setAddress(req.getParameter("address"));
+
+            // 주소 합치기 (zip/addr1/addr2 -> address)
+            String zip   = req.getParameter("zip");
+            String addr1 = req.getParameter("addr1");
+            String addr2 = req.getParameter("addr2");
+            String address = String.join(" ",
+                    java.util.Arrays.stream(new String[]{zip, addr1, addr2})
+                        .filter(s -> s != null && !s.isBlank())
+                        .toArray(String[]::new)
+            );
+            d.setAddress(address);
+
             d.setEntryyear(req.getParameter("entryyear"));
             d.setGraduationyear(req.getParameter("graduationyear"));
             d.setDept_id(Integer.parseInt(req.getParameter("dept_id")));
@@ -53,7 +64,6 @@ public class StudentRegisterController extends HttpServlet {
 
             String ctx = req.getContextPath();
             if (result > 0) {
-      
                 resp.sendRedirect(ctx + "/student/write.do?code=" + ResultCode.WRITE_SUCCESS.getCode());
             } else {
                 resp.sendRedirect(ctx + "/student/write.do?code=" + ResultCode.WRITE_FAIL.getCode());

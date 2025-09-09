@@ -5,18 +5,21 @@ public class StudentDTO {
     private String resident_number;
     private String name;
     private String e_name;
-    private String gender;       // "M" / "F"
-    private String division;     // "KOR" / "FOR"
+    private String gender;
+    private String division;
     private String phone;
     private String email;
     private String address;
     private String entryyear;
     private String graduationyear;
     private int    dept_id;
-    private String entryterm;    // "1" / "2"
-    private String entrygrade;   // "1".."4"
+    private String entryterm;     // "1" / "2"
+    private String entrygrade;    // "1".."4"
     private String advisor;
-    private String status;       // 재학중/휴학/자퇴/제적/졸업
+    private String status;
+
+    // 목록 표시용
+    private String dept_name;
 
     public int getStd_id() { return std_id; }
     public void setStd_id(int std_id) { this.std_id = std_id; }
@@ -50,4 +53,7 @@ public class StudentDTO {
     public void setAdvisor(String advisor) { this.advisor = advisor; }
     public String getStatus() { return status; }
     public void setStatus(String status) { this.status = status; }
+
+    public String getDept_name() { return dept_name; }
+    public void setDept_name(String dept_name) { this.dept_name = dept_name; }
 }

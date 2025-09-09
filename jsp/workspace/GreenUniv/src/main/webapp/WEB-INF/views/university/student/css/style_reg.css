@@ -1,0 +1,129 @@
+.search{
+    display: flex;
+    margin-top: 22px;
+    margin-bottom: 17px;
+    justify-content: flex-end;
+    text-align: center;
+}
+.search select,
+.search input[type="text"],
+.search input[type="submit"] {
+  border: 1px solid #DEDEDE; 
+  font-size: 14px;        
+  height: 40px;            
+}
+
+.search select {
+  width: 150px;
+  margin-right: 5px;
+  padding: 0 8px;
+   vertical-align: middle;
+   color: #666666;
+}
+
+.search input[type="text"] {
+  border-right: none;
+  width: 237px; 
+  outline: none;
+  padding: 0 10px;
+  font-size: 14px; 
+  vertical-align: middle;
+  color: #666666;
+}
+
+.search form {
+  font-size: 0; 
+}
+
+.search input[type="submit"] {
+  background-color: #3f97f6; 
+  border-left: none; 
+  
+  color: #ffffff;             
+  cursor: pointer;
+  margin-right: 0px;  
+  width: 70px;  
+   vertical-align: middle;       
+}
+
+.search input[type="submit"]:hover {
+  background-color: #2a6bb7; 
+}
+
+.main-wrapper{
+    border-top: 2px solid #333;
+    min-height: 393px;
+}
+
+.main-table {
+  width: 100%;                
+  border-collapse: collapse;   
+  font-size: 14px;             
+  text-align: center;          
+}
+
+.main-table th, 
+.main-table td {
+  border-top: 1px solid #D8D8D8;
+  border-bottom: 1px solid #D8D8D8;
+  padding: 20px 12px;           
+}
+
+.main-table th {
+  background-color: #FAFAFA;  
+  font-weight: bold;
+}
+
+
+.main-table tr:hover {
+  background-color: #f1f1f1;  
+}
+
+.main-table a {
+  padding: 5px;
+  background-color: #092E71;
+  color: #FFFFFF;
+  text-decoration: none;   
+}
+
+.main-table a:hover {
+  text-decoration: none; 
+}
+
+.pagination {
+  display: flex;
+  justify-content: center; 
+  align-items: center;       
+  gap: 6px;                  
+  margin: 20px 0;
+}
+
+.pagination a {
+  display: inline-flex;      
+  justify-content: center;
+  align-items: center;
+  width: 32px;                
+  height: 32px;
+  border: 1px solid #ddd;
+  text-decoration: none;
+  color: #333;
+  font-size: 14px;
+}
+
+.pagination a img {
+  width: 16px;
+  height: 16px;
+}
+
+.pagination a:hover {
+  background-color: #f4f6f9;
+  border-color: #3f97f6;
+  color: #3f97f6;
+}
+
+.pagination a.active {
+  background-color: #3f97f6;
+  color: white;
+  border-color: #3f97f6;
+  font-weight: bold;
+}

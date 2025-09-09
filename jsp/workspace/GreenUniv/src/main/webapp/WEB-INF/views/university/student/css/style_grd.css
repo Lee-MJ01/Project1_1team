@@ -1,0 +1,120 @@
+.main-top {
+  display: flex;
+  justify-content: space-between;  /* 좌/우 끝에 배치 */
+  align-items: center;             /* 세로 정렬 */
+  margin-bottom: 17px;
+  font-size: 14px;
+  margin-top: 22px;
+  height: 40px;
+}
+
+.select-wrap {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.select-wrap select {
+  padding: 6px 10px;
+  border: 1px solid #ccc;
+}
+
+.apply-info {
+  font-size: 14px;
+  color: #333;
+  font-weight: bold;
+  padding: 10px;
+  margin-top: 20px;
+}
+
+.apply-info span {
+  color: #b62929; 
+}
+#year {
+  width: 100px; 
+  color: #666666;
+}
+
+#term {
+  width: 50px; 
+  color: #666666;
+}
+
+
+.main-wrapper{
+    border-top: 2px solid #333;
+    min-height: 393px;
+}
+
+.main-table {
+  width: 100%;                
+  border-collapse: collapse;   
+  font-size: 14px;             
+  text-align: center;          
+}
+
+.main-table th, 
+.main-table td {
+  border-top: 1px solid #D8D8D8;
+  border-bottom: 1px solid #D8D8D8;
+  padding: 20px 12px;           
+}
+
+.main-table th {
+  background-color: #FAFAFA;  
+  font-weight: bold;
+}
+
+
+.main-table tr:hover {
+  background-color: #f1f1f1;  
+}
+
+.main-table a {
+  padding: 5px;
+  background-color: #092E71;
+  color: #FFFFFF;
+  text-decoration: none;   
+}
+
+.main-table a:hover {
+  text-decoration: none; 
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;  
+  align-items: center;       
+  gap: 6px;                  
+  margin: 20px 0;
+}
+
+.pagination a {
+  display: inline-flex;       
+  justify-content: center;
+  align-items: center;
+  width: 32px;                
+  height: 32px;
+  border: 1px solid #ddd;
+  text-decoration: none;
+  color: #333;
+  font-size: 14px;
+}
+
+.pagination a img {
+  width: 16px;
+  height: 16px;
+}
+
+.pagination a:hover {
+  background-color: #f4f6f9;
+  border-color: #3f97f6;
+  color: #3f97f6;
+}
+
+.pagination a.active {
+  background-color: #3f97f6;
+  color: white;
+  border-color: #3f97f6;
+  font-weight: bold;
+}
