@@ -65,4 +65,17 @@ public class UserDTO {
 		return "UserDTO [user_id=" + user_id + ", pass=" + pass + ", user_name=" + user_name + ", hp=" + hp + ", email="
 				+ email + ", addr1=" + addr1 + ", addr2=" + addr2 + ", admin=" + admin + "]";
 	}
+	public void setUsid(String string) {
+		// TODO Auto-generated method stub
+		
+	}
+	public void setNick(String string) {
+		// TODO Auto-generated method stub
+		
+	}
+	public void setUs_name(String string) {
+		// TODO Auto-generated method stub
+		
+	}
+	
 }

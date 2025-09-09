@@ -23,7 +23,7 @@ public class CollegeRegisterController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-        RequestDispatcher rd = req.getRequestDispatcher("/WEB-INF/views/college/write.jsp");
+        RequestDispatcher rd = req.getRequestDispatcher("/WEB-INF/views/academic/departments/department-register.jsp");
         rd.forward(req, resp);
     }
 
