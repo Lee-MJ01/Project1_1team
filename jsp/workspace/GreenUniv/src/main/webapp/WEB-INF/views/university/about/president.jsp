@@ -6,8 +6,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>그린대학교 | 총장 인사말  </title>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="./css/common.css">
-<link rel="stylesheet" href="./css/style_pre.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/university/about/common.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/university/about/style_pre.css">
 
 </head>
 <body>
@@ -92,7 +92,7 @@
       </div>
 
       <div class="president-photo">
-        <img src="./about_img/president.png" alt="그린대학교 총장">
+        <img src="${pageContext.request.contextPath}/images/president.png" alt="그린대학교 총장">
       </div>
     </div>
 
@@ -129,7 +129,7 @@
 
       <div class="closing-content">
         <div class="closing-photo">
-          <img src="./about_img/presidint2.png" alt="총장님">
+          <img src="${pageContext.request.contextPath}/images/presidint2.png" alt="총장님">
         </div>
         <div class="closing-text">
           <p>

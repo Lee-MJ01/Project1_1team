@@ -361,6 +361,6 @@
     <!-- 푸터 -->
     <footer class = "footer">
         <p>Copyright ©Green University All rights reserved. ADMINISTRATOR Version 1.4.1</p>
-    </footer>       
+    </footer>    
 </body>
 </html>

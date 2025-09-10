@@ -7,9 +7,9 @@
   <title>그린대학교 | 입학상담</title>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;600;700&display=swap" rel="stylesheet">
   <!-- 공통 스타일 -->
-  <link rel="stylesheet" href="./common.css">
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/css/university/admission/common.css">
   <!-- 입학상담 전용 스타일 -->
-  <link rel="stylesheet" href="./counseling.css">
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/css/university/admission/counseling.css">
 </head>
 <body>
   <div id="wrapper">
@@ -45,10 +45,10 @@
       <div class="container">
         <div class="sub-nav">
           <ul>
-            <li><a href="/"><img src="/images/ico-home.png" height="15" alt="홈"></a></li>
-            <li><a href="#"><img src="/images/bg-path-arrow.png" height="10" alt=">"></a></li>
+            <li><a href="/"><img src="${pageContext.request.contextPath}/images/ico-home.png" height="15" alt="홈"></a></li>
+            <li><a href="#"><img src="${pageContext.request.contextPath}/images/bg-path-arrow.png" height="10" alt=">"></a></li>
             <li><a href="#">입학안내</a></li>
-            <li><a href="#"><img src="/images/bg-path-arrow.png" height="10" alt=">"></a></li>
+            <li><a href="#"><img src="${pageContext.request.contextPath}/images/bg-path-arrow.png" height="10" alt=">"></a></li>
             <li class="active"><a href="#">입학상담</a></li>
           </ul>
         </div>
@@ -110,7 +110,7 @@
                 <td>2</td>
                 <td>정시</td>
                 <td>
-                  <img src="/images/ico-lock.png" alt="잠금" class="icon-lock">
+                  <img src="${pageContext.request.contextPath}/images/ico-lock.png" alt="잠금" class="icon-lock">
                   정시모집 관련해 문의드립니다.
                 </td>
                 <td>홍길동</td>
@@ -121,7 +121,7 @@
                 <td>1</td>
                 <td>정시</td>
                 <td>
-                  <img src="/images/ico-lock.png" alt="잠금" class="icon-lock">
+                  <img src="${pageContext.request.contextPath}/images/ico-lock.png" alt="잠금" class="icon-lock">
                   정시모집 관련해 문의드립니다.
                 </td>
                 <td>홍길동</td>
@@ -132,13 +132,13 @@
           </table>
 
           <div class="pagination">
-            <a href="#" class="first"><img src="/images/btn-first-page.png" alt="처음"></a>
-            <a href="#" class="prev"><img src="/images/btn-prev-page.png" alt="이전"></a>
+            <a href="#" class="first"><img src="${pageContext.request.contextPath}/images/btn-first-page.png" alt="처음"></a>
+            <a href="#" class="prev"><img src="${pageContext.request.contextPath}/images/btn-prev-page.png" alt="이전"></a>
             <a href="#" class="active">1</a>
             <a href="#">2</a>
             <a href="#">3</a>
-            <a href="#" class="next"><img src="/images/btn-next-page.png" alt="다음"></a>
-            <a href="#" class="last"><img src="/images/btn-last-page.png" alt="끝"></a>
+            <a href="#" class="next"><img src="${pageContext.request.contextPath}/images/btn-next-page.png" alt="다음"></a>
+            <a href="#" class="last"><img src="${pageContext.request.contextPath}/images/btn-last-page.png" alt="끝"></a>
           </div>
 
           <div class="actions">

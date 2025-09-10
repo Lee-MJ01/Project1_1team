@@ -7,9 +7,9 @@
   <title>그린대학교 | 인문사회대학</title>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;600;700&display=swap" rel="stylesheet">
   <!-- 공통 스타일 -->
-  <link rel="stylesheet" href="./common.css">
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/css/university/colleges/common.css">
   <!-- 전용 스타일 -->
-  <link rel="stylesheet" href="./humanities.css">
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/css/university/colleges/humanities.css">
 </head>
 <body>
   <div id="wrapper">
@@ -73,7 +73,7 @@
           <h3>인문사회대학</h3>
 
           <div class="college-intro">
-            <img src="./images/college-introduce-1.jpg" alt="인문사회대학 소개 이미지" class="intro-img">
+            <img src="${pageContext.request.contextPath}/images/college-introduce-1.jpg" alt="인문사회대학 소개 이미지" class="intro-img">
             <div class="intro-text">
               <span class="eng-title">Humanities And Social Sciences</span>
               <h4>인문, 사회분야의 다양하고 심화된 이론을 연구</h4>
@@ -98,79 +98,79 @@
             </thead>
             <tbody>
               <tr>
-                <td>국어국문학과 <img src="./images/ico_link.png" alt="링크"></td>
+                <td>국어국문학과 <img src="${pageContext.request.contextPath}/images/ico_link.png" alt="링크"></td>
                 <td>김국어</td>
                 <td>051-123-1001</td>
                 <td></td>
               </tr>
               <tr>
-                <td>영어영문학과 <img src="./images/ico_link.png" alt="링크"></td>
+                <td>영어영문학과 <img src="${pageContext.request.contextPath}/images/ico_link.png" alt="링크"></td>
                 <td>김영어</td>
                 <td>051-123-1002</td>
                 <td></td>
               </tr>
               <tr>
-                <td>일어일문학과 <img src="./images/ico_link.png" alt="링크"></td>
+                <td>일어일문학과 <img src="${pageContext.request.contextPath}/images/ico_link.png" alt="링크"></td>
                 <td>김일어</td>
                 <td>051-123-1003</td>
                 <td></td>
               </tr>
               <tr>
-                <td>중어중문학과 <img src="./images/ico_link.png" alt="링크"></td>
+                <td>중어중문학과 <img src="${pageContext.request.contextPath}/images/ico_link.png" alt="링크"></td>
                 <td>김중어</td>
                 <td>051-123-1004</td>
                 <td></td>
               </tr>
               <tr>
-                <td>역사학과 <img src="./images/ico_link.png" alt="링크"></td>
+                <td>역사학과 <img src="${pageContext.request.contextPath}/images/ico_link.png" alt="링크"></td>
                 <td>김역사</td>
                 <td>051-123-1005</td>
                 <td></td>
               </tr>
               <tr>
-                <td>경제학과 <img src="./images/ico_link.png" alt="링크"></td>
+                <td>경제학과 <img src="${pageContext.request.contextPath}/images/ico_link.png" alt="링크"></td>
                 <td>김경제</td>
                 <td>051-123-1006</td>
                 <td></td>
               </tr>
               <tr>
-                <td>경영학과 <img src="./images/ico_link.png" alt="링크"></td>
+                <td>경영학과 <img src="${pageContext.request.contextPath}/images/ico_link.png" alt="링크"></td>
                 <td>김경영</td>
                 <td>051-123-1007</td>
                 <td></td>
               </tr>
               <tr>
-                <td>법학과 <img src="./images/ico_link.png" alt="링크"></td>
+                <td>법학과 <img src="${pageContext.request.contextPath}/images/ico_link.png" alt="링크"></td>
                 <td>김법학</td>
                 <td>051-123-1008</td>
                 <td></td>
               </tr>
               <tr>
-                <td>철학과 <img src="./images/ico_link.png" alt="링크"></td>
+                <td>철학과 <img src="${pageContext.request.contextPath}/images/ico_link.png" alt="링크"></td>
                 <td>김철학</td>
                 <td>051-123-1009</td>
                 <td></td>
               </tr>
               <tr>
-                <td>정치외교학과 <img src="./images/ico_link.png" alt="링크"></td>
+                <td>정치외교학과 <img src="${pageContext.request.contextPath}/images/ico_link.png" alt="링크"></td>
                 <td>김정치</td>
                 <td>051-123-1010</td>
                 <td></td>
               </tr>
               <tr>
-                <td>행정학과 <img src="./images/ico_link.png" alt="링크"></td>
+                <td>행정학과 <img src="${pageContext.request.contextPath}/images/ico_link.png" alt="링크"></td>
                 <td>김행정</td>
                 <td>051-123-1011</td>
                 <td></td>
               </tr>
               <tr>
-                <td>사회복지학과 <img src="./images/ico_link.png" alt="링크"></td>
+                <td>사회복지학과 <img src="${pageContext.request.contextPath}/images/ico_link.png" alt="링크"></td>
                 <td>김사회</td>
                 <td>051-123-1012</td>
                 <td></td>
               </tr>
               <tr>
-                <td>유아교육학과 <img src="./images/ico_link.png" alt="링크"></td>
+                <td>유아교육학과 <img src="${pageContext.request.contextPath}/images/ico_link.png" alt="링크"></td>
                 <td>김유아</td>
                 <td>051-123-1013</td>
                 <td></td>

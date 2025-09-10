@@ -188,7 +188,7 @@
     }
     #box-left > div > hr {
         border: 1px solid #3F97F6;
-
+		gap : 10px;
     }
     #box-left > div > ul {
         display: inline-block;
@@ -198,7 +198,7 @@
         padding-left: 0;
     }
     #box-left > div > ul >li {
-        padding-top: 5px;
+        padding-top: 10px;
     }
     .box-left-date {
         position: absolute;

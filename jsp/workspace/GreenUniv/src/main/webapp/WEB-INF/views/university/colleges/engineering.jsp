@@ -7,9 +7,9 @@
   <title>그린대학교 | 공과대학</title>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;600;700&display=swap" rel="stylesheet">
   <!-- 공통 스타일 -->
-  <link rel="stylesheet" href="./common.css">
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/css/university/colleges/common.css">
   <!-- 전용 스타일 -->
-  <link rel="stylesheet" href="./engineering.css">
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/css/university/colleges/engineering.css">
 </head>
 <body>
   <div id="wrapper">
@@ -73,7 +73,7 @@
           <h3>공과대학</h3>
 
           <div class="college-intro">
-            <img src="./images/college-introduce-3.jpg" alt="공과대학" class="intro-img">
+            <img src="${pageContext.request.contextPath}/images/college-introduce-3.jpg" alt="공과대학" class="intro-img">
             <div class="intro-text">
               <p class="en-title">Engineering</p>
               <p class="ko-title">기본 공학교육 및 산업현장과 연계된 산학협동을 위한 학문을 교수·연구</p>
@@ -96,13 +96,13 @@
               </tr>
             </thead>
             <tbody>
-              <tr><td>기계공학과 <img src="./images/ico_link.png" alt="링크"></td><td>김기계</td><td>051-123-3001</td><td></td></tr>
-              <tr><td>전자공학과 <img src="./images/ico_link.png" alt="링크"></td><td>김전자</td><td>051-123-3002</td><td></td></tr>
-              <tr><td>전기공학과 <img src="./images/ico_link.png" alt="링크"></td><td>김전기</td><td>051-123-3003</td><td></td></tr>
-              <tr><td>컴퓨터공학과 <img src="./images/ico_link.png" alt="링크"></td><td>김컴공</td><td>051-123-3004</td><td></td></tr>
-              <tr><td>건축공학과 <img src="./images/ico_link.png" alt="링크"></td><td>김건축</td><td>051-123-3005</td><td></td></tr>
-              <tr><td>재료공학과 <img src="./images/ico_link.png" alt="링크"></td><td>김재료</td><td>051-123-3006</td><td></td></tr>
-              <tr><td>화학공학과 <img src="./images/ico_link.png" alt="링크"></td><td>김화학</td><td>051-123-3007</td><td></td></tr>
+              <tr><td>기계공학과 <img src="${pageContext.request.contextPath}/images/ico_link.png" alt="링크"></td><td>김기계</td><td>051-123-3001</td><td></td></tr>
+              <tr><td>전자공학과 <img src="${pageContext.request.contextPath}/images/ico_link.png" alt="링크"></td><td>김전자</td><td>051-123-3002</td><td></td></tr>
+              <tr><td>전기공학과 <img src="${pageContext.request.contextPath}/images/ico_link.png" alt="링크"></td><td>김전기</td><td>051-123-3003</td><td></td></tr>
+              <tr><td>컴퓨터공학과 <img src="${pageContext.request.contextPath}/images/ico_link.png" alt="링크"></td><td>김컴공</td><td>051-123-3004</td><td></td></tr>
+              <tr><td>건축공학과 <img src="${pageContext.request.contextPath}/images/ico_link.png" alt="링크"></td><td>김건축</td><td>051-123-3005</td><td></td></tr>
+              <tr><td>재료공학과 <img src="${pageContext.request.contextPath}/images/ico_link.png" alt="링크"></td><td>김재료</td><td>051-123-3006</td><td></td></tr>
+              <tr><td>화학공학과 <img src="${pageContext.request.contextPath}/images/ico_link.png" alt="링크"></td><td>김화학</td><td>051-123-3007</td><td></td></tr>
             </tbody>
           </table>
         </section>

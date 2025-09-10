@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>gallery</title>
-    <link rel="stylesheet" href="./css/style_gal.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/university/campuslife/style_gal.css">
     <!-- 
         날짜 : 2025/09/04
         이름 : 천수빈
@@ -52,12 +52,12 @@
                 <div class="sub-nav">
                     <ul>
                         <li><a href="#">
-                            <img src="/images/ico-home.png" height="15"></a></li>
+                            <img src="${pageContext.request.contextPath}/images/ico-home.png" height="15"></a></li>
                         <li><a href="#">
-                            <img src="/images/bg-path-arrow.png" height="10"></a></li>
+                            <img src="${pageContext.request.contextPath}/images/bg-path-arrow.png" height="10"></a></li>
                         <li><a href="#">대학생활</a></li>
                         <li><a href="#">
-                            <img src="/images/bg-path-arrow.png" height="10"></a></li>
+                            <img src="${pageContext.request.contextPath}/images/bg-path-arrow.png" height="10"></a></li>
                         <li class="active"><a href="#">갤러리</a></li>
                     </ul>
                 </div>
@@ -82,7 +82,7 @@
                     <div class="gallery-list">
                         <div class="gallery-card">
                             <a href="#">
-                                <img src="/images/gallary_sample1.jpg" alt="갤러리1">
+                                <img src="${pageContext.request.contextPath}/images/gallary_sample1.jpg" alt="갤러리1">
                                 <h4 class="gallery-title">제40회 1995학년도 학위수여식</h4>
                                 <div class="gallery-meta">
                                     <span>조회수 23</span> | 
@@ -94,7 +94,7 @@
 
                         <div class="gallery-card">
                             <a href="#">
-                                <img src="/images/gallary_sample2.jpg" alt="갤러리2">
+                                <img src="${pageContext.request.contextPath}/images/gallary_sample2.jpg" alt="갤러리2">
                                 <h4 class="gallery-title">제40회 1995학년도 학위수여식</h4>
                                 <div class="gallery-meta">
                                     <span>조회수 23</span> | 
@@ -106,7 +106,7 @@
 
                         <div class="gallery-card">
                             <a href="#">
-                                <img src="/images/gallary_sample3.jpg" alt="갤러리3">
+                                <img src="${pageContext.request.contextPath}/images/gallary_sample3.jpg" alt="갤러리3">
                                 <h4 class="gallery-title">제40회 1995학년도 학위수여식</h4>
                                 <div class="gallery-meta">
                                     <span>조회수 23</span> | 
@@ -118,7 +118,7 @@
 
                         <div class="gallery-card">
                             <a href="#">
-                                <img src="/images/gallary_sample4.png" alt="갤러리4">
+                                <img src="${pageContext.request.contextPath}/images/gallary_sample4.png" alt="갤러리4">
                                 <h4 class="gallery-title">제40회 1995학년도 학위수여식</h4>
                                 <div class="gallery-meta">
                                     <span>조회수 23</span> | 
@@ -130,7 +130,7 @@
 
                         <div class="gallery-card">
                             <a href="#">
-                                <img src="/images/gallary_sample5.jpg" alt="갤러리5">
+                                <img src="${pageContext.request.contextPath}/images/gallary_sample5.jpg" alt="갤러리5">
                                 <h4 class="gallery-title">제40회 1995학년도 학위수여식</h4>
                                 <div class="gallery-meta">
                                     <span>조회수 23</span> | 
@@ -142,13 +142,13 @@
                     </div>
 
                     <div class="pagination">
-                        <a href="#" class="first"><img src="/images/btn-first-page.png" alt="처음"></a>
-                        <a href="#" class="prev"><img src="/images/btn-prev-page.png" alt="이전"></a>
+                        <a href="#" class="first"><img src="${pageContext.request.contextPath}/images/btn-first-page.png" alt="처음"></a>
+                        <a href="#" class="prev"><img src="${pageContext.request.contextPath}/images/btn-prev-page.png" alt="이전"></a>
                         <a href="#" class="active">1</a>
                         <a href="#">2</a>
                         <a href="#">3</a>
-                        <a href="#" class="next"><img src="/images/btn-next-page.png" alt="다음"></a>
-                        <a href="#" class="last"><img src="/images/btn-last-page.png" alt="끝"></a>
+                        <a href="#" class="next"><img src="${pageContext.request.contextPath}/images/btn-next-page.png" alt="다음"></a>
+                        <a href="#" class="last"><img src="${pageContext.request.contextPath}/images/btn-last-page.png" alt="끝"></a>
                     </div>
                 </section>
             </div>

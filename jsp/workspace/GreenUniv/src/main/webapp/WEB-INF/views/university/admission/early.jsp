@@ -5,8 +5,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>그린대학교 | 입학안내 - 수시모집</title>
-  <link rel="stylesheet" href="./common.css">
-  <link rel="stylesheet" href="./early.css">
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/css/university/admission/common.css">
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/css/university/admission/early.css">
 </head>
 <body>
   <div id="wrapper">
@@ -42,10 +42,10 @@
       <div class="container">
         <div class="sub-nav">
           <ul>
-            <li><a href="/"><img src="/images/ico-home.png" height="15" alt="홈"></a></li>
-            <li><a href="#"><img src="/images/bg-path-arrow.png" height="10" alt=">"></a></li>
+            <li><a href="/"><img src="${pageContext.request.contextPath}/images/ico-home.png" height="15" alt="홈"></a></li>
+            <li><a href="#"><img src="${pageContext.request.contextPath}/images/bg-path-arrow.png" height="10" alt=">"></a></li>
             <li><a href="#">입학안내</a></li>
-            <li><a href="#"><img src="/images/bg-path-arrow.png" height="10" alt=">"></a></li>
+            <li><a href="#"><img src="${pageContext.request.contextPath}/images/bg-path-arrow.png" height="10" alt=">"></a></li>
             <li class="active"><a href="#">수시모집</a></li>
           </ul>
         </div>

@@ -6,8 +6,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>그린대학교 | 교육이념  </title>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="./css/common.css">
-<link rel="stylesheet" href="./css/style_phi.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/university/about/common.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/university/about/style_phi.css">
 
 </head>
 <body>

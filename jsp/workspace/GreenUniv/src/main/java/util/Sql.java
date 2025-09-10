@@ -1,68 +1,9 @@
 package util;
 
 public class Sql {
-	
-	// terms
-	public static final String SELECT_TERMS = "SELECT * FROM TB_TERMS where NO=?";
-	
-	// user
-	public static final String SELECT_COUNT = "SELECT COUNT(*) FROM TB_USER ";
-	public static final String WHERE_USID = "WHERE USID=?";
-	public static final String WHERE_NICK = "WHERE NICK=?";
-	public static final String WHERE_EMAIL = "WHERE EMAIL=?";
-	public static final String WHERE_HP   = "WHERE HP=?";
-	
-	public static final String SELECT_USER_BY_PASS = "SELECT * FROM TB_USER WHERE USID=? AND PASS=STANDARD_HASH(?, 'SHA256')";
-	
-	
-	public static final String INSERT_USER = "INSERT INTO TB_USER (USID, PASS, US_NAME, NICK, EMAIL, HP, ZIP, ADDR1, ADDR2, REG_IP, REG_DATE) "
-											+ "VALUES (?,STANDARD_HASH(?, 'SHA256'),?,?,?,?,?,?,?,?,SYSDATE)";
-
-	
-	// article
-	public static final String SELECT_COUNT_TOTAL = "SELECT COUNT(*) FROM TB_ARTICLE";
-	public static final String SELECT_ARTICLE_ALL = "SELECT A.*, U.nick FROM TB_ARTICLE A "
-													+ "JOIN TB_USER U  ON A.WRITER = U.USID "
-													+ "ORDER BY ANO DESC "
-													+ "OFFSET ? ROWS FETCH NEXT 10 ROWS ONLY";
-	
-	public final static String SELECT_ARTICLE_WITH_FILE = "SELECT A.*, U.NICK, F.* FROM TB_ARTICLE A "
-														+ "JOIN TB_USER U ON A.WRITER = U.USID "
-														+ "LEFT JOIN TB_FILE F ON A.ANO = F.ANO "
-														+ "WHERE A.ANO=?";
-	
-	public final static String SELECT_COUNT_SEARCH = "SELECT COUNT(*) FROM TB_ARTICLE ";
-	public final static String SELECT_ARTICLE_SEARCH = "SELECT A.*, U.NICK FROM TB_ARTICLE A "
-														+ "JOIN TB_USER U ON A.WRITER = U.USID ";
-	
-	public final static String SEARCH_WHERE_TITLE = "WHERE TITLE LIKE ?";
-	public final static String SEARCH_WHERE_CONTENT = "WHERE CONTENT LIKE ?";
-	public final static String SEARCH_WHERE_NICK = "WHERE NICK LIKE ?";
-	
-	public final static String SEARCH_ORDER_ANO = "ORDER BY ANO DESC ";
-	public final static String SEARCH_OFFSET_ROW = "OFFSET ? ROWS FETCH NEXT 10 ROWS ONLY";
-	
-	
-	public static final String SELECT_MAX_ANO = "SELECT MAX(ANO) FROM TB_ARTICLE";
-	public static final String INSERT_ARTICLE = "INSERT INTO TB_ARTICLE (TITLE, CONTENT, FILE_CNT, WRITER, REG_IP, WDATE) VALUES (?, ?, ?, ?, ?, SYSDATE)";
-	
-	// comment
-	public static final String INSERT_COMMENT = "INSERT INTO TB_COMMENT (ANO, CONTENT, WRITER, REG_IP, WDATE) VALUES (?, ?, ?, ?, SYSDATE)";
-	public static final String SELECT_COMMENT_ALL = "SELECT C.*, U.NICK FROM TB_COMMENT C "
-													+ "JOIN TB_USER U ON C.WRITER = U.USID "
-													+ "WHERE ano=? ORDER BY CNO ASC";
-	
-	public static final String SELECT_COMMENT_LATEST = "SELECT C.*, U.NICK FROM TB_COMMENT C "
-														+ "JOIN TB_USER U ON C.WRITER = U.USID "
-														+ "WHERE cno=(SELECT MAX(cno) FROM TB_COMMENT)";
-	
-	
-	// file
-	public static final String INSERT_FILE = "INSERT INTO TB_FILE (ANO, ONAME, SNAME, RDATE) VALUES (?, ?, ?, SYSDATE)";
-	public final static String SELECT_FILE = "SELECT * FROM TB_FILE WHERE fno=?";
-	public final static String UPDATE_FILE_DOWNLOAD = "UPDATE TB_FILE SET DOWNLOAD = DOWNLOAD + 1 WHERE FNO=?";
-	
-	
+	// board
+	public static final String SELECT_BOARD_ALL = 
+			"select title, w_date from board where comm_cd = ? order by w_date desc LIMIT 5;";
 	
 	// college
 	public static final String INSERT_COLLEGE =
@@ -101,12 +42,92 @@ public class Sql {
 	public static final String SELECT_STUDENT_ALL_SIMPLE =
 	  "SELECT std_id, name, resident_number, phone, email, dept_id, entrygrade, entryterm, status " +
 	  "FROM student ORDER BY std_id DESC";
+   // 총 개수
+   public static final String SELECT_STUDENT_LIST_COUNT =
+       "SELECT COUNT(*) " +
+       "FROM student s JOIN department d ON d.dept_id = s.dept_id %s";
 
+   // 목록 (MySQL: LIMIT ? OFFSET ?)
+   public static final String SELECT_STUDENT_LIST_MYSQL =
+       "SELECT s.std_id, s.name, s.resident_number, s.phone, s.email, " +
+       "       d.dept_name AS dept_name, s.entrygrade, s.entryterm, s.status " +
+       "FROM student s JOIN department d ON d.dept_id = s.dept_id %s " +
+       "ORDER BY s.std_id DESC " +
+       "LIMIT ? OFFSET ?";
 
+   
+   // util/Sql.java 에 추가
+
+   // ── professor ────
+   public static final String INSERT_PROFESSOR =
+     "INSERT INTO professor (" +
+     " prof_id, resident_number, name, e_name, gender, division, phone, email," +
+     " zip, addr1, addr2," +
+     " graduated_univ, graduation_date, major_field, degree, dept_id, hire_date" +
+     ") VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+
+   public static final String SELECT_PROFESSOR =
+     "SELECT p.prof_id, p.resident_number, p.name, p.e_name, p.gender, p.division, p.phone, p.email," +
+     "       p.zip, p.addr1, p.addr2, p.graduated_univ, p.graduation_date, p.major_field, p.degree," +
+     "       p.dept_id, p.hire_date, d.dept_name " +
+     "FROM professor p JOIN department d ON d.dept_id = p.dept_id WHERE p.prof_id=?";
+
+   // 총 개수
+   public static final String SELECT_PROFESSOR_LIST_COUNT =
+     "SELECT COUNT(*) FROM professor p JOIN department d ON d.dept_id = p.dept_id %s";
+
+   // 목록 (MySQL LIMIT ? OFFSET ?)
+   public static final String SELECT_PROFESSOR_LIST_MYSQL =
+     "SELECT p.prof_id, p.name, p.phone, p.email, d.dept_name, p.degree, p.hire_date " +
+     "FROM professor p JOIN department d ON d.dept_id = p.dept_id %s " +
+     "ORDER BY p.prof_id DESC " +
+     "LIMIT ? OFFSET ?";
+
+	   
 	
 	
+	//Department --서현우
+	//학과등록
+	public static final String INSERT_DEPARTMENT= "INSERT INTO department (college_name, dept_name, dept_name_en, established, chair_name, dept_phone, dept_office) VALUES (?,?,?,?,?,?,?)";
+	//dept_id로 학과 셀렉트
+	public static final String SELECT_DEPARTMENT_BY_DEPT_ID = "SELECT * from department where dept_id=?"; 
+	//dept모든 행 select
+	public static final String SELECT_ALL_DEPARTMENT = "SELECT * FROM department";
 	
+	///////////////////////////////////////////
+	/// User 관리
+	///////////////////////////////////////////
 	
+	// User 데이터 입력
+	public static final String INSERT_USER = 
+	"INSERT INTO users (user_id, pass, user_name, hp, email, addr1, addr2, user_role) "
+	+ "VALUES (?, SHA2(?,256), ?, ?, ?, ?, ?, ?)";
 	
+	// User 데이터 조회
+	public static final String SELECT_USER_BY_ID_AND_PASS =
+	"SELECT user_id, pass, user_name, hp, email, addr1, addr2, user_role " 
+	+ "FROM users WHERE user_id=? AND pass=SHA2(?,256)";
 	
+	public static final String SELECT_USER_BY_ID =
+	"SELECT user_id, pass, user_name, hp, email, addr1, addr2, user_role " 
+	+ "FROM users WHERE user_id=?";
+	
+	public static final String SELECT_COUNT_BASE = "SELECT COUNT(*) FROM users ";
+	public static final String WHERE_USER_ID = "WHERE user_id=?";
+	public static final String WHERE_EMAIL   = "WHERE email=?";
+	public static final String WHERE_HP      = "WHERE hp=?";
+	
+	// User 데이터 수정
+	public static final String UPDATE_USER_PROFILE =
+	"UPDATE users SET user_name=?, hp=?, email=?, addr1=?, addr2=? WHERE user_id=?";
+	
+	public static final String UPDATE_USER_PASSWORD =
+	"UPDATE users SET pass=SHA2(?,256) WHERE user_id=?";
+	
+	public static final String UPDATE_USER_ROLE =
+	"UPDATE users SET user_role=? WHERE user_id=?";
+	
+	// User 데이터 삭제
+	public static final String DELETE_USER =
+	"DELETE FROM users WHERE user_id=?";
 }

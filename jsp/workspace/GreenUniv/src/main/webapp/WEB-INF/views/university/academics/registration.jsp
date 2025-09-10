@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>registration</title>
-    <link rel="stylesheet" href="./css/style_reg.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/university/academics/style_reg.css">
     <!-- 
         날짜 : 2025/09/02
         이름 : 천수빈
@@ -52,12 +52,12 @@
                 <div class="sub-nav">
                     <ul>
                         <li><a href="#">
-                            <img src="/images/ico-home.png" height="15"></a></li>
+                            <img src="${pageContext.request.contextPath}/images/ico-home.png" height="15"></a></li>
                         <li><a href="#">
-                            <img src="/images/bg-path-arrow.png" height="10"></a></li>
+                            <img src="${pageContext.request.contextPath}/images/bg-path-arrow.png" height="10"></a></li>
                         <li><a href="#">학사안내</a></li>
                         <li><a href="#">
-                            <img src="/images/bg-path-arrow.png" height="10"></a></li>
+                            <img src="${pageContext.request.contextPath}/images/bg-path-arrow.png" height="10"></a></li>
                         <li class="active"><a href="#">수강신청</a></li>
                     </ul>
                 </div>
@@ -137,7 +137,7 @@
                             <p>- 철회 후 수강신청학점이 학기 당 최저 이수학점 이상이 되어야 함</p>
                             <button type="button" class="apply-btn">
                                 <span>수강신청하기</span>
-                                <img src="/images/bg-link.png" alt="">
+                                <img src="${pageContext.request.contextPath}/images/bg-link.png" alt="">
                             </button>
                         </div>
                     </div>

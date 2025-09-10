@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>notice</title>
-    <link rel="stylesheet" href="./css/style_not.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/university/community/style_not.css">
     <!-- 
         날짜 : 2025/09/05
         이름 : 이민준
@@ -110,7 +110,7 @@
                             <tr>
                                 <td>3</td>
                                 <td>
-                                    <img src="/images/ico-new01.gif" alt="N" class="icon-n">
+                                    <img src="${pageContext.request.contextPath}/images/ico-new01.gif" alt="N" class="icon-n">
                                     2025학년도 1학기 그린장학회 장학생 신청 안내
                                 </td>
                                 <td>학사지원실</td>
@@ -121,7 +121,7 @@
                             <tr>
                                 <td>2</td>
                                 <td>
-                                    <img src="/images/ico-new01.gif" alt="N" class="icon-n">
+                                    <img src="${pageContext.request.contextPath}/images/ico-new01.gif" alt="N" class="icon-n">
                                     제42회 학위수여식 안내
                                 </td>
                                 <td>학사지원실</td>
@@ -132,7 +132,7 @@
                             <tr>
                                 <td>1</td>
                                 <td>
-                                    <img src="/images/ico-new01.gif" alt="N" class="icon-n">
+                                    <img src="${pageContext.request.contextPath}/images/ico-new01.gif" alt="N" class="icon-n">
                                     의료, 인공지능 융합인재 양성사업단 사업설명회
                                 </td>
                                 <td>학사지원실</td>

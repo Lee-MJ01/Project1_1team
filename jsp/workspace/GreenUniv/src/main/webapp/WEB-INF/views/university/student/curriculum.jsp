@@ -6,8 +6,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>그린대학교 | 교과과정  </title>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="./css/common.css">
-<link rel="stylesheet" href="./css/style_cur.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/university/student/common.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/university/student/css/style_cur.css">
 
 </head>
 <body>
@@ -68,7 +68,7 @@
   <section>
     <h2 class="main-title">교과과정</h2>
     <div class="tablehead">
-      <img src="/images/bullet-h4.png">
+      <img src="${pageContext.request.contextPath}/images/bullet-h4.png">
       공통과목(전공)
     </div>
       <div class="subject-table">
@@ -119,7 +119,7 @@
 
     <!-- 선택과목(교양) -->
     <div class="tablehead">
-      <img src="/images/bullet-h4.png" >
+      <img src="${pageContext.request.contextPath}/images/bullet-h4.png" >
       선택과목(교양)
     </div>
       <div class="subject-table">

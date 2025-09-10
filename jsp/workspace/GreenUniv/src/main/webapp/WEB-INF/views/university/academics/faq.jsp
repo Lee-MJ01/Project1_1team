@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>faq</title>
-    <link rel="stylesheet" href="./css/style_faq.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/university/academics/style_faq.css">
     <!-- 
         날짜 : 2025/09/03
         이름 : 천수빈

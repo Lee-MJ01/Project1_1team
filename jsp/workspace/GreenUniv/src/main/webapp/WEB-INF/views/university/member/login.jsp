@@ -27,7 +27,7 @@
       </div>
       <nav class="gnb" role="navigation" aria-label="주 메뉴">
         <div class="container gnb__inner">
-          <a href="/" aria-label="그린대학교 홈"><img class="brand__logo" src="${pageContext.request.contextPath}/images/header_logo.png" alt="그린대학교"></a>
+          <a href="/GreenUniv/index.jsp" aria-label="그린대학교 홈"><img class="brand__logo" src="${pageContext.request.contextPath}/images/header_logo.png" alt="그린대학교"></a>
           <ul class="menu__list">
             <li><a class="menu__link" href="#">대학소개</a></li>
             <li><a class="menu__link" href="#">입학안내</a></li>
@@ -61,7 +61,7 @@
         <h2 class="login-title">LOGIN</h2>
         <p class="login-desc">로그인을 하시면 더 다양한 서비스를 받을 수 있습니다.</p>
 
-        <form class="login-form" id="loginForm" novalidate>
+        <form class="login-form" id="loginForm" method="post" action="${pageContext.request.contextPath}/member/login.do" novalidate>
           <!-- 구분 -->
           <div class="role">
             <label><input type="radio" name="role" value="student" checked> 학부생</label>
@@ -69,22 +69,13 @@
             <label><input type="radio" name="role" value="outsider"> 일반인</label>
           </div>
 
-          <!-- 25.09.09 수정 전
-          아이디/비밀번호
-          <input type="text" id="uid" placeholder="아이디" required>
-          <input type="password" id="pw" placeholder="비밀번호" required>
+          <!-- 아이디/비밀번호 -->
+          <input type="text" id="uid" name="user_id" placeholder="아이디" required>
+          <input type="password" id="pw" name="pass" placeholder="비밀번호" required>
 
-          로그인 버튼
+          <!-- 로그인 버튼 -->
           <button type="submit" class="btn-login">로그인</button>
-          -->
           
-          <!-- 폼 제출로 로그인 (25.09.09 천수빈 수정) -->
-          <form method="post" action="${pageContext.request.contextPath}/university/member/login.do">
-	          <input type="text" 	 id="user_id" name="user_id"  placeholder="아이디" required />
-	          <input type="password" id="pass" 	  name="pass"  placeholder="비밀번호" required />
-	          <button type="submit"  class="btn-login">로그인</button>
-		  </form>
-		  
           <!-- 링크 -->
           <div class="login-links">
             <a href="#">아이디/비밀번호 찾기</a>
@@ -146,5 +137,24 @@
       if(this.value){ window.open(this.value, '_blank'); this.selectedIndex = 0; }
     });
   </script>
+  	
+	<!-- ResultCode 출력 -->
+	<%
+		String code = request.getParameter("code");
+		
+		if(code != null) {
+			int resultCode = Integer.parseInt(code);
+	
+			if(resultCode == 101){ // LOGIN_FAIL
+	%>
+			<script>alert("로그인에 실패하였습니다. 아이디/비밀번호를 확인해 주십시오.");</script>
+	<%
+			} else if(resultCode == 200) { // REGISTER_SUCCESS
+	%>
+			<script>alert("회원가입이 완료되었습니다.");</script>
+	<%
+        }
+    }
+	%>
 </body>
 </html>

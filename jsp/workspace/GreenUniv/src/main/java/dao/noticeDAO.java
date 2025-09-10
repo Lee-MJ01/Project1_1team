@@ -19,6 +19,7 @@ public class noticeDAO extends DBHelper{
 	public void selectAll(){
 		try {
 			conn = getConnection();
+			//psmt = conn.prepareStatement();
 			
 		} catch (Exception e) {
 			logger.error(e.getMessage());
