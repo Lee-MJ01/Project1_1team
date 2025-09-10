@@ -1,4 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="jakarta.tags.core" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -235,7 +236,19 @@
                         <th>개설 강의 수</th>
                     </thead>
                     <tbody>
-        <!-- 바디 -->
+        <!-- 바디 -->	
+        				<c:forEach var="dto" items="${deptDtoList}">
+	        				<tr>
+								<td>${dto.dept_id}</td>
+								<td>${dto.college_name}</td>        				
+								<td>${dto.dept_name}</td>        				
+								<td>${dto.chair_name}</td>        				
+								<td>dto.dept_phone</td>        				
+								<td>x</td>        				
+								<td>x</td>        				
+								<td>x</td>        				
+        					</tr>
+        				</c:forEach>
                         <tr>
                             <td>10</td>
                             <td>인문사회대학</td>

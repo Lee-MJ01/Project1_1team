@@ -1,20 +1,20 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/university/community/style_not.css">
-	<%@ include file = "/WEB-INF/views/_header.jsp" %>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/university/academics/style_not.css">
+<%@ include file = "/WEB-INF/views/_header.jsp" %>
 
         <div class=background>
             <div class="container">
                 <div class="sub-nav">
                     <ul>
                         <li><a href="#">
-                            <img src="/images/ico-home.png" height="15"></a></li>
+                            <img src="${pageContext.request.contextPath}/images/ico-home.png" height="15"></a></li>
                         <li><a href="#">
-                            <img src="/images/bg-path-arrow.png" height="10"></a></li>
-                        <li><a href="#">커뮤니티</a></li>
+                            <img src="${pageContext.request.contextPath}/images/bg-path-arrow.png" height="10"></a></li>
+                        <li><a href="#">학사안내</a></li>
                         <li><a href="#">
-                            <img src="/images/bg-path-arrow.png" height="10"></a></li>
+                            <img src="${pageContext.request.contextPath}/images/bg-path-arrow.png" height="10"></a></li>
                         <li class="active"><a href="#">공지사항</a></li>
                     </ul>
                 </div>
@@ -24,14 +24,14 @@
         <main>
             <div class="container">
                 <aside class="side-nav">
-                    <h2>커뮤니티</h2>
+                    <h2>학사안내</h2>
                     <ul>
-                    	<li class="active"><a href="${pageContext.request.contextPath}/community/notice.do">공지사항</a></li>
-                        <li><a href="${pageContext.request.contextPath}/community/news.do">뉴스 및 칼럼</a></li>
-                        <li><a href="${pageContext.request.contextPath}/community/jobs.do">취업정보</a></li>
-                        <li><a href="${pageContext.request.contextPath}/community/board.do">자유게시판</a></li>
-                        <li><a href="${pageContext.request.contextPath}/community/qna.do">질문과 답변</a></li>
-                        <li><a href="${pageContext.request.contextPath}/community/resources.do">자료실</a></li>
+                        <li class="active"><a href="${pageContext.request.contextPath}/academics/notice.do">공지사항</a></li>
+                        <li><a href="${pageContext.request.contextPath}/academics/calendar.do">학사일정</a></li>
+                        <li><a href="${pageContext.request.contextPath}/academics/registration.do">수강신청</a></li>
+                        <li><a href="${pageContext.request.contextPath}/academics/grades.do">성적</a></li>
+                        <li><a href="${pageContext.request.contextPath}/academics/graduation.do">수료 및 졸업</a></li>
+                        <li><a href="${pageContext.request.contextPath}/academics/faq.do">자주묻는질문</a></li>
                     </ul>
                 </aside>
 
@@ -85,15 +85,15 @@
 							</tbody>
 			          </table>
 
-          <div class="pagination">
-            <a href="#"><img src="${pageContext.request.contextPath}/images/btn-first-page.png" alt="처음"></a>
-            <a href="#"><img src="${pageContext.request.contextPath}/images/btn-prev-page.png" alt="이전"></a>
-            <a href="#" class="active">1</a>
-            <a href="#">2</a>
-            <a href="#">3</a>
-            <a href="#"><img src="${pageContext.request.contextPath}/images/btn-next-page.png" alt="다음"></a>
-            <a href="#"><img src="${pageContext.request.contextPath}/images/btn-last-page.png" alt="끝"></a>
-          </div>
+                    <div class="pagination">
+                        <a href="#" class="first"><img src="${pageContext.request.contextPath}/images/btn-first-page.png" alt="처음"></a>
+                        <a href="#" class="prev"><img src="${pageContext.request.contextPath}/images/btn-prev-page.png" alt="이전"></a>
+                        <a href="#" class="active">1</a>
+                        <a href="#">2</a>
+                        <a href="#">3</a>
+                        <a href="#" class="next"><img src="${pageContext.request.contextPath}/images/btn-next-page.png" alt="다음"></a>
+                        <a href="#" class="last"><img src="${pageContext.request.contextPath}/images/btn-last-page.png" alt="끝"></a>
+                    </div>
                 </section>
             </div>
         </main>

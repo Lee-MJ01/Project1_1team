@@ -14,7 +14,7 @@ import service.CollegeService;
 import util.ResultCode;
 
 @MultipartConfig
-@WebServlet("academic/departments/college/write.do")
+@WebServlet("/college/write.do")
 public class CollegeRegisterController extends HttpServlet {
 
     private static final long serialVersionUID = 1L;
@@ -57,9 +57,9 @@ public class CollegeRegisterController extends HttpServlet {
 
         String ctx = req.getContextPath();
         if (result > 0) {
-            resp.sendRedirect(ctx + "academic/departments/college/write.do?code=" + ResultCode.WRITE_SUCCESS.getCode());
+            resp.sendRedirect(ctx + "/WEB-INF/views/academic/departments/college/write.do?code=" + ResultCode.WRITE_SUCCESS.getCode());
         } else {
-            resp.sendRedirect(ctx + "academic/departments/college/write.do?code=" + ResultCode.WRITE_FAIL.getCode());
+            resp.sendRedirect(ctx + "/WEB-INF/views/academic/departments/college/write.do?code=" + ResultCode.WRITE_FAIL.getCode());
         }
     }
 }

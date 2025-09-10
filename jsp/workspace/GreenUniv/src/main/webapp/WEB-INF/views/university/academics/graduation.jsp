@@ -6,46 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>graduation</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/university/academics/style_gda.css">
-    <!-- 
-        날짜 : 2025/09/03
-        이름 : 천수빈
-        내용 : 학사안내 - 수료 및 졸업 제작 
-    -->
 </head>
 <body>
     <div id="wrapper">
-        <header>
-            <div class="header-top">
-                <div class="container">
-                    <ul>
-                        <li><a href="#">HOME</a></li>
-                        <li><a href="#">사이트맵</a></li>
-                        <li><a href="#">로그인</a></li>
-                        <li><a href="#">학생지원</a></li>
-                    </ul>
-                </div>
-            </div>  
-
-            <div class="header-main">
-                <div class="container">
-                    <div class="logo">
-                        <a href="#">
-                            <img src="/images/header_logo.png" width="196" alt="그린대학교 로고">
-                        </a>
-                    </div>
-                    <nav class="main-nav">
-                        <ul>
-                            <li><a href="#">대학소개</a></li>
-                            <li><a href="#">입학안내</a></li>
-                            <li><a href="#">대학·대학원</a></li>
-                            <li><a href="#">학사안내</a></li>
-                            <li><a href="#">대학생활</a></li>
-                            <li><a href="#">커뮤니티</a></li>
-                        </ul>
-                    </nav>
-                </div>
-            </div>
-        </header>
+        
+<%-- 헤더 부분 포함 --%>
+<%@ include file="/WEB-INF/views/_header.jsp" %>
 
         <div class=background>
             <div class="container">
@@ -69,12 +35,12 @@
                 <aside class="side-nav">
                     <h2>학사안내</h2>
                     <ul>
-                        <li><a href="#">공지사항</a></li>
-                        <li><a href="#">학사일정</a></li>
-                        <li><a href="#">수강신청</a></li>
-                        <li><a href="#">성적</a></li>
-                        <li class="active"><a href="#">수료 및 졸업</a></li>
-                        <li><a href="#">자주묻는질문</a></li>
+                    	<li><a href="${pageContext.request.contextPath}/academics/notice.do">공지사항</a></li>
+                        <li><a href="${pageContext.request.contextPath}/academics/calendar.do">학사일정</a></li>
+                        <li><a href="${pageContext.request.contextPath}/academics/registration.do">수강신청</a></li>
+                        <li><a href="${pageContext.request.contextPath}/academics/grades.do">성적</a></li>
+                        <li class="active"><a href="${pageContext.request.contextPath}/academics/graduation.do">수료 및 졸업</a></li>
+                        <li><a href="${pageContext.request.contextPath}/academics/faq.do">자주묻는질문</a></li>
                     </ul>
                 </aside>
 
@@ -253,40 +219,9 @@
             </div>
         </main>    
         
-        <footer>
-            <div class="footer-top">
-                <div class="container">
-                    <ul>
-                        <li><a href="#">개인정보처리방침</a></li>
-                        <li><a href="#">통합정보시스템</a></li>
-                        <li><a href="#">학사일정</a></li>
-                        <li><a href="#">주요민원 연락처</a></li>
-                        <li><a href="#">교내공지사항</a></li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="footer-bottom">
-                <div class="container">
-                    <div class="footer-left">
-                        <img src="/images/footer_logo.png" alt="그린대학교 로고" class="footer-logo">
-                        <div class="footer-text">
-                            <p>그린대학교</p>
-                            <p>[12345] 부산광역시 부산진구 부전대로 123 그린대학교 / 대표전화 : 051-123-1000 /</p>
-                            <p>입학안내 : 051-123-1302 팩스 : 051-123-3333</p>
-                            <p class="copy">copyright ⓒ Green University All rights reserved.</p>
-                        </div>
-                    </div>
-                    <div class="footer-right">
-                        <select>
-                            <option>주요사이트</option>
-                            <option>도서관</option>
-                            <option>포털</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
-        </footer>
+       
+<%-- 푸터 부분 포함 --%>
+<%@ include file="/WEB-INF/views/_footer.jsp" %>
     </div>
 </body>
 </html>

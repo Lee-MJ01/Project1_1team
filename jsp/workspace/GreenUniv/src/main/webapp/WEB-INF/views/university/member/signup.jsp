@@ -5,42 +5,15 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>그린대학교 | 회원가입</title>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;600;700&display=swap" rel="stylesheet">
-  <!-- 공통 스타일 -->
-  <link rel="stylesheet" href="${pageContext.request.contextPath}/css/university/member/common.css">
-  <!-- 회원가입 전용 스타일 -->
+   <!-- 회원가입 전용 스타일 -->
   <link rel="stylesheet" href="${pageContext.request.contextPath}/css/university/member/member.css">
   <!-- signup 전용 스타일 -->
   <link rel="stylesheet" href="${pageContext.request.contextPath}/css/university/member/signup.css">
 </head>
 <body>
   <div id="wrapper">
-    <!-- 헤더 -->
-    <header>
-      <div class="topbar">
-        <div class="container topbar__nav" role="navigation" aria-label="상단 빠른 메뉴">
-          <ul class="topbar__list">
-            <li class="topbar__item"><a href="#">HOME</a></li>
-            <li class="topbar__item"><a href="#">사이트맵</a></li>
-            <li class="topbar__item"><a href="#">로그인</a></li>
-            <li class="topbar__item"><a href="#">학사지원</a></li>
-          </ul>
-        </div>
-      </div>
-      <nav class="gnb" role="navigation" aria-label="주 메뉴">
-        <div class="container gnb__inner">
-          <a href="/" aria-label="그린대학교 홈"><img class="brand__logo" src="${pageContext.request.contextPath}/images/header_logo.png" alt="그린대학교"></a>
-          <ul class="menu__list">
-            <li><a class="menu__link" href="#">대학소개</a></li>
-            <li><a class="menu__link" href="#">입학안내</a></li>
-            <li><a class="menu__link" href="#">대학·대학원</a></li>
-            <li><a class="menu__link" href="#">학사안내</a></li>
-            <li><a class="menu__link" href="#">대학생활</a></li>
-            <li><a class="menu__link" href="#">커뮤니티</a></li>
-          </ul>
-        </div>
-      </nav>
-    </header>
+    <%-- 헤더 부분 포함 --%>
+    <%@ include file="/WEB-INF/views/_header.jsp" %>
 
     <!-- breadcrumb -->
     <div class="background">

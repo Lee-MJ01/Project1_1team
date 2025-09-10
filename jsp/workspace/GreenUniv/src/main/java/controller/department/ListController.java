@@ -12,7 +12,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import service.DepartmentService;
 
-@WebServlet("/academic/departments/department-list.do")
+@WebServlet("/academic/departments/department/list.do")
 public class ListController extends HttpServlet{
 	private static final long serialVersionUID = 1L;
 	
@@ -22,10 +22,11 @@ public class ListController extends HttpServlet{
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
 		//전체 조회
-		List<DepartmentDTO> dtoList = departmentService.findAll();
+		List<DepartmentDTO> deptDtoList = departmentService.findAll();
+		
+		req.setAttribute("deptDtoList", deptDtoList);
 		
 		//request 공유참조(jsp출력)
-		
 		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/academic/departments/department-list.jsp");
 		dispatcher.forward(req, resp);
 	}
