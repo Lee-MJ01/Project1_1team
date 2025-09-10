@@ -1,4 +1,4 @@
-package controller.department;
+package controller.academic.departments;
 
 import java.io.IOException;
 

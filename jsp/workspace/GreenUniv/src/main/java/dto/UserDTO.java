@@ -59,18 +59,21 @@ public class UserDTO {
 	public void setUser_role(String user_role) {
 		this.user_role = user_role;
 	}
-   public void setUsid(String string) {
+	
+	public void setUsid(String string) {
       // TODO Auto-generated method stub
       
-   }
-   public void setNick(String string) {
+	}
+   
+	public void setNick(String string) {
       // TODO Auto-generated method stub
       
-   }
-   public void setUs_name(String string) {
+	}
+   
+	public void setUs_name(String string) {
       // TODO Auto-generated method stub
       
-   }
+	}
 	
 	@Override
 	public String toString() {
