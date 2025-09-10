@@ -105,6 +105,17 @@ public class Sql {
 	//dept모든 행 select
 	public static final String SELECT_ALL_DEPARTMENT = "SELECT * FROM department";
 	
+	
+	///////////////////
+	///course
+	//////////////////
+	public static final String INSERT_COURSE = "INSERT INTO course ( " +
+		    "dept_id, year, semester, division, crs_name, p_code, credit, crs_desc, period_start, period_end," +
+		    "time_start, time_end, days, eval_method, textbook,crs_room, capacity) " +
+		    "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+
+	
+	
 	///////////////////////////////////////////
 	/// User 관리
 	///////////////////////////////////////////
