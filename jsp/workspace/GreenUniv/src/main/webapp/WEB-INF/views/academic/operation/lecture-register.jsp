@@ -650,6 +650,18 @@ body {
 						<h4 class="section-title">수업정보 입력</h4>
 						<table class="form-grid">
 							<tbody>
+		                	<!-- 수업기간 -->
+				                <tr>
+				                  	<th scope="row">수업 기간</th>
+				                  	<td colspan="3">
+				                    	<div style="display:flex; gap:12px;">
+				                      		<input class="inp w180" type="date" name="period_start" required>
+				                      		<span class="tilde">~</span>
+				                      		<input class="inp w180" type="date" name="period_end" required>
+				                    	</div>
+				                    	<div class="help">※ 개설연도는 시작일(period_start) 기준으로 자동 산출됩니다.</div>
+				                  </td>
+				                </tr>
 								<tr>
 									<th scope="row">수업 시간</th>
 									<td colspan="3">

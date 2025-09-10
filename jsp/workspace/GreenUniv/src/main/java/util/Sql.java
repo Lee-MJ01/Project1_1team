@@ -115,9 +115,9 @@ public class Sql {
 	///course
 	//////////////////
 	public static final String INSERT_COURSE = "INSERT INTO course ( " +
-		    "dept_id, year, semester, division, crs_name, p_code, credit, crs_desc, period_start, period_end," +
+		    "crs_cd ,dept_id, year, semester, division, crs_name, p_code, credit, crs_desc, period_start, period_end," +
 		    "time_start, time_end, days, eval_method, textbook,crs_room, capacity) " +
-		    "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+		    "VALUES (?,?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
 	
 	
