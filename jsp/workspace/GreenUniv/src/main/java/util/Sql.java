@@ -5,6 +5,7 @@ public class Sql {
 	public static final String SELECT_BOARD_ALL = 
 			"select title, w_date from board where comm_cd = ? order by w_date desc LIMIT 5;";
 	
+<<<<<<< HEAD
 	//board--index 아님
 	public static final String SELECT_NOTICE_ALL =
 		    "SELECT `Number` AS no, title, writer, DATE_FORMAT(w_date, '%Y.%m.%d') AS wdate, view_count AS views " +
@@ -22,6 +23,8 @@ public class Sql {
 		    "FROM board " +
 		    "WHERE `Number` = ?";
 
+=======
+>>>>>>> f6337c0d2124f43b093d4f56a2e5113224c4ec0f
 	// college
 	public static final String INSERT_COLLEGE =
 	    "INSERT INTO college (college_name, college_name_en, intro_title, intro_body, image_path) VALUES (?, ?, ?, ?, ?)";
@@ -104,12 +107,18 @@ public class Sql {
 	
 	
 	//Department --서현우
+<<<<<<< HEAD
 	public static final String INSERT_DEPARTMENT= "INSERT INTO department (dept_id,college_name, dept_name, dept_name_en, established, chair_name, dept_phone, dept_office) VALUES (?,?,?,?,?,?,?,?)";
+=======
+	//학과등록
+	public static final String INSERT_DEPARTMENT= "INSERT INTO department (college_name, dept_name, dept_name_en, established, chair_name, dept_phone, dept_office) VALUES (?,?,?,?,?,?,?)";
+>>>>>>> f6337c0d2124f43b093d4f56a2e5113224c4ec0f
 	//dept_id로 학과 셀렉트
 	public static final String SELECT_DEPARTMENT_BY_DEPT_ID = "SELECT * from department where dept_id=?"; 
 	//dept모든 행 select
 	public static final String SELECT_ALL_DEPARTMENT = "SELECT * FROM department";
 	
+<<<<<<< HEAD
 	
 	///////////////////
 	///course
@@ -123,6 +132,10 @@ public class Sql {
 	
 	///////////////////////////////////////////
 	/// 천수빈 - User/Terms 관리
+=======
+	///////////////////////////////////////////
+	/// User 관리
+>>>>>>> f6337c0d2124f43b093d4f56a2e5113224c4ec0f
 	///////////////////////////////////////////
 	
 	// User 데이터 입력
@@ -157,8 +170,11 @@ public class Sql {
 	// User 데이터 삭제
 	public static final String DELETE_USER =
 	"DELETE FROM users WHERE user_id=?";
+<<<<<<< HEAD
 	
 	// terms
 	public static final String SELECT_TERMS = 
 	"SELECT * FROM terms WHERE no=?";
+=======
+>>>>>>> f6337c0d2124f43b093d4f56a2e5113224c4ec0f
 }

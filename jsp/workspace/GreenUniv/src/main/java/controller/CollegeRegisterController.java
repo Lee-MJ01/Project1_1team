@@ -57,9 +57,15 @@ public class CollegeRegisterController extends HttpServlet {
 
         String ctx = req.getContextPath();
         if (result > 0) {
+<<<<<<< HEAD
             resp.sendRedirect(ctx + "/WEB-INF/views/academic/departments/college/write.do?code=" + ResultCode.WRITE_SUCCESS.getCode());
         } else {
             resp.sendRedirect(ctx + "/WEB-INF/views/academic/departments/college/write.do?code=" + ResultCode.WRITE_FAIL.getCode());
+=======
+            resp.sendRedirect(ctx + "/college/list.do?code=" + ResultCode.WRITE_SUCCESS.getCode());
+        } else {
+            resp.sendRedirect(ctx + "/college/write.do?code=" + ResultCode.WRITE_FAIL.getCode());
+>>>>>>> f6337c0d2124f43b093d4f56a2e5113224c4ec0f
         }
     }
 }

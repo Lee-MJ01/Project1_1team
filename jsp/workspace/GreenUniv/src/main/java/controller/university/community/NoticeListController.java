@@ -1,21 +1,29 @@
 package controller.university.community;
 
 import java.io.IOException;
+<<<<<<< HEAD
 import java.util.List;
 
 import dto.BoardDTO;
+=======
+
+>>>>>>> f6337c0d2124f43b093d4f56a2e5113224c4ec0f
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+<<<<<<< HEAD
 import service.BoardService;
+=======
+>>>>>>> f6337c0d2124f43b093d4f56a2e5113224c4ec0f
 
 @WebServlet("/community/notice.do")
 public class NoticeListController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
+<<<<<<< HEAD
 	private BoardService boardService = BoardService.INSTANCE;
 
 	@Override
@@ -26,6 +34,10 @@ public class NoticeListController extends HttpServlet {
 		
 		req.setAttribute("dtoList", dtoList);
 		
+=======
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+>>>>>>> f6337c0d2124f43b093d4f56a2e5113224c4ec0f
 		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/university/community/notice.jsp");
 		dispatcher.forward(req, resp);
 	}

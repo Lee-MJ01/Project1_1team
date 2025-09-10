@@ -5,12 +5,47 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>그린대학교 | 로그인</title>
+<<<<<<< HEAD
+=======
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <!-- 공통 스타일 -->
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/css/university/member/common.css">
+>>>>>>> f6337c0d2124f43b093d4f56a2e5113224c4ec0f
   <!-- 로그인 전용 스타일 -->
   <link rel="stylesheet" href="${pageContext.request.contextPath}/css/university/member/login.css">
 </head>
 <body>
   <div id="wrapper">
+<<<<<<< HEAD
     <%@ include file="/WEB-INF/views/_header.jsp" %>
+=======
+    <!-- 헤더 -->
+    <header>
+      <div class="topbar">
+        <div class="container topbar__nav" role="navigation" aria-label="상단 빠른 메뉴">
+          <ul class="topbar__list">
+            <li class="topbar__item"><a href="#">HOME</a></li>
+            <li class="topbar__item"><a href="#">사이트맵</a></li>
+            <li class="topbar__item"><a href="#">로그인</a></li>
+            <li class="topbar__item"><a href="#">학사지원</a></li>
+          </ul>
+        </div>
+      </div>
+      <nav class="gnb" role="navigation" aria-label="주 메뉴">
+        <div class="container gnb__inner">
+          <a href="/" aria-label="그린대학교 홈"><img class="brand__logo" src="${pageContext.request.contextPath}/images/header_logo.png" alt="그린대학교"></a>
+          <ul class="menu__list">
+            <li><a class="menu__link" href="#">대학소개</a></li>
+            <li><a class="menu__link" href="#">입학안내</a></li>
+            <li><a class="menu__link" href="#">대학·대학원</a></li>
+            <li><a class="menu__link" href="#">학사안내</a></li>
+            <li><a class="menu__link" href="#">대학생활</a></li>
+            <li><a class="menu__link" href="#">커뮤니티</a></li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+>>>>>>> f6337c0d2124f43b093d4f56a2e5113224c4ec0f
 
     <!-- breadcrumb -->
     <div class="background">
@@ -33,7 +68,11 @@
         <h2 class="login-title">LOGIN</h2>
         <p class="login-desc">로그인을 하시면 더 다양한 서비스를 받을 수 있습니다.</p>
 
+<<<<<<< HEAD
         <form class="login-form" id="loginForm" method="post" action="${pageContext.request.contextPath}/member/login.do" novalidate>
+=======
+        <form class="login-form" id="loginForm" novalidate>
+>>>>>>> f6337c0d2124f43b093d4f56a2e5113224c4ec0f
           <!-- 구분 -->
           <div class="role">
             <label><input type="radio" name="role" value="student" checked> 학부생</label>
@@ -41,6 +80,7 @@
             <label><input type="radio" name="role" value="outsider"> 일반인</label>
           </div>
 
+<<<<<<< HEAD
           <!-- 아이디/비밀번호 -->
           <input type="text" id="uid" name="user_id" placeholder="아이디" required>
           <input type="password" id="pw" name="pass" placeholder="비밀번호" required>
@@ -48,6 +88,23 @@
           <!-- 로그인 버튼 -->
           <button type="submit" class="btn-login">로그인</button>
           
+=======
+          <!-- 25.09.09 수정 전
+          아이디/비밀번호
+          <input type="text" id="uid" placeholder="아이디" required>
+          <input type="password" id="pw" placeholder="비밀번호" required>
+
+          로그인 버튼
+          <button type="submit" class="btn-login">로그인</button>
+          -->
+          
+          <!-- 폼 제출로 로그인 (25.09.09 천수빈 수정) -->
+          <form method="post" action="${pageContext.request.contextPath}/university/member/login.do">
+	          <input type="text" 	 id="user_id" name="user_id"  placeholder="아이디" required />
+	          <input type="password" id="pass" 	  name="pass"  placeholder="비밀번호" required />
+	          <button type="submit"  class="btn-login">로그인</button>
+		  </form>
+>>>>>>> f6337c0d2124f43b093d4f56a2e5113224c4ec0f
           <!-- 링크 -->
           <div class="login-links">
             <a href="#">아이디/비밀번호 찾기</a>
@@ -66,8 +123,47 @@
       </div>
     </main>
 
+<<<<<<< HEAD
     <%-- 푸터 부분 포함 --%>
     <%@ include file="/WEB-INF/views/_footer.jsp" %>
+=======
+    <!-- 푸터 -->
+    <footer class="footer">
+      <div class="footer__top">
+        <div class="container footer__nav">
+          <ul class="footer__list">
+            <li class="footer__item"><a class="footer__link" href="#">개인정보처리방침</a></li>
+            <li class="footer__item"><a class="footer__link" href="#">통합정보시스템</a></li>
+            <li class="footer__item"><a class="footer__link" href="#">학사일정</a></li>
+            <li class="footer__item"><a class="footer__link" href="#">주요인원 연락처</a></li>
+            <li class="footer__item"><a class="footer__link" href="#">교내공지사항</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__body">
+        <div class="container footer__inner">
+          <img class="footer__logo" src="${pageContext.request.contextPath}/images/footer_logo.png" alt="그린대학교 로고">
+          <div>
+            <ul class="footer__info">
+              <li><strong>그린대학교</strong></li>
+              <li>[12345] 부산광역시 부산진구 부전대로 123 / 대표전화 : 051-123-1000</li>
+              <li>입학안내 : 051-123-1302 · 팩스 : 051-123-3333</li>
+            </ul>
+            <div class="footer__copy">copyright © Green University. All rights reserved.</div>
+          </div>
+          <div class="footer__select">
+            <label for="sites" class="sr-only" style="position:absolute;left:-9999px">주요사이트</label>
+            <select id="sites" class="select" name="sites">
+              <option value="">주요사이트</option>
+              <option value="https://www.busanbank.co.kr/ib20/mnu/BHP00001">BNK부산은행</option>
+              <option value="/academic/index.html">학사관리시스템</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+>>>>>>> f6337c0d2124f43b093d4f56a2e5113224c4ec0f
 
   <script>
     // 주요사이트 이동
@@ -75,6 +171,7 @@
       if(this.value){ window.open(this.value, '_blank'); this.selectedIndex = 0; }
     });
   </script>
+<<<<<<< HEAD
   	
 	<!-- ResultCode 출력 -->
 	<%
@@ -94,5 +191,7 @@
         }
     }
 	%>
+=======
+>>>>>>> f6337c0d2124f43b093d4f56a2e5113224c4ec0f
 </body>
 </html>

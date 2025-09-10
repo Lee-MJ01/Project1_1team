@@ -8,6 +8,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+<<<<<<< HEAD
 import util.ResultCode;
 import dto.UserDTO;
 import service.UserService;
@@ -22,12 +23,22 @@ public class SignUpController extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
+=======
+
+@WebServlet("/member/signup.do")
+public class SignUpController extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+>>>>>>> f6337c0d2124f43b093d4f56a2e5113224c4ec0f
 		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/university/member/signup.jsp");
 		dispatcher.forward(req, resp);
 	}
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+<<<<<<< HEAD
 	
 		// 전송 데이터 수신
 		String user_id 	 = req.getParameter("user_id");
@@ -55,5 +66,7 @@ public class SignUpController extends HttpServlet {
 		// 이동
 		resp.sendRedirect("/GreenUniv/member/login.do?code="+ResultCode.REGISTER_SUCCESS.getCode());
 	
+=======
+>>>>>>> f6337c0d2124f43b093d4f56a2e5113224c4ec0f
 	}
 }

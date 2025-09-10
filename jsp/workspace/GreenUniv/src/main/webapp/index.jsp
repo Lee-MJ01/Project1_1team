@@ -1,8 +1,12 @@
+<<<<<<< HEAD
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+=======
+>>>>>>> f6337c0d2124f43b093d4f56a2e5113224c4ec0f
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
 <%@ taglib prefix="fmt" uri="jakarta.tags.fmt" %>
 <%@ taglib prefix="fn" uri="jakarta.tags.functions" %>
 <%@ page isELIgnored="false" %>
+<<<<<<< HEAD
 
 <!DOCTYPE html>
 <html lang="ko">
@@ -105,6 +109,10 @@
     <%@ include file="./WEB-INF/views/_header.jsp" %>
     
     <%-- 메인 컨텐츠 --%>
+=======
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ include file = "./WEB-INF/views/_header.jsp" %>
+>>>>>>> f6337c0d2124f43b093d4f56a2e5113224c4ec0f
     <div class="body">
         <div id="main-bg"></div>
         <div id="body1200">
@@ -114,8 +122,17 @@
                 <p>급변하는 컴퓨터 기술의 발전에 선도적으로 참여하고 컴퓨터의 활용을 통하여 미래를 만들어 나갈 수 있는 인력을 배양</p>
                 
                 <div id="main-pagemove">
+<<<<<<< HEAD
                    	<img src="${pageContext.request.contextPath}/images/btn-prev01.png" alt="전페이지" id="prev-page">
                    	<img src="${pageContext.request.contextPath}/images/btn-next01.png" alt="다음페이지" id="next-page">
+=======
+                	<button type="button">
+                    	<img src="${pageContext.request.contextPath}/images/btn-prev01.png" alt="전페이지" id="prev-page">
+                    </button>
+                    <button type="button">
+                    	<img src="${pageContext.request.contextPath}/images/btn-next01.png" alt="다음페이지" id="next-page">
+                    </button>
+>>>>>>> f6337c0d2124f43b093d4f56a2e5113224c4ec0f
                 </div>
                 <div id="main-departmentIntro">
                     <span><a href="${pageContext.request.contextPath}/colleges/humanities.do">학과소개 바로가기</a></span>
@@ -312,9 +329,13 @@
             </div>
         </div>
     </div>
+<<<<<<< HEAD
     
     <%-- 푸터 부분 포함 --%>
     <%@ include file="./WEB-INF/views/_footer.jsp" %>
     
 </body>
 </html>
+=======
+<%@ include file = "./WEB-INF/views/_footer.jsp" %>
+>>>>>>> f6337c0d2124f43b093d4f56a2e5113224c4ec0f
