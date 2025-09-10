@@ -58,41 +58,6 @@ main .container {
   gap: 60px;
 }
 
-/* ===== side-nav ===== */
-.side-nav {
-  width: 210px;
-  flex-shrink: 0;
-}
-
-.side-nav h2 {
-  font-size: 32px;
-  margin: 0;
-  padding: 0 0 10px 0;
-  border-bottom: 2px solid black;
-  line-height: 1.5;
-}
-
-.side-nav ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.side-nav li a {
-  font-size: 16px;
-  font-weight: 400;
-  display: block;
-  padding: 18px;
-  color: #333333;
-  text-decoration: none;
-  border-bottom: 1px solid #ddd;
-}
-
-.side-nav li.active a {
-  background-color: #3F97F6;
-  color: white;
-}
-
 /* ===== content ===== */
 .content {
   flex: 1;

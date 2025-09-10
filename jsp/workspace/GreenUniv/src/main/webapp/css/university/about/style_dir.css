@@ -1,7 +1,7 @@
 /* 오시는길 */
 .directions { margin-top: 16px; }
 
-.dir-map img {
+.dir-map {
   margin-top: 10px;
   width: 100%; height: auto; border-radius: 8px;
   display: block; margin-bottom: 22px;

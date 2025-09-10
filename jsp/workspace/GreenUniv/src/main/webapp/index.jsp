@@ -11,11 +11,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>그린대학교</title>
     
-    <%-- 모든 CSS 링크를 이곳으로 이동 --%>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/mainStyle.css">
-    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/header.css">
-    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/footer.css">
     
     <script>
     	document.addEventListener('DOMContentLoaded', function() {

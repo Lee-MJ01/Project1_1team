@@ -2,6 +2,8 @@
   <link rel="stylesheet" href="${pageContext.request.contextPath}/css/footer.css">
 
 
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/footer.css">
+
 <footer class="footer">
     <div class="footer__top">
         <div class="container footer__nav">

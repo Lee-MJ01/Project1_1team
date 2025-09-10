@@ -1,11 +1,11 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ include file = "/WEB-INF/views/_header.jsp" %>
+
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 	<!-- 입학안내 공지사항 -->
 	
   <link rel="stylesheet" href="${pageContext.request.contextPath}/css/university/admission/notice.css">
-
+<%@ include file = "/WEB-INF/views/_header.jsp" %>
     <!-- ===== breadcrumb ===== -->
     <div class="background">
       <div class="container">
@@ -28,11 +28,11 @@
         <aside class="side-nav">
           <h2>입학안내</h2>
           <ul>
-            <li class="active"><a href="#">공지사항</a></li>
-            <li><a href="#">수시모집</a></li>
-            <li><a href="#">정시모집</a></li>
-            <li><a href="#">편입학</a></li>
-            <li><a href="#">입학상담</a></li>
+          	<li class="active"><a href="${pageContext.request.contextPath}/admission/notice.do">공지사항</a></li>
+            <li><a href="${pageContext.request.contextPath}/admission/early.do">수시모집</a></li>
+            <li><a href="${pageContext.request.contextPath}/admission/regular.do">정시모집</a></li>
+            <li><a href="${pageContext.request.contextPath}/admission/transfer.do">편입학</a></li>
+            <li><a href="${pageContext.request.contextPath}/admission/counseling.do">입학상담</a></li>
           </ul>
         </aside>
 

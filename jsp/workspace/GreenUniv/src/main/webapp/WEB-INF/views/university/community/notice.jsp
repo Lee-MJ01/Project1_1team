@@ -1,9 +1,8 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ include file = "/WEB-INF/views/_header.jsp" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/university/community/style_not.css">
-
+	<%@ include file = "/WEB-INF/views/_header.jsp" %>
 
         <div class=background>
             <div class="container">
@@ -27,12 +26,12 @@
                 <aside class="side-nav">
                     <h2>커뮤니티</h2>
                     <ul>
-                        <li class="active"><a href="#">공지사항</a></li>
-                        <li><a href="#">뉴스 및 칼럼</a></li>
-                        <li><a href="#">취업정보</a></li>
-                        <li><a href="#">자유게시판</a></li>
-                        <li><a href="#">질문과 답변</a></li>
-                        <li><a href="#">자료실</a></li>
+                    	<li class="active"><a href="${pageContext.request.contextPath}/community/notice.do">공지사항</a></li>
+                        <li><a href="${pageContext.request.contextPath}/community/news.do">뉴스 및 칼럼</a></li>
+                        <li><a href="${pageContext.request.contextPath}/community/jobs.do">취업정보</a></li>
+                        <li><a href="${pageContext.request.contextPath}/community/board.do">자유게시판</a></li>
+                        <li><a href="${pageContext.request.contextPath}/community/qna.do">질문과 답변</a></li>
+                        <li><a href="${pageContext.request.contextPath}/community/resources.do">자료실</a></li>
                     </ul>
                 </aside>
 
