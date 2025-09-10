@@ -19,4 +19,9 @@ public enum StudentService {
     public PageResult<StudentDTO> findPage(String cond, String kw, int page, int size) {
         return dao.selectPage(cond, kw, page, size);
     }
+
+    // 학번 발급
+    public int issueStdId(String entryYear, int deptId) {
+        return dao.issueStdId(entryYear, deptId);
+    }
 }
