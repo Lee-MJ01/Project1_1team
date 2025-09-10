@@ -95,7 +95,7 @@ public class Sql {
 	public static final String SELECT_ALL_DEPARTMENT = "SELECT * FROM department";
 	
 	///////////////////////////////////////////
-	/// User 관리
+	/// 천수빈 - User/Terms 관리
 	///////////////////////////////////////////
 	
 	// User 데이터 입력
@@ -130,4 +130,8 @@ public class Sql {
 	// User 데이터 삭제
 	public static final String DELETE_USER =
 	"DELETE FROM users WHERE user_id=?";
+	
+	// terms
+	public static final String SELECT_TERMS = 
+	"SELECT * FROM terms WHERE no=?";
 }

@@ -205,5 +205,13 @@
       }
     });
   </script>
+  
+	<%
+		String agree = request.getParameter("agree");
+		if(agree == null || !"Y".equals(agree)){
+			response.sendRedirect("terms.do"); // 약관 미동의 시 다시 terms 페이지
+        	return;
+    	}
+	%>
 </body>
 </html>
