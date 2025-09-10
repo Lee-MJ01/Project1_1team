@@ -1,4 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="jakarta.tags.core" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -48,7 +49,9 @@
                     <div class="cafeteria-header">
                         <button class="prev"><i class="xi-angle-left-thin"></i></button>
                         <!-- 동적 처리 -->
-                        <span class="month">2025.03.10~2025.03.14</span>
+                        <span class="month">
+							${dto.start_date}~${dto.end_date}
+						</span>
                         <button class="next"><i class="xi-angle-right-thin"></i></button>
                     </div>
 
@@ -56,12 +59,11 @@
                         <thead>
                             <tr>
                                 <th>구분</th>
-                                <th>2025.3.10(월)</th>
-                                <th>2025.3.11(화)</th>
-                                <th>2025.3.12(수)</th>
-                                <th>2025.3.13(목)</th>
-                                <th>2025.3.14(금)</th>
-                                <th>2025.3.15(토)</th>
+                                <th>${weekDate[0]}(월)</th>
+                                <th>${weekDate[1]}(화)</th>
+                                <th>${weekDate[2]}(수)</th>
+                                <th>${weekDate[3]}(목)</th>
+                                <th>${weekDate[4]}(금)</th>
                             </tr>
                         </thead>
                         <tbody>

@@ -34,7 +34,6 @@ public class BoardDAO extends DBHelper{
 	
 	// 학사공지사항 검색(index.jsp용)
 	public List<BoardDTO> IndexAcademicsSelectAll() {
-		System.out.println("학사공지사항");
 		List<BoardDTO> listDTO = new ArrayList<>();
 		try {
 			conn = getConnection();
@@ -68,7 +67,6 @@ public class BoardDAO extends DBHelper{
 	
 	// 커뮤니티 공지사항 검색(index.jsp용) 
 	public List<BoardDTO> IndexCommunitySelectAll() {
-		System.out.println("커뮤니티 공지사항");
 		List<BoardDTO> listDTO = new ArrayList<>();
 		try {
 			conn = getConnection();
@@ -102,7 +100,6 @@ public class BoardDAO extends DBHelper{
 	
 	// 커뮤니티 뉴스및칼럼 검색(index.jsp용) 
 	public List<BoardDTO> IndexCommuNewsSelectAll() {
-		System.out.println("커뮤니티 뉴스및칼럼");
 		List<BoardDTO> listDTO = new ArrayList<>();
 		try {
 			conn = getConnection();
