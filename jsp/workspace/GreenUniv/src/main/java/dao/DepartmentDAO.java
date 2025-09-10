@@ -1,5 +1,6 @@
 package dao;
 
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -22,23 +23,43 @@ public class DepartmentDAO extends DBHelper{
 	
 	private Logger logger = LoggerFactory.getLogger(this.getClass());
 	
-	public void insert(DepartmentDTO dto) {
-		
+	public int insert(DepartmentDTO dto) {
+		int result = 0;
 		try {
 			
 			conn=getConnection();
-			psmt = conn.prepareStatement(Sql.INSERT_DEPARTMENT);
-			psmt.setString(1,dto.getCollege_name());
-			psmt.setString(2,dto.getDept_name());
-			psmt.setString(3,dto.getDept_name_en());
-			psmt.setString(4,dto.getEstablished());
-			psmt.setString(5,dto.getChair_name());
-			psmt.setString(6,dto.getDept_phone());
-			psmt.setString(7,dto.getDept_office());
-			psmt.executeUpdate();
+			
+			//1.단과대학 별 max dept_id 조회
+	        String sqlMax = "SELECT MAX(dept_id) FROM department WHERE college_name = ?";
+	        psmt = conn.prepareStatement(sqlMax);
+	        psmt.setString(1, dto.getCollege_name());
+	        rs = psmt.executeQuery();
+	        
+	        int newDeptId;
+	        if(rs.next()) {
+	        	int maxId = rs.getInt(1);
+	        	if(maxId ==0) { //가장초기 dept번호
+	        		dto.setDept_id(dto.getCollege_id()+1);
+	        	}
+	        	else {
+	        		dto.setDept_id(maxId+1);
+	        	}
+	        }
+
+	        //2.INSERT
+			PreparedStatement psmt2 = conn.prepareStatement(Sql.INSERT_DEPARTMENT);
+			psmt2.setInt(1,dto.getDept_id()); //이거에 dept_id 담아줄거임
+			psmt2.setString(2,dto.getCollege_name());
+			psmt2.setString(3,dto.getDept_name());
+			psmt2.setString(4,dto.getDept_name_en());
+			psmt2.setString(5,dto.getEstablished());
+			psmt2.setString(6,dto.getChair_name());
+			psmt2.setString(7,dto.getDept_phone());
+			psmt2.setString(8,dto.getDept_office());
+			result = psmt2.executeUpdate();
 			
 			
-			
+			psmt2.close();
 		} catch (Exception e) {
 			logger.error(e.getMessage());
 		}
@@ -49,6 +70,8 @@ public class DepartmentDAO extends DBHelper{
 				logger.error(e.getMessage());
 			}
 		}
+		
+		return result;
 		
 	}
 	

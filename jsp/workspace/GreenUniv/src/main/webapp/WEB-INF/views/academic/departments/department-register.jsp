@@ -193,7 +193,7 @@ background-position: calc(100% - 16px) 16px, calc(100% - 10px) 16px;background-s
         <div class="page__body">
           <!-- Ⅰ. 대학 정보 입력 -->
           <h4 class="section-title">대학 정보 입력</h4>
-          <form method="post" action="/academic/departments/college-write.do" enctype="multipart/form-data" autocomplete="off">
+          <form method="post" action="/academic/departments/college/write.do" enctype="multipart/form-data" autocomplete="off">
             <table class="form-grid" role="presentation">
               <colgroup><col style="width:150px"><col><col style="width:150px"><col></colgroup>
               <tbody>
@@ -229,14 +229,14 @@ background-position: calc(100% - 16px) 16px, calc(100% - 10px) 16px;background-s
 
           <!-- Ⅱ. 학과 정보 입력 -->
           <h4 class="section-title">학과 정보 입력</h4>
-          <form method="post" action="/academic/departments/department-write.do" autocomplete="off">
+          <form method="post" action="/academic/departments/department/write.do" autocomplete="off">
             <table class="form-grid" role="presentation">
               <colgroup><col style="width:150px"><col><col style="width:150px"><col></colgroup>
               <tbody>
                 <tr>
                   <th scope="row">학과번호</th>
                   <td>
-                    <input class="inp w180" type="text" name="dept_id" placeholder="자동생성시 비워두기">
+                    <input class="inp w180" type="text" name="dept_id" value="자동생성" readonly>
                     <span class="help">고유 3자리 순차 자동생성</span>
                   </td>
                   <th scope="row">단과대학</th>
@@ -249,23 +249,30 @@ background-position: calc(100% - 16px) 16px, calc(100% - 10px) 16px;background-s
                     </select>
                   </td>
                 </tr>
-
-                <tr>
-                  <th scope="row">입학정원</th>
-                  <td><input class="inp w180" type="number" min="0" name="quota" placeholder="정원 입력"></td>
-                  <th scope="row">영문명</th>
-                  <td><input class="inp" type="text" name="dept_name_en" placeholder="학과 공식 영문 이름"></td>
-                </tr>
-
+				<tr>
+					<th scope="row">학과명</th>
+					<td><input class="inp" type="text" name="dept_name" placeholder="학과명 입력" required></td>
+                  	<th scope="row">영문명</th>
+               	  	<td><input class="inp" type="text" name="dept_name_en" placeholder="학과 공식 영문 이름" required></td>
+				</tr>
                 <tr>
                   <th scope="row">설립일</th>
                   <td>
-                    <input class="inp w180" type="text" name="founded"
+                    <input class="inp w180" type="text" name="established"
                            placeholder="mm/dd/yyyy"
                            onfocus="this.type='date'" onblur="if(!this.value) this.type='text'">
                   </td>
-                  <th scope="row">학과 사무실</th>
-                  <td><input class="inp" type="text" name="office" placeholder="예) 인문관 3층 305호"></td>
+                  <th scope="row">학과장</th>
+                  <td>
+                    <input class="inp w180" type="text" name="chair_name" placeholder="학과장 성함" required>
+                  </td>
+
+                </tr>
+                <tr>
+                	<th scope="row">학과 연락처</th>
+                  	<td><input class="inp" type="text" name="dept_phone" placeholder="예) 학과연락처 입력 (12자리)"></td>
+                  	<th scope="row">학과 사무실</th>
+                  	<td><input class="inp" type="text" name="dept_office" placeholder="예) 인문관 3층 305호"></td>
                 </tr>
               </tbody>
             </table>

@@ -11,8 +11,8 @@ public enum DepartmentService {
 	
 	private DepartmentDAO dao = DepartmentDAO.getInstance();
 	
-	public void register(DepartmentDTO dto) {
-		dao.insert(dto);
+	public int register(DepartmentDTO dto) {
+		return dao.insert(dto);
 	}
 	
 	public DepartmentDTO findByDept_id(int dept_id) {
