@@ -1,0 +1,98 @@
+:root{
+--brand:#3F97F6;
+--ink:#111827;
+--muted:#6b7280;
+--line:#e5e7eb;
+--line-2:#d9dee7;
+--bg:#f6f8fb;
+--card:#ffffff;
+--dark:#19202D;
+--wrap:1200px;
+--radius:12px;
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:"Noto Sans KR",system-ui,-apple-system,Segoe UI,Roboto,"Noto Sans",sans-serif;color:var(--ink);background:#fff;font-weight:350}
+a{color:inherit;text-decoration:none} a:hover{text-decoration:underline}
+.container{max-width:var(--wrap);margin:0 auto;padding:0 20px}
+
+/*======================================================================*/
+/*===============================hearder================================*/
+/*======================================================================*/
+
+.topbar{background:var(--brand);color:#fff;font-size:12px}
+.topbar__nav{height:27px;display:flex;align-items:center;justify-content:flex-end}
+.topbar__list{display:flex;gap:14px;margin:0;padding:0;list-style:none}
+.topbar__item+.topbar__item{position:relative;padding-left:14px}
+.topbar__item+.topbar__item::before{content:"";position:absolute;left:0;top:70%;transform:translateY(-50%);width:1px;height:12px;background:rgba(255,255,255,.35)}
+.gnb{background:#fff;border-bottom:1px solid var(--line); position: relative;}
+.gnb__inner{height:78px;display:flex;align-items:center;justify-content:space-between}
+.brand__logo{width:196px;height:50px;display:block}
+.menu__list{display:flex;gap:42px;list-style:none;margin:0;padding:0}
+.menu__link{color:var(--ink);font-weight:600;padding:10px 2px;border-radius:8px}
+.menu__link:hover{background:#f5f8ff;text-decoration:none;color:#0b57d0}
+@media (max-width:768px){
+    .topbar__nav{justify-content:center}
+    .gnb__inner{height:auto;padding:12px 0;gap:12px;flex-direction:column;align-items:flex-start}
+    .menu__list{flex-wrap:wrap;gap:16px}
+}
+.submenu {
+    position: absolute; /* gnb를 기준으로 위치 고정 */
+  top: 100%; /* gnb 바로 아래에 붙임 */
+  left: 0;
+  width: 100%; /* 너비를 100%로 설정 */
+  
+  background-color: #ffffff; /* 배경색 */
+  border-top: 1px solid var(--line);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08); /* 그림자 효과 */
+  padding: 30px 0; /* 내부 상하 여백 */
+
+  /* 평소에는 숨겨둠 */
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px); /* 살짝 위에서 나타나는 효과 */
+    transition: all 0.3s ease;
+
+    z-index: 10;
+}
+.submenu-title {
+    font-size: 16px;         /* 글자 크기 */
+  font-weight: 700;        /* 굵은 글씨체 (bold) */
+  color: var(--ink);       /* 기본 글자색과 동일하게 */
+  padding: 8px 12px;       /* 다른 항목과 좌우 정렬을 맞추기 위한 여백 */
+  margin-bottom: 8px;      /* 제목과 아래 링크 목록 사이의 간격 */
+  border-bottom: 1px solid var(--line); /* 제목과 내용을 구분하는 선 */
+  cursor: default;         /* 마우스 커서를 기본 모양으로 (클릭 불가 암시) */
+}
+.submenu.is-active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+.submenuList {
+    display: flex; /* 컬럼들을 가로로 배치 */
+  justify-content: space-between; /* 컬럼들 사이에 균등한 간격 */
+    padding: 0;
+    margin: 0;
+}
+.submenuDetail {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    /* 각 컬럼이 차지할 너비 (전체 6개 컬럼 기준) */
+    flex: 1; 
+}
+.submenuDetail li a:hover {
+    color: var(--brand);
+    background-color: var(--bg);
+    text-decoration: none;
+    z-index: 1;
+}
+.submenuDetail li a {
+    display: block;
+    padding: 8px 12px;
+    color: var(--muted);
+    font-size: 15px;
+    border-radius: 6px;
+    font-weight: 500;
+}
+    

@@ -1,0 +1,484 @@
+/*======================================================================*/
+    /*=================================body=================================*/
+    /*======================================================================*/
+
+
+    .body {
+        width: 100%;
+        height: 1629px;
+        position: relative;
+        background-color: #F3F5F9;
+    }
+    #main-bg {
+        position: absolute;
+        width: 100%;
+        height: 560px;
+        
+        background-image: url('../images/bg-main-vi01.jpg');
+        background-position: center;
+        background-size: cover;
+    }
+    #body1200 {   
+        width: 1200px;
+        height: 1629px;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    #main-on {
+        width: 100%;
+        height: 560px;
+        color: #ffffff;
+        
+        position: relative;
+    }
+    #main-on > img {
+        width: 100%;
+        height: 560px;
+    }
+    #main-on > h3{
+        position: absolute;
+        top: 108.5px;
+        left: 50%;
+        transform: translateX(-50%);
+        height: 28px;
+        font-size: 24px;
+        font-weight: normal;
+        margin: 0;
+        padding: 0;
+
+    }
+    #main-on > h1{
+        position: absolute;
+        top: 149.5px;
+        left: 50%;
+        transform: translateX(-50%);
+        height: 53px;
+        margin: 0;
+        padding: 0;
+
+        font-size: 48px;
+    }
+    #main-on > p{
+        position: absolute;
+        top: 225.5px;
+        left: 50%;
+        transform: translateX(-50%);
+        margin: 0;
+        padding: 0;
+        height: 23px;
+        
+        font-family: Noto Sans KR;
+        font-weight: 10;
+        font-size: 16px;
+        line-height: 22px;
+        letter-spacing: 0%;
+        text-align: center;
+        vertical-align: middle;
+
+
+    }
+    #main-on > img{
+        width: 27px;
+        height: 50px;
+    }
+    
+
+    #main-departmentIntro {
+        width: 211.86px;
+        height: 48px;
+
+        color: #ffffff;
+        text-align: center;
+        line-height: 48px;
+
+        position: absolute;
+        top: 292.5px;
+        left: 50%;
+        transform: translateX(-50%);
+
+        border: 1px solid #ffffff;
+    }
+    #main-departmentIntro > span > a {
+        color: #ffffff;
+    }
+    #main-pagemove {
+        width: 1200px;
+        height: 1px;
+
+        position: absolute;
+        top: 227px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    #prev-page{
+        position: absolute;
+        left: -27px;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+    #next-page{
+        position: absolute;
+        right: -27px;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+    #slide {
+        position: absolute;
+        bottom: 140.5px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    #slide > span {
+        display: inline-block;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        border: 1px solid;
+        margin: 0 5px;
+        cursor: pointer;
+    }
+    #page1 {
+        background-color: #ffffff;
+    }
+
+    #main-mid {
+        width: 1200px;
+        height: 350px;
+        display: flex;
+        position: absolute;
+        top: 455px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    #box-left{
+        width: 600px;
+        height: 290px;
+        background-color: #ffffff;
+    }
+    #box-left > div {
+        width: 520px;
+        height: 210px;
+
+        position: absolute;
+        top: 40px;
+        left: 40px;
+        margin: 0;
+        padding: 0;
+    }
+    #box-left > div > h3 {
+        margin: 0;
+        padding: 0;
+        margin-bottom: 15px;
+
+        color: #3F97F6;
+    }
+    #box-left > div > a > img {
+        position: absolute;
+        top: 0;
+        right: 0;
+
+        width: 17px;
+        height: 17px;
+
+        padding: 0;
+        margin: 0;
+    }
+    #box-left > div > hr {
+        border: 1px solid #3F97F6;
+		gap : 10px;
+    }
+    #box-left > div > ul {
+        display: inline-block;
+        list-style: none;
+        margin: 0;
+        padding-top: 5px;
+        padding-left: 0;
+    }
+    #box-left > div > ul >li {
+        padding-top: 10px;
+    }
+    .box-left-date {
+        position: absolute;
+        right: 0;
+    }
+
+    #box-right{
+        width: 600px;
+        height: 290px;
+        background-color: #3F97F6;
+        color: #ffffff;
+        position: relative;
+    }
+    #box-right > div{
+        width: 520px;
+        height: 210px;
+
+        position: absolute;
+        top: 40px;
+        left: 40px;
+        margin: 0;
+        padding: 0;
+    }
+    #box-right > div > h3 {
+        margin: 0;
+        padding: 0;
+        margin-bottom: 15px;
+    }
+    #box-right > div > a > img {
+        position: absolute;
+        top: 0;
+        right: 0;
+
+        width: 17px;
+        height: 17px;
+
+        padding: 0;
+        margin: 0;
+    }
+    #box-right > div > ul {
+        display: inline-block;
+        list-style: none;
+        margin: 0;
+        padding-top: 5px;
+        padding-left: 0;
+    }
+    #box-right > div > ul >li {
+        padding-top: 5px;
+    }
+    .box-right-date {
+        position: absolute;
+        right: 0;
+    }
+
+    #gallary{
+        color: #3F97F6;
+        font-family: Noto Sans KR;
+        font-weight: 700;
+        font-style: Bold;
+        font-size: 18px;
+        line-height: 25px;
+        letter-spacing: 0%;
+        vertical-align: middle;
+
+        position: absolute;
+        top: 806px;
+    }
+    
+    #gallary-photo {
+        position: absolute;
+        top: 860px;
+        width: 100%;
+        height: 220px;
+
+    }
+    #gallary-photo > ul {
+        list-style: none;
+        display: flex;
+        gap: 20px;
+        margin: 0;
+        padding: 0;
+    }
+    #gallary-photo > ul > li{
+        width: 285px;
+        height: 220px;
+    }
+    #gallary-photo > ul > li > a > img{
+        width: 100%;
+        height: 100%;
+    }
+    #gallary-photo > ul > li > a{
+        position: relative;
+        overflow: hidden;
+    }
+    .overlay {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 53px;
+        background-color: rgba(2, 130, 213, 0.75);
+        color: #ffffff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+    #gallary-photo > ul > li > a:hover .overlay {
+        opacity: 1;
+    }
+
+    .helper {
+        position: absolute;
+        width: 100%;
+        height: 152px;
+        top: 1140px;
+        background-image: url("../images/bg-main-banner.gif");
+        color: #ffffff;
+    }
+    .helper > div{
+        width: 1200px;
+        height: 100%;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        margin: 0;
+        padding-top: 10px;
+    }
+    #helper-p {
+        width: 600px;
+    }
+    #helper-div {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        right: 0;
+        border: 1px solid #ffffff;
+        width: 182px;
+        height: 42px;
+        line-height: 37px;
+        text-align: center;
+
+    }
+
+    .main-under{
+        position: absolute;
+        top: 1292px;
+        width: 100%;
+        height: 337px;
+        display: flex;
+        justify-content: space-between;
+        padding-left: calc((100% - var(--wrap)) / 2);
+    }
+    .main-under-leftbox {
+        width: 50%;
+        height: 337px;
+        flex-shrink: 0;
+        position: absolute;
+        left: 0;
+        background-color: #F3F5F9;
+    }
+    .main-under-leftbox > div {
+        width: 600px;
+        position: absolute;
+        right: 0;
+    }
+    .main-under-leftbox .news-page > ul {
+        display: inline-block;
+        list-style: none;
+        margin: 0;
+        padding-top: 10px;
+        padding-left: 0;
+        font-weight: 500;
+    }
+    .news-page > ul >li{
+        padding-top: 7px;
+    }
+    .main-under-news {
+        width: 560px;
+        height: 42px;
+        margin-top: 60px;
+        padding: 0;
+        position: relative;
+        text-align: center;
+    }
+    .news-header{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: relative;
+    }
+    
+    .main-under-news h3 {
+        margin: 0;
+        color: #3F97F6;
+    }
+    .main-under-news > hr{
+        position: absolute;
+        width: 100%;
+        bottom: 0;
+
+        margin: 0;
+        border: none;
+        border-top: 1px solid #3F97F6;
+    }
+    .main-under-news > img{
+        width: 17px;
+        height: 17px;
+    }
+    .news-page{
+        position: relative;
+        width: 560px;
+    }
+    .news-date {
+        position: absolute;
+        right: 0;
+    }
+    
+
+    #main-under-rightbox {
+        width: 50%;
+        height: 337px;
+        flex-shrink: 0;
+        position: absolute;
+        right: 0;
+        background-color: #ffffff;
+    }
+    #rightBox {
+        width: 600px;
+        height: 100%;
+    }
+    #rightBox > div {
+        margin-left: 40px;
+    }
+    #smartLink {
+        margin: 0;
+        padding: 0;
+    }
+    /* SMART LINK 전체 목록 컨테이너 */
+    .smart-links {
+        list-style: none;
+        display: flex;
+        justify-content: space-around;
+        margin: 20px 0; /* 위아래 적절한 여백 */
+        padding: 0;
+    }
+
+    /* 링크 단위(li) 스타일 */
+    .smart-links li a {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-decoration: none;
+        color: var(--ink);
+    }
+
+    /* ✨ 동그란 배경을 위한 div 스타일 */
+    .smart-links .icon-bg {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        background-color: #9ABEDF; /* 배경색 */
+
+        /* 내부 아이콘을 중앙에 배치하기 위한 flex 설정 */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    /* ✨ 실제 아이콘 이미지 스타일*/
+    .smart-links img {
+        width: 50px; /* 아이콘 크기를 작게 조절 */
+        height: 50px; /* 아이콘 크기를 작게 조절 */
+        /* 기존의 width, height, border-radius, background-color는 .icon-bg로 이동 */
+    }
+
+    /* 링크 텍스트 스타일 */
+    .smart-links .link-text {
+        margin-top: 15px;
+        font-weight: 600;
+        font-size: 16px;
+    }

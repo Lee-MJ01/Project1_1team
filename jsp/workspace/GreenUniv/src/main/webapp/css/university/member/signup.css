@@ -1,0 +1,182 @@
+/* ===== breadcrumb ===== */
+.background {
+  width: 100%;
+  height: 42px;
+  background-color: #ECF2F6;
+}
+
+.background .container {
+  width: 100%;
+  max-width: 1200px;
+  height: 100%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.sub-nav ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 15px;
+}
+
+.sub-nav ul li a {
+  color: #333333;
+  font-size: 14px;
+  font-weight: 400;
+  text-decoration: none;
+}
+
+.sub-nav ul li.active a {
+  color: #071F4B;
+  font-weight: 400;
+}
+
+/* ===== 회원가입 페이지 메인 ===== */
+main {
+  background: var(--bg);
+  padding: 50px 0 80px;
+}
+
+.join-wrap {
+  max-width: 720px;   /* 폼 영역 너비 제한 */
+  margin: 0 auto;     /* 가운데 정렬 */
+}
+
+.card {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  box-shadow: 0 8px 24px rgba(0,0,0,.05);
+  padding: 30px 40px;
+}
+
+.card__title {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--brand);
+  margin-bottom: 6px;
+}
+
+.card__desc {
+  font-size: 13px;
+  color: var(--muted);
+  margin-bottom: 18px;
+  line-height: 1.5;
+}
+
+.divider {
+  height: 2px;
+  background: #e8edf5;
+  margin: 16px 0 22px;
+}
+
+/* ===== 표 형태 폼 ===== */
+.form-table {
+  width: 100%;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  align-items: center;
+  border-top: 1px solid var(--line-2);
+  background: #fff;
+}
+.row:first-of-type {
+  border-top: none;
+}
+.th {
+  background: #f4f7fb;
+  color: #374151;
+  font-weight: 600;
+  padding: 12px 14px;
+  border-right: 1px solid var(--line-2);
+  font-size: 14px;
+}
+.td {
+  padding: 10px 14px;
+}
+
+.help {
+  color: #8b93a3;
+  font-size: 12px;
+  margin-top: 4px;
+}
+
+.req {
+  color: #ef4444;
+  margin-left: 4px;
+}
+
+/* ===== 입력 폼 ===== */
+input[type="text"],
+input[type="password"],
+input[type="email"],
+select {
+  width: 100%;
+  height: 40px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 0 12px;
+  outline: none;
+  font-size: 14px;
+  transition: .18s border,.18s box-shadow;
+}
+input:focus,
+select:focus {
+  border-color: #cfe6ff;
+  box-shadow: 0 0 0 3px rgba(63,151,246,.18);
+}
+
+/* 주소 입력 */
+.addr-split {
+  display: flex;
+  gap: 10px;
+}
+.addr-split select {
+  flex: 1;
+}
+.addr-detail {
+  margin-top: 8px;
+}
+
+/* 버튼 */
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 16px;
+}
+.btn {
+  appearance: none;
+  border: 1px solid #d7dee8;
+  background: #fff;
+  color: #374151;
+  height: 38px;
+  padding: 0 16px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.btn:hover {
+  background: #f8fafc;
+}
+.btn.primary {
+  background: var(--brand);
+  border-color: transparent;
+  color: #fff;
+}
+.btn.primary:hover {
+  filter: brightness(.95);
+}
+
+/* 필수 입력 안내 */
+.form-note {
+  margin-top: 8px;
+  font-size: 12px;
+  color: #ef4444;
+}
