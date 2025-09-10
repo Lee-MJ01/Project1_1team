@@ -2,7 +2,8 @@
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-
+	<!-- 입학안내 공지사항 -->
+	
   <link rel="stylesheet" href="${pageContext.request.contextPath}/css/university/admission/notice.css">
 <%@ include file = "/WEB-INF/views/_header.jsp" %>
     <!-- ===== breadcrumb ===== -->
@@ -77,7 +78,7 @@
 				    <tr>
 				      <td>${row.number}</td>
 				      <td class="title">
-				        <a href="${pageContext.request.contextPath}/university/admission/noticeView.do?no=${row.number}">
+				        <a href="${pageContext.request.contextPath}/admission/noticeview.do?no=${row.number}">
 				          <c:out value="${row.title}"/>
 				        </a>
 				      </td>
@@ -99,6 +100,12 @@
             <a href="#"><img src="${pageContext.request.contextPath}/images/btn-next-page.png" alt="다음"></a>
             <a href="#"><img src="${pageContext.request.contextPath}/images/btn-last-page.png" alt="끝"></a>
           </div>
+          
+  		<!--<c:if test="${role != 'admin'}">   -->     
+          <div class="actions">
+            <a href="#" class="btn primary">글쓰기</a>
+          </div>
+         </c:if>
         </section>
       </div>
     </main>

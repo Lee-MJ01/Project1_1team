@@ -1,4 +1,5 @@
 package dao;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -161,6 +162,35 @@ public class BoardDAO extends DBHelper{
 		return dtoList;
 	}
 	
+	
+	//공지사항 view select
+	public BoardDTO selectNoticeView(int number) {
+	    BoardDTO dto = null;
+
+	    try {
+	        conn = getConnection();
+	        psmt = conn.prepareStatement(Sql.SELECT_NOTICE_ONE);
+	        psmt.setInt(1, number);     
+
+	        rs = psmt.executeQuery();
+
+	        if (rs.next()) {
+	            dto = new BoardDTO();
+	            dto.setNumber(rs.getInt("no"));            
+	            dto.setTitle(rs.getString("title"));
+	            dto.setContent(rs.getString("content"));
+	            dto.setWriter(rs.getString("writer"));
+	            dto.setW_date(rs.getString("wdate"));   
+	            dto.setView_count(rs.getInt("views"));     
+	        }
+	        closeAll();
+	    } catch (Exception e) {
+	        logger.error(e.getMessage());
+	    } 
+	    return dto;
+	}
+
+
 	//학사안내 공지사항 select
 	public List<BoardDTO> academicsNoticeSelectAll(){
 		

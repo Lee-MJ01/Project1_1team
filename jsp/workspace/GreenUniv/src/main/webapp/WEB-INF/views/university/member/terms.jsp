@@ -40,16 +40,20 @@
             <strong>※</strong> 만 14세 미만 아동은 홈페이지 회원가입이 제한됩니다.
           </p>
 
-          <form id="termsForm" class="form-table">
+          <form id="termsForm" class="form-table" method="get" action="${pageContext.request.contextPath}/member/terms.do" novalidate>
             <!-- 이용약관 -->
             <div class="row">
               <div class="th">이용약관</div>
-              <div class="td"><textarea readonly>약관 내용을 출력하기</textarea></div>
+              <div class="td">
+              	<textarea readonly>${termsDTO.terms}</textarea>
+              </div>
             </div>
             <!-- 개인정보 수집안내 -->
             <div class="row">
               <div class="th">개인정보 수집안내</div>
-              <div class="td"><textarea readonly>약관 내용을 출력하기</textarea></div>
+              <div class="td">
+              	<textarea readonly>${termsDTO.privacy}</textarea>
+              </div>
             </div>
 
             <!-- 동의 -->
@@ -76,6 +80,8 @@
 
   <!-- 스크립트 -->
   <script>
+  	const ctx = "${pageContext.request.contextPath}";
+  	
     // 주요사이트 이동
     document.getElementById('sites').addEventListener('change', function(){
       if(this.value){ window.open(this.value, '_blank'); this.selectedIndex = 0; }
@@ -88,7 +94,7 @@
         alert('약관에 동의해야 합니다.');
         return;
       }
-      location.href="signup.html";
+      location.href="/member/signup.do";
     });
   </script>
 </body>
