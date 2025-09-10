@@ -74,7 +74,7 @@
 							    <tr>
 							      <td>${row.number}</td>
 							      <td class="title">
-							        <a href="${pageContext.request.contextPath}/university/admission/noticeView.do?no=${row.number}">
+							        <a href="${pageContext.request.contextPath}/community/noticeview.do?no=${row.number}">
 							          <c:out value="${row.title}"/>
 							        </a>
 							      </td>

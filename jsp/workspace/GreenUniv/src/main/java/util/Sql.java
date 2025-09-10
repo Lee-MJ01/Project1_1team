@@ -5,6 +5,23 @@ public class Sql {
 	public static final String SELECT_BOARD_ALL = 
 			"select title, w_date from board where comm_cd = ? order by w_date desc LIMIT 5;";
 	
+	//board--index 아님
+	public static final String SELECT_NOTICE_ALL =
+		    "SELECT `Number` AS no, title, writer, DATE_FORMAT(w_date, '%Y.%m.%d') AS wdate, view_count AS views " +
+		    "FROM board " +
+		    "WHERE comm_cd = ? " +
+		    "ORDER BY `Number` DESC";
+	
+	public static final String SELECT_NOTICE_ONE =
+		    "SELECT `Number` AS no, " +
+		    "       title, " +
+		    "       content, " +
+		    "       writer, " +
+		    "       DATE_FORMAT(w_date, '%Y.%m.%d %H:%i') AS wdate, " +
+		    "       view_count AS views " +
+		    "FROM board " +
+		    "WHERE `Number` = ?";
+
 	// college
 	public static final String INSERT_COLLEGE =
 	    "INSERT INTO college (college_name, college_name_en, intro_title, intro_body, image_path) VALUES (?, ?, ?, ?, ?)";
