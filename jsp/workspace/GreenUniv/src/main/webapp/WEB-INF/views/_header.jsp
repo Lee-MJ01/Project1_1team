@@ -1,19 +1,20 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/header.css">
 <header>
     <div class="topbar">
       <div class="container topbar__nav" role="navigation" aria-label="상단 빠른 메뉴">
         <ul class="topbar__list">
-          <li class="topbar__item"><a href="#">HOME</a></li>
-          <li class="topbar__item"><a href="#">사이트맵</a></li>
+          <li class="topbar__item"><a href="${pageContext.request.contextPath}">HOME</a></li>
+          <li class="topbar__item"><a href="${pageContext.request.contextPath}">사이트맵</a></li>
           <li class="topbar__item"><a href="${pageContext.request.contextPath}/member/login.do">로그인</a></li>
-          <li class="topbar__item"><a href="${pageContext.request.contextPath}//student/curriculum.do">학사지원</a></li>
+          <li class="topbar__item"><a href="${pageContext.request.contextPath}/student/curriculum.do">학사지원</a></li>
         </ul>
       </div>
     </div>
     <nav class="gnb" role="navigation" aria-label="주 메뉴">
         <div class="container gnb__inner">
-            <a href="#" aria-label="그린대학교 홈"><img class="brand__logo" src="${pageContext.request.contextPath}/images/header_logo.png" alt="그린대학교"></a>
+            <a href="${pageContext.request.contextPath}" aria-label="그린대학교 홈"><img class="brand__logo" src="${pageContext.request.contextPath}/images/header_logo.png" alt="그린대학교"></a>
             <ul class="menu__list">
                 <li><a class="menu__link" href="${pageContext.request.contextPath}/about/president.do">대학소개</a></li>
                 <li><a class="menu__link" href="${pageContext.request.contextPath}/admission/notice.do">입학안내</a></li>
@@ -61,10 +62,10 @@
                     </ul>
                     <ul class="submenuDetail">
                         <li class="submenu-title">대학생활</li>
-                        <li><a href="${pageContext.request.contextPath}/campuslife/student-union.do"">학생회소개</a></li>
+                        <li><a href="${pageContext.request.contextPath}/campuslife/student-union.do">학생회소개</a></li>
                         <li><a href="${pageContext.request.contextPath}/campuslife/clubs.do"">동아리/스터디</a></li>
-                        <li><a href="${pageContext.request.contextPath}/campuslife/cafeteria.do"">식단안내</a></li>
-                        <li><a href="${pageContext.request.contextPath}/campuslife/gallery.do"">갤러리</a></li>
+                        <li><a href="${pageContext.request.contextPath}/campuslife/cafeteria.do">식단안내</a></li>
+                        <li><a href="${pageContext.request.contextPath}/campuslife/gallery.do">갤러리</a></li>
                     </ul>
                     <ul class="submenuDetail">
                         <li class="submenu-title">커뮤니티</li>

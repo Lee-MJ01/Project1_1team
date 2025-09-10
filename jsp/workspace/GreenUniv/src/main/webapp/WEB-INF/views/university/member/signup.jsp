@@ -5,8 +5,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>그린대학교 | 회원가입</title>
-   <!-- 회원가입 전용 스타일 -->
-  <link rel="stylesheet" href="${pageContext.request.contextPath}/css/university/member/member.css">
   <!-- signup 전용 스타일 -->
   <link rel="stylesheet" href="${pageContext.request.contextPath}/css/university/member/signup.css">
 </head>
