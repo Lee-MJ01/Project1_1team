@@ -32,4 +32,8 @@ public enum CourseService {
 	public void remove() {
 		
 	}
+	
+	public int getNextNum(int deptId, int year, int semester) {
+		return dao.getNextSeq(deptId, year,semester);
+	}
 }

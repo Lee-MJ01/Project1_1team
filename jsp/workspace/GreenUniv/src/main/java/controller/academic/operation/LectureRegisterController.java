@@ -34,9 +34,17 @@ public class LectureRegisterController extends HttpServlet{
 		// 1. 파라미터 수집
         String collegeName = req.getParameter("college");
         String deptName = req.getParameter("department");
+
         int dept_id = departmentService.findDeptId(collegeName, deptName);
         //int dept_id        = Integer.parseInt(req.getParameter("dept_id"));
-        int year           = Integer.parseInt(req.getParameter("year"));
+        String period_start     = req.getParameter("period_start");
+        // year의 뒤 두 자리 추출
+        int year = 0;
+
+        if (period_start != null && period_start.length() >= 4) {
+            year = Integer.parseInt(period_start.substring(2, 4)); // "2025" → 2025
+        }
+
         int semester       = Integer.parseInt(req.getParameter("semester"));
         String division    = req.getParameter("division");
         String crs_name    = req.getParameter("crs_name");
@@ -44,7 +52,7 @@ public class LectureRegisterController extends HttpServlet{
         int p_code         = professorService.findCodeByName(profName);
         int credit         = Integer.parseInt(req.getParameter("credit"));
         String crs_desc    = req.getParameter("crs_desc");
-        String period_start= req.getParameter("period_start");
+        //String period_start= req.getParameter("period_start");
         String period_end  = req.getParameter("period_end");
         String time_start  = req.getParameter("time_start");
         String time_end    = req.getParameter("time_end");
@@ -53,13 +61,19 @@ public class LectureRegisterController extends HttpServlet{
         String textbook    = req.getParameter("textbook");
         String crs_room    = req.getParameter("crs_room");
         int capacity       = Integer.parseInt(req.getParameter("capacity"));
+
+        //순번 조회
+        int seq = courseService.getNextNum(dept_id, year, semester);
         
+        String crsCdStr = String.format("%d%s%d%d", dept_id, year, semester, seq);
+        int crs_cd = Integer.parseInt(crsCdStr);
         //추가 파라미터
 
 
 
         // 2. DTO 생성
         CourseDTO dto = new CourseDTO();
+        dto.setCrs_cd(crs_cd);
         dto.setDept_id(dept_id);
         dto.setYear(year);
         dto.setSemester(semester);

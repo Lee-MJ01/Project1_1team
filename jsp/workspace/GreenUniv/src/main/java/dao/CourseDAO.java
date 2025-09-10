@@ -23,23 +23,24 @@ public class CourseDAO extends DBHelper {
         try {
             conn = getConnection();
             psmt = conn.prepareStatement(Sql.INSERT_COURSE);
-            psmt.setInt(1, dto.getDept_id());
-            psmt.setInt(2, dto.getYear());
-            psmt.setInt(3, dto.getSemester());
-            psmt.setString(4, dto.getDivision());
-            psmt.setString(5, dto.getCrs_name());
-            psmt.setInt(6, dto.getP_code());
-            psmt.setInt(7, dto.getCredit());
-            psmt.setString(8, dto.getCrs_desc());
-            psmt.setString(9, dto.getPeriod_start());
-            psmt.setString(10, dto.getPeriod_end());
-            psmt.setString(11, dto.getTime_start());
-            psmt.setString(12, dto.getTime_end());
-            psmt.setString(13, dto.getDays());
-            psmt.setString(14, dto.getEval_method());
-            psmt.setString(15, dto.getTextbook());
-            psmt.setString(16, dto.getCrs_room());
-            psmt.setInt(17, dto.getCapacity());
+            psmt.setInt(1,dto.getCrs_cd());
+            psmt.setInt(2, dto.getDept_id());
+            psmt.setInt(3, dto.getYear());
+            psmt.setInt(4, dto.getSemester());
+            psmt.setString(5, dto.getDivision());
+            psmt.setString(6, dto.getCrs_name());
+            psmt.setInt(7, dto.getP_code());
+            psmt.setInt(8, dto.getCredit());
+            psmt.setString(9, dto.getCrs_desc());
+            psmt.setString(10, dto.getPeriod_start());
+            psmt.setString(11, dto.getPeriod_end());
+            psmt.setString(12, dto.getTime_start());
+            psmt.setString(13, dto.getTime_end());
+            psmt.setString(14, dto.getDays());
+            psmt.setString(15, dto.getEval_method());
+            psmt.setString(16, dto.getTextbook());
+            psmt.setString(17, dto.getCrs_room());
+            psmt.setInt(18, dto.getCapacity());
             result = psmt.executeUpdate();
         } catch (Exception e) {
             e.printStackTrace();
@@ -148,4 +149,28 @@ public class CourseDAO extends DBHelper {
         }
         return result;
     }
+    
+    
+    public int getNextSeq(int deptId, int year, int semester) {
+        int seq = 1;
+        String sql = "SELECT COUNT(*)+1 AS seq FROM course WHERE dept_id=? AND year=? AND semester=?";
+        try {
+        	conn = getConnection();
+        	psmt = conn.prepareStatement(sql);
+        	psmt.setInt(1, deptId);
+            psmt.setInt(2, year);
+            psmt.setInt(3, semester);
+            rs = psmt.executeQuery();
+            if (rs.next()) {
+                seq = rs.getInt("seq");
+            }
+        }
+        catch (Exception e) {
+        	e.printStackTrace();
+        }
+        
+        return seq;
+    }
+
+    
 }
