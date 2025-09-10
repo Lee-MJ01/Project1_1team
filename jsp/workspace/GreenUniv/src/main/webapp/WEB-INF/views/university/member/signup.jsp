@@ -5,13 +5,50 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>그린대학교 | 회원가입</title>
+<<<<<<< HEAD
+=======
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <!-- 공통 스타일 -->
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/css/university/member/common.css">
+  <!-- 회원가입 전용 스타일 -->
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/css/university/member/member.css">
+>>>>>>> f6337c0d2124f43b093d4f56a2e5113224c4ec0f
   <!-- signup 전용 스타일 -->
   <link rel="stylesheet" href="${pageContext.request.contextPath}/css/university/member/signup.css">
 </head>
 <body>
   <div id="wrapper">
+<<<<<<< HEAD
     <%-- 헤더 부분 포함 --%>
     <%@ include file="/WEB-INF/views/_header.jsp" %>
+=======
+    <!-- 헤더 -->
+    <header>
+      <div class="topbar">
+        <div class="container topbar__nav" role="navigation" aria-label="상단 빠른 메뉴">
+          <ul class="topbar__list">
+            <li class="topbar__item"><a href="#">HOME</a></li>
+            <li class="topbar__item"><a href="#">사이트맵</a></li>
+            <li class="topbar__item"><a href="#">로그인</a></li>
+            <li class="topbar__item"><a href="#">학사지원</a></li>
+          </ul>
+        </div>
+      </div>
+      <nav class="gnb" role="navigation" aria-label="주 메뉴">
+        <div class="container gnb__inner">
+          <a href="/" aria-label="그린대학교 홈"><img class="brand__logo" src="${pageContext.request.contextPath}/images/header_logo.png" alt="그린대학교"></a>
+          <ul class="menu__list">
+            <li><a class="menu__link" href="#">대학소개</a></li>
+            <li><a class="menu__link" href="#">입학안내</a></li>
+            <li><a class="menu__link" href="#">대학·대학원</a></li>
+            <li><a class="menu__link" href="#">학사안내</a></li>
+            <li><a class="menu__link" href="#">대학생활</a></li>
+            <li><a class="menu__link" href="#">커뮤니티</a></li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+>>>>>>> f6337c0d2124f43b093d4f56a2e5113224c4ec0f
 
     <!-- breadcrumb -->
     <div class="background">
@@ -42,12 +79,20 @@
             </p>
             <div class="divider"></div>
 
+<<<<<<< HEAD
             <form class="form-table" id="joinForm" method="post" action="${pageContext.request.contextPath}/member/signup.do" novalidate>
+=======
+            <form class="form-table" id="joinForm" novalidate>
+>>>>>>> f6337c0d2124f43b093d4f56a2e5113224c4ec0f
               <!-- 아이디 -->
               <div class="row">
                 <div class="th">아이디<span class="req">*</span></div>
                 <div class="td">
+<<<<<<< HEAD
                   <input type="text" id="uid" name="user_id" minlength="4" maxlength="10" placeholder="아이디 입력" required>
+=======
+                  <input type="text" id="uid" minlength="4" maxlength="10" placeholder="아이디 입력" required>
+>>>>>>> f6337c0d2124f43b093d4f56a2e5113224c4ec0f
                   <div class="help">영문·숫자 조합 4~10자 이내</div>
                 </div>
               </div>
@@ -55,7 +100,11 @@
               <div class="row">
                 <div class="th">비밀번호<span class="req">*</span></div>
                 <div class="td">
+<<<<<<< HEAD
                   <input type="password" id="pw" name="pass" minlength="8" maxlength="16" placeholder="비밀번호 입력" required>
+=======
+                  <input type="password" id="pw" minlength="8" maxlength="16" placeholder="비밀번호 입력" required>
+>>>>>>> f6337c0d2124f43b093d4f56a2e5113224c4ec0f
                   <div class="help">비밀번호는 8~16자리 이내, 영문 · 숫자 · 특수문자 조합</div>
                 </div>
               </div>
@@ -63,25 +112,41 @@
               <div class="row">
                 <div class="th">비밀번호 확인<span class="req">*</span></div>
                 <div class="td">
+<<<<<<< HEAD
                   <input type="password" id="pw2" name="pass2" minlength="8" maxlength="16" placeholder="비밀번호 확인 입력" required>
+=======
+                  <input type="password" id="pw2" minlength="8" maxlength="16" placeholder="비밀번호 확인 입력" required>
+>>>>>>> f6337c0d2124f43b093d4f56a2e5113224c4ec0f
                 </div>
               </div>
               <!-- 이름 -->
               <div class="row">
                 <div class="th">이름<span class="req">*</span></div>
+<<<<<<< HEAD
                 <div class="td"><input type="text" id="name" name="user_name" placeholder="이름 입력" required></div>
+=======
+                <div class="td"><input type="text" id="name" placeholder="이름 입력" required></div>
+>>>>>>> f6337c0d2124f43b093d4f56a2e5113224c4ec0f
               </div>
               <!-- 휴대폰 -->
               <div class="row">
                 <div class="th">휴대폰<span class="req">*</span></div>
                 <div class="td">
+<<<<<<< HEAD
                   <input type="text" id="phone" name="hp" inputmode="numeric" maxlength="13" placeholder="휴대폰 입력" required>
+=======
+                  <input type="text" id="phone" inputmode="numeric" maxlength="13" placeholder="휴대폰 입력" required>
+>>>>>>> f6337c0d2124f43b093d4f56a2e5113224c4ec0f
                 </div>
               </div>
               <!-- 이메일 -->
               <div class="row">
                 <div class="th">이메일<span class="req">*</span></div>
+<<<<<<< HEAD
                 <div class="td"><input type="email" id="email" name="email" placeholder="이메일 입력" required></div>
+=======
+                <div class="td"><input type="email" id="email" placeholder="이메일 입력" required></div>
+>>>>>>> f6337c0d2124f43b093d4f56a2e5113224c4ec0f
               </div>
               <!-- 주소 -->
               <div class="row">
@@ -98,7 +163,11 @@
                       <option>부산광역시 해운대구 A로 45</option>
                     </select>
                   </div>
+<<<<<<< HEAD
                   <input class="addr-detail" type="text" name="addr2" placeholder="상세주소 입력">
+=======
+                  <input class="addr-detail" type="text" placeholder="상세주소 입력">
+>>>>>>> f6337c0d2124f43b093d4f56a2e5113224c4ec0f
                 </div>
               </div>
 
@@ -176,6 +245,7 @@
       }
     });
   </script>
+<<<<<<< HEAD
   
 	<%
 		String agree = request.getParameter("agree");
@@ -184,5 +254,7 @@
         	return;
     	}
 	%>
+=======
+>>>>>>> f6337c0d2124f43b093d4f56a2e5113224c4ec0f
 </body>
 </html>

@@ -139,9 +139,15 @@
         margin: 0 5px;
         cursor: pointer;
     }
+<<<<<<< HEAD
     #slide > span.active {
 	    background-color: #ffffff;
 	}
+=======
+    #page1 {
+        background-color: #ffffff;
+    }
+>>>>>>> f6337c0d2124f43b093d4f56a2e5113224c4ec0f
 
     #main-mid {
         width: 1200px;
