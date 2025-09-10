@@ -1,3 +1,4 @@
+
 package service;
 
 import java.util.Optional;
@@ -46,8 +47,8 @@ public enum UserService {
     if (!isBlank(dto.getHp()) && dao.existsByHp(dto.getHp()))
       return ResultCode.REGISTER_DUP_HP;
 
-    int n = dao.insert(dto);
-    return (n == 1) ? ResultCode.REGISTER_SUCCESS : ResultCode.FAIL;
+    dao.insert(dto);
+    return ResultCode.REGISTER_SUCCESS;
 	}
 
 	// 이메일 인증코드 발송
