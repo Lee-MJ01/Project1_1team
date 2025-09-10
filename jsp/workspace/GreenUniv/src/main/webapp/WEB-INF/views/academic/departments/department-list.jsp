@@ -243,7 +243,7 @@
 								<td>${dto.college_name}</td>        				
 								<td>${dto.dept_name}</td>        				
 								<td>${dto.chair_name}</td>        				
-								<td>dto.dept_phone</td>        				
+								<td>${dto.dept_phone}</td>        				
 								<td>x</td>        				
 								<td>x</td>        				
 								<td>x</td>        				
