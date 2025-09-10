@@ -34,7 +34,8 @@ public class BoardDAO extends DBHelper{
 	
 	// 학사공지사항 검색(index.jsp용)
 	public List<BoardDTO> IndexAcademicsSelectAll() {
-		List<BoardDTO> listDTO = new ArrayList<>();;
+		System.out.println("학사공지사항");
+		List<BoardDTO> listDTO = new ArrayList<>();
 		try {
 			conn = getConnection();
 			psmt = conn.prepareStatement(Sql.SELECT_BOARD_ALL);
@@ -52,9 +53,10 @@ public class BoardDAO extends DBHelper{
 		} catch (Exception e) {
 			logger.error(e.getMessage());
 		}finally {
-	        // ▼▼▼ 이 코드가 반드시 필요합니다! ▼▼▼
 	        try {
-	            closeAll(); 
+	        	if (rs != null) rs.close();
+	            if (psmt != null) psmt.close();
+	            if (conn != null) conn.close();
 	        } catch (SQLException e) {
 	            logger.error("자원 해제 중 오류 발생", e);
 	        }
@@ -66,7 +68,8 @@ public class BoardDAO extends DBHelper{
 	
 	// 커뮤니티 공지사항 검색(index.jsp용) 
 	public List<BoardDTO> IndexCommunitySelectAll() {
-		List<BoardDTO> listDTO = new ArrayList<>();;
+		System.out.println("커뮤니티 공지사항");
+		List<BoardDTO> listDTO = new ArrayList<>();
 		try {
 			conn = getConnection();
 			psmt = conn.prepareStatement(Sql.SELECT_BOARD_ALL);
@@ -85,7 +88,9 @@ public class BoardDAO extends DBHelper{
 			logger.error(e.getMessage());
 		}finally {
 	        try {
-	            closeAll(); 
+	        	if (rs != null) rs.close();
+	            if (psmt != null) psmt.close();
+	            if (conn != null) conn.close();
 	        } catch (SQLException e) {
 	            logger.error("자원 해제 중 오류 발생", e);
 	        }
@@ -97,7 +102,8 @@ public class BoardDAO extends DBHelper{
 	
 	// 커뮤니티 뉴스및칼럼 검색(index.jsp용) 
 	public List<BoardDTO> IndexCommuNewsSelectAll() {
-		List<BoardDTO> listDTO = new ArrayList<>();;
+		System.out.println("커뮤니티 뉴스및칼럼");
+		List<BoardDTO> listDTO = new ArrayList<>();
 		try {
 			conn = getConnection();
 			psmt = conn.prepareStatement(Sql.SELECT_BOARD_ALL);
@@ -116,7 +122,9 @@ public class BoardDAO extends DBHelper{
 			logger.error(e.getMessage());
 		}finally {
 	        try {
-	            closeAll(); 
+	        	if (rs != null) rs.close();
+	            if (psmt != null) psmt.close();
+	            if (conn != null) conn.close();
 	        } catch (SQLException e) {
 	            logger.error("자원 해제 중 오류 발생", e);
 	        }

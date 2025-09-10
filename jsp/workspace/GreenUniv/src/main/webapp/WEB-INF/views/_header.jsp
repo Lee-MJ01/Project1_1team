@@ -1,25 +1,13 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>그린대학교</title>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/mainStyle.css">
-    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/header.css">
-    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/footer.css">
-</head>
 
-<body>
-    <header>
+<header>
     <div class="topbar">
       <div class="container topbar__nav" role="navigation" aria-label="상단 빠른 메뉴">
         <ul class="topbar__list">
           <li class="topbar__item"><a href="#">HOME</a></li>
           <li class="topbar__item"><a href="#">사이트맵</a></li>
           <li class="topbar__item"><a href="${pageContext.request.contextPath}/member/login.do">로그인</a></li>
-          <li class="topbar__item"><a href="./student/registration.do">학사지원</a></li>
+          <li class="topbar__item"><a href="${pageContext.request.contextPath}//student/curriculum.do">학사지원</a></li>
         </ul>
       </div>
     </div>
@@ -91,5 +79,4 @@
             </div>
         </div>
     </nav>
-  </header>
-    
+</header>
