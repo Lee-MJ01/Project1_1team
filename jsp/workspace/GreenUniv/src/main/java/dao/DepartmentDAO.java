@@ -32,7 +32,7 @@ public class DepartmentDAO extends DBHelper{
 			//1.단과대학 별 max dept_id 조회
 	        String sqlMax = "SELECT MAX(dept_id) FROM department WHERE college_name = ?";
 	        psmt = conn.prepareStatement(sqlMax);
-	        psmt.setString(1, dto.getCollege_name());
+	        psmt.setString(1, dto.getCollege_name()); // dto.getCollege_name(), test로 세팅하면 들어가는거 확인
 	        rs = psmt.executeQuery();
 	        
 	        int newDeptId;
