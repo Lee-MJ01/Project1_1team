@@ -1,9 +1,113 @@
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
 <%@ taglib prefix="fmt" uri="jakarta.tags.fmt" %>
 <%@ taglib prefix="fn" uri="jakarta.tags.functions" %>
 <%@ page isELIgnored="false" %>
-<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ include file = "./WEB-INF/views/_header.jsp" %>
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>그린대학교</title>
+    
+    <%-- 모든 CSS 링크를 이곳으로 이동 --%>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/mainStyle.css">
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/header.css">
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/footer.css">
+    
+    <script>
+    	document.addEventListener('DOMContentLoaded', function() {
+	    // 1. 슬라이드에 들어갈 데이터 준비
+	    const slideData = [
+	        {
+	            h3: "IT 기술로 세상을 변화시키는 인재를 양성",
+	            h1: "그린대학교 컴퓨터과학과",
+	            p: "급변하는 컴퓨터 기술의 발전에 선도적으로 참여하고 컴퓨터의 활용을 통하여 미래를 만들어 나갈 수 있는 인력을 배양",
+	            link: "${pageContext.request.contextPath}/colleges/engineering.do",
+	            linkText: "학과소개 바로가기"
+	        },
+	        {
+	            h3: "글로벌 리더를 키우는 교육의 중심",
+	            h1: "그린대학교 경영학과",
+	            p: "창의적이고 윤리적인 경영 마인드를 갖춘 전문 경영인 양성을 목표로 합니다.",
+	            link: "${pageContext.request.contextPath}/colleges/humanities.do",
+	            linkText: "경영학과 소개"
+	        },
+	        {
+	            h3: "미래를 디자인하는 창의적 인재",
+	            h1: "그린대학교 디자인학부",
+	            p: "혁신적인 디자인 사고와 표현 능력을 통해 새로운 가치를 창출하는 디자이너를 양성합니다.",
+	            link: "${pageContext.request.contextPath}/colleges/art.do",
+	            linkText: "디자인학부 소개"
+	        }
+	    ];
+	
+	    // 2. HTML 요소들을 변수에 담기
+	    const mainOnDiv = document.getElementById('main-on');
+	    const h3Element = mainOnDiv.querySelector('h3');
+	    const h1Element = mainOnDiv.querySelector('h1');
+	    const pElement = mainOnDiv.querySelector('p');
+	    const linkElement = document.getElementById('main-departmentIntro').querySelector('a');
+	
+	    const prevButton = document.getElementById('prev-page');
+	    const nextButton = document.getElementById('next-page');
+	    const slideDots = document.querySelectorAll('#slide > span'); // 모든 점을 한번에 선택
+	
+	    // 3. 현재 보여지는 슬라이드 번호를 저장할 변수
+	    let currentSlideIndex = 0;
+	
+	    // 4. 특정 번호의 슬라이드 내용을 화면에 보여주는 함수
+	    function showSlide(index) {
+	        const currentSlide = slideData[index];
+	        h3Element.textContent = currentSlide.h3;
+	        h1Element.textContent = currentSlide.h1;
+	        pElement.textContent = currentSlide.p;
+	        linkElement.href = currentSlide.link;
+	        linkElement.textContent = currentSlide.linkText;
+	        
+	        // ✨ 페이지 점(dot) 스타일 업데이트 로직
+	        slideDots.forEach((dot, dotIndex) => {
+	            if (dotIndex === index) {
+	                dot.classList.add('active'); // 현재 슬라이드에 해당하는 점에 active 클래스 추가
+	            } else {
+	                dot.classList.remove('active'); // 나머지는 active 클래스 제거
+	            }
+	        });
+	    }
+	
+	    // 5. 버튼에 클릭 이벤트 추가
+	    nextButton.addEventListener('click', () => {
+	        currentSlideIndex = (currentSlideIndex + 1) % slideData.length;
+	        showSlide(currentSlideIndex);
+	    });
+	
+	    prevButton.addEventListener('click', () => {
+	        currentSlideIndex = (currentSlideIndex - 1 + slideData.length) % slideData.length;
+	        showSlide(currentSlideIndex);
+	    });
+	
+	    // ✨ 6. 각 페이지 점(dot)에 클릭 이벤트 추가
+	    slideDots.forEach((dot, index) => {
+	        dot.addEventListener('click', () => {
+	            // 클릭된 점의 번호로 바로 슬라이드 이동
+	            currentSlideIndex = index;
+	            showSlide(currentSlideIndex);
+	        });
+	    });
+	
+	    // 7. 페이지가 처음 로드될 때 첫 번째 슬라이드 내용을 보여줌
+	    showSlide(currentSlideIndex);
+    	});
+	</script>
+</head>
+
+<body>
+    <%-- 헤더 부분 포함 --%>
+    <%@ include file="./WEB-INF/views/_header.jsp" %>
+    
+    <%-- 메인 컨텐츠 --%>
     <div class="body">
         <div id="main-bg"></div>
         <div id="body1200">
@@ -13,12 +117,8 @@
                 <p>급변하는 컴퓨터 기술의 발전에 선도적으로 참여하고 컴퓨터의 활용을 통하여 미래를 만들어 나갈 수 있는 인력을 배양</p>
                 
                 <div id="main-pagemove">
-                	<button type="button">
-                    	<img src="${pageContext.request.contextPath}/images/btn-prev01.png" alt="전페이지" id="prev-page">
-                    </button>
-                    <button type="button">
-                    	<img src="${pageContext.request.contextPath}/images/btn-next01.png" alt="다음페이지" id="next-page">
-                    </button>
+                   	<img src="${pageContext.request.contextPath}/images/btn-prev01.png" alt="전페이지" id="prev-page">
+                   	<img src="${pageContext.request.contextPath}/images/btn-next01.png" alt="다음페이지" id="next-page">
                 </div>
                 <div id="main-departmentIntro">
                     <span><a href="${pageContext.request.contextPath}/colleges/humanities.do">학과소개 바로가기</a></span>
@@ -215,4 +315,9 @@
             </div>
         </div>
     </div>
-<%@ include file = "./WEB-INF/views/_footer.jsp" %>
+    
+    <%-- 푸터 부분 포함 --%>
+    <%@ include file="./WEB-INF/views/_footer.jsp" %>
+    
+</body>
+</html>

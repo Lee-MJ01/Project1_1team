@@ -61,7 +61,7 @@
         <h2 class="login-title">LOGIN</h2>
         <p class="login-desc">로그인을 하시면 더 다양한 서비스를 받을 수 있습니다.</p>
 
-        <form class="login-form" id="loginForm" novalidate>
+        <div class="login-form" id="loginForm" novalidate>
           <!-- 구분 -->
           <div class="role">
             <label><input type="radio" name="role" value="student" checked> 학부생</label>
@@ -79,7 +79,7 @@
           -->
           
           <!-- 폼 제출로 로그인 (25.09.09 천수빈 수정) -->
-          <form method="post" action="${pageContext.request.contextPath}/university/member/login.do">
+          <form method="post" action="${pageContext.request.contextPath}/member/login.do">
 	          <input type="text" 	 id="user_id" name="user_id"  placeholder="아이디" required />
 	          <input type="password" id="pass" 	  name="pass"  placeholder="비밀번호" required />
 	          <button type="submit"  class="btn-login">로그인</button>
@@ -89,7 +89,7 @@
             <a href="#">아이디/비밀번호 찾기</a>
             <a href="./signup.do">회원가입</a>
           </div>
-        </form>
+        </div>
 
         <!-- 안내 -->
         <div class="login-help">
