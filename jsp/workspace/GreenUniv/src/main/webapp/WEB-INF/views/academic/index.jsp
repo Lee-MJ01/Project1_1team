@@ -1,4 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="jakarta.tags.core" %>
+<c:set var="ctx" value="${pageContext.request.contextPath}" />
 
 <!DOCTYPE html>
 <html lang="ko">
@@ -9,99 +11,52 @@
 
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
 <style>
+/* ===== 공통 토큰 ===== */
 :root{
   --brand-blue:#00518C; --brand-dark:#1F2838;
   --text:#222; --muted:#333;
   --sidebar-bg:#F5F6F7; --card:#FFF;
-  --line:#C0C0C0; --thead:#F6F8FB; --accent:#1F5E95;
+  --line:#C0C0C0; --thead:#F6F8FB; --row:#E9EDF3; --accent:#1F5E95;
   --sb-icon:18px; --sb-gap:8px; --sb-indent:calc(var(--sb-icon) + var(--sb-gap));
 }
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:'Noto Sans KR', Arial, system-ui, sans-serif;color:var(--text);background:#f9f9f9;min-height:100vh;display:flex;flex-direction:column}
 
-/* 상단 바 */
+/* ===== 탑바(공통) ===== */
 .top-menu{background:var(--brand-blue);height:30px;display:flex;align-items:center}
 .top-menu__inner{width:100%;display:flex;justify-content:flex-end;align-items:center;padding:0 40px}
 .top-menu__link{color:#fff;font-size:12px;line-height:20px;text-decoration:none;position:relative;padding:0 10px}
 .top-menu__link + .top-menu__link::before{content:"";position:absolute;left:0;top:4px;width:1px;height:11px;background:rgba(255,255,255,.3)}
 
-/* 브랜드 바 */
+/* ===== 브랜드 바(공통) ===== */
 .brand-bar{background:var(--brand-dark);height:90px;border-bottom:1px solid #dcdcdc;position:relative}
 .brand-logo{position:absolute;left:260px;top:16px;width:352px;height:52px;display:block;object-fit:contain}
 @media (max-width:1200px){.brand-logo{left:24px}}
 
-/* 레이아웃 */
+/* ===== 레이아웃(공통) ===== */
 .layout{display:flex;align-items:flex-start;width:min(1400px,96vw);margin:22px auto 56px;gap:20px;flex:1}
 
-/* 사이드바 */
-.sidebar {
-  flex: 0 0 270px;
-  min-height: 840px;
-  border-right: 1px solid var(--line);
-  background: var(--sidebar-bg);
+/* ===== 사이드바(공통) ===== */
+.sidebar{flex:0 0 270px;min-height:840px;border-right:1px solid var(--line);background:var(--sidebar-bg)}
+.sidebar-menu{padding:20px 16px;font-size:14px;color:var(--muted)}
+.sidebar-menu h3{display:flex;align-items:center;gap:8px;margin:20px 0 10px;font-size:16px;font-weight:700;color:#111;cursor:default}
+.menu-icon{width:18px;height:18px;flex:0 0 18px}
+.sidebar-menu .menu-group>ul{list-style:none;margin:0 0 18px 0;padding:0;margin-left:var(--sb-indent)}
+.sidebar-menu li{display:block;margin:8px 0;line-height:1.7;position:relative}
+.sidebar-menu li::before{content:"·";position:absolute;left:-14px;top:0;color:#7f8790;font-size:20px;line-height:1}
+/* 링크/스팬 타이포 통일 */
+.sidebar-menu li a,
+.sidebar-menu li span{
+  display:flex;align-items:center;gap:10px;width:100%;
+  line-height:1.7;color:#333;font-weight:500;text-decoration:none;
 }
-.sidebar-menu {
-  padding: 20px 16px;
-  font-size: 14px;
-  color: var(--muted);
-}
+.sidebar-menu li a:hover{color:var(--brand-blue)}
+.sidebar-menu li span{cursor:default}
 
-/* 대분류 제목 */
-.sidebar-menu h3 {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin: 20px 0 10px;
-  font-size: 16px;
-  font-weight: 700;
-  color: #111;
-}
-.menu-icon { width: 18px; height: 18px; flex: 0 0 18px; }
-
-/* 소분류 목록 */
-.sidebar-menu .menu-group > ul {
-  list-style: none;
-  margin: 0 0 18px 0;
-  padding: 0;
-  margin-left: var(--sb-indent);
-}
-
-/* 소분류 항목 */
-.sidebar-menu li {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin: 8px 0;
-  line-height: 1.7;
-}
-.sidebar-menu li::before {
-  content: "·";
-  font-size: 20px;
-  line-height: 1;
-  color: #7f8790;
-}
-
-/* 링크/텍스트 공통 */
-.sidebar-menu a,
-.sidebar-menu span {
-  text-decoration: none;
-  color: #333;
-  font-weight: 500;
-  cursor: pointer;
-}
-
-/* hover 효과 */
-.sidebar-menu a:hover,
-.sidebar-menu span:hover {
-  color: var(--brand-blue);
-}
-
-/* 본문 카드 */
+/* ===== 본문 카드(공통) ===== */
 .main-area{flex:1}
 .page{background:var(--card);border:1px solid var(--line)}
 .page__body{padding:16px}
-
-/* 페이지 헤더 */
 .page__header{height:46px;border-bottom:1px solid #cfd6df;padding:0 16px;display:flex;align-items:center;justify-content:space-between}
 .page__title{font-size:16px;font-weight:700;color:#222}
 .page__path{font-size:12px;display:flex;align-items:center;gap:6px}
@@ -110,22 +65,19 @@ body{font-family:'Noto Sans KR', Arial, system-ui, sans-serif;color:var(--text);
 .page__path .crumb-link{color:#145074;font-weight:500;text-decoration:none}
 .page__path .crumb-link:hover{text-decoration:underline}
 
-/* 블록(섹션) */
+/* ===== 이 페이지 전용 스타일(표 등) ===== */
 .block{border:0;background:transparent;box-shadow:none}
 .block+.block{margin-top:14px}
 .block__head{padding:0 0 8px}
 .block__title{display:flex;align-items:center;gap:6px;font-size:16px;font-weight:600;color:#145074;margin:0}
 .block__title::before{content:"";width:6px;height:20px;background:var(--accent);border-radius:1px}
 
-/* 표 공통 */
 .table{width:100%;border-collapse:separate;border-spacing:0;font-size:13px;border-top:1px solid #cfd6df;border-bottom:1px solid #e9edf3}
 .table thead th{height:45.5px;background:var(--thead);color:#5a6475;font-weight:600;text-align:center;border:0;border-bottom:1px solid #cfd6df}
 .table tbody td{height:45.5px;background:#fff;border:0;border-bottom:1px solid #e1e6ee}
 .table tfoot td{height:45.5px;background:#fff;border-top:1px solid #e1e6ee;font-weight:700}
 .table .center{text-align:center}
 .table .num{text-align:right;padding-right:10px}
-
-/* 열 폭 */
 .table--univ col{width:136.25px}  /* 8열 동일 */
 
 .table--edu col:nth-child(1){width:120px}
@@ -139,28 +91,12 @@ body{font-family:'Noto Sans KR', Arial, system-ui, sans-serif;color:var(--text);
 .table--edu col:nth-child(9){width:100px}
 .table--edu col:nth-child(10){width:80px}
 
-/* 2열 유틸 그리드 */
-.grid-2{
-  display:grid;
-  grid-template-columns:repeat(2, minmax(0,1fr));
-  gap:12px;
-  align-items:start;
-}
-.grid-2 > .block{margin:0}
+.grid-2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;align-items:start}
+.grid-2>.block{margin:0}
+@media (max-width:1024px){.grid-2{grid-template-columns:1fr}}
 
-/* 반응형 */
-@media (max-width:1024px){
-  .grid-2{grid-template-columns:1fr}
-}
-
-/* 학생 현황(학년별/학과별): 내용 중앙정렬 */
-.table--bygrade td,
-.table--bygrade tfoot td,
-.table--bymajor td,
-.table--bymajor tfoot td{
-  text-align:center !important;
-  vertical-align:middle;
-}
+.table--bygrade td,.table--bygrade tfoot td,
+.table--bymajor td,.table--bymajor tfoot td{ text-align:center !important;vertical-align:middle }
 
 .spacer{height:14px}
 a.link{color:#145074;text-decoration:none}
@@ -168,91 +104,106 @@ a.link:hover{text-decoration:underline}
 .status{font-weight:700}
 .status--done{color:#2e9f55}
 .status--warn{color:#d64835}
+
+/* ===== 푸터(공통) ===== */
+.site-footer{background:#19202D;color:#cfd3db;height:60px;display:flex;align-items:center}
+.site-footer .footer-inner{width:min(1400px,96vw);margin:0 auto;padding:0 20px;font-size:12px;letter-spacing:.02em}
 </style>
 </head>
 <body>
 
-<!-- 상단 -->
+<!-- Top menu (공통) -->
 <div class="top-menu">
   <nav class="top-menu__inner">
-    <a class="top-menu__link" href="#">HOME</a>
-    <a class="top-menu__link" href="#">사이트맵</a>
-    <a class="top-menu__link" href="#">로그아웃</a>
+    <a class="top-menu__link" href="${ctx}/">HOME</a>
+    <a class="top-menu__link" href="${ctx}/sitemap.jsp">사이트맵</a>
+    <a class="top-menu__link" href="${ctx}/user/login.do">로그인</a>
   </nav>
 </div>
 
+<!-- Brand header (공통: 로고 클릭 → academic 홈) -->
 <header class="brand-bar">
-  <a href="index.html">
-    <img class="brand-logo" src="../../images/admin_logo.png" alt="그린대학교 학사관리시스템 로고">
+  <a href="${ctx}/academic/index.do">
+    <img class="brand-logo" src="${ctx}/images/admin_logo.png" alt="그린대학교 학사관리시스템 로고">
   </a>
 </header>
 
 <div class="layout">
-  <!-- 좌측 사이드 -->
+  <!-- Sidebar (공통) -->
   <aside class="sidebar">
-  <nav class="sidebar-menu">
+    <nav class="sidebar-menu">
 
-    <!-- 환경설정 -->
-    <div class="menu-group">
-      <h3><img src="../../images/ico-admin-setting.png" alt="" class="menu-icon">환경설정</h3>
-      <ul>
-        <li><span>기본환경정보</span></li>
-        <li><span>약관관리</span></li>
-      </ul>
-    </div>
+      <!-- 환경설정 -->
+      <div class="menu-group">
+        <h3>
+          <img src="${ctx}/images/ico-admin-setting.png" alt="" class="menu-icon">환경설정
+        </h3>
+        <ul>
+          <li><span>기본환경정보</span></li>
+          <li><span>약관관리</span></li>
+        </ul>
+      </div>
 
-    <!-- 학사운영  -->
-    <div class="menu-group">
-      <h3><img src="../../images/ico-admin-academic.png" alt="" class="menu-icon">학사운영</h3>
-      <ul>
-        <li><a href="/academic/operation/overview.html">교육 운영 현황</a></li>
-        <li><a href="/academic/operation/overview.html#by-grade">학년별 학생 현황</a></li>
-        <li><a href="/academic/operation/overview.html#by-major">학과별 학생 현황</a></li>
-        <li><a href="/academic/operation/lecture-list.html">강의 목록</a></li>
-        <li><a href="/academic/operation/lecture-register.html">강의 등록</a></li>
-        <li><a href="/academic/operation/enrollment.html">수강 현황</a></li>
-      </ul>
-    </div>
+      <!-- 학사운영 -->
+      <div class="menu-group">
+        <h3>
+          <img src="${ctx}/images/ico-admin-academic.png" alt="" class="menu-icon">학사운영
+        </h3>
+        <ul>
+          <li><a href="${ctx}/academic/operation/overview.jsp">교육 운영 현황</a></li>
+          <li><span>학년별 학생 현황</span></li>
+          <li><span>학과별 학생 현황</span></li>
+          <li><a href="${ctx}/academic/operation/lecture-list.jsp">강의 목록</a></li>
+          <li><a href="${ctx}/academic/operation/lecture-register.jsp">강의 등록</a></li>
+          <li><a href="${ctx}/academic/operation/enrollment.jsp">수강 현황</a></li>
+        </ul>
+      </div>
 
-    <!-- 인사관리 -->
-    <div class="menu-group">
-      <h3><img src="../../images/ico-admin-persons.png" alt="" class="menu-icon">인사관리</h3>
-      <ul>
-        <li><a href="academinc/personnel/students.html">학생 목록</a></li>
-        <li><a href="/personnel/student-register.html">학생 등록</a></li>
-        <li><a href="/personnel/professors.html">교수 목록</a></li>
-        <li><a href="/personnel/professor-register.html">교수 등록</a></li>
-        <li><span>임직원 목록 및 등록</span></li>
-      </ul>
-    </div>
+      <!-- 인사관리 -->
+      <div class="menu-group">
+        <h3>
+          <img src="${ctx}/images/ico-admin-persons.png" alt="" class="menu-icon">인사관리
+        </h3>
+        <ul>
+          <li><a href="${ctx}/student/list.do">학생 목록</a></li>
+          <li><a href="${ctx}/student/write.do">학생 등록</a></li>
+          <li><a href="${ctx}/professor/list.do">교수 목록</a></li>
+          <li><a href="${ctx}/professor/write.do">교수 등록</a></li>
+          <li><span>임직원 목록 및 등록</span></li>
+        </ul>
+      </div>
 
-    <!-- 대학 및 학과 -->
-    <div class="menu-group">
-      <h3><img src="../../images/ico-admin-college.png" alt="" class="menu-icon">대학 및 학과</h3>
-      <ul>
-        <li><a href="/academic/departments/department-list.html">대학 및 학과 목록</a></li>
-        <li><a href="/academic/departments/department-register.html">대학 및 학과 등록</a></li>
-      </ul>
-    </div>
+      <!-- 대학 및 학과 -->
+      <div class="menu-group">
+        <h3>
+          <img src="${ctx}/images/ico-admin-college.png" alt="" class="menu-icon">대학 및 학과
+        </h3>
+        <ul>
+          <li><a href="${ctx}/departments/department-list.jsp">학과 목록</a></li>
+          <li><a href="${ctx}/college/write.do">대학 및 학과 등록</a></li>
+        </ul>
+      </div>
 
-    <!-- 게시판관리(파일 없음 → 임시 비활성) -->
-    <div class="menu-group">
-      <h3><img src="../../images/ico-admin-board.png" alt="" class="menu-icon">게시판관리</h3>
-      <ul>
-        <li><span>입학안내 공지사항</span></li>
-        <li><span>학사안내 공지사항</span></li>
-        <li><span>커뮤니티 공지사항</span></li>
-        <li><span>입학상담</span></li>
-        <li><span>질문 및 답변</span></li>
-        <li><span>식단안내</span></li>
-        <li><span>자료실</span></li>
-      </ul>
-    </div>
+      <!-- 게시판관리 -->
+      <div class="menu-group">
+        <h3>
+          <img src="${ctx}/images/ico-admin-board.png" alt="" class="menu-icon">게시판관리
+        </h3>
+        <ul>
+          <li><span>입학안내 공지사항</span></li>
+          <li><span>학사안내 공지사항</span></li>
+          <li><span>커뮤니티 공지사항</span></li>
+          <li><span>입학상담</span></li>
+          <li><span>질문 및 답변</span></li>
+          <li><span>식단안내</span></li>
+          <li><span>자료실</span></li>
+        </ul>
+      </div>
 
-  </nav>
-</aside>
+    </nav>
+  </aside>
 
-  <!-- 본문 -->
+  <!-- Main -->
   <main class="main-area">
     <section class="page">
       <div class="page__header">
@@ -264,6 +215,7 @@ a.link:hover{text-decoration:underline}
       </div>
 
       <div class="page__body">
+        <!-- 이하 콘텐츠는 기존 그대로 -->
         <!-- 1) 대학 운영 현황 -->
         <article class="block">
           <header class="block__head"><h4 class="block__title">대학 운영 현황</h4></header>
@@ -364,7 +316,6 @@ a.link:hover{text-decoration:underline}
 
         <!-- 3) 2열: 학년별 / 학과별 학생 현황 -->
         <div class="grid-2" style="margin-top:14px;">
-          <!-- 학년별 -->
           <article class="block" id="by-grade">
             <header class="block__head"><h4 class="block__title">학년별 학생 현황</h4></header>
             <div class="block__body">
@@ -385,7 +336,6 @@ a.link:hover{text-decoration:underline}
             </div>
           </article>
 
-          <!-- 학과별 -->
           <article class="block" id="by-major">
             <header class="block__head"><h4 class="block__title">학과별 학생 현황</h4></header>
             <div class="block__body">
@@ -407,9 +357,8 @@ a.link:hover{text-decoration:underline}
           </article>
         </div>
 
-        <!-- 4) 2열: 학사안내 공지 / 입학상담 -->
+        <!-- 4) 공지 / 입학상담 -->
         <div class="grid-2" style="margin-top:14px;">
-          <!-- 공지 -->
           <article class="block">
             <header class="block__head"><h4 class="block__title">학사안내 공지사항</h4></header>
             <div class="block__body">
@@ -426,7 +375,6 @@ a.link:hover{text-decoration:underline}
             </div>
           </article>
 
-          <!-- 상담 -->
           <article class="block">
             <header class="block__head"><h4 class="block__title">입학상담</h4></header>
             <div class="block__body">
@@ -449,8 +397,8 @@ a.link:hover{text-decoration:underline}
   </main>
 </div>
 
-<footer class="site-footer" role="contentinfo" style="background:#19202D;color:#cfd3db;height:60px;display:flex;align-items:center;">
-  <div class="footer-inner" style="width:min(1400px,96vw);margin:0 auto;padding:0 20px;font-size:12px;letter-spacing:.02em;">
+<footer class="site-footer" role="contentinfo">
+  <div class="footer-inner">
     Copyright &copy; Green University All rights reserved. ADMINISTRATOR Version 1.4.1
   </div>
 </footer>
