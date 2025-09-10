@@ -1,4 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="jakarta.tags.core" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,54 +8,12 @@
     <title>cafeteria</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/university/campuslife/style_cafe.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/university/campuslife/css/xeicon.min.css">
-<<<<<<< HEAD
+
 </head>
 <body>
     <div id="wrapper">
         <%-- 헤더 부분 포함 --%>
 <%@ include file="/WEB-INF/views/_header.jsp" %>
-=======
-    <!-- 
-        날짜 : 2025/09/04
-        이름 : 천수빈
-        내용 : 대학생활 - 식단안내 제작
-    -->
-</head>
-<body>
-    <div id="wrapper">
-        <header>
-            <div class="header-top">
-                <div class="container">
-                    <ul>
-                        <li><a href="#">HOME</a></li>
-                        <li><a href="#">사이트맵</a></li>
-                        <li><a href="#">로그인</a></li>
-                        <li><a href="#">학생지원</a></li>
-                    </ul>
-                </div>
-            </div>  
-
-            <div class="header-main">
-                <div class="container">
-                    <div class="logo">
-                        <a href="#">
-                            <img src="${pageContext.request.contextPath}/images/header_logo.png" width="196" alt="그린대학교 로고">
-                        </a>
-                    </div>
-                    <nav class="main-nav">
-                        <ul>
-                            <li><a href="#">대학소개</a></li>
-                            <li><a href="#">입학안내</a></li>
-                            <li><a href="#">대학·대학원</a></li>
-                            <li><a href="#">학사안내</a></li>
-                            <li><a href="#">대학생활</a></li>
-                            <li><a href="#">커뮤니티</a></li>
-                        </ul>
-                    </nav>
-                </div>
-            </div>
-        </header>
->>>>>>> f6337c0d2124f43b093d4f56a2e5113224c4ec0f
 
         <div class=background>
             <div class="container">
@@ -78,17 +37,11 @@
                 <aside class="side-nav">
                     <h2>대학생활</h2>
                     <ul>
-<<<<<<< HEAD
+
                     	<li><a href="${pageContext.request.contextPath}/campuslife/student-union.do">학생회소개</a></li>
                         <li><a href="${pageContext.request.contextPath}/campuslife/clubs.do"">동아리/스터디</a></li>
                         <li class="active"><a href="${pageContext.request.contextPath}/campuslife/cafeteria.do">식단안내</a></li>
                         <li><a href="${pageContext.request.contextPath}/campuslife/gallery.do">갤러리</a></li>
-=======
-                        <li><a href="#">학생회 소개</a></li>
-                        <li><a href="#">동아리/스터디</a></li>
-                        <li class="active"><a href="#">식단안내</a></li>
-                        <li><a href="#">갤러리</a></li>
->>>>>>> f6337c0d2124f43b093d4f56a2e5113224c4ec0f
                     </ul>
                 </aside>
 
@@ -97,10 +50,9 @@
 
                     <div class="cafeteria-header">
                         <button class="prev"><i class="xi-angle-left-thin"></i></button>
-<<<<<<< HEAD
-                        <!-- 동적 처리 -->
-=======
->>>>>>> f6337c0d2124f43b093d4f56a2e5113224c4ec0f
+                        <span class="month">
+                          ${dto.start_date}~${dto.end_date}
+                        </span>
                         <span class="month">2025.03.10~2025.03.14</span>
                         <button class="next"><i class="xi-angle-right-thin"></i></button>
                     </div>
@@ -109,21 +61,15 @@
                         <thead>
                             <tr>
                                 <th>구분</th>
-                                <th>2025.3.10(월)</th>
-                                <th>2025.3.11(화)</th>
-<<<<<<< HEAD
-                                <th>2025.3.12(수)</th>
-=======
-                                <th>2025.3.12(수)</th >
->>>>>>> f6337c0d2124f43b093d4f56a2e5113224c4ec0f
-                                <th>2025.3.13(목)</th>
-                                <th>2025.3.14(금)</th>
-                                <th>2025.3.15(토)</th>
+                                <th>${weekDate[0]}(월)</th>
+                                <th>${weekDate[1]}(화)</th>
+                                <th>${weekDate[2]}(수)</th>
+                                <th>${weekDate[3]}(목)</th>
+                                <th>${weekDate[4]}(금)</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-<<<<<<< HEAD
                                 <td class="strong"><strong>코너1</strong></td>
                                 
                                 <!-- DB 처리 -->
@@ -133,7 +79,6 @@
                                 <td class="strong"><strong>코너2</strong></td>
                                 
                                 <!-- DB 처리 -->
-=======
                                 <td class="strong"><strong>조식</strong></td>
                                 <td>미운영</td>
                                 <td>미운영</td>
@@ -144,7 +89,7 @@
                             </tr>
                             <tr>
                                 <td class="strong"><strong>중식</strong></td>
->>>>>>> f6337c0d2124f43b093d4f56a2e5113224c4ec0f
+                          
                                 <td>
                                     <span class="sticker">정식 5,500원</span><br>
                                     백미밥<br>
@@ -155,13 +100,11 @@
                                     상추겉절이<br>
                                     포기김치
                                 </td>
-<<<<<<< HEAD
                             </tr>
                             <tr>
                                 <td class="strong"><strong>코너3</strong></td>
                                 
                                 <!-- DB 처리 -->
-=======
                                 <td>
                                     <span class="sticker">정식 5,500원</span><br>
                                     흑미밥<br>
@@ -172,47 +115,6 @@
                                     오이무침<br>
                                     포기김치
                                 </td>
-                                <td>
-                                    <span class="sticker">정식 5,500원</span><br>
-                                    백미밥<br>
-                                    삼겹살김치찌개<br>
-                                    꿔바로우/소스<br>
-                                    로제떡볶이<br>
-                                    비엔나햄볶음<br>
-                                    오징어다시마채무침<br>
-                                    깍두기
-                                </td>
-                                <td>
-                                    <span class="sticker">정식 5,500원</span><br>
-                                    백미밥<br>
-                                    꼬치어묵우동<br>
-                                    닭데리야끼조림<br>
-                                    카레<br>
-                                    군만두/초간장<br>
-                                    파프리카콩나물냉채<br>
-                                    배추김치
-                                </td>
-                                <td>
-                                    <span class="sticker">정식 5,500원</span><br>
-                                    현미밥<br>
-                                    설렁탕<br>
-                                    생선가스/소스<br>
-                                    잡채어묵조림<br>
-                                    두부조림<br>
-                                    부추오이무침<br>
-                                    포기김치
-                                </td>
-                                <td>미운영</td>
-                            </tr>
-                            <tr>
-                                <td class="strong"><strong>석식</strong></td>
-                                <td>미운영</td>
-                                <td>미운영</td>
-                                <td>미운영</td>
-                                <td>미운영</td>
-                                <td>미운영</td>
->>>>>>> f6337c0d2124f43b093d4f56a2e5113224c4ec0f
-                                <td>미운영</td>
                             </tr>
                         </tbody>
                     </table>
@@ -222,45 +124,9 @@
             </div>
         </main>
         
-<<<<<<< HEAD
+
        <%-- 푸터 부분 포함 --%>
 <%@ include file="/WEB-INF/views/_footer.jsp" %>
-=======
-        <footer>
-            <div class="footer-top">
-                <div class="container">
-                    <ul>
-                        <li><a href="#">개인정보처리방침</a></li>
-                        <li><a href="#">통합정보시스템</a></li>
-                        <li><a href="#">학사일정</a></li>
-                        <li><a href="#">주요민원 연락처</a></li>
-                        <li><a href="#">교내공지사항</a></li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="footer-bottom">
-                <div class="container">
-                    <div class="footer-left">
-                        <img src="${pageContext.request.contextPath}/images/footer_logo.png" alt="그린대학교 로고" class="footer-logo">
-                        <div class="footer-text">
-                            <p>그린대학교</p>
-                            <p>[12345] 부산광역시 부산진구 부전대로 123 그린대학교 / 대표전화 : 051-123-1000 /</p>
-                            <p>입학안내 : 051-123-1302 팩스 : 051-123-3333</p>
-                            <p class="copy">copyright ⓒ Green University All rights reserved.</p>
-                        </div>
-                    </div>
-                    <div class="footer-right">
-                        <select>
-                            <option>주요사이트</option>
-                            <option>도서관</option>
-                            <option>포털</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
-        </footer>
->>>>>>> f6337c0d2124f43b093d4f56a2e5113224c4ec0f
     </div>
 </body>
 </html>

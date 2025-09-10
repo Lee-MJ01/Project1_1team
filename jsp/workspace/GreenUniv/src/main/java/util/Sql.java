@@ -12,6 +12,21 @@ public class Sql {
 		    "FROM board " +
 		    "WHERE comm_cd = ? " +
 		    "ORDER BY `Number` DESC";
+  
+	// 식단표
+	public static final String SELECT_MEAL_FOOD_WEEK = 
+			"SELECT "
+					+ "f.food_name, "
+					+ "m.meal_date, "
+					+ "m.meal_type "
+			+ "FROM "
+					+ "Meals m "
+					+ "JOIN Meal_Items mi ON m.meal_id = mi.meal_id "
+					+ "JOIN FoodItems f ON mi.food_id = f.food_id "
+			+ "WHERE "
+					+ "m.meal_date BETWEEN ? AND ? "
+			+ "ORDER BY "
+					+ "m.meal_date, m.meal_type";
 	
 	public static final String SELECT_NOTICE_ONE =
 		    "SELECT `Number` AS no, " +
