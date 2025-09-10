@@ -71,12 +71,12 @@
             </p>
             <div class="divider"></div>
 
-            <form class="form-table" id="joinForm" novalidate>
+            <form class="form-table" id="joinForm" method="post" action="${pageContext.request.contextPath}/member/signup.do" novalidate>
               <!-- 아이디 -->
               <div class="row">
                 <div class="th">아이디<span class="req">*</span></div>
                 <div class="td">
-                  <input type="text" id="uid" minlength="4" maxlength="10" placeholder="아이디 입력" required>
+                  <input type="text" id="uid" name="user_id" minlength="4" maxlength="10" placeholder="아이디 입력" required>
                   <div class="help">영문·숫자 조합 4~10자 이내</div>
                 </div>
               </div>
@@ -84,7 +84,7 @@
               <div class="row">
                 <div class="th">비밀번호<span class="req">*</span></div>
                 <div class="td">
-                  <input type="password" id="pw" minlength="8" maxlength="16" placeholder="비밀번호 입력" required>
+                  <input type="password" id="pw" name="pass" minlength="8" maxlength="16" placeholder="비밀번호 입력" required>
                   <div class="help">비밀번호는 8~16자리 이내, 영문 · 숫자 · 특수문자 조합</div>
                 </div>
               </div>
@@ -92,25 +92,25 @@
               <div class="row">
                 <div class="th">비밀번호 확인<span class="req">*</span></div>
                 <div class="td">
-                  <input type="password" id="pw2" minlength="8" maxlength="16" placeholder="비밀번호 확인 입력" required>
+                  <input type="password" id="pw2" name="pass2" minlength="8" maxlength="16" placeholder="비밀번호 확인 입력" required>
                 </div>
               </div>
               <!-- 이름 -->
               <div class="row">
                 <div class="th">이름<span class="req">*</span></div>
-                <div class="td"><input type="text" id="name" placeholder="이름 입력" required></div>
+                <div class="td"><input type="text" id="name" name="user_name" placeholder="이름 입력" required></div>
               </div>
               <!-- 휴대폰 -->
               <div class="row">
                 <div class="th">휴대폰<span class="req">*</span></div>
                 <div class="td">
-                  <input type="text" id="phone" inputmode="numeric" maxlength="13" placeholder="휴대폰 입력" required>
+                  <input type="text" id="phone" name="hp" inputmode="numeric" maxlength="13" placeholder="휴대폰 입력" required>
                 </div>
               </div>
               <!-- 이메일 -->
               <div class="row">
                 <div class="th">이메일<span class="req">*</span></div>
-                <div class="td"><input type="email" id="email" placeholder="이메일 입력" required></div>
+                <div class="td"><input type="email" id="email" name="email" placeholder="이메일 입력" required></div>
               </div>
               <!-- 주소 -->
               <div class="row">
@@ -127,7 +127,7 @@
                       <option>부산광역시 해운대구 A로 45</option>
                     </select>
                   </div>
-                  <input class="addr-detail" type="text" placeholder="상세주소 입력">
+                  <input class="addr-detail" type="text" name="addr2" placeholder="상세주소 입력">
                 </div>
               </div>
 
@@ -205,5 +205,13 @@
       }
     });
   </script>
+  
+	<%
+		String agree = request.getParameter("agree");
+		if(agree == null || !"Y".equals(agree)){
+			response.sendRedirect("terms.do"); // 약관 미동의 시 다시 terms 페이지
+        	return;
+    	}
+	%>
 </body>
 </html>

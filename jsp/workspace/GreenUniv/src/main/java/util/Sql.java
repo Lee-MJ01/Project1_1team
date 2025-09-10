@@ -5,7 +5,6 @@ public class Sql {
 	public static final String SELECT_BOARD_ALL = 
 			"select title, w_date from board where comm_cd = ? order by w_date desc LIMIT 5;";
 	
-	
 	//board--index 아님
 	public static final String SELECT_NOTICE_ALL =
 		    "SELECT `Number` AS no, title, writer, DATE_FORMAT(w_date, '%Y.%m.%d') AS wdate, view_count AS views " +
@@ -23,10 +22,6 @@ public class Sql {
 		    "FROM board " +
 		    "WHERE `Number` = ?";
 
-
-	
-	
-	
 	// college
 	public static final String INSERT_COLLEGE =
 	    "INSERT INTO college (college_name, college_name_en, intro_title, intro_body, image_path) VALUES (?, ?, ?, ?, ?)";
@@ -109,15 +104,25 @@ public class Sql {
 	
 	
 	//Department --서현우
-	//학과등록
-	public static final String INSERT_DEPARTMENT= "INSERT INTO department (dept_id,college_name, dept_name, dept_name_en, established, chair_name, dept_phone, dept_office) VALUES (?,?,?,?,?,?,?)";
+	public static final String INSERT_DEPARTMENT= "INSERT INTO department (dept_id,college_name, dept_name, dept_name_en, established, chair_name, dept_phone, dept_office) VALUES (?,?,?,?,?,?,?,?)";
 	//dept_id로 학과 셀렉트
 	public static final String SELECT_DEPARTMENT_BY_DEPT_ID = "SELECT * from department where dept_id=?"; 
 	//dept모든 행 select
 	public static final String SELECT_ALL_DEPARTMENT = "SELECT * FROM department";
 	
+	
+	///////////////////
+	///course
+	//////////////////
+	public static final String INSERT_COURSE = "INSERT INTO course ( " +
+		    "dept_id, year, semester, division, crs_name, p_code, credit, crs_desc, period_start, period_end," +
+		    "time_start, time_end, days, eval_method, textbook,crs_room, capacity) " +
+		    "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+
+	
+	
 	///////////////////////////////////////////
-	/// User 관리
+	/// 천수빈 - User/Terms 관리
 	///////////////////////////////////////////
 	
 	// User 데이터 입력
@@ -152,4 +157,8 @@ public class Sql {
 	// User 데이터 삭제
 	public static final String DELETE_USER =
 	"DELETE FROM users WHERE user_id=?";
+	
+	// terms
+	public static final String SELECT_TERMS = 
+	"SELECT * FROM terms WHERE no=?";
 }

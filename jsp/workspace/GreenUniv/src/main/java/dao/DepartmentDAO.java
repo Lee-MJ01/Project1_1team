@@ -32,7 +32,7 @@ public class DepartmentDAO extends DBHelper{
 			//1.단과대학 별 max dept_id 조회
 	        String sqlMax = "SELECT MAX(dept_id) FROM department WHERE college_name = ?";
 	        psmt = conn.prepareStatement(sqlMax);
-	        psmt.setString(1, dto.getCollege_name());
+	        psmt.setString(1, dto.getCollege_name()); // dto.getCollege_name(), test로 세팅하면 들어가는거 확인
 	        rs = psmt.executeQuery();
 	        
 	        int newDeptId;
@@ -108,6 +108,29 @@ public class DepartmentDAO extends DBHelper{
 		}
 		return dto;
 	}
+	
+	public int findDeptId(String collegeName, String deptName) {
+	    int id = 0;
+	    String sql = "SELECT dept_id FROM department d " +
+	                 "JOIN college c ON d.college_name = c.college_name " +
+	                 "WHERE c.college_name=? AND d.dept_name=?";
+	    
+	    try {
+			conn=getConnection();
+			psmt = conn.prepareStatement(sql);
+	        psmt.setString(1, collegeName);
+	        psmt.setString(2, deptName);
+	        rs = psmt.executeQuery();
+	        if (rs.next()) {
+	            id = rs.getInt("dept_id");
+	        }
+		} catch (Exception e) {
+			logger.error(e.getMessage());
+		}
+	    return id;
+	}
+
+	
 	public List<DepartmentDTO> selectAll() {
 		
 		List<DepartmentDTO> dtoList = new ArrayList<DepartmentDTO>();
