@@ -1,4 +1,4 @@
-package controller.department;
+package controller.academic.departments;
 
 import java.io.IOException;
 
@@ -13,7 +13,7 @@ import service.DepartmentService;
 import util.ResultCode;
 
 
-@WebServlet("/academic/departments/department/write.do")
+@WebServlet("/academic/departments/department-write.do")
 public class DeptRegisterController extends HttpServlet{
 	
 	private static final long serialVersionUID = 1L;
@@ -31,7 +31,7 @@ public class DeptRegisterController extends HttpServlet{
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
 		//전송데이터 수신
-		// int dept_id = Integer.parseInt(req.getParameter("dept_id")); 자동증분이라 필요 x
+		//dept_id는 원래 자동증분이었는데 단과대학번호 + max+1값으로 증가시킬예정
 		int college_id = Integer.parseInt(req.getParameter("college_id"));
 		String college_name = req.getParameter("college_name");
 		String dept_name= req.getParameter("dept_name");
@@ -66,9 +66,9 @@ public class DeptRegisterController extends HttpServlet{
 		//등록 후 확인메시지
         String ctx = req.getContextPath();
         if (result > 0) {
-            resp.sendRedirect(ctx + "/academic/departments/department/list.do?code=" + ResultCode.WRITE_SUCCESS.getCode());
+            resp.sendRedirect(ctx + "/academic/departments/department-list.do?code=" + ResultCode.WRITE_SUCCESS.getCode());
         } else {
-            resp.sendRedirect(ctx + "/academic/departments/department/write.do?code=" + ResultCode.WRITE_FAIL.getCode());
+            resp.sendRedirect(ctx + "/academic/departments/department-write.do?code=" + ResultCode.WRITE_FAIL.getCode());
         }
 		
 	}
