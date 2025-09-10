@@ -8,7 +8,6 @@ import org.slf4j.LoggerFactory;
 
 import dao.UserDAO;
 import dto.UserDTO;
-import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -16,6 +15,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import service.UserService;
+import util.ResultCode;
 
 
 @WebServlet("/member/login.do")
@@ -69,7 +69,7 @@ public class LoginController extends HttpServlet {
 	        resp.sendRedirect(next);
 	        
 	      } else {
-	        resp.sendRedirect(req.getContextPath() + "/adout/index.do");
+	        resp.sendRedirect(req.getContextPath() + "/index.jsp");
 	      }
 	      
 	    } else {
@@ -77,7 +77,7 @@ public class LoginController extends HttpServlet {
 	    	// 실패 시, 폼 되돌리기
 	    	req.setAttribute("error", "아이디 또는 비밀번호가 올바르지 않습니다.");
 	    	req.setAttribute("user_id", user_id); // 아이디 유지
-	    	req.getRequestDispatcher("/WEB-INF/views/university/member/login.jsp").forward(req, resp);
+	    	resp.sendRedirect("/GreenUniv/member/login.do?code="+ResultCode.LOGIN_FAIL.getCode());
 	    }
 	  }
 	
