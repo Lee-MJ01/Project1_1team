@@ -1,7 +1,10 @@
 package controller;
 
 import java.io.IOException;
+<<<<<<< HEAD
 
+=======
+>>>>>>> f6337c0d2124f43b093d4f56a2e5113224c4ec0f
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -33,24 +36,36 @@ public class StudentRegisterController extends HttpServlet {
 
         try {
             StudentDTO d = new StudentDTO();
+<<<<<<< HEAD
 
             String entryYear = req.getParameter("entryyear");
             int deptId = Integer.parseInt(req.getParameter("dept_id"));
             int stdId = service.issueStdId(entryYear, deptId);
             d.setStd_id(stdId);
 
+=======
+            d.setStd_id(Integer.parseInt(req.getParameter("std_id")));
+>>>>>>> f6337c0d2124f43b093d4f56a2e5113224c4ec0f
             d.setResident_number(req.getParameter("resident_number"));
             d.setName(req.getParameter("name"));
             d.setE_name(req.getParameter("e_name"));
             d.setGender(req.getParameter("gender"));
             d.setDivision(req.getParameter("division"));
+<<<<<<< HEAD
             d.setPhone(req.getParameter("phone"));   // ← 추가
             d.setEmail(req.getParameter("email"));
 
+=======
+            d.setPhone(req.getParameter("phone"));
+            d.setEmail(req.getParameter("email"));
+
+            // 주소 합치기 (zip/addr1/addr2 -> address)
+>>>>>>> f6337c0d2124f43b093d4f56a2e5113224c4ec0f
             String zip   = req.getParameter("zip");
             String addr1 = req.getParameter("addr1");
             String addr2 = req.getParameter("addr2");
             String address = String.join(" ",
+<<<<<<< HEAD
                 java.util.Arrays.stream(new String[]{zip, addr1, addr2})
                     .filter(s -> s != null && !s.isBlank())
                     .toArray(String[]::new)
@@ -60,6 +75,17 @@ public class StudentRegisterController extends HttpServlet {
             d.setEntryyear(entryYear);
             d.setGraduationyear(req.getParameter("graduationyear"));
             d.setDept_id(deptId);
+=======
+                    java.util.Arrays.stream(new String[]{zip, addr1, addr2})
+                        .filter(s -> s != null && !s.isBlank())
+                        .toArray(String[]::new)
+            );
+            d.setAddress(address);
+
+            d.setEntryyear(req.getParameter("entryyear"));
+            d.setGraduationyear(req.getParameter("graduationyear"));
+            d.setDept_id(Integer.parseInt(req.getParameter("dept_id")));
+>>>>>>> f6337c0d2124f43b093d4f56a2e5113224c4ec0f
             d.setEntryterm(req.getParameter("entryterm"));
             d.setEntrygrade(req.getParameter("entrygrade"));
             d.setAdvisor(req.getParameter("advisor"));
@@ -74,7 +100,10 @@ public class StudentRegisterController extends HttpServlet {
                 resp.sendRedirect(ctx + "/student/write.do?code=" + ResultCode.WRITE_FAIL.getCode());
             }
         } catch (Exception e) {
+<<<<<<< HEAD
             e.printStackTrace();
+=======
+>>>>>>> f6337c0d2124f43b093d4f56a2e5113224c4ec0f
             String ctx = req.getContextPath();
             resp.sendRedirect(ctx + "/student/write.do?code=" + ResultCode.WRITE_FAIL.getCode());
         }

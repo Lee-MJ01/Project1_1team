@@ -132,9 +132,8 @@ public class BoardDAO extends DBHelper{
 		return listDTO;
 	}
 	
-	//입학안내 공지사항 select
+
 	public List<BoardDTO> admissionNoticeSelectAll(){
-		
 		List<BoardDTO> dtoList = new ArrayList<BoardDTO>();
 		try {
 			conn = getConnection();
@@ -153,16 +152,14 @@ public class BoardDAO extends DBHelper{
 
 	            dtoList.add(dto);
 	        }
-			
 			closeAll();
-			
+
 		} catch (Exception e) {
 			logger.error(e.getMessage());
 		}
 		return dtoList;
 	}
-	
-	
+
 	//공지사항 view select
 	public BoardDTO selectNoticeView(int number) {
 	    BoardDTO dto = null;
@@ -250,9 +247,6 @@ public class BoardDAO extends DBHelper{
 		}
 		return dtoList;
 	}
-	
-	
-	
 	public void insert() {}
 	public void update() {}
 	public void delete() {}

@@ -1,6 +1,9 @@
 package dao;
 
+<<<<<<< HEAD
 import java.sql.PreparedStatement;
+=======
+>>>>>>> f6337c0d2124f43b093d4f56a2e5113224c4ec0f
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -23,6 +26,7 @@ public class DepartmentDAO extends DBHelper{
 	
 	private Logger logger = LoggerFactory.getLogger(this.getClass());
 	
+<<<<<<< HEAD
 	public int insert(DepartmentDTO dto) {
 		int result = 0;
 		try {
@@ -60,6 +64,25 @@ public class DepartmentDAO extends DBHelper{
 			
 			
 			psmt2.close();
+=======
+	public void insert(DepartmentDTO dto) {
+		
+		try {
+			
+			conn=getConnection();
+			psmt = conn.prepareStatement(Sql.INSERT_DEPARTMENT);
+			psmt.setString(1,dto.getCollege_name());
+			psmt.setString(2,dto.getDept_name());
+			psmt.setString(3,dto.getDept_name_en());
+			psmt.setString(4,dto.getEstablished());
+			psmt.setString(5,dto.getChair_name());
+			psmt.setString(6,dto.getDept_phone());
+			psmt.setString(7,dto.getDept_office());
+			psmt.executeUpdate();
+			
+			
+			
+>>>>>>> f6337c0d2124f43b093d4f56a2e5113224c4ec0f
 		} catch (Exception e) {
 			logger.error(e.getMessage());
 		}
@@ -71,8 +94,11 @@ public class DepartmentDAO extends DBHelper{
 			}
 		}
 		
+<<<<<<< HEAD
 		return result;
 		
+=======
+>>>>>>> f6337c0d2124f43b093d4f56a2e5113224c4ec0f
 	}
 	
 	public DepartmentDTO selectByDept_id(int dept_id) {
@@ -108,6 +134,7 @@ public class DepartmentDAO extends DBHelper{
 		}
 		return dto;
 	}
+<<<<<<< HEAD
 	
 	public int findDeptId(String collegeName, String deptName) {
 	    int id = 0;
@@ -131,6 +158,8 @@ public class DepartmentDAO extends DBHelper{
 	}
 
 	
+=======
+>>>>>>> f6337c0d2124f43b093d4f56a2e5113224c4ec0f
 	public List<DepartmentDTO> selectAll() {
 		
 		List<DepartmentDTO> dtoList = new ArrayList<DepartmentDTO>();

@@ -8,6 +8,7 @@
     <title>cafeteria</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/university/campuslife/style_cafe.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/university/campuslife/css/xeicon.min.css">
+
 </head>
 <body>
     <div id="wrapper">
@@ -36,6 +37,7 @@
                 <aside class="side-nav">
                     <h2>대학생활</h2>
                     <ul>
+
                     	<li><a href="${pageContext.request.contextPath}/campuslife/student-union.do">학생회소개</a></li>
                         <li><a href="${pageContext.request.contextPath}/campuslife/clubs.do"">동아리/스터디</a></li>
                         <li class="active"><a href="${pageContext.request.contextPath}/campuslife/cafeteria.do">식단안내</a></li>
@@ -48,10 +50,10 @@
 
                     <div class="cafeteria-header">
                         <button class="prev"><i class="xi-angle-left-thin"></i></button>
-                        <!-- 동적 처리 -->
                         <span class="month">
-							${dto.start_date}~${dto.end_date}
-						</span>
+                          ${dto.start_date}~${dto.end_date}
+                        </span>
+                        <span class="month">2025.03.10~2025.03.14</span>
                         <button class="next"><i class="xi-angle-right-thin"></i></button>
                     </div>
 
@@ -77,6 +79,17 @@
                                 <td class="strong"><strong>코너2</strong></td>
                                 
                                 <!-- DB 처리 -->
+                                <td class="strong"><strong>조식</strong></td>
+                                <td>미운영</td>
+                                <td>미운영</td>
+                                <td>미운영</td>
+                                <td>미운영</td>
+                                <td>미운영</td>
+                                <td>미운영</td>
+                            </tr>
+                            <tr>
+                                <td class="strong"><strong>중식</strong></td>
+                          
                                 <td>
                                     <span class="sticker">정식 5,500원</span><br>
                                     백미밥<br>
@@ -92,7 +105,16 @@
                                 <td class="strong"><strong>코너3</strong></td>
                                 
                                 <!-- DB 처리 -->
-                                <td>미운영</td>
+                                <td>
+                                    <span class="sticker">정식 5,500원</span><br>
+                                    흑미밥<br>
+                                    만두국<br>
+                                    돈육고추장불고기<br>
+                                    버섯잡채<br>
+                                    미트볼데리야끼조림<br>
+                                    오이무침<br>
+                                    포기김치
+                                </td>
                             </tr>
                         </tbody>
                     </table>
@@ -102,6 +124,7 @@
             </div>
         </main>
         
+
        <%-- 푸터 부분 포함 --%>
 <%@ include file="/WEB-INF/views/_footer.jsp" %>
     </div>

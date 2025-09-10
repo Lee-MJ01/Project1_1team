@@ -3,8 +3,13 @@ package util;
 public enum ResultCode {
 
     
+<<<<<<< HEAD
     
     
+=======
+    WRITE_FAIL(201, "글 작성에 실패했습니다."),
+    COMMENT_SUCCESS(300, "댓글 작성 완료 했습니다."),
+>>>>>>> f6337c0d2124f43b093d4f56a2e5113224c4ec0f
 	// 1** : 인증/세션
 	LOGIN_SUCESS (100, "로그인에 성공했습니다."),
 	LOGIN_FAIL(101, "로그인에 실패하였습니다. 아이디/비밀번호를 확인해 주십시오."),
@@ -18,8 +23,11 @@ public enum ResultCode {
 	PASSWORD_CHANGE_SUCCESS(202, "비밀번호를 변경했습니다."),
 	USER_DELETE_SUCCESS(203, "회원 정보를 삭제했습니다."),
 	WRITE_SUCCESS(210, "작성을 완료했습니다."),
+<<<<<<< HEAD
 	WRITE_FAIL(211, "글 작성에 실패했습니다."),
 	COMMENT_SUCCESS(212, "댓글 작성 완료 했습니다."),
+=======
+>>>>>>> f6337c0d2124f43b093d4f56a2e5113224c4ec0f
 	
 	// 4** : 유효성/중복/권한 입력 오류
 	INVALID_INPUT(400, "입력값을 확인해 주십시오."),

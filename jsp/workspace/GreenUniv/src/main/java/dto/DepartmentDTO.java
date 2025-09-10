@@ -10,6 +10,7 @@ public class DepartmentDTO {
 	private String chair_name;
 	private String dept_phone;
 	private String dept_office;
+<<<<<<< HEAD
 	
 	//추가필드
 	private int college_id;
@@ -21,6 +22,8 @@ public class DepartmentDTO {
 	public void setCollege_id(int college_id) {
 		this.college_id = college_id;
 	}
+=======
+>>>>>>> f6337c0d2124f43b093d4f56a2e5113224c4ec0f
 	public int getDept_id() {
 		return dept_id;
 	}
