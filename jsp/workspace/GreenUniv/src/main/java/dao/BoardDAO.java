@@ -126,23 +126,14 @@ public class BoardDAO extends DBHelper{
 		return listDTO;
 	}
 	
-	public List<BoardDTO> selectAll(){
+	//입학안내 공지사항 select
+	public List<BoardDTO> admissionNoticeSelectAll(){
 		
 		List<BoardDTO> dtoList = new ArrayList<BoardDTO>();
 		try {
 			conn = getConnection();
-			//임시 확인용
-			String sql =
-			        "SELECT " +
-			        "  `Number`                       " +          
-			        "  title, " +
-			        "  writer, " +
-			        "  DATE_FORMAT(w_date, '%y.%m.%d') " +
-			        "  view_count                      " +
-			        "FROM board " +
-			        "WHERE comm_cd = ? " +                               
-			        "ORDER BY `Number` DESC";
-			psmt = conn.prepareStatement(sql);
+			psmt = conn.prepareStatement(Sql.SELECT_NOTICE_ALL);
+			psmt.setString(1, "2001");
 			
 			rs = psmt.executeQuery();
 			
@@ -157,11 +148,76 @@ public class BoardDAO extends DBHelper{
 	            dtoList.add(dto);
 	        }
 			
+			closeAll();
+			
 		} catch (Exception e) {
 			logger.error(e.getMessage());
 		}
 		return dtoList;
 	}
+	
+	//학사안내 공지사항 select
+	public List<BoardDTO> academicsNoticeSelectAll(){
+		
+		List<BoardDTO> dtoList = new ArrayList<BoardDTO>();
+		try {
+			conn = getConnection();
+			psmt = conn.prepareStatement(Sql.SELECT_NOTICE_ALL);
+			psmt.setString(1, "4001");
+			
+			rs = psmt.executeQuery();
+			
+			while (rs.next()) {
+	            BoardDTO dto = new BoardDTO();
+	            dto.setNumber(rs.getInt("no"));
+	            dto.setTitle(rs.getString("title"));
+	            dto.setWriter(rs.getString("writer"));
+	            dto.setW_date(rs.getString("wdate"));             
+	            dto.setView_count(rs.getInt("views"));
+
+	            dtoList.add(dto);
+	        }
+			
+			closeAll();
+			
+		} catch (Exception e) {
+			logger.error(e.getMessage());
+		}
+		return dtoList;
+	}
+	
+	//커뮤니티 공지사항 select
+	public List<BoardDTO> communityNoticeSelectAll(){
+		
+		List<BoardDTO> dtoList = new ArrayList<BoardDTO>();
+		try {
+			conn = getConnection();
+			psmt = conn.prepareStatement(Sql.SELECT_NOTICE_ALL);
+			psmt.setString(1, "6001");
+			
+			rs = psmt.executeQuery();
+			
+			while (rs.next()) {
+	            BoardDTO dto = new BoardDTO();
+	            dto.setNumber(rs.getInt("no"));
+	            dto.setTitle(rs.getString("title"));
+	            dto.setWriter(rs.getString("writer"));
+	            dto.setW_date(rs.getString("wdate"));             
+	            dto.setView_count(rs.getInt("views"));
+
+	            dtoList.add(dto);
+	        }
+			
+			closeAll();
+			
+		} catch (Exception e) {
+			logger.error(e.getMessage());
+		}
+		return dtoList;
+	}
+	
+	
+	
 	public void insert() {}
 	public void update() {}
 	public void delete() {}
