@@ -8,7 +8,7 @@
           <li class="topbar__item"><a href="${pageContext.request.contextPath}">HOME</a></li>
           <li class="topbar__item"><a href="${pageContext.request.contextPath}">사이트맵</a></li>
           <li class="topbar__item"><a href="${pageContext.request.contextPath}/member/login.do">로그인</a></li>
-          <li class="topbar__item"><a href="${pageContext.request.contextPath}/student/curriculum.do">학사지원</a></li>
+          <li class="topbar__item"><a href="${pageContext.request.contextPath}/student/curriculum.do">학생지원</a></li>
         </ul>
       </div>
     </div>
