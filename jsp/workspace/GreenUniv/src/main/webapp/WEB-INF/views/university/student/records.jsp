@@ -23,7 +23,7 @@
         <li><a href="/university/student/registration.html">수강신청</a></li>
         <li><a href="/university/student/registered.html" >수강신청내역</a></li>
         <li><a href="/university/student/curriculum.html">나의교육과정</a></li>
-        <li><a href="/university/student/grades.html">성적조회</a></li>
+        <li><a href="/university/student/grades.jsp">성적조회</a></li>
         <li><a href="/university/student/records.html"  aria-current="page">학적</a></li>
       </ul>
     </nav>
