@@ -30,7 +30,6 @@ public enum BoardService {
 		return dtoList;
 	}
 	
-<<<<<<< HEAD
 	//입학안내 공지사항 select
 	public List<BoardDTO> admissionNoticeFindAll(){
 		return dao.admissionNoticeSelectAll();
@@ -50,9 +49,6 @@ public enum BoardService {
 	//커뮤니티 공지사항 select
 	public List<BoardDTO> communityNoticeFindAll(){
 		return dao.communityNoticeSelectAll();
-=======
-	public List<BoardDTO> findAll(){
-		return dao.selectAll();
->>>>>>> f6337c0d2124f43b093d4f56a2e5113224c4ec0f
+
 	}
 }

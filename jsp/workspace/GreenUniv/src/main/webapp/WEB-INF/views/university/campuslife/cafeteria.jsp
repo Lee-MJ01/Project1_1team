@@ -53,7 +53,6 @@
                         <span class="month">
                           ${dto.start_date}~${dto.end_date}
                         </span>
-                        <span class="month">2025.03.10~2025.03.14</span>
                         <button class="next"><i class="xi-angle-right-thin"></i></button>
                     </div>
 
@@ -73,48 +72,15 @@
                                 <td class="strong"><strong>코너1</strong></td>
                                 
                                 <!-- DB 처리 -->
-                                <td>미운영</td>
                             </tr>
                             <tr>
                                 <td class="strong"><strong>코너2</strong></td>
-                                
                                 <!-- DB 처리 -->
-                                <td class="strong"><strong>조식</strong></td>
-                                <td>미운영</td>
-                                <td>미운영</td>
-                                <td>미운영</td>
-                                <td>미운영</td>
-                                <td>미운영</td>
-                                <td>미운영</td>
-                            </tr>
-                            <tr>
-                                <td class="strong"><strong>중식</strong></td>
-                          
-                                <td>
-                                    <span class="sticker">정식 5,500원</span><br>
-                                    백미밥<br>
-                                    바지락미역국<br>
-                                    닭안심매콤조림<br>
-                                    야끼우동<br>
-                                    두부강정<br>
-                                    상추겉절이<br>
-                                    포기김치
-                                </td>
                             </tr>
                             <tr>
                                 <td class="strong"><strong>코너3</strong></td>
                                 
                                 <!-- DB 처리 -->
-                                <td>
-                                    <span class="sticker">정식 5,500원</span><br>
-                                    흑미밥<br>
-                                    만두국<br>
-                                    돈육고추장불고기<br>
-                                    버섯잡채<br>
-                                    미트볼데리야끼조림<br>
-                                    오이무침<br>
-                                    포기김치
-                                </td>
                             </tr>
                         </tbody>
                     </table>

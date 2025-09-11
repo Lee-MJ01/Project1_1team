@@ -3,10 +3,7 @@ package dao;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-<<<<<<< HEAD
 import java.sql.Statement;
-=======
->>>>>>> f6337c0d2124f43b093d4f56a2e5113224c4ec0f
 import java.util.ArrayList;
 import java.util.List;
 
@@ -33,11 +30,7 @@ public class StudentDAO extends DBHelper {
             psmt.setString(i++, d.getE_name());
             psmt.setString(i++, d.getGender());
             psmt.setString(i++, d.getDivision());
-<<<<<<< HEAD
             psmt.setString(i++, d.getPhone());   // ← DTO의 phone → DB의 hp
-=======
-            psmt.setString(i++, d.getPhone());
->>>>>>> f6337c0d2124f43b093d4f56a2e5113224c4ec0f
             psmt.setString(i++, d.getEmail());
             psmt.setString(i++, d.getAddress());
             psmt.setString(i++, d.getEntryyear());
@@ -50,16 +43,11 @@ public class StudentDAO extends DBHelper {
             result = psmt.executeUpdate();
             closeAll();
         } catch (Exception e) {
-<<<<<<< HEAD
             throw new RuntimeException("Student insert failed", e);
-=======
-            e.printStackTrace();
->>>>>>> f6337c0d2124f43b093d4f56a2e5113224c4ec0f
         }
         return result;
     }
 
-<<<<<<< HEAD
     // 학번 발급
     public int issueStdId(String entryYear, int deptId) {
         int seq = 0;
@@ -84,9 +72,6 @@ public class StudentDAO extends DBHelper {
             try { closeAll(); } catch (Exception ignore) {}
         }
     }
-
-=======
->>>>>>> f6337c0d2124f43b093d4f56a2e5113224c4ec0f
     // 단건
     public StudentDTO selectOne(int stdId) {
         StudentDTO d = null;
@@ -104,11 +89,7 @@ public class StudentDAO extends DBHelper {
                 d.setE_name(rs.getString(i++));
                 d.setGender(rs.getString(i++));
                 d.setDivision(rs.getString(i++));
-<<<<<<< HEAD
                 d.setPhone(rs.getString(i++));     // hp → DTO.phone
-=======
-                d.setPhone(rs.getString(i++));
->>>>>>> f6337c0d2124f43b093d4f56a2e5113224c4ec0f
                 d.setEmail(rs.getString(i++));
                 d.setAddress(rs.getString(i++));
                 d.setEntryyear(rs.getString(i++));
@@ -121,20 +102,13 @@ public class StudentDAO extends DBHelper {
             }
             closeAll();
         } catch (Exception e) {
-<<<<<<< HEAD
             throw new RuntimeException("Student selectOne failed", e);
-=======
-            e.printStackTrace();
->>>>>>> f6337c0d2124f43b093d4f56a2e5113224c4ec0f
         }
         return d;
     }
 
-<<<<<<< HEAD
     // 전체 목록
-=======
     // 목록 – 페이지네이션 없이 전체
->>>>>>> f6337c0d2124f43b093d4f56a2e5113224c4ec0f
     public List<StudentDTO> selectAll() {
         List<StudentDTO> list = new ArrayList<>();
         try {
@@ -157,7 +131,6 @@ public class StudentDAO extends DBHelper {
             }
             closeAll();
         } catch (Exception e) {
-<<<<<<< HEAD
             throw new RuntimeException("Student selectAll failed", e);
         }
         return list;
@@ -178,28 +151,6 @@ public class StudentDAO extends DBHelper {
     // 페이징 목록
     public util.PageResult<dto.StudentDTO> selectPage(String cond, String kw, int page, int size) {
         java.util.List<dto.StudentDTO> list = new java.util.ArrayList<>();
-=======
-            e.printStackTrace();
-        }
-        return list;
-    }
-    
- // SQL 인젝션 방지용 화이트리스트
-    private static final java.util.Map<String,String> COL = java.util.Map.of(
-        "std_id",     "s.std_id",
-        "name",       "s.name",
-        "phone",      "s.phone",
-        "email",      "s.email",
-        "dept",       "d.dept_name",
-        "entrygrade", "s.entrygrade",
-        "entryterm",  "s.entryterm",
-        "status",     "s.status"
-    );
-
-    // 목록(검색+페이지네이션)
-    public util.PageResult<StudentDTO> selectPage(String cond, String kw, int page, int size) {
-        java.util.List<StudentDTO> list = new java.util.ArrayList<>();
->>>>>>> f6337c0d2124f43b093d4f56a2e5113224c4ec0f
         int total = 0;
 
         String where = "";
@@ -215,10 +166,8 @@ public class StudentDAO extends DBHelper {
         try {
             conn = getConnection();
 
-<<<<<<< HEAD
-=======
+
             // 1) 총 개수
->>>>>>> f6337c0d2124f43b093d4f56a2e5113224c4ec0f
             String cntSql = String.format(Sql.SELECT_STUDENT_LIST_COUNT, where);
             ps = conn.prepareStatement(cntSql);
             for (int i=0;i<params.size();i++) ps.setObject(i+1, params.get(i));
@@ -226,10 +175,8 @@ public class StudentDAO extends DBHelper {
             if (rs2.next()) total = rs2.getInt(1);
             close(ps, rs2);
 
-<<<<<<< HEAD
-=======
+
             // 2) 페이지 목록
->>>>>>> f6337c0d2124f43b093d4f56a2e5113224c4ec0f
             String pageSql = String.format(Sql.SELECT_STUDENT_LIST_MYSQL, where);
             ps = conn.prepareStatement(pageSql);
 
@@ -256,21 +203,10 @@ public class StudentDAO extends DBHelper {
                 list.add(d);
             }
         } catch (Exception e) {
-<<<<<<< HEAD
             throw new RuntimeException("Student selectPage failed", e);
         } finally {
             close(ps, rs2);
             try { closeAll(); } catch (SQLException ignore) {}
-=======
-            e.printStackTrace();
-        } finally {
-            close(ps, rs2); // 로컬 ps, rs2 정리
-            try {
-                closeAll();  // DBHelper의 conn/psmt/stmt/rs 정리
-            } catch (java.sql.SQLException e) {
-                e.printStackTrace(); // 또는 로거로 경고만 남기기
-            }
->>>>>>> f6337c0d2124f43b093d4f56a2e5113224c4ec0f
         }
         return new util.PageResult<>(list, Math.max(page,1), size, total, 5);
     }
@@ -279,11 +215,4 @@ public class StudentDAO extends DBHelper {
         try { if (rs != null) rs.close(); } catch (Exception ignore) {}
         try { if (ps != null) ps.close(); } catch (Exception ignore) {}
     }
-<<<<<<< HEAD
-=======
-
-
-    
-    
->>>>>>> f6337c0d2124f43b093d4f56a2e5113224c4ec0f
 }
