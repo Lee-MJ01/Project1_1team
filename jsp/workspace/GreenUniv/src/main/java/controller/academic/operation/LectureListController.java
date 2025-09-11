@@ -13,7 +13,6 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import service.CourseService;
 import service.DepartmentService;
-
 @WebServlet("/academic/operation/lecture-list.do")
 public class LectureListController extends HttpServlet{
 	private static final long serialVersionUID = 1L;
