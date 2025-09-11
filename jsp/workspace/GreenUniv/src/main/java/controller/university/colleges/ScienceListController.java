@@ -2,19 +2,28 @@ package controller.university.colleges;
 
 import java.io.IOException;
 
+import dto.CollegeDTO;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import service.CollegeService;
 
 @WebServlet("/colleges/science.do")
 public class ScienceListController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
+	private CollegeService collegeService = CollegeService.INSTANCE;
+
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		
+		CollegeDTO dto = collegeService.findOne("자연과학대학");
+
+		req.setAttribute("college", dto);
+		
 		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/university/colleges/science.jsp");
 		dispatcher.forward(req, resp);
 	}

@@ -46,17 +46,13 @@
           <h3>인문사회대학</h3>
 
           <div class="college-intro">
-            <img src="${pageContext.request.contextPath}/images/college-introduce-1.jpg" alt="인문사회대학 소개 이미지" class="intro-img">
-            <div class="intro-text">
-              <span class="eng-title">Humanities And Social Sciences</span>
-              <h4>인문, 사회분야의 다양하고 심화된 이론을 연구</h4>
-              <p>
-                인문사회과학대학은 인문의 문화적 유산과 전통을 창조적으로 계승·발전시킬 열린 민주시민,
-                세계시민적 자질, 정보사회적 능력을 갖춘 인재 양성을 목표로 하고 있습니다.
-                철학, 법, 정치 경제, 언론 등 우리사회의 중심을 이루는 영역에서 창의로운 사고력을
-                기르고 합리적 비판정신을 육성하며, 디자인을 통한 문제 해결적 표현을 수행합니다.
-              </p>
-            </div>
+	        <img src="${pageContext.request.contextPath}${college.image_path}"
+	             alt="${college.college_name} 소개 이미지" class="intro-img">
+	        <div class="intro-text">
+	          <span class="eng-title">${college.college_name_en}</span>
+	          <h4>${college.intro_title}</h4>
+	          <p>${college.intro_body}</p>
+	        </div>
           </div>
 
           <h4 class="table-title">학부 및 학과</h4>

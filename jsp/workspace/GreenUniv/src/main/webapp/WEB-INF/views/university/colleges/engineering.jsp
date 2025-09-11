@@ -45,16 +45,13 @@
           <h3>공과대학</h3>
 
           <div class="college-intro">
-            <img src="${pageContext.request.contextPath}/images/college-introduce-3.jpg" alt="공과대학" class="intro-img">
-            <div class="intro-text">
-              <p class="en-title">Engineering</p>
-              <p class="ko-title">기본 공학교육 및 산업현장과 연계된 산학협동을 위한 학문을 교수·연구</p>
-              <p class="desc">
-                공과대학은 과학 및 공학기술을 선도할 창의적이고 실천적인 전문기술인을 양성하기 위해
-                기본적인 공학교육과정, 연구, 창의성교육 등을 중점적으로 수행한다.
-                또한 산업현장과 연계된 산학협동의 활성화를 실현하여 공학교육과 교수·연구능력을 교육목표로 둔다.
-              </p>
-            </div>
+	        <img src="${pageContext.request.contextPath}${college.image_path}"
+	             alt="${college.college_name} 소개 이미지" class="intro-img">
+	        <div class="intro-text">
+	          <span class="eng-title">${college.college_name_en}</span>
+	          <h4>${college.intro_title}</h4>
+	          <p>${college.intro_body}</p>
+	        </div>
           </div>
 
           <h4 class="dept-title">학부 및 학과</h4>

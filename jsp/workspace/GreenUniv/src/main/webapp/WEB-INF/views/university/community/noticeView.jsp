@@ -26,13 +26,13 @@
       <div class="container">
         <!-- 좌측 사이드 메뉴 -->
         <aside class="side-nav">
-          <h2>입학안내</h2>
+          <h2>커뮤니티</h2>
           <ul>
-            <li class="active"><a href="#">공지사항</a></li>
-            <li><a href="#">수시모집</a></li>
-            <li><a href="#">정시모집</a></li>
-            <li><a href="#">편입학</a></li>
-            <li><a href="#">입학상담</a></li>
+       		<li class="active"><a href="${pageContext.request.contextPath}/community/notice.do">공지사항</a></li>
+           <li><a href="${pageContext.request.contextPath}/community/news.do">뉴스 및 칼럼</a></li>
+           <li><a href="${pageContext.request.contextPath}/community/jobs.do">취업정보</a></li>
+           <li><a href="${pageContext.request.contextPath}/community/board.do">자유게시판</a></li>
+           <li><a href="${pageContext.request.contextPath}/community/qna.do">질문과 답변</a></li>
           </ul>
         </aside>
 
