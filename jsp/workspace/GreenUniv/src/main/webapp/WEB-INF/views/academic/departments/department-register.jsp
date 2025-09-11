@@ -113,6 +113,11 @@
     .site-footer{background:#19202D;color:#cfd3db;height:60px;display:flex;align-items:center}
     .site-footer .footer-inner{width:min(1400px,96vw);margin:0 auto;padding:0 20px;font-size:12px;letter-spacing:.02em}
   </style>
+
+  <script>
+    function showBlockedMessage(msg){
+    }
+  </script>
 </head>
 <body>
 
@@ -156,12 +161,12 @@
             학사운영
           </h3>
           <ul>
-            <li><a href="${ctx}/academic/operation/overview.jsp">교육 운영 현황</a></li>
+            <li><a href="${ctx}/academic/operation/overview.do">교육 운영 현황</a></li>
             <li><span>학년별 학생 현황</span></li>
             <li><span>학과별 학생 현황</span></li>
-            <li><a href="${ctx}/academic/operation/lecture-list.jsp">강의 목록</a></li>
-            <li><a href="${ctx}/academic/operation/lecture-register.jsp">강의 등록</a></li>
-            <li><a href="${ctx}/academic/operation/enrollment.jsp">수강 현황</a></li>
+            <li><a href="${ctx}/academic/operation/lecture-list.do">강의 목록</a></li>
+            <li><a href="${ctx}/academic/operation/lecture-register.do">강의 등록</a></li>
+            <li><a href="${ctx}/academic/operation/enrollment.do">수강 현황</a></li>
           </ul>
         </div>
 
@@ -187,8 +192,9 @@
             대학 및 학과
           </h3>
           <ul>
-            <li><a href="${ctx}/departments/department-list.jsp">학과 목록</a></li>
-            <li><a href="${ctx}/college/write.do">대학 및 학과 등록</a></li>
+            <li><a href="${ctx}/departments/department-list.do">학과 목록</a></li>
+            <li><a href="${ctx}/college/write.do">대학 등록</a></li>
+            <li><a href="${ctx}/academic/departments/department-register.do">학과 등록</a></li>
           </ul>
         </div>
 
@@ -264,7 +270,8 @@
               </tbody>
             </table>
             <div class="section-actions">
-              <button type="submit" class="btn-primary">등록</button>
+              <!-- 전송 막음 -->
+              <button type="button" class="btn-primary" onclick="showBlockedMessage('등록 기능은 준비 중입니다. (대학 정보)')">등록</button>
             </div>
           </form>
 
@@ -293,12 +300,12 @@
                     </select>
                   </td>
                 </tr>
-				<tr>
-					<th scope="row">학과명</th>
-					<td><input class="inp" type="text" name="dept_name" placeholder="학과명 입력" required></td>
-                  	<th scope="row">영문명</th>
-               	  	<td><input class="inp" type="text" name="dept_name_en" placeholder="학과 공식 영문 이름" required></td>
-				</tr>
+                <tr>
+                  <th scope="row">학과명</th>
+                  <td><input class="inp" type="text" name="dept_name" placeholder="학과명 입력" required></td>
+                  <th scope="row">영문명</th>
+                  <td><input class="inp" type="text" name="dept_name_en" placeholder="학과 공식 영문 이름" required></td>
+                </tr>
                 <tr>
                   <th scope="row">설립일</th>
                   <td>
@@ -310,18 +317,18 @@
                   <td>
                     <input class="inp w180" type="text" name="chair_name" placeholder="학과장 성함" required>
                   </td>
-
                 </tr>
                 <tr>
-                	<th scope="row">학과 연락처</th>
-                  	<td><input class="inp" type="text" name="dept_phone" placeholder="예) 학과연락처 입력 (12자리)"></td>
-                  	<th scope="row">학과 사무실</th>
-                  	<td><input class="inp" type="text" name="dept_office" placeholder="예) 인문관 3층 305호"></td>
+                  <th scope="row">학과 연락처</th>
+                  <td><input class="inp" type="text" name="dept_phone" placeholder="예) 학과연락처 입력 (12자리)"></td>
+                  <th scope="row">학과 사무실</th>
+                  <td><input class="inp" type="text" name="dept_office" placeholder="예) 인문관 3층 305호"></td>
                 </tr>
               </tbody>
             </table>
             <div class="section-actions">
-              <button type="submit" class="btn-primary">등록</button>
+              <!-- 전송 막음 -->
+              <button type="button" class="btn-primary" onclick="showBlockedMessage('등록 기능은 준비 중입니다. (학과 정보)')">등록</button>
             </div>
           </form>
         </div>

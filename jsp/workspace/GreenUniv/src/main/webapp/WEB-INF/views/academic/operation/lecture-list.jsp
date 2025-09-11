@@ -98,31 +98,29 @@ body{font-family:'Noto Sans KR', Arial, system-ui, sans-serif;color:var(--text);
 </head>
 <body>
 
-  <!-- 상단 파란 메뉴 바 -->
+  <!-- Top menu -->
   <div class="top-menu">
     <nav class="top-menu__inner">
-      <a class="top-menu__link" href="../../index.html">HOME</a>
-      <a class="top-menu__link" href="#">사이트맵</a>
-      <a class="top-menu__link" href="#">로그아웃</a>
+      <a class="top-menu__link" href="${ctx}/">HOME</a>
+      <a class="top-menu__link" href="${ctx}/sitemap.jsp">사이트맵</a>
+      <a class="top-menu__link" href="${ctx}/user/login.do">로그인</a>
     </nav>
   </div>
 
-  <!-- 다크 로고 바 -->
+  <!-- Brand header  -->
   <header class="brand-bar">
-    <a href="../index.html">
-      <img class="brand-logo" src="../../images/admin_logo.png" alt="그린대학교 학사관리시스템 로고">
+    <a href="${ctx}/academic/index.do">
+      <img class="brand-logo" src="${ctx}/images/admin_logo.png" alt="그린대학교 학사관리시스템 로고">
     </a>
   </header>
 
-  <!-- 레이아웃 -->
   <div class="layout">
-    <!-- 좌측 사이드 메뉴  -->
+    <!-- Sidebar -->
     <aside class="sidebar">
       <nav class="sidebar-menu">
-
         <!-- 환경설정 -->
         <div class="menu-group">
-          <h3><img src="../../images/ico-admin-setting.png" alt="" class="menu-icon">환경설정</h3>
+          <h3><img src="${ctx}/images/ico-admin-setting.png" alt="" class="menu-icon">환경설정</h3>
           <ul>
             <li><span>기본환경정보</span></li>
             <li><span>약관관리</span></li>
@@ -131,41 +129,42 @@ body{font-family:'Noto Sans KR', Arial, system-ui, sans-serif;color:var(--text);
 
         <!-- 학사운영 -->
         <div class="menu-group">
-          <h3><img src="../../images/ico-admin-academic.png" alt="" class="menu-icon">학사운영</h3>
+          <h3><img src="${ctx}/images/ico-admin-academic.png" alt="" class="menu-icon">학사운영</h3>
           <ul>
-            <li><a href="/academic/operation/overview.html">교육 운영 현황</a></li>
-            <li><a href="/academic/operation/overview.html#by-grade">학년별 학생 현황</a></li>
-            <li><a href="/academic/operation/overview.html#by-major">학과별 학생 현황</a></li>
-            <li><a href="/academic/operation/lecture-list.html">강의 목록</a></li>
-            <li><a href="/academic/operation/lecture-register.html">강의 등록</a></li>
-            <li><a href="/academic/operation/enrollment.html">수강 현황</a></li>
+            <li><a href="${ctx}/academic/operation/overview.do">교육 운영 현황</a></li>
+            <li><span>학년별 학생 현황</span></li>
+            <li><span>학과별 학생 현황</span></li>
+            <li><a href="${ctx}/academic/operation/lecture-list.do">강의 목록</a></li>
+            <li><a href="${ctx}/academic/operation/lecture-register.do">강의 등록</a></li>
+            <li><a href="${ctx}/academic/operation/enrollment.do">수강 현황</a></li>
           </ul>
         </div>
 
         <!-- 인사관리 -->
         <div class="menu-group">
-          <h3><img src="../../images/ico-admin-persons.png" alt="" class="menu-icon">인사관리</h3>
+          <h3><img src="${ctx}/images/ico-admin-persons.png" alt="" class="menu-icon">인사관리</h3>
           <ul>
-            <li><a href="/personnel/students.html">학생 목록</a></li>
-            <li><a href="/personnel/student-register.html">학생 등록</a></li>
-            <li><a href="/personnel/professors.html">교수 목록</a></li>
-            <li><a href="/personnel/professor-register.html">교수 등록</a></li>
+            <li><a href="${ctx}/student/list.do">학생 목록</a></li>
+            <li><a href="${ctx}/student/write.do">학생 등록</a></li>
+            <li><a href="${ctx}/professor/list.do">교수 목록</a></li>
+            <li><a href="${ctx}/professor/write.do">교수 등록</a></li>
             <li><span>임직원 목록 및 등록</span></li>
           </ul>
         </div>
 
         <!-- 대학 및 학과 -->
         <div class="menu-group">
-          <h3><img src="../../images/ico-admin-college.png" alt="" class="menu-icon">대학 및 학과</h3>
+          <h3><img src="${ctx}/images/ico-admin-college.png" alt="" class="menu-icon">대학 및 학과</h3>
           <ul>
-            <li><a href="/academic/departments/department-list.html">대학 및 학과 목록</a></li>
-            <li><a href="/academic/departments/department-register.html">대학 및 학과 등록</a></li>
+            <li><a href="${ctx}/department/list.do">학과 목록</a></li>
+            <li><a href="${ctx}/college/write.do">대학 등록</a></li>
+            <li><a href="${ctx}/academic/departments/department-register.do">학과 등록</a></li>
           </ul>
         </div>
 
-        <!-- 게시판관리 (파일 없음 → 클릭 불가) -->
+        <!-- 게시판관리 -->
         <div class="menu-group">
-          <h3><img src="../../images/ico-admin-board.png" alt="" class="menu-icon">게시판관리</h3>
+          <h3><img src="${ctx}/images/ico-admin-board.png" alt="" class="menu-icon">게시판관리</h3>
           <ul>
             <li><span>입학안내 공지사항</span></li>
             <li><span>학사안내 공지사항</span></li>
@@ -176,7 +175,6 @@ body{font-family:'Noto Sans KR', Arial, system-ui, sans-serif;color:var(--text);
             <li><span>자료실</span></li>
           </ul>
         </div>
-
       </nav>
     </aside>
 

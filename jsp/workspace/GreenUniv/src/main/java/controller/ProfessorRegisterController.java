@@ -16,7 +16,6 @@ public class ProfessorRegisterController extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 	        throws ServletException, IOException {
 
-	    // 학과 목록 주입
 	    req.setAttribute("deptList", DepartmentService.INSTANCE.findAll());
 
 	    req.getRequestDispatcher("/WEB-INF/views/academic/personnel/professor-register.jsp")
@@ -45,14 +44,14 @@ public class ProfessorRegisterController extends HttpServlet {
             d.setAddr1(req.getParameter("addr1"));
             d.setAddr2(req.getParameter("addr2"));
             d.setGraduated_univ(req.getParameter("graduated_univ"));
-            d.setGraduation_date(req.getParameter("graduation_date")); // yyyy-MM-dd
+            d.setGraduation_date(req.getParameter("graduation_date")); 
             d.setMajor_field(req.getParameter("major_field"));         
             d.setDegree(req.getParameter("degree"));
 
             int deptId = Integer.parseInt(req.getParameter("dept_id"));
             d.setDept_id(deptId);
 
-            String hireDate = req.getParameter("hire_date");           // yyyy-MM-dd
+            String hireDate = req.getParameter("hire_date");           
             d.setHire_date(hireDate);
 
             d.setStatus("재직중");
@@ -76,4 +75,5 @@ public class ProfessorRegisterController extends HttpServlet {
             resp.sendRedirect(ctx + "/professor/write.do?code=501");
         }
     }
+    
 }

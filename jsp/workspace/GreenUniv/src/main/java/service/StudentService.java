@@ -17,13 +17,11 @@ public enum StudentService {
     public StudentDTO findOne(int stdId) { return dao.selectOne(stdId); }
     public List<StudentDTO> findAll() { return dao.selectAll(); }
 
-    // 컨트롤러에서 호출하는 시그니처와 정확히 일치
     public PageResult<StudentDTO> findPage(String cond, String kw, int page, int size) {
         return dao.selectPage(cond, kw, page, size);
     }
 
 
-    // 학번 발급
     public int issueStdId(String entryYear, int deptId) {
         return dao.issueStdId(entryYear, deptId);
     }

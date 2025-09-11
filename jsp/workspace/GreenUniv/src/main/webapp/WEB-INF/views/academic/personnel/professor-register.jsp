@@ -172,12 +172,12 @@ body{font-family:'Noto Sans KR', Arial, system-ui, sans-serif;color:var(--text);
         <div class="menu-group">
           <h3><img src="${ctx}/images/ico-admin-academic.png" alt="" class="menu-icon">학사운영</h3>
           <ul>
-            <li><a href="${ctx}/academic/operation/overview.jsp">교육 운영 현황</a></li>
+            <li><a href="${ctx}/academic/operation/overview.do">교육 운영 현황</a></li>
             <li><span>학년별 학생 현황</span></li>
             <li><span>학과별 학생 현황</span></li>
-            <li><a href="${ctx}/academic/operation/lecture-list.jsp">강의 목록</a></li>
-            <li><a href="${ctx}/academic/operation/lecture-register.jsp">강의 등록</a></li>
-            <li><a href="${ctx}/academic/operation/enrollment.jsp">수강 현황</a></li>
+            <li><a href="${ctx}/academic/operation/lecture-list.do">강의 목록</a></li>
+            <li><a href="${ctx}/academic/operation/lecture-register.do">강의 등록</a></li>
+            <li><a href="${ctx}/academic/operation/enrollment.do">수강 현황</a></li>
           </ul>
         </div>
 
@@ -198,7 +198,8 @@ body{font-family:'Noto Sans KR', Arial, system-ui, sans-serif;color:var(--text);
           <h3><img src="${ctx}/images/ico-admin-college.png" alt="" class="menu-icon">대학 및 학과</h3>
           <ul>
             <li><a href="${ctx}/department/list.do">학과 목록</a></li>
-            <li><a href="${ctx}/college/write.do">대학 및 학과 등록</a></li>
+            <li><a href="${ctx}/college/write.do">대학 등록</a></li>
+            <li><a href="${ctx}/academic/departments/department-register.do">학과 등록</a></li>
           </ul>
         </div>
 
