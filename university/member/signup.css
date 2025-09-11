@@ -1,3 +1,4 @@
+/* 09.11 천수빈 수정 */
 /* ===== breadcrumb ===== */
 .background {
   width: 100%;
@@ -51,7 +52,7 @@ main {
   border: 1px solid var(--line);
   border-radius: 14px;
   box-shadow: 0 8px 24px rgba(0,0,0,.05);
-  padding: 30px 40px;
+  padding: 30px 20px;
 }
 
 .card__title {
@@ -64,14 +65,14 @@ main {
 .card__desc {
   font-size: 13px;
   color: var(--muted);
-  margin-bottom: 18px;
+  margin-bottom: 0;
   line-height: 1.5;
 }
 
 .divider {
   height: 2px;
   background: #e8edf5;
-  margin: 16px 0 22px;
+  margin: 16px 0 0;
 }
 
 /* ===== 표 형태 폼 ===== */
@@ -82,29 +83,44 @@ main {
 .row {
   display: grid;
   grid-template-columns: 140px 1fr;
-  align-items: center;
-  border-top: 1px solid var(--line-2);
   background: #fff;
+  align-items: stretch;
+
+  border-top: 1px solid var(--line-2);
+  padding: 10px 0;
 }
-.row:first-of-type {
+
+.row:first-of-type { /* 첫 번째 줄 선 중복 제거 */
   border-top: none;
 }
+
+.row:last-of-type { /* 마지막 줄 선 중복 제거 */
+  border-bottom: none;
+}
+
 .th {
+  display: flex;
+  align-items: center;
   background: #f4f7fb;
   color: #374151;
   font-weight: 600;
-  padding: 12px 14px;
+  padding: 0px 15px;
   border-right: 1px solid var(--line-2);
   font-size: 14px;
 }
+
 .td {
-  padding: 10px 14px;
+  padding: 2px 12px;            /* 칸 + 입력창 사이 간격, 선과 입력창 사이 여백 조절 */
+  display: flex;
+  flex-direction: column;       /* 세로 배치 */
+  gap: 6px;                     /* input ↔ help 간격 일정 */
 }
 
 .help {
-  color: #8b93a3;
   font-size: 12px;
-  margin-top: 4px;
+  color: #8b93a3;
+  line-height: 1.4;
+  margin: 0;
 }
 
 .req {
@@ -117,29 +133,78 @@ input[type="text"],
 input[type="password"],
 input[type="email"],
 select {
+  height: 38px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 0 12px;
+  font-size: 14px;
+}
+
+.input-with-btn {
+  display: flex;
+  align-items: center;
   width: 100%;
+}
+
+.input-with-btn input {
+  flex: 1;
+  height: 40px;
+  border-radius: 8px;
+}
+
+.input-with-btn .btn_sub {
+  flex-shrink: 0;        /* 버튼 크기 줄어들지 않도록 */
+  width: 100px;          /* 버튼 고정 폭 */
+  height: 40px;
+  border-radius: 8px;
+  margin-left: 6px;      /* input과 간격 */
+}
+
+input:focus,
+select:focus {
+  border-color: #cfe6ff;
+  box-shadow: 0 0 0 2px rgba(59,130,246,.2);
+  outline: none;
+}
+
+#authArea input {
+  flex: 1;
   height: 40px;
   border: 1px solid var(--line);
   border-radius: 8px;
   padding: 0 12px;
-  outline: none;
   font-size: 14px;
-  transition: .18s border,.18s box-shadow;
 }
-input:focus,
-select:focus {
-  border-color: #cfe6ff;
-  box-shadow: 0 0 0 3px rgba(63,151,246,.18);
+
+/* 상태 메세지 출력 */
+.msg {
+  font-size: 12px;
+  font-weight: 400;
+  color: #555555;
+}
+
+.msg.info {
+  color: #555555;	/* 회색(기본) */
+}
+
+.msg.error {
+  color: #ef4444;   /* 빨강(에러) */
+}
+
+.msg.success {
+  color: #008000;   /* 초록(성공) */
 }
 
 /* 주소 입력 */
 .addr-split {
   display: flex;
-  gap: 10px;
+  gap: 8px;
 }
+
 .addr-split select {
   flex: 1;
 }
+
 .addr-detail {
   margin-top: 8px;
 }
@@ -149,34 +214,57 @@ select:focus {
   display: flex;
   justify-content: flex-end;
   gap: 8px;
-  margin-top: 16px;
+  margin-top: 15px;
 }
+
 .btn {
   appearance: none;
   border: 1px solid #d7dee8;
   background: #fff;
   color: #374151;
   height: 38px;
-  padding: 0 16px;
+  padding: 0 20px;
   border-radius: 8px;
   font-weight: 600;
   cursor: pointer;
 }
+
 .btn:hover {
   background: #f8fafc;
 }
+
 .btn.primary {
   background: var(--brand);
   border-color: transparent;
   color: #fff;
 }
+
 .btn.primary:hover {
   filter: brightness(.95);
 }
 
+.btn_sub { /* 중복 확인 버튼 */
+  background: #f3f4f6;
+  border: 1px solid #d1d5db;
+  font-size: 13px;
+  font-weight: 600;
+  color: #555555;
+  padding: 0 10px;
+}
+
+.btn_sub:hover { /* 중복 확인 버튼 행오버 */
+  background: #3F97F6;
+  border: 1px solid #3F97F6;
+  font-size: 13px;
+  font-weight: 600;
+  color: #ffffff;
+  padding: 0 10px;
+}
+
 /* 필수 입력 안내 */
 .form-note {
-  margin-top: 8px;
   font-size: 12px;
+  font-weight: 400;
+  margin-right: auto;
   color: #ef4444;
 }
