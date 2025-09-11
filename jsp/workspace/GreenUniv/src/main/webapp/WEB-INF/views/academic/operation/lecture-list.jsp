@@ -1,4 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="jakarta.tags.core" %>
 
 <!DOCTYPE html>
 <html lang="ko">
@@ -227,24 +228,41 @@ body{font-family:'Noto Sans KR', Arial, system-ui, sans-serif;color:var(--text);
               </thead>
               <tbody>
                 <!-- 서버 바인딩 자리 -->
+                <c:forEach var="course" items="${courseDtoList}">
+                	<tr>
+					 <td>${course.crs_cd}</td>
+			     	 <td>${course.dept_name}</td>
+			      	 <td>${course.year}</td>
+			      	 <td>${course.division}</td>
+			      	 <td>${course.crs_name}</td>
+			      	 <td>${course.name_ko}</td>
+			      	 <td>${course.credit}</td>
+			      	 <td>${course.days} ${course.time_start}~${course.time_end}</td>
+			      	 <td>${course.crs_room}</td>
+			      	 <td>${course.capacity}</td>		
+				  </tr>
+                </c:forEach>
 
-                <!-- 샘플 데이터 -->
-                <tr><td>3025112</td><td>컴퓨터과학과</td><td>1</td><td>전공선택</td><td>프로그래밍 개론</td><td>김민정</td><td>3</td><td>월,수 10:00~12:00</td><td>컴퓨터실</td><td>30</td></tr>
-                <tr><td>3025113</td><td>컴퓨터과학과</td><td>2</td><td>전공필수</td><td>자료구조</td><td>김철수</td><td>3</td><td>화,목 13:00~15:00</td><td>공학관201</td><td>40</td></tr>
-                <tr><td>3025114</td><td>컴퓨터과학과</td><td>3</td><td>전공선택</td><td>운영체제</td><td>박지영</td><td>3</td><td>수 15:00~18:00</td><td>공학관305</td><td>35</td></tr>
-                <tr><td>3025115</td><td>컴퓨터과학과</td><td>4</td><td>전공선택</td><td>웹프로그래밍</td><td>이도윤</td><td>3</td><td>금 09:00~12:00</td><td>컴퓨터실</td><td>30</td></tr>
               </tbody>
             </table>
 
-            <nav class="gu-paging" aria-label="페이지 이동">
-              <button class="gu-page-btn gu-page-btn--square" title="처음">«</button>
-              <button class="gu-page-btn gu-page-btn--square" title="이전">‹</button>
-              <button class="gu-page-btn is-active" aria-current="page">1</button>
-              <button class="gu-page-btn">2</button>
-              <button class="gu-page-btn">3</button>
-              <button class="gu-page-btn gu-page-btn--square" title="다음">›</button>
-              <button class="gu-page-btn gu-page-btn--square" title="마지막">»</button>
-            </nav>
+			<nav class="gu-paging" aria-label="페이지 이동">
+			  <c:if test="${currentPage > 1}">
+			    <a class="gu-page-btn gu-page-btn--square" href="?page=1">«</a>
+			    <a class="gu-page-btn gu-page-btn--square" href="?page=${currentPage-1}">‹</a>
+			  </c:if>
+			
+			  <c:forEach begin="1" end="${totalPages}" var="p">
+			    <a class="gu-page-btn ${p == currentPage ? 'is-active' : ''}" href="?page=${p}">
+			      ${p}
+			    </a>
+			  </c:forEach>
+			
+			  <c:if test="${currentPage < totalPages}">
+			    <a class="gu-page-btn gu-page-btn--square" href="?page=${currentPage+1}">›</a>
+			    <a class="gu-page-btn gu-page-btn--square" href="?page=${totalPages}">»</a>
+			  </c:if>
+			</nav>
           </div>
         </div>
       </section>

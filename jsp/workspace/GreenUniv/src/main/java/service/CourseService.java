@@ -6,6 +6,7 @@ import dao.CourseDAO;
 import dao.DepartmentDAO;
 import dto.CourseDTO;
 import dto.DepartmentDTO;
+import dto.OperationOverviewDTO;
 
 public enum CourseService {
 	
@@ -25,6 +26,10 @@ public enum CourseService {
 		return dao.selectAll();
 	}
 	
+	public List<CourseDTO> selectForLectureList(){
+		return dao.selectForLectureList();
+	}
+	
 	public void modify() {
 		
 	}
@@ -36,4 +41,23 @@ public enum CourseService {
 	public int getNextNum(int deptId, int year, int semester) {
 		return dao.getNextSeq(deptId, year,semester);
 	}
+	
+	// CourseService.java
+	public List<CourseDTO> findPaged(int offset, int pageSize) {
+	    return dao.selectPaged(offset, pageSize);
+	}
+
+	public int countAll() {
+	    return dao.countAll();
+	}
+
+	public List<OperationOverviewDTO> getOverview(int offset, int pageSize) {
+	    return dao.selectOverviewPaged(offset, pageSize);
+	}
+	
+	public int countOverview() {
+		return dao.countOverview();
+	}
+
+
 }
