@@ -47,6 +47,8 @@ main .container {
   margin: 0 auto;
 }
 
+<<<<<<< HEAD
+=======
 /* 사이드 네비 */
 .side-nav {
   width: 210px;
@@ -80,6 +82,7 @@ main .container {
   font-weight: 600;
 }
 
+>>>>>>> f6337c0d2124f43b093d4f56a2e5113224c4ec0f
 /* 컨텐츠 */
 .content {
   flex: 1;

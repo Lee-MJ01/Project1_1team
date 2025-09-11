@@ -24,7 +24,6 @@ public class NoticeListController extends HttpServlet {
 		List<BoardDTO> dtoList = boardService.academicsNoticeFindAll();
 		
 		req.setAttribute("dtoList", dtoList);
-
 		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/university/academics/notice.jsp");
 		dispatcher.forward(req, resp);
 	}

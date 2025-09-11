@@ -27,12 +27,10 @@ public class NoticeListController extends HttpServlet{
 		
 		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/university/admission/notice.jsp");
 		dispatcher.forward(req, resp);
-		
 	}
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
 	}
-
 }

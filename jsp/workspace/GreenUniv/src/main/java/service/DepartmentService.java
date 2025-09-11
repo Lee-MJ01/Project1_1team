@@ -19,6 +19,9 @@ public enum DepartmentService {
 		return dao.selectByDept_id(dept_id);
 	}
 	
+	public int findDeptId(String collegeName, String deptName) {
+		return dao.findDeptId(collegeName, deptName);
+	}
 	public List<DepartmentDTO> findAll() {
 		return dao.selectAll();
 	}

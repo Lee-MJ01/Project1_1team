@@ -1,6 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -243,7 +242,7 @@
 								<td>${dto.college_name}</td>        				
 								<td>${dto.dept_name}</td>        				
 								<td>${dto.chair_name}</td>        				
-								<td>dto.dept_phone</td>        				
+								<td>${dto.dept_phone}</td>        				
 								<td>x</td>        				
 								<td>x</td>        				
 								<td>x</td>        				

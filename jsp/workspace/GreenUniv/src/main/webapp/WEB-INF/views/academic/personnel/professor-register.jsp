@@ -63,6 +63,7 @@ body{font-family:'Noto Sans KR', Arial, system-ui, sans-serif;color:var(--text);
 .page__path strong{color:#145074;font-weight:500}
 .page__path .path__sep svg{width:12px;height:6px;display:block}
 
+
 /* Section title */
 .section-title{display:flex;align-items:center;gap:8px;font-size:16px;font-weight:600;color:#145074;margin:0 0 10px}
 .section-title::before{content:"";width:6px;height:20px;background:var(--accent);border-radius:1px}
@@ -112,15 +113,6 @@ body{font-family:'Noto Sans KR', Arial, system-ui, sans-serif;color:var(--text);
 .form-grid.edu td .w180{width:180px;max-width:180px}
 .form-grid.edu .hstack .sel{width:180px}
 .form-grid.edu td .sel{-webkit-appearance:none;-moz-appearance:none;appearance:none;
-  background-image:
-    linear-gradient(45deg, transparent 50%, #666 50%),
-    linear-gradient(135deg, #666 50%, transparent 50%);
-  background-position: calc(100% - 16px) 16px, calc(100% - 10px) 16px;
-  background-size:6px 6px,6px 6px;background-repeat:no-repeat}
-
-/* Footer */
-.site-footer{background:#19202D;color:#cfd3db;height:60px;display:flex;align-items:center}
-.site-footer .footer-inner{width:min(1400px,96vw);margin:0 auto;padding:0 20px;font-size:12px;letter-spacing:.02em}
 </style>
 
 <!-- 카카오 우편번호 -->
@@ -181,7 +173,7 @@ body{font-family:'Noto Sans KR', Arial, system-ui, sans-serif;color:var(--text);
           </ul>
         </div>
 
-        <!-- 인사관리 -->
+<        <!-- 인사관리 -->
         <div class="menu-group">
           <h3><img src="${ctx}/images/ico-admin-persons.png" alt="" class="menu-icon">인사관리</h3>
           <ul>

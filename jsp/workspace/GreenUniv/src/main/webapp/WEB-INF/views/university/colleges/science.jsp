@@ -5,41 +5,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>그린대학교 | 자연과학대학</title>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;600;700&display=swap" rel="stylesheet">
-  <!-- 공통 스타일 -->
-  <link rel="stylesheet" href="${pageContext.request.contextPath}/css/university/colleges/common.css">
   <!-- 전용 스타일 -->
   <link rel="stylesheet" href="${pageContext.request.contextPath}/css/university/colleges/science.css">
 </head>
 <body>
   <div id="wrapper">
-    <!-- 헤더 -->
-    <header>
-      <div class="topbar">
-        <div class="container topbar__nav" role="navigation" aria-label="상단 빠른 메뉴">
-          <ul class="topbar__list">
-            <li class="topbar__item"><a href="#">HOME</a></li>
-            <li class="topbar__item"><a href="#">사이트맵</a></li>
-            <li class="topbar__item"><a href="#">로그인</a></li>
-            <li class="topbar__item"><a href="#">학사지원</a></li>
-          </ul>
-        </div>
-      </div>
-      <nav class="gnb" role="navigation" aria-label="주 메뉴">
-        <div class="container gnb__inner">
-          <a href="/" aria-label="그린대학교 홈"><img class="brand__logo" src="/images/header_logo.png" alt="그린대학교"></a>
-          <ul class="menu__list">
-            <li><a class="menu__link" href="#">대학소개</a></li>
-            <li><a class="menu__link" href="#">입학안내</a></li>
-            <li><a class="menu__link" href="#">대학·대학원</a></li>
-            <li><a class="menu__link" href="#">학사안내</a></li>
-            <li><a class="menu__link" href="#">대학생활</a></li>
-            <li><a class="menu__link" href="#">커뮤니티</a></li>
-          </ul>
-        </div>
-      </nav>
-    </header>
-
+    <%-- 헤더 부분 포함 --%>
+<%@ include file="/WEB-INF/views/_header.jsp" %>
     <!-- breadcrumb -->
     <div class="background">
       <div class="container breadcrumb">
@@ -60,11 +32,11 @@
         <aside class="side-nav">
           <h2>대학·대학원</h2>
           <ul>
-            <li><a href="humanities.html">인문사회대학</a></li>
-            <li class="active"><a href="science.html">자연과학대학</a></li>
-            <li><a href="engineering.html">공과대학</a></li>
-            <li><a href="education.html">사범대학</a></li>
-            <li><a href="graduate.html">대학원</a></li>
+          	<li><a href="${pageContext.request.contextPath}/colleges/humanities.do">인문사회대학</a></li>
+            <li class="active"><a href="${pageContext.request.contextPath}/colleges/science.do">자연과학대학</a></li>
+            <li><a href="${pageContext.request.contextPath}/colleges/engineering.do">공과대학</a></li>
+            <li><a href="${pageContext.request.contextPath}/colleges/education.do">사범대학</a></li>
+            <li><a href="${pageContext.request.contextPath}/colleges/graduate.do">대학원</a></li>
           </ul>
         </aside>
 
@@ -109,41 +81,8 @@
         </section>
       </div>
     </main>
-
-    <!-- 푸터 -->
-    <footer class="footer">
-      <div class="footer__top">
-        <div class="container footer__nav">
-          <ul class="footer__list">
-            <li class="footer__item"><a class="footer__link" href="#">개인정보처리방침</a></li>
-            <li class="footer__item"><a class="footer__link" href="#">통합정보시스템</a></li>
-            <li class="footer__item"><a class="footer__link" href="#">학사일정</a></li>
-            <li class="footer__item"><a class="footer__link" href="#">주요인원 연락처</a></li>
-            <li class="footer__item"><a class="footer__link" href="#">교내공지사항</a></li>
-          </ul>
-        </div>
-      </div>
-      <div class="footer__body">
-        <div class="container footer__inner">
-          <img class="footer__logo" src="/images/footer_logo.png" alt="그린대학교 로고">
-          <div>
-            <ul class="footer__info">
-              <li><strong>그린대학교</strong></li>
-              <li>[12345] 부산광역시 부산진구 부전대로 123 / 대표전화 : 051-123-1000</li>
-              <li>입학안내 : 051-123-1302 · 팩스 : 051-123-3333</li>
-            </ul>
-            <div class="footer__copy">copyright © Green University. All rights reserved.</div>
-          </div>
-          <div class="footer__select">
-            <select id="sites" class="select" name="sites">
-              <option value="">주요사이트</option>
-              <option value="#">도서관</option>
-              <option value="#">학사관리시스템</option>
-            </select>
-          </div>
-        </div>
-      </div>
-    </footer>
+<%-- 푸터 부분 포함 --%>
+<%@ include file="/WEB-INF/views/_footer.jsp" %>
   </div>
 </body>
 </html>

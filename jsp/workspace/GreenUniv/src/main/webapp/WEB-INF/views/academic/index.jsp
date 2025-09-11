@@ -28,6 +28,7 @@ body{font-family:'Noto Sans KR', Arial, system-ui, sans-serif;color:var(--text);
 .top-menu__link{color:#fff;font-size:12px;line-height:20px;text-decoration:none;position:relative;padding:0 10px}
 .top-menu__link + .top-menu__link::before{content:"";position:absolute;left:0;top:4px;width:1px;height:11px;background:rgba(255,255,255,.3)}
 
+
 /* ===== 브랜드 바(공통) ===== */
 .brand-bar{background:var(--brand-dark);height:90px;border-bottom:1px solid #dcdcdc;position:relative}
 .brand-logo{position:absolute;left:260px;top:16px;width:352px;height:52px;display:block;object-fit:contain}
@@ -65,6 +66,7 @@ body{font-family:'Noto Sans KR', Arial, system-ui, sans-serif;color:var(--text);
 .page__path .crumb-link{color:#145074;font-weight:500;text-decoration:none}
 .page__path .crumb-link:hover{text-decoration:underline}
 
+
 /* ===== 이 페이지 전용 스타일(표 등) ===== */
 .block{border:0;background:transparent;box-shadow:none}
 .block+.block{margin-top:14px}
@@ -72,12 +74,16 @@ body{font-family:'Noto Sans KR', Arial, system-ui, sans-serif;color:var(--text);
 .block__title{display:flex;align-items:center;gap:6px;font-size:16px;font-weight:600;color:#145074;margin:0}
 .block__title::before{content:"";width:6px;height:20px;background:var(--accent);border-radius:1px}
 
+
+/* 표 공통 */
 .table{width:100%;border-collapse:separate;border-spacing:0;font-size:13px;border-top:1px solid #cfd6df;border-bottom:1px solid #e9edf3}
 .table thead th{height:45.5px;background:var(--thead);color:#5a6475;font-weight:600;text-align:center;border:0;border-bottom:1px solid #cfd6df}
 .table tbody td{height:45.5px;background:#fff;border:0;border-bottom:1px solid #e1e6ee}
 .table tfoot td{height:45.5px;background:#fff;border-top:1px solid #e1e6ee;font-weight:700}
 .table .center{text-align:center}
 .table .num{text-align:right;padding-right:10px}
+
+/* 열 폭 */
 .table--univ col{width:136.25px}  /* 8열 동일 */
 
 .table--edu col:nth-child(1){width:120px}
@@ -375,6 +381,7 @@ a.link:hover{text-decoration:underline}
             </div>
           </article>
 
+
           <article class="block">
             <header class="block__head"><h4 class="block__title">입학상담</h4></header>
             <div class="block__body">
@@ -396,6 +403,7 @@ a.link:hover{text-decoration:underline}
     </section>
   </main>
 </div>
+
 
 <footer class="site-footer" role="contentinfo">
   <div class="footer-inner">

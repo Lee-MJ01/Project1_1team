@@ -5,6 +5,37 @@ public class Sql {
 	public static final String SELECT_BOARD_ALL = 
 			"select title, w_date from board where comm_cd = ? order by w_date desc LIMIT 5;";
 	
+	//board--index 아님
+	public static final String SELECT_NOTICE_ALL =
+		    "SELECT `Number` AS no, title, writer, DATE_FORMAT(w_date, '%Y.%m.%d') AS wdate, view_count AS views " +
+		    "FROM board " +
+		    "WHERE comm_cd = ? " +
+		    "ORDER BY `Number` DESC";
+  
+	// 식단표
+	public static final String SELECT_MEAL_FOOD_WEEK = 
+			"SELECT "
+					+ "f.food_name, "
+					+ "m.meal_date, "
+					+ "m.meal_type "
+			+ "FROM "
+					+ "Meals m "
+					+ "JOIN Meal_Items mi ON m.meal_id = mi.meal_id "
+					+ "JOIN FoodItems f ON mi.food_id = f.food_id "
+			+ "WHERE "
+					+ "m.meal_date BETWEEN ? AND ? "
+			+ "ORDER BY "
+					+ "m.meal_date, m.meal_type";
+	
+	public static final String SELECT_NOTICE_ONE =
+		    "SELECT `Number` AS no, " +
+		    "       title, " +
+		    "       content, " +
+		    "       writer, " +
+		    "       DATE_FORMAT(w_date, '%Y.%m.%d %H:%i') AS wdate, " +
+		    "       view_count AS views " +
+		    "FROM board " +
+		    "WHERE `Number` = ?";
 	// college
 	public static final String INSERT_COLLEGE =
 	    "INSERT INTO college (college_name, college_name_en, intro_title, intro_body, image_path) VALUES (?, ?, ?, ?, ?)";
@@ -26,34 +57,38 @@ public class Sql {
 	    "SELECT COUNT(*) FROM college";
 
 	
-	// student (등록 페이지용)
-	public static final String INSERT_STUDENT =
-	  "INSERT INTO student (" +
-	  " std_id, resident_number, name, e_name, gender, division, phone, email, address," +
-	  " entryyear, graduationyear, dept_id, entryterm, entrygrade, advisor, status" +
-	  ") VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+	   // student 
+	   public static final String INSERT_STUDENT =
+	           "INSERT INTO student (" +
+	           " std_id, resident_number, name, e_name, gender, division, hp, email, address," +
+	           " entry_year, graduation_year, dept_id, entry_term, entry_grade, advisor, status" +
+	           ") VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
-	public static final String SELECT_STUDENT =
-	  "SELECT std_id, resident_number, name, e_name, gender, division, phone, email, address," +
-	  " entryyear, graduationyear, dept_id, entryterm, entrygrade, advisor, status " +
-	  "FROM student WHERE std_id=?";
+	   public static final String SELECT_STUDENT =
+	           "SELECT std_id, resident_number, name, e_name, gender, division, hp, email, address," +
+	           " entry_year, graduation_year, dept_id, entry_term, entry_grade, advisor, status " +
+	           "FROM student WHERE std_id=?";
 
-	//  목록 간단 조회 – 페이지네이션 없이 전부
-	public static final String SELECT_STUDENT_ALL_SIMPLE =
-	  "SELECT std_id, name, resident_number, phone, email, dept_id, entrygrade, entryterm, status " +
-	  "FROM student ORDER BY std_id DESC";
-   // 총 개수
-   public static final String SELECT_STUDENT_LIST_COUNT =
-       "SELECT COUNT(*) " +
-       "FROM student s JOIN department d ON d.dept_id = s.dept_id %s";
+	   public static final String SELECT_STUDENT_ALL_SIMPLE =
+	           "SELECT std_id, name, resident_number, hp, email, dept_id, entry_grade, entry_term, status " +
+	           "FROM student ORDER BY std_id DESC";
 
-   // 목록 (MySQL: LIMIT ? OFFSET ?)
-   public static final String SELECT_STUDENT_LIST_MYSQL =
-       "SELECT s.std_id, s.name, s.resident_number, s.phone, s.email, " +
-       "       d.dept_name AS dept_name, s.entrygrade, s.entryterm, s.status " +
-       "FROM student s JOIN department d ON d.dept_id = s.dept_id %s " +
-       "ORDER BY s.std_id DESC " +
-       "LIMIT ? OFFSET ?";
+	    public static final String SELECT_STUDENT_LIST_COUNT =
+	           "SELECT COUNT(*) FROM student s LEFT JOIN department d ON d.dept_id = s.dept_id %s";
+
+	   public static final String SELECT_STUDENT_LIST_MYSQL =
+	           "SELECT s.std_id, s.name, s.resident_number, s.hp, s.email, " +
+	           "       d.dept_name AS dept_name, s.entry_grade, s.entry_term, s.status " +
+	           "FROM student s LEFT JOIN department d ON d.dept_id = s.dept_id %s " +
+	           "ORDER BY s.std_id DESC LIMIT ? OFFSET ?";
+
+	   // 학번 시퀀스(연도+학과별)
+	   public static final String UPSERT_STUDENT_SEQ =
+	           "INSERT INTO student_seq(entry_year, dept_id, last_no) VALUES (?, ?, 1) " +
+	           "ON DUPLICATE KEY UPDATE last_no = LAST_INSERT_ID(last_no + 1)";
+	   public static final String SELECT_LAST_INSERT_ID =
+	           "SELECT LAST_INSERT_ID()";
+
 
    
    // util/Sql.java 에 추가
@@ -87,12 +122,24 @@ public class Sql {
 	
 	
 	//Department --서현우
-	//학과등록
-	public static final String INSERT_DEPARTMENT= "INSERT INTO department (college_name, dept_name, dept_name_en, established, chair_name, dept_phone, dept_office) VALUES (?,?,?,?,?,?,?)";
+	//	학과등록
+	public static final String INSERT_DEPARTMENT= "INSERT INTO department (dept_id,college_name, dept_name, dept_name_en, established, chair_name, dept_phone, dept_office) VALUES (?,?,?,?,?,?,?,?)";
 	//dept_id로 학과 셀렉트
 	public static final String SELECT_DEPARTMENT_BY_DEPT_ID = "SELECT * from department where dept_id=?"; 
 	//dept모든 행 select
 	public static final String SELECT_ALL_DEPARTMENT = "SELECT * FROM department";
+	
+
+	
+	///////////////////
+	///course
+	//////////////////
+	public static final String INSERT_COURSE = "INSERT INTO course ( " +
+		    "crs_cd ,dept_id, year, semester, division, crs_name, p_code, credit, crs_desc, period_start, period_end," +
+		    "time_start, time_end, days, eval_method, textbook,crs_room, capacity) " +
+		    "VALUES (?,?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+
+	
 	
 	///////////////////////////////////////////
 	/// 천수빈 - User/Terms 관리

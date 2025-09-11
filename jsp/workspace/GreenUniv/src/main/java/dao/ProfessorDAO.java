@@ -167,4 +167,24 @@ public class ProfessorDAO extends DBHelper {
         try{ if(rs!=null) rs.close(); }catch(Exception ignore){}
         try{ if(ps!=null) ps.close(); }catch(Exception ignore){}
     }
+    
+    //서현우 추가한 findCode
+    public int findCodeByName(String profName) {
+        int code = 0;
+        String sql = "SELECT p_code FROM professor WHERE name_ko = ?";
+        try {
+			conn=getConnection();
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, profName);
+			rs=psmt.executeQuery();
+			if(rs.next()) {
+				code=rs.getInt(1);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+        return code;
+    }
+
 }

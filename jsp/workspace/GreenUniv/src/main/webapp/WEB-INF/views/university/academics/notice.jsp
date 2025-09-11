@@ -1,9 +1,19 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ include file = "/WEB-INF/views/_header.jsp" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>notice</title>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/university/admission/common.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/university/academics/style_not.css">
+    
+</head>
 
+<body>
+    <div id="wrapper">
+        <%@ include file = "/WEB-INF/views/_header.jsp" %>
 
         <div class=background>
             <div class="container">
@@ -27,12 +37,12 @@
                 <aside class="side-nav">
                     <h2>학사안내</h2>
                     <ul>
-                        <li class="active"><a href="#">공지사항</a></li>
-                        <li><a href="#">학사일정</a></li>
-                        <li><a href="#">수강신청</a></li>
-                        <li><a href="#">성적</a></li>
-                        <li><a href="#">수료 및 졸업</a></li>
-                        <li><a href="#">자주묻는질문</a></li>
+                    	<li class="active"><a href="${pageContext.request.contextPath}/academics/notice.do">공지사항</a></li>
+                        <li><a href="${pageContext.request.contextPath}/academics/calendar.do">학사일정</a></li>
+                        <li><a href="${pageContext.request.contextPath}/academics/registration.do">수강신청</a></li>
+                        <li><a href="${pageContext.request.contextPath}/academics/grades.do">성적</a></li>
+                        <li><a href="${pageContext.request.contextPath}/academics/graduation.do">수료 및 졸업</a></li>
+                        <li><a href="${pageContext.request.contextPath}/academics/faq.do">자주묻는질문</a></li>
                     </ul>
                 </aside>
 
@@ -74,7 +84,7 @@
 							    <tr>
 							      <td>${row.number}</td>
 							      <td class="title">
-							        <a href="${pageContext.request.contextPath}/university/admission/noticeView.do?no=${row.number}">
+							        <a href="${pageContext.request.contextPath}/academics/noticeview.do?no=${row.number}">
 							          <c:out value="${row.title}"/>
 							        </a>
 							      </td>
@@ -99,5 +109,8 @@
             </div>
         </main>
         
+
 <%@ include file = "/WEB-INF/views/_footer.jsp" %>
-        
+    </div>
+</body>
+</html>

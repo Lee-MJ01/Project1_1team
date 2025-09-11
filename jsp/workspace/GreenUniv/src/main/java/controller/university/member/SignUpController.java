@@ -57,6 +57,5 @@ public class SignUpController extends HttpServlet {
 		
 		// 이동
 		resp.sendRedirect("/GreenUniv/member/login.do?code="+ResultCode.REGISTER_SUCCESS.getCode());
-	
 	}
 }

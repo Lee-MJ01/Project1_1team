@@ -15,7 +15,7 @@ import service.BoardService;
 @WebServlet("/community/notice.do")
 public class NoticeListController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
+	
 	private BoardService boardService = BoardService.INSTANCE;
 
 	@Override

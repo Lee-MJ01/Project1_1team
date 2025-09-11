@@ -55,6 +55,8 @@ main {
     flex: 1;
 }
 
+<<<<<<< HEAD
+=======
 /* header */
 .header-top {
     width: 100%;
@@ -144,6 +146,7 @@ main {
     text-decoration: none;
 }
 
+>>>>>>> f6337c0d2124f43b093d4f56a2e5113224c4ec0f
 /* background */
 .background {
     width: 100%;

@@ -58,6 +58,8 @@ main .container {
   gap: 60px;
 }
 
+<<<<<<< HEAD
+=======
 /* ===== side-nav ===== */
 .side-nav {
   width: 210px;
@@ -93,6 +95,7 @@ main .container {
   color: white;
 }
 
+>>>>>>> f6337c0d2124f43b093d4f56a2e5113224c4ec0f
 /* ===== content ===== */
 .content {
   flex: 1;
@@ -216,3 +219,9 @@ main .container {
   border-color: #3F97F6;
   font-weight: 400;
 }
+<<<<<<< HEAD
+
+
+
+=======
+>>>>>>> f6337c0d2124f43b093d4f56a2e5113224c4ec0f

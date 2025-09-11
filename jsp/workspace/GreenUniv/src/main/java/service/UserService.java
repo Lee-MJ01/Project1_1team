@@ -1,4 +1,3 @@
-
 package service;
 
 import java.util.Optional;
@@ -46,6 +45,7 @@ public enum UserService {
     if (dao.existsByEmail(dto.getEmail())) return ResultCode.REGISTER_DUP_EMAIL;
     if (!isBlank(dto.getHp()) && dao.existsByHp(dto.getHp()))
       return ResultCode.REGISTER_DUP_HP;
+
 
     dao.insert(dto);
     return ResultCode.REGISTER_SUCCESS;

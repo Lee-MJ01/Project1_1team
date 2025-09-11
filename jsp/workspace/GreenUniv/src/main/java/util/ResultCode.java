@@ -3,8 +3,6 @@ package util;
 public enum ResultCode {
 
     
-    
-    
 	// 1** : 인증/세션
 	LOGIN_SUCESS (100, "로그인에 성공했습니다."),
 	LOGIN_FAIL(101, "로그인에 실패하였습니다. 아이디/비밀번호를 확인해 주십시오."),

@@ -1,6 +1,7 @@
 package controller.university;
 
 import java.io.IOException;
+import java.net.http.HttpClient;
 import java.util.List;
 
 import dto.BoardDTO;
@@ -20,7 +21,6 @@ public class IndexListController extends HttpServlet {
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		System.out.println("123125");
 		List<BoardDTO> dtoAcademicsList = serviceBoard.IndexAcademicsfindAll();
 		req.setAttribute("dtoAcademicsList", dtoAcademicsList);
 		

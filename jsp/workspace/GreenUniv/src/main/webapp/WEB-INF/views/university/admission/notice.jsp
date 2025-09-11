@@ -1,10 +1,12 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ include file = "/WEB-INF/views/_header.jsp" %>
+
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-
+	<!-- 입학안내 공지사항 -->
+	
   <link rel="stylesheet" href="${pageContext.request.contextPath}/css/university/admission/notice.css">
-
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/css/university/admission/common.css">
+<%@ include file = "/WEB-INF/views/_header.jsp" %>
     <!-- ===== breadcrumb ===== -->
     <div class="background">
       <div class="container">
@@ -27,11 +29,11 @@
         <aside class="side-nav">
           <h2>입학안내</h2>
           <ul>
-            <li class="active"><a href="#">공지사항</a></li>
-            <li><a href="#">수시모집</a></li>
-            <li><a href="#">정시모집</a></li>
-            <li><a href="#">편입학</a></li>
-            <li><a href="#">입학상담</a></li>
+          	<li class="active"><a href="${pageContext.request.contextPath}/admission/notice.do">공지사항</a></li>
+            <li><a href="${pageContext.request.contextPath}/admission/early.do">수시모집</a></li>
+            <li><a href="${pageContext.request.contextPath}/admission/regular.do">정시모집</a></li>
+            <li><a href="${pageContext.request.contextPath}/admission/transfer.do">편입학</a></li>
+            <li><a href="${pageContext.request.contextPath}/admission/counseling.do">입학상담</a></li>
           </ul>
         </aside>
 
@@ -77,7 +79,7 @@
 				    <tr>
 				      <td>${row.number}</td>
 				      <td class="title">
-				        <a href="${pageContext.request.contextPath}/university/admission/noticeView.do?no=${row.number}">
+				        <a href="${pageContext.request.contextPath}/admission/noticeview.do?no=${row.number}">
 				          <c:out value="${row.title}"/>
 				        </a>
 				      </td>
@@ -99,9 +101,16 @@
             <a href="#"><img src="${pageContext.request.contextPath}/images/btn-next-page.png" alt="다음"></a>
             <a href="#"><img src="${pageContext.request.contextPath}/images/btn-last-page.png" alt="끝"></a>
           </div>
+          
+  		<!--<c:if test="${role != 'admin'}">   -->     
+          <div class="actions">
+            <a href="#" class="btn primary">글쓰기</a>
+          </div>
+         </c:if>
         </section>
       </div>
     </main>
 
 <%@ include file = "/WEB-INF/views/_footer.jsp" %>
-
+</body>
+</html>

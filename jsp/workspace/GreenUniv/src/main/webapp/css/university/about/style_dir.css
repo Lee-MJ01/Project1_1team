@@ -1,7 +1,11 @@
 /* 오시는길 */
 .directions { margin-top: 16px; }
 
+<<<<<<< HEAD
+.dir-map {
+=======
 .dir-map img {
+>>>>>>> f6337c0d2124f43b093d4f56a2e5113224c4ec0f
   margin-top: 10px;
   width: 100%; height: auto; border-radius: 8px;
   display: block; margin-bottom: 22px;

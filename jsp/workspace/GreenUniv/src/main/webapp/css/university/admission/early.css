@@ -50,6 +50,8 @@ main .container {
   gap: 60px;
 }
 
+<<<<<<< HEAD
+=======
 /* 사이드 네비 */
 .side-nav {
   width: 210px;
@@ -88,6 +90,7 @@ main .container {
   background: var(--brand);
   color: #fff;
 }
+>>>>>>> f6337c0d2124f43b093d4f56a2e5113224c4ec0f
 
 /* 본문 */
 .content {

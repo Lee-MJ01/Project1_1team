@@ -1,4 +1,5 @@
 package dao;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -34,7 +35,6 @@ public class BoardDAO extends DBHelper{
 	
 	// 학사공지사항 검색(index.jsp용)
 	public List<BoardDTO> IndexAcademicsSelectAll() {
-		System.out.println("학사공지사항");
 		List<BoardDTO> listDTO = new ArrayList<>();
 		try {
 			conn = getConnection();
@@ -68,7 +68,6 @@ public class BoardDAO extends DBHelper{
 	
 	// 커뮤니티 공지사항 검색(index.jsp용) 
 	public List<BoardDTO> IndexCommunitySelectAll() {
-		System.out.println("커뮤니티 공지사항");
 		List<BoardDTO> listDTO = new ArrayList<>();
 		try {
 			conn = getConnection();
@@ -102,7 +101,6 @@ public class BoardDAO extends DBHelper{
 	
 	// 커뮤니티 뉴스및칼럼 검색(index.jsp용) 
 	public List<BoardDTO> IndexCommuNewsSelectAll() {
-		System.out.println("커뮤니티 뉴스및칼럼");
 		List<BoardDTO> listDTO = new ArrayList<>();
 		try {
 			conn = getConnection();
@@ -134,9 +132,8 @@ public class BoardDAO extends DBHelper{
 		return listDTO;
 	}
 	
-	//입학안내 공지사항 select
+
 	public List<BoardDTO> admissionNoticeSelectAll(){
-		
 		List<BoardDTO> dtoList = new ArrayList<BoardDTO>();
 		try {
 			conn = getConnection();
@@ -155,15 +152,42 @@ public class BoardDAO extends DBHelper{
 
 	            dtoList.add(dto);
 	        }
-			
 			closeAll();
-			
+
 		} catch (Exception e) {
 			logger.error(e.getMessage());
 		}
 		return dtoList;
 	}
-	
+
+	//공지사항 view select
+	public BoardDTO selectNoticeView(int number) {
+	    BoardDTO dto = null;
+
+	    try {
+	        conn = getConnection();
+	        psmt = conn.prepareStatement(Sql.SELECT_NOTICE_ONE);
+	        psmt.setInt(1, number);     
+
+	        rs = psmt.executeQuery();
+
+	        if (rs.next()) {
+	            dto = new BoardDTO();
+	            dto.setNumber(rs.getInt("no"));            
+	            dto.setTitle(rs.getString("title"));
+	            dto.setContent(rs.getString("content"));
+	            dto.setWriter(rs.getString("writer"));
+	            dto.setW_date(rs.getString("wdate"));   
+	            dto.setView_count(rs.getInt("views"));     
+	        }
+	        closeAll();
+	    } catch (Exception e) {
+	        logger.error(e.getMessage());
+	    } 
+	    return dto;
+	}
+
+
 	//학사안내 공지사항 select
 	public List<BoardDTO> academicsNoticeSelectAll(){
 		
@@ -223,9 +247,6 @@ public class BoardDAO extends DBHelper{
 		}
 		return dtoList;
 	}
-	
-	
-	
 	public void insert() {}
 	public void update() {}
 	public void delete() {}
