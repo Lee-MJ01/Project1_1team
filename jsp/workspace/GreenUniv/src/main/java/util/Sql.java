@@ -198,4 +198,16 @@ public class Sql {
 	// terms
 	public static final String SELECT_TERMS = 
 	"SELECT * FROM terms WHERE no=?";
+	
+	//입학상담 
+	public static final String INSERT_counsel = "INSERT INTO board (Number, divison, title,  writer, w_date, stat_1, pass_yn) " //stat1이 답변완료인지 확인 할 것  
+	+	"VALUES (?, ?. ?, ?, ?, ?, ?)"	;	
+			
+	public static final String DELETE_counsel = "DELETE FROM board WHERE Number=?";
+	
+	public static final String UPDATE_counsel = "UPDATE board SET title=?, content=? WHERE Number=?";
+	
+	public static final String SELECT_counsel = "SELECT number, comm_cd, title, writer, w_date, content FROM board WHERE number=?";
+	
+	public static final String SELECT_counsel_ALL = "SELECT * FROM board ";
 }
