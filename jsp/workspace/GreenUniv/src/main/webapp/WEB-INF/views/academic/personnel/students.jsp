@@ -87,6 +87,42 @@
     /* Footer (공통) */
     .site-footer{background:#19202D;color:#cfd3db;height:60px;display:flex;align-items:center}
     .site-footer .footer-inner{width:min(1400px,96vw);margin:0 auto;padding:0 20px;font-size:12px;letter-spacing:.02em}
+  
+  /* --- pagination --- */
+.pager{
+  display:flex; justify-content:center; align-items:center;
+  gap:8px; margin:22px 0;
+}
+.pager a, .pager span{
+  min-width:36px; height:36px; padding:0 12px;
+  display:inline-flex; align-items:center; justify-content:center;
+  border:1px solid #d7dce3; border-radius:999px;
+  background:#fff; color:#222; text-decoration:none;
+  font-weight:600; box-shadow:0 1px 0 rgba(0,0,0,.03);
+}
+.pager a:hover{ background:#f4f8ff; border-color:#9ab6f0 }
+.pager .is-active{
+  background:var(--brand-blue); color:#fff; border-color:var(--brand-blue);
+  cursor:default;
+}
+.pager .gap{ color:#7a8597; padding:0 4px; }
+  
+.pager{
+  display:flex; justify-content:center; align-items:center;
+  gap:8px; margin:22px 0;
+}
+.pager a, .pager span{
+  min-width:36px; height:36px; padding:0 12px;
+  display:inline-flex; align-items:center; justify-content:center;
+  border:1px solid #d7dce3; border-radius:999px;
+  background:#fff; color:#222; text-decoration:none; font-weight:600;
+  box-shadow:0 1px 0 rgba(0,0,0,.03);
+}
+.pager a:hover{ background:#f4f8ff; border-color:#9ab6f0 }
+.pager .is-active{ background:var(--brand-blue); color:#fff; border-color:var(--brand-blue) }
+.pager .disabled{ opacity:.4; cursor:not-allowed; pointer-events:none; }
+  
+  
   </style>
 </head>
 <body>
@@ -125,12 +161,12 @@
         <div class="menu-group">
           <h3><img src="${ctx}/images/ico-admin-academic.png" alt="" class="menu-icon">학사운영</h3>
           <ul>
-            <li><a href="${ctx}/academic/operation/overview.jsp">교육 운영 현황</a></li>
+            <li><a href="${ctx}/academic/operation/overview.do">교육 운영 현황</a></li>
             <li><span>학년별 학생 현황</span></li>
             <li><span>학과별 학생 현황</span></li>
-            <li><a href="${ctx}/academic/operation/lecture-list.jsp">강의 목록</a></li>
-            <li><a href="${ctx}/academic/operation/lecture-register.jsp">강의 등록</a></li>
-            <li><a href="${ctx}/academic/operation/enrollment.jsp">수강 현황</a></li>
+            <li><a href="${ctx}/academic/operation/lecture-list.do">강의 목록</a></li>
+            <li><a href="${ctx}/academic/operation/lecture-register.do">강의 등록</a></li>
+            <li><a href="${ctx}/academic/operation/enrollment.do">수강 현황</a></li>
           </ul>
         </div>
 
@@ -150,8 +186,9 @@
         <div class="menu-group">
           <h3><img src="${ctx}/images/ico-admin-college.png" alt="" class="menu-icon">대학 및 학과</h3>
           <ul>
-            <li><a href="${ctx}/departments/department-list.jsp">학과 목록</a></li>
-            <li><a href="${ctx}/college/write.do">대학 및 학과 등록</a></li>
+            <li><a href="${ctx}/departments/department-list.do">학과 목록</a></li>
+            <li><a href="${ctx}/college/write.do">대학 등록</a></li>
+          	<li><a href="${ctx}/academic/departments/department-register.do">학과 등록</a></li>
           </ul>
         </div>
 
@@ -191,7 +228,7 @@
         <div class="page__body">
 
           <!-- 검색바 -->
-          <form class="search-bar" method="get" action="${ctx}/student/list.do">
+			<form class="search-bar" method="get" action="<c:url value='/student/list.do'/>">
             <select class="sel" name="cond">
               <option value="">검색조건</option>
               <option value="std_id"     ${cond=='std_id'?'selected':''}>학번</option>
@@ -254,48 +291,72 @@
               </tbody>
             </table>
           </div>
+<!-- 페이지네이션-->
+<nav class="pager" aria-label="페이지 이동">
+  <%-- 기본 링크 미리 계산 --%>
+  <c:url var="firstUrl" value="/student/list.do">
+    <c:param name="cond" value="${cond}"/><c:param name="kw" value="${kw}"/>
+    <c:param name="size" value="${size}"/><c:param name="page" value="1"/>
+  </c:url>
+  <c:url var="prevUrl" value="/student/list.do">
+    <c:param name="cond" value="${cond}"/><c:param name="kw" value="${kw}"/>
+    <c:param name="size" value="${size}"/><c:param name="page" value="${pr.page-1}"/>
+  </c:url>
+  <c:url var="nextUrl" value="/student/list.do">
+    <c:param name="cond" value="${cond}"/><c:param name="kw" value="${kw}"/>
+    <c:param name="size" value="${size}"/><c:param name="page" value="${pr.page+1}"/>
+  </c:url>
+  <c:url var="lastUrl" value="/student/list.do">
+    <c:param name="cond" value="${cond}"/><c:param name="kw" value="${kw}"/>
+    <c:param name="size" value="${size}"/><c:param name="page" value="${pr.totalPages}"/>
+  </c:url>
 
-          <!-- 페이지네이션 -->
-          <div class="pagination">
-            <c:url var="base" value="/student/list.do">
-              <c:param name="cond" value="${cond}" />
-              <c:param name="kw"   value="${kw}" />
-              <c:param name="size" value="${size}" />
-            </c:url>
+  <%-- << --%>
+  <c:choose>
+    <c:when test="${pr.hasPrev}"><a href="${firstUrl}">&lt;&lt;</a></c:when>
+    <c:otherwise><span class="disabled">&lt;&lt;</span></c:otherwise>
+  </c:choose>
 
-            <c:if test="${pr.hasPrev}">
-              <a href="${ctx}${base}&page=1" class="pager-btn"><img src="${ctx}/images/btn-first-page.png" alt="first"></a>
-              <a href="${ctx}${base}&page=${pr.page-1}" class="pager-btn"><img src="${ctx}/images/btn-prev-page.png" alt="prev"></a>
-            </c:if>
+  <%-- < --%>
+  <c:choose>
+    <c:when test="${pr.hasPrev}"><a href="${prevUrl}">&lt;</a></c:when>
+    <c:otherwise><span class="disabled">&lt;</span></c:otherwise>
+  </c:choose>
 
-            <c:if test="${pr.hasPrevBlock}">
-              <a href="${ctx}${base}&page=${pr.startPage-1}" class="pager-btn">&laquo;</a>
-            </c:if>
+  <%-- 페이지 번호 --%>
+  <c:forEach var="p" begin="${pr.startPage}" end="${pr.endPage}">
+    <c:choose>
+      <c:when test="${p == pr.page}">
+        <span class="is-active">${p}</span>
+      </c:when>
+      <c:otherwise>
+        <c:url var="pUrl" value="/student/list.do">
+          <c:param name="cond" value="${cond}"/><c:param name="kw" value="${kw}"/>
+          <c:param name="size" value="${size}"/><c:param name="page" value="${p}"/>
+        </c:url>
+        <a href="${pUrl}">${p}</a>
+      </c:otherwise>
+    </c:choose>
+  </c:forEach>
 
-            <c:forEach var="p" begin="${pr.startPage}" end="${pr.endPage}">
-              <c:choose>
-                <c:when test="${p == pr.page}">
-                  <button class="livepage" disabled>${p}</button>
-                </c:when>
-                <c:otherwise>
-                  <a href="${ctx}${base}&page=${p}"><button type="button">${p}</button></a>
-                </c:otherwise>
-              </c:choose>
-            </c:forEach>
+  <%-- > --%>
+  <c:choose>
+    <c:when test="${pr.hasNext}"><a href="${nextUrl}">&gt;</a></c:when>
+    <c:otherwise><span class="disabled">&gt;</span></c:otherwise>
+  </c:choose>
 
-            <c:if test="${pr.hasNextBlock}">
-              <a href="${ctx}${base}&page=${pr.endPage+1}" class="pager-btn">&raquo;</a>
-            </c:if>
+  <%-- >> --%>
+  <c:choose>
+    <c:when test="${pr.hasNext}"><a href="${lastUrl}">&gt;&gt;</a></c:when>
+    <c:otherwise><span class="disabled">&gt;&gt;</span></c:otherwise>
+  </c:choose>
+</nav>
 
-            <c:if test="${pr.hasNext}">
-              <a href="${ctx}${base}&page=${pr.page+1}" class="pager-btn"><img src="${ctx}/images/btn-next-page.png" alt="next"></a>
-              <a href="${ctx}${base}&page=${pr.totalPages}" class="pager-btn"><img src="${ctx}/images/btn-last-page.png" alt="last"></a>
-            </c:if>
+<!-- 등록 버튼은 별도 -->
+<div class="tbl-btns" style="text-align:right">
+  <a href="<c:url value='/student/write.do'/>"><button class="btn" type="button">등록</button></a>
+</div>
 
-            <div style="margin-left:auto">
-              <a href="${ctx}/student/write.do"><button class="btn" type="button">등록</button></a>
-            </div>
-          </div>
 
         </div>
       </section>

@@ -123,11 +123,12 @@
   </div>
 
   <!-- Brand header (logo → academic index) -->
-  <header class="brand-bar">
-    <a href="${ctx}/academic/index.do">
-      <img class="brand-logo" src="${ctx}/images/admin_logo.png" alt="그린대학교 학사관리시스템 로고">
-    </a>
-  </header>
+<header class="brand-bar">
+  <a href="${ctx}/academic/index.do">
+    <img class="brand-logo" src="${ctx}/images/admin_logo.png" alt="그린대학교 학사관리시스템 로고">
+  </a>
+</header>
+
 
   <div class="layout">
     <!-- Sidebar -->
@@ -146,12 +147,12 @@
         <div class="menu-group">
           <h3><img src="${ctx}/images/ico-admin-academic.png" alt="" class="menu-icon">학사운영</h3>
           <ul>
-            <li><a href="${ctx}/academic/operation/overview.jsp">교육 운영 현황</a></li>
+            <li><a href="${ctx}/academic/operation/overview.do">교육 운영 현황</a></li>
             <li><span>학년별 학생 현황</span></li>
             <li><span>학과별 학생 현황</span></li>
-            <li><a href="${ctx}/academic/operation/lecture-list.jsp">강의 목록</a></li>
-            <li><a href="${ctx}/academic/operation/lecture-register.jsp">강의 등록</a></li>
-            <li><a href="${ctx}/academic/operation/enrollment.jsp">수강 현황</a></li>
+            <li><a href="${ctx}/academic/operation/lecture-list.do">강의 목록</a></li>
+            <li><a href="${ctx}/academic/operation/lecture-register.do">강의 등록</a></li>
+            <li><a href="${ctx}/academic/operation/enrollment.do">수강 현황</a></li>
           </ul>
         </div>
 
@@ -171,8 +172,9 @@
         <div class="menu-group">
           <h3><img src="${ctx}/images/ico-admin-college.png" alt="" class="menu-icon">대학 및 학과</h3>
           <ul>
-            <li><a href="${ctx}/departments/department-list.jsp">학과 목록</a></li>
-            <li><a href="${ctx}/college/write.do">대학 및 학과 등록</a></li>
+            <li><a href="${ctx}/departments/department-list.do">학과 목록</a></li>
+            <li><a href="${ctx}/college/write.do">대학 등록</a></li>
+            <li><a href="${ctx}/academic/departments/department-register.do">학과 등록</a></li>
           </ul>
         </div>
 
@@ -212,12 +214,15 @@
 
         <div class="page__body">
 
-          <!-- 처리 메시지 -->
-          <c:if test="${not empty param.code}">
-            <div class="msg ${param.code eq 'SUCCESS' ? 'ok' : 'err'}">
-              처리 결과 코드: <strong>${param.code}</strong>
-            </div>
-          </c:if>
+		<!-- 처리 메시지 -->
+		<c:choose>
+		  <c:when test="${param.code == '201'}">
+		    <div class="msg ok">학생 등록이 완료되었습니다.</div>
+		  </c:when>
+		  <c:when test="${param.code == '501'}">
+		    <div class="msg err">학생 등록에 실패했습니다. 다시 시도해주세요.</div>
+		  </c:when>
+		</c:choose>
 
           <!-- 등록 폼 -->
           <form method="post" action="${ctx}/student/write.do" autocomplete="off">
@@ -227,10 +232,11 @@
               <h4 class="section-title">기본 정보 입력</h4>
               <div class="grid">
                 <label>학번</label>
-                <input class="inp" type="number" name="std_id" placeholder="예) 202500101" required />
-
+				<input class="inp" type="text" value="서버에서 자동 생성됩니다" readonly />
                 <label>주민등록번호</label>
-                <input class="inp" type="text" name="resident_number" placeholder="900103-1234567" pattern="\\d{6}-\\d{7}" required />
+				<input class="inp" type="text" name="resident_number"
+			       placeholder="900103-1234567"
+			       pattern="\d{6}-\d{7}" required />
 
                 <label>이름</label>
                 <input class="inp" type="text" name="name" placeholder="학생 이름 입력" required />
