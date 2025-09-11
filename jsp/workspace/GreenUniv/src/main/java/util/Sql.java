@@ -213,4 +213,11 @@ public class Sql {
 	public static final String SELECT_counsel = "SELECT number, comm_cd, title, writer, w_date, content FROM board WHERE number=?";
 	
 	public static final String SELECT_counsel_ALL = "SELECT * FROM board ";
+
+	//성적 조회 
+	public static final String INSERT_record = "INSERT INTO grades (crs_cd, crs_name, year, advisor, division, grade, Alpa, credit)"
+	+ "VALUES(?, ?, ?, ?, ?, ?, ?, ?)";
+
+
 }
+	
