@@ -11,6 +11,26 @@ public class Sql {
 		    "FROM board " +
 		    "WHERE comm_cd = ? " +
 		    "ORDER BY `Number` DESC";
+	
+	public static final String SELECT_COMMUNITY_NEWS_ALL = 
+	    "SELECT `Number` AS no, division, title, writer, DATE_FORMAT(w_date, '%y.%m.%d') as wdate, view_count " +
+	    "FROM board " +
+	    "WHERE comm_cd = ? AND division IN ('뉴스','칼럼') " +
+	    "ORDER BY `Number` DESC " +
+	    "LIMIT ?, ?";
+	
+	public static final String SELECT_JOBS_LIST =
+	    "SELECT " +
+	    "  `Number` AS no, " +
+	    "  stat_2, company, title, " +
+	    "  DATE_FORMAT(deadline, '%Y.%m.%d %H:%i') AS deadline_str, " +
+	    "  view_count " +
+	    "FROM board " +
+	    "WHERE comm_cd = ? " +                
+	    "ORDER BY `Number` DESC " +
+	    "LIMIT ?, ?";
+
+
   
 	// 식단표
 	public static final String SELECT_MEAL_FOOD_WEEK = 

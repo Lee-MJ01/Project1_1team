@@ -14,6 +14,23 @@ public class BoardDTO {
 	private String pass_yn;
 	private String pwd;
 	private String file_yn;
+	private String company;
+	private String deadline;
+	
+	public String getDeadline() {
+		return deadline;
+	}
+	public void setDeadline(String deadline) {
+		this.deadline = deadline;
+	}
+	
+	public String getCompany() {
+		return company;
+	}
+	public void setCompany(String company) {
+		this.company = company;
+	}
+	
 	public int getNumber() {
 		return Number;
 	}

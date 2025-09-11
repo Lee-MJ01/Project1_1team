@@ -55,8 +55,7 @@ main {
     flex: 1;
 }
 
-<<<<<<< HEAD
-=======
+
 /* header */
 .header-top {
     width: 100%;
@@ -146,7 +145,6 @@ main {
     text-decoration: none;
 }
 
->>>>>>> f6337c0d2124f43b093d4f56a2e5113224c4ec0f
 /* background */
 .background {
     width: 100%;
@@ -519,3 +517,13 @@ footer {
     border-top: 4px solid #A7A7A9;
     pointer-events: none;
 }
+
+.tbl-list{width:100%;border-collapse:collapse;table-layout:fixed}
+.tbl-list th,.tbl-list td{padding:12px 10px;border-bottom:1px solid #e5e7eb}
+.tbl-list thead th{background:#fafafa;font-weight:600;color:#333}
+.tbl-list td.num{text-align:center}
+.tbl-list td.title{overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+.badge{display:inline-block;padding:2px 8px;border-radius:6px;font-size:12px;line-height:18px;color:#fff}
+.badge--open{background:#3b82f6}   /* 모집중: 파랑 */
+.badge--hold{background:#9ca3af}   /* 보류: 회색 */
+.badge--close{background:#ef4444}  /* 마감: 빨강 */

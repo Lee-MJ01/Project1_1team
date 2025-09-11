@@ -1,4 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -80,47 +82,31 @@
                             </tr>
                         </thead>
                     
-                        <tbody>
-                            <tr>
-                                <td>3</td>
-                                <td><span class="division" data-status="column">칼럼</span></td>
-                                <td>
-                                    정원호(식품자원경제) 교수, 시론-4차 산업 시대···</td>
-                                <td>정원호</td>
-                                <td><time datetime="2024-04-09">24.04.09</time></td>
-                                <td>160</td>
-                            </tr>
-
-                            <tr>
-                                <td>2</td>
-                                <td><span class="division" data-status="column">칼럼</span></td>
-                                <td>
-                                    주윤정(법학전문대학원), 교수, 기고-인공지능,···</td>
-                                <td>주윤정</td>
-                                <td><time datetime="2024-04-09">24.04.09</time></td>
-                                <td>160</td>
-                            </tr>
-
-                            <tr>
-                                <td>1</td>
-                                <td><span class="division" data-status="news">뉴스</span></td>
-                                <td>
-                                    그린대, '2024년 2학기 늘봄학교 초1 맞춤형 프로···</td>
-                                <td>홍보실</td>
-                                <td><time datetime="2024-04-09">24.04.09</time></td>
-                                <td>160</td>
-                            </tr>
-
-                            <tr>
-                                <td>1</td>
-                                <td><span class="division" data-status="column">칼럼</span></td>
-                                <td>
-                                    김동헌(의학) 명예교수, 세상읽기 - 절대로 포기하···</td>
-                                <td>김동헌</td>
-                                <td><time datetime="2024-04-09">24.04.09</time></td>
-                                <td>160</td>
-                            </tr>
-                        </tbody>
+						<tbody>
+							<c:if test="${empty dtoList}">
+								    <tr>
+								      <td colspan="5" style="text-align:center">등록된 게시글이 없습니다.</td>
+								    </tr>
+							</c:if>
+						  <c:forEach var="row" items="${dtoList}">
+						    <tr>
+						      <td class="num">${row.number}</td>
+						      <td>
+						        <span class="badge ${row.division == '뉴스' ? 'badge--news' : 'badge--column'}">
+						          ${row.division}
+						        </span>
+						      </td>
+						      <td class="title">
+						        <a href="${pageContext.request.contextPath}/community/noticeview.do?no=${row.number}">
+							          <c:out value="${row.title}"/>
+						        </a>
+						      </td>
+						      <td>${row.writer}</td>
+						      <td>${row.w_date}</td>
+						      <td>${row.view_count}</td>
+						    </tr>
+						  </c:forEach>
+						  </tbody>
                     </table>
 
                     <div class="pagination">
