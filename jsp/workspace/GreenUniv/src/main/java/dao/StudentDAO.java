@@ -6,6 +6,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import dto.StudentDTO;
 import util.DBHelper;
@@ -48,6 +49,38 @@ public class StudentDAO extends DBHelper {
         return result;
     }
 
+    /**
+     * 학번과 주민번호(비밀번호로 사용)로 로그인 인증을 시도합니다.
+     * @param stdId 학번
+     * @param residentNumber 주민번호
+     * @return 인증 성공 시 StudentDTO를 담은 Optional, 실패 시 빈 Optional
+     */
+    public Optional<StudentDTO> login(String stdId, String password) { // password는 주민번호 뒷 7자리가 들어옴
+        try {
+            conn = getConnection();
+            // [수정] SQL 쿼리 변경
+            String sql = "SELECT * FROM student WHERE std_id = ? AND RIGHT(resident_number, 7) = ?";
+            psmt = conn.prepareStatement(sql);
+            psmt.setString(1, stdId);
+            psmt.setString(2, password); // 사용자가 입력한 주민번호 뒷 7자리
+            rs = psmt.executeQuery();
+
+            if (rs.next()) {
+                StudentDTO d = new StudentDTO();
+                d.setStd_id(rs.getInt("std_id"));
+                d.setName(rs.getString("name"));
+                return Optional.of(d);
+            }
+            return Optional.empty();
+
+        } catch (Exception e) {
+            throw new RuntimeException("Student login failed", e);
+        
+        } finally {
+        	try { closeAll(); } catch (Exception ignore) {}
+        }
+    }
+    
     // 학번 발급
     public int issueStdId(String entryYear, int deptId) {
         int seq = 0;

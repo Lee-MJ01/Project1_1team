@@ -21,233 +21,147 @@ public class CourseDTO {
     private String crs_room;     // 강의실
     private int capacity;        // 최대 수강 인원
     
-    
-    
+    // ▼▼▼ JOIN해서 가져올 추가 정보 필드 ▼▼▼
+    private String dept_name;       // 개설 학과명 (department 테이블)
+    private String professorName;   // 담당 교수명 (professor 테이블)
+    private int enrolledCount;      // 현재 수강 인원 (enrollment 테이블에서 COUNT)
 	public int getCrs_cd() {
 		return crs_cd;
 	}
-
-
-
 	public void setCrs_cd(int crs_cd) {
 		this.crs_cd = crs_cd;
 	}
-
-
-
 	public int getDept_id() {
 		return dept_id;
 	}
-
-
-
 	public void setDept_id(int dept_id) {
 		this.dept_id = dept_id;
 	}
-
-
-
 	public int getYear() {
 		return year;
 	}
-
-
-
-	public void setYear(int yaer) {
-		this.year = yaer;
+	public void setYear(int year) {
+		this.year = year;
 	}
-
-
-
 	public int getSemester() {
 		return semester;
 	}
-
-
-
 	public void setSemester(int semester) {
 		this.semester = semester;
 	}
-
-
-
 	public String getDivision() {
 		return division;
 	}
-
-
-
 	public void setDivision(String division) {
 		this.division = division;
 	}
-
-
-
 	public String getCrs_name() {
 		return crs_name;
 	}
-
-
-
 	public void setCrs_name(String crs_name) {
 		this.crs_name = crs_name;
 	}
-
-
-
 	public int getP_code() {
 		return p_code;
 	}
-
-
-
 	public void setP_code(int p_code) {
 		this.p_code = p_code;
 	}
-
-
-
 	public int getCredit() {
 		return credit;
 	}
-
-
-
 	public void setCredit(int credit) {
 		this.credit = credit;
 	}
-
-
-
 	public String getCrs_desc() {
 		return crs_desc;
 	}
-
-
-
 	public void setCrs_desc(String crs_desc) {
 		this.crs_desc = crs_desc;
 	}
-
-
-
 	public String getPeriod_start() {
 		return period_start;
 	}
-
-
-
 	public void setPeriod_start(String period_start) {
 		this.period_start = period_start;
 	}
-
-
-
 	public String getPeriod_end() {
 		return period_end;
 	}
-
-
-
 	public void setPeriod_end(String period_end) {
 		this.period_end = period_end;
 	}
-
-
-
 	public String getTime_start() {
 		return time_start;
 	}
-
-
-
 	public void setTime_start(String time_start) {
 		this.time_start = time_start;
 	}
-
-
-
 	public String getTime_end() {
 		return time_end;
 	}
-
-
-
 	public void setTime_end(String time_end) {
 		this.time_end = time_end;
 	}
-
-
-
 	public String getDays() {
 		return days;
 	}
-
-
-
 	public void setDays(String days) {
 		this.days = days;
 	}
-
-
-
 	public String getEval_method() {
 		return eval_method;
 	}
-
-
-
 	public void setEval_method(String eval_method) {
 		this.eval_method = eval_method;
 	}
-
-
-
 	public String getTextbook() {
 		return textbook;
 	}
-
-
-
 	public void setTextbook(String textbook) {
 		this.textbook = textbook;
 	}
-
-
-
 	public String getCrs_room() {
 		return crs_room;
 	}
-
-
-
 	public void setCrs_room(String crs_room) {
 		this.crs_room = crs_room;
 	}
-
-
-
 	public int getCapacity() {
 		return capacity;
 	}
-
-
-
 	public void setCapacity(int capacity) {
 		this.capacity = capacity;
 	}
-
-
-
+	public String getDept_name() {
+		return dept_name;
+	}
+	public void setDept_name(String dept_name) {
+		this.dept_name = dept_name;
+	}
+	public String getProfessorName() {
+		return professorName;
+	}
+	public void setProfessorName(String professorName) {
+		this.professorName = professorName;
+	}
+	public int getEnrolledCount() {
+		return enrolledCount;
+	}
+	public void setEnrolledCount(int enrolledCount) {
+		this.enrolledCount = enrolledCount;
+	}
 	@Override
 	public String toString() {
 		return "CourseDTO [crs_cd=" + crs_cd + ", dept_id=" + dept_id + ", year=" + year + ", semester=" + semester
 				+ ", division=" + division + ", crs_name=" + crs_name + ", p_code=" + p_code + ", credit=" + credit
 				+ ", crs_desc=" + crs_desc + ", period_start=" + period_start + ", period_end=" + period_end
 				+ ", time_start=" + time_start + ", time_end=" + time_end + ", days=" + days + ", eval_method="
-				+ eval_method + ", textbook=" + textbook + ", crs_room=" + crs_room + ", capacity=" + capacity + "]";
+				+ eval_method + ", textbook=" + textbook + ", crs_room=" + crs_room + ", capacity=" + capacity
+				+ ", dept_name=" + dept_name + ", professorName=" + professorName + ", enrolledCount=" + enrolledCount
+				+ "]";
 	}
-	
+    
 	
 	
 	

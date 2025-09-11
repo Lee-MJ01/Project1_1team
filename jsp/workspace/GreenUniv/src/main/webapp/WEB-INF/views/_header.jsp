@@ -1,17 +1,40 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="jakarta.tags.core" %>
+
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/header.css">
 <header>
     <div class="topbar">
       <div class="container topbar__nav" role="navigation" aria-label="상단 빠른 메뉴">
         <ul class="topbar__list">
-          <li class="topbar__item"><a href="${pageContext.request.contextPath}">HOME</a></li>
-          <li class="topbar__item"><a href="${pageContext.request.contextPath}">사이트맵</a></li>
-          <li class="topbar__item"><a href="${pageContext.request.contextPath}/member/login.do">로그인</a></li>
-          <li class="topbar__item"><a href="${pageContext.request.contextPath}/student/curriculum.do">학생지원</a></li>
+          <li class="topbar__item"><a href="${pageContext.request.contextPath}/">HOME</a></li>
+          <li class="topbar__item"><a href="#">사이트맵</a></li>
+          
+          <c:choose>
+              <c:when test="${empty sessionScope.loginUser}">
+                  <li class="topbar__item"><a href="${pageContext.request.contextPath}/member/login.do">로그인</a></li>
+              </c:when>
+              <c:otherwise>
+                  <li class="topbar__item"><strong>${sessionScope.loginUser.user_name}님</strong></li>
+                  <li class="topbar__item"><a href="${pageContext.request.contextPath}/member/logout.do">로그아웃</a></li>
+              </c:otherwise>
+          </c:choose>
+          
+          <%-- ▼▼▼ 학생지원 메뉴 조건부 처리 ▼▼▼ --%>
+          <c:choose>
+              <%-- 세션의 isStudent 값이 true일 때 (학부생일 때) --%>
+              <c:when test="${sessionScope.isStudent}">
+                  <li class="topbar__item"><a href="${pageContext.request.contextPath}/student/curriculum.do">학생지원</a></li>
+              </c:when>
+              <%-- 학부생이 아닐 때 (교직원, 일반인, 비로그인) --%>
+              <c:otherwise>
+                  <li class="topbar__item"><a href="javascript:alert('학부생만 접근 가능한 메뉴입니다.');" style="color: grey; cursor: not-allowed;">학생지원</a></li>
+              </c:otherwise>
+          </c:choose>
         </ul>
       </div>
     </div>
+    
     <nav class="gnb" role="navigation" aria-label="주 메뉴">
         <div class="container gnb__inner">
             <a href="${pageContext.request.contextPath}" aria-label="그린대학교 홈"><img class="brand__logo" src="${pageContext.request.contextPath}/images/header_logo.png" alt="그린대학교"></a>

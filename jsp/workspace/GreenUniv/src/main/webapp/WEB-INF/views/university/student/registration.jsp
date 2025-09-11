@@ -18,11 +18,11 @@
     <p class="aside-title">학생지원</p>
     <nav aria-label="학생지원 사이드 메뉴">
       <ul>
-        <li><a href="/university/student/registration.html" aria-current="page">수강신청</a></li>
-        <li><a href="/university/student/registered.html" >수강신청내역</a></li>
-        <li><a href="/university/student/curriculum.html">나의교육과정</a></li>
-        <li><a href="/university/student/grades.html">성적조회</a></li>
-        <li><a href="/university/student/records.html">학적</a></li>
+        <li class="active"><a href="${pageContext.request.contextPath}/student/registration.do">수강신청</a></li>
+        <li><a href="${pageContext.request.contextPath}/student/registered.do">수강신청내역</a></li>
+        <li><a href="${pageContext.request.contextPath}/student/curriculum.do">나의교육과정</a></li>
+        <li><a href="${pageContext.request.contextPath}/student/grades.do">성적조회</a></li>
+        <li><a href="${pageContext.request.contextPath}/student/records.do">학적</a></li>
       </ul>
     </nav>
   </aside>
@@ -49,58 +49,60 @@
 
     <div class="main-wrapper">
         <table border="0" class="main-table">
-          <tr>
-            <th>개설학과</th>
-            <th>구분</th>
-            <th>학년</th>
-            <th>코드</th>
-            <th>과목명</th>
-            <th>학점</th>
-            <th>담당교수</th>
-            <th>수강인원</th>
-            <th>비고</th>
-            <th>신청</th>
-          </tr>
-
-          <tr>
-            <td>컴퓨터공학</td>
-            <td>전공</td>
-            <td>1</td>
-            <td>830001</td>
-            <td>컴퓨터과학개론</td>
-            <td>3</td>
-            <td>김컴공</td>
-            <td>12/30</td>
-            <td></td>
-            <td>
-              <a href="#">신청</a>
-            </td>
-          </tr>
-
-          <tr>
-            <td>컴퓨터공학</td>
-            <td>전공</td>
-            <td>1</td>
-            <td>830001</td>
-            <td>컴퓨터과학개론</td>
-            <td>3</td>
-            <td>김컴공</td>
-            <td>12/30</td>
-            <td></td>
-          <td>
-            <a href="#">신청</a>
-          </td>
-        </tr>
+          <thead>
+            <tr>
+              <th>개설학과</th>
+              <th>구분</th>
+              <th>학년</th>
+              <th>코드</th>
+              <th>과목명</th>
+              <th>학점</th>
+              <th>담당교수</th>
+              <th>수강인원</th>
+              <th>비고</th>
+              <th>신청</th>
+            </tr>
+          </thead>
+          <tbody>
+            <c:if test="${empty courseList}">
+              <tr>
+                <td colspan="10">개설된 강좌가 없습니다.</td>
+              </tr>
+            </c:if>
+            <c:forEach var="course" items="${courseList}">
+              <tr>
+                <td><c:out value="${course.dept_name}"/></td>
+                <td><c:out value="${course.division}"/></td>
+                <td><c:out value="${course.year}"/></td>
+                <td><c:out value="${course.crs_cd}"/></td>
+                <td><c:out value="${course.crs_name}"/></td>
+                <td><c:out value="${course.credit}"/></td>
+                <td><c:out value="${course.professorName}"/></td>
+                <td>${course.enrolledCount} / ${course.capacity}</td>
+                <td></td>
+                <td>
+                  <form action="${pageContext.request.contextPath}/student/registration.do" method="post" style="margin:0;">
+                    <input type="hidden" name="crs_cd" value="${course.crs_cd}">
+                    <input type="submit" value="신청" class="btn-apply">
+                  </form>
+                </td>
+              </tr>
+            </c:forEach>
+          </tbody>
         </table>
 
         <div class="pagination">
-          <a href="#" class=""><img src="/images/btn-first-page.png" alt="이전이전"></a>
-          <a href="#" class=""><img src="/images/btn-prev-page.png" alt="이전"></a>
-          <a href="#" class="">1</a>
-          <a href="#" class="">2</a>
-          <a href="#" class="">3</a>
-          <a href="#" class=""><img src="/images/btn-next-page.png" alt="다음"></a>
-          <a href="#" class=""><img src="/images/btn-last-page.png" alt="다음다음"></a>
+            <c:if test="${pagenationDTO.pageGroupStart > 1}">
+                <a href="?pg=${pagenationDTO.pageGroupStart - 1}"><img src="${pageContext.request.contextPath}/images/btn-prev-page.png" alt="이전"></a>
+            </c:if>
+
+            <c:forEach var="pageNum" begin="${pagenationDTO.pageGroupStart}" end="${pagenationDTO.pageGroupEnd}">
+                <a href="?pg=${pageNum}" class="${pageNum == pagenationDTO.currentPage ? 'active' : ''}">${pageNum}</a>
+            </c:forEach>
+
+            <c:if test="${pagenationDTO.pageGroupEnd < pagenationDTO.lastPageNum}">
+                <a href="?pg=${pagenationDTO.pageGroupEnd + 1}"><img src="${pageContext.request.contextPath}/images/btn-next-page.png" alt="다음"></a>
+            </c:if>
         </div>
 
     </div>

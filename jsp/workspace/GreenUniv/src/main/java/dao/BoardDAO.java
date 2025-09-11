@@ -53,7 +53,7 @@ public class BoardDAO extends DBHelper{
     }
     
     /**
-     * 게시판 종류(comm_cd)에 따라 페이지 시작점(limitStart)부터 10개의 게시글을 조회합니다.
+     * 게시판 종류(comm_cd)에 따라 페이지 시작점(limitStart)부터 5개의 게시글을 조회합니다.
      * @param commCd
      * @param limitStart
      * @return
@@ -316,68 +316,6 @@ public class BoardDAO extends DBHelper{
 		}
 		return dtoList;
 	}
-	
-	//커뮤니티 뉴스 및 칼럼
-	public List<BoardDTO> communityNewsSelectAll(int page, int pageSize){
-	    List<BoardDTO> dtoList = new ArrayList<>();
-	    int offset = (Math.max(page,1)-1) * Math.max(pageSize,1);
-
-	    try {
-	        conn = getConnection();
-	        psmt = conn.prepareStatement(Sql.SELECT_COMMUNITY_NEWS_ALL);
-	        psmt.setString(1, "6002");     
-	        psmt.setInt(2, offset);
-	        psmt.setInt(3, pageSize);
-
-	        rs = psmt.executeQuery();
-	        while (rs.next()) {
-	            BoardDTO dto = new BoardDTO();
-	            dto.setNumber(rs.getInt("no"));
-	            dto.setDivision(rs.getString("division"));
-	            dto.setTitle(rs.getString("title"));
-	            dto.setWriter(rs.getString("writer"));
-	            dto.setW_date(rs.getString("wdate"));   
-	            dto.setView_count(rs.getInt("view_count"));
-	            dtoList.add(dto);
-	        }
-	        closeAll();
-
-	    } catch (Exception e) {
-	        logger.error(e.getMessage(), e);
-	    } 
-	    return dtoList;
-	}
-	
-	//커뮤니티 취업정보
-	public List<BoardDTO> communityjobsSelectAll(int page, int pageSize){
-	    List<BoardDTO> dtoList = new ArrayList<>();
-	    int offset = (Math.max(page,1)-1) * Math.max(pageSize,1);
-	    try {
-	        conn = getConnection();
-	        psmt = conn.prepareStatement(Sql.SELECT_JOBS_LIST);
-	        psmt.setString(1, "6003");   
-	        psmt.setInt(2, offset);
-	        psmt.setInt(3, pageSize);
-	        
-	        rs = psmt.executeQuery();
-	        while (rs.next()){
-	            BoardDTO d = new BoardDTO();
-	            d.setNumber(rs.getInt("no"));
-	            d.setStat_2(rs.getString("stat_2"));
-	            d.setCompany(rs.getString("company"));
-	            d.setTitle(rs.getString("title"));
-	            d.setDeadline(rs.getString("deadline_str"));
-	            d.setView_count(rs.getInt("view_count"));
-	            dtoList.add(d);
-	        }
-	        closeAll();
-	    } catch(Exception e){
-	        logger.error(e.getMessage(), e);
-	    }
-	    return dtoList;
-	}
-
-	
 	public void insert() {}
 	public void update() {}
 	public void delete() {}

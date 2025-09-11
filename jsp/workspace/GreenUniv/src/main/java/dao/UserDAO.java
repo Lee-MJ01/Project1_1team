@@ -75,6 +75,38 @@ public class UserDAO extends DBHelper {
 		return u;
 	}
 	
+	/**
+	 * 주어진 ID가 student 테이블에 존재하는지 확인 (학부생 여부 체크)
+	 * @param userId 확인할 사용자 ID (학번)
+	 * @return 학생이면 true, 아니면 false
+	 */
+	public boolean isStudent(String userId) {
+	    boolean result = false;
+	    try {
+	        conn = getConnection();
+	        // student 테이블에서 std_id가 일치하는 데이터가 있는지 COUNT
+	        psmt = conn.prepareStatement("SELECT COUNT(*) FROM student WHERE std_id = ?");
+	        psmt.setString(1, userId);
+	        rs = psmt.executeQuery();
+
+	        if (rs.next()) {
+	            // COUNT 결과가 0보다 크면 학생임
+	            if (rs.getInt(1) > 0) {
+	                result = true;
+	            }
+	        }
+	    } catch (Exception e) {
+	        logger.error("isStudent 오류: " + e.getMessage());
+	    } finally {
+	        try {
+	            closeAll();
+	        } catch (SQLException e) {
+	            logger.error("isStudent 자원 해제 오류", e);
+	        }
+	    }
+	    return result;
+	}
+	
 	// SELECT 메서드 (로그인 조회)
 	public Optional<UserDTO> selectForLogin(String user_id, String pass) {
 		try {
