@@ -21,7 +21,22 @@ public class CourseDTO {
     private String crs_room;     // 강의실
     private int capacity;        // 최대 수강 인원
     
+    //추가필드
+    private String dept_name;
+    private String name_ko;
     
+    public String getDept_name() {
+		return dept_name;
+	}
+    public void setDept_name(String dept_name) {
+		this.dept_name = dept_name;
+	}
+    public String getName_ko() {
+		return name_ko;
+	}
+    public void setName_ko(String name_ko) {
+		this.name_ko = name_ko;
+	}
     
 	public int getCrs_cd() {
 		return crs_cd;
@@ -236,18 +251,19 @@ public class CourseDTO {
 	public void setCapacity(int capacity) {
 		this.capacity = capacity;
 	}
-
-
-
 	@Override
 	public String toString() {
 		return "CourseDTO [crs_cd=" + crs_cd + ", dept_id=" + dept_id + ", year=" + year + ", semester=" + semester
 				+ ", division=" + division + ", crs_name=" + crs_name + ", p_code=" + p_code + ", credit=" + credit
 				+ ", crs_desc=" + crs_desc + ", period_start=" + period_start + ", period_end=" + period_end
 				+ ", time_start=" + time_start + ", time_end=" + time_end + ", days=" + days + ", eval_method="
-				+ eval_method + ", textbook=" + textbook + ", crs_room=" + crs_room + ", capacity=" + capacity + "]";
+				+ eval_method + ", textbook=" + textbook + ", crs_room=" + crs_room + ", capacity=" + capacity
+				+ ", dept_name=" + dept_name + ", name_ko=" + name_ko + "]";
 	}
-	
+
+
+
+
 	
 	
 	

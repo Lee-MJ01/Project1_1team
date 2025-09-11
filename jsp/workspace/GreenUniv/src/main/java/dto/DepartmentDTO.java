@@ -13,7 +13,19 @@ public class DepartmentDTO {
 	
 	//추가필드
 	private int college_id;
-	
+	private int professor_count;
+	private int student_count;
+	private int course_count;
+
+	public int getProfessor_count() { return professor_count; }
+	public void setProfessor_count(int professor_count) { this.professor_count = professor_count; }
+
+	public int getStudent_count() { return student_count; }
+	public void setStudent_count(int student_count) { this.student_count = student_count; }
+
+	public int getCourse_count() { return course_count; }
+	public void setCourse_count(int course_count) { this.course_count = course_count; }
+
 	
 	public int getCollege_id() {
 		return college_id;

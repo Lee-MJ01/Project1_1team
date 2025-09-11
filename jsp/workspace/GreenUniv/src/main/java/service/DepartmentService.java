@@ -25,6 +25,16 @@ public enum DepartmentService {
 	public List<DepartmentDTO> findAll() {
 		return dao.selectAll();
 	}
+	public List<DepartmentDTO> getPagedList(int page, int pageSize) {
+	    int offset = (page - 1) * pageSize;
+	    return dao.selectPagedForList(offset, pageSize);
+	}
+
+	public int getTotalDepartments() {
+	    return dao.countAll();
+	}
+
+	
 	
 	public void modify() {
 		

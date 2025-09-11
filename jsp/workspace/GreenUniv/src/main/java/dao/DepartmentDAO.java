@@ -167,6 +167,66 @@ public class DepartmentDAO extends DBHelper{
 		
 		return dtoList;
 	}
+	
+	public List<DepartmentDTO> selectPagedForList(int offset, int pageSize) {
+	    List<DepartmentDTO> dtoList = new ArrayList<>();
+	    String sql = "SELECT d.dept_id, d.college_name, d.dept_name, d.chair_name, d.dept_phone, " +
+	                 "COALESCE(p.prof_count, 0) AS professor_count, " +
+	                 "COALESCE(s.std_count, 0) AS student_count, " +
+	                 "COALESCE(c.crs_count, 0) AS course_count " +
+	                 "FROM department d " +
+	                 "LEFT JOIN (SELECT dept_id, COUNT(*) AS prof_count FROM professor GROUP BY dept_id) p ON d.dept_id = p.dept_id " +
+	                 "LEFT JOIN (SELECT dept_id, COUNT(*) AS std_count FROM student GROUP BY dept_id) s ON d.dept_id = s.dept_id " +
+	                 "LEFT JOIN (SELECT dept_id, COUNT(*) AS crs_count FROM course GROUP BY dept_id) c ON d.dept_id = c.dept_id " +
+	                 "ORDER BY d.dept_id ASC " +
+	                 "LIMIT ? OFFSET ?";
+
+	    try {
+	        conn = getConnection();
+	        psmt = conn.prepareStatement(sql);
+	        psmt.setInt(1, pageSize);
+	        psmt.setInt(2, offset);
+	        rs = psmt.executeQuery();
+
+	        while (rs.next()) {
+	            DepartmentDTO dto = new DepartmentDTO();
+	            dto.setDept_id(rs.getInt("dept_id"));
+	            dto.setCollege_name(rs.getString("college_name"));
+	            dto.setDept_name(rs.getString("dept_name"));
+	            dto.setChair_name(rs.getString("chair_name"));
+	            dto.setDept_phone(rs.getString("dept_phone"));
+	            dto.setProfessor_count(rs.getInt("professor_count"));
+	            dto.setStudent_count(rs.getInt("student_count"));
+	            dto.setCourse_count(rs.getInt("course_count"));
+	            dtoList.add(dto);
+	        }
+	    } catch (Exception e) {
+	        logger.error(e.getMessage());
+	    } finally {
+	        try { closeAll(); } catch (SQLException e) { logger.error(e.getMessage()); }
+	    }
+	    return dtoList;
+	}
+	
+	public int countAll() {
+	    int total = 0;
+	    String sql = "SELECT COUNT(*) FROM department";
+	    try {
+	        conn = getConnection();
+	        stmt = conn.createStatement();
+	        rs = stmt.executeQuery(sql);
+	        if (rs.next()) {
+	            total = rs.getInt(1);
+	        }
+	    } catch (Exception e) {
+	        logger.error(e.getMessage());
+	    } finally {
+	        try { closeAll(); } catch (SQLException e) { logger.error(e.getMessage()); }
+	    }
+	    return total;
+	}
+
+	
 	public void update(DepartmentDTO dto) {}
 	public void delete(int dept_id) {}
 	

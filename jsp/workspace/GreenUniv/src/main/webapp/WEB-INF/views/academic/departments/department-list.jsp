@@ -235,134 +235,37 @@
                         <th>개설 강의 수</th>
                     </thead>
                     <tbody>
-        <!-- 바디 -->	
-        				<c:forEach var="dto" items="${deptDtoList}">
-	        				<tr>
-								<td>${dto.dept_id}</td>
-								<td>${dto.college_name}</td>        				
-								<td>${dto.dept_name}</td>        				
-								<td>${dto.chair_name}</td>        				
-								<td>${dto.dept_phone}</td>        				
-								<td>x</td>        				
-								<td>x</td>        				
-								<td>x</td>        				
-        					</tr>
-        				</c:forEach>
-                        <tr>
-                            <td>10</td>
-                            <td>인문사회대학</td>
-                            <td>국문학과</td>
-                            <td>김국어</td>
-                            <td>051-512-1010</td>
-                            <td>23</td>
-                            <td>322</td>
-                            <td>42</td>
-                        </tr>
-                        <tr>
-                            <td>11</td>
-                            <td>인문사회대학</td>
-                            <td>영어영문학과</td>
-                            <td>김영어</td>
-                            <td>051-512-1011</td>
-                            <td>20</td>
-                            <td>312</td>
-                            <td>23</td>
-                        </tr>
-                        <tr>
-                            <td>20</td>
-                            <td>자연과학대학</td>
-                            <td>영문학과</td>
-                            <td>김생물</td>
-                            <td>051-512-1234</td>
-                            <td>23</td>
-                            <td>322</td>
-                            <td>42</td>
-                        </tr>
-                        <tr>
-                            <td>21</td>
-                            <td>자연과학대학</td>
-                            <td>물리학과</td>
-                            <td>김물리</td>
-                            <td>051-512-1234</td>
-                            <td>23</td>
-                            <td>322</td>
-                            <td>42</td>
-                        </tr>
-                        <tr>
-                            <td>30</td>
-                            <td>공과대학</td>
-                            <td>기계공학과</td>
-                            <td>김기계</td>
-                            <td>051-512-1234</td>
-                            <td>23</td>
-                            <td>322</td>
-                            <td>42</td>
-                        </tr>
-                        <tr>
-                            <td>31</td>
-                            <td>공과대학</td>
-                            <td>컴퓨터공학과</td>
-                            <td>김컴공</td>
-                            <td>051-512-1234</td>
-                            <td>23</td>
-                            <td>322</td>
-                            <td>42</td>
-                        </tr>
-                        <tr>
-                            <td>31</td>
-                            <td>공과대학</td>
-                            <td>컴퓨터공학과</td>
-                            <td>김컴공</td>
-                            <td>051-512-1234</td>
-                            <td>23</td>
-                            <td>322</td>
-                            <td>42</td>
-                        </tr>
-                        <tr>
-                            <td>31</td>
-                            <td>공과대학</td>
-                            <td>컴퓨터공학과</td>
-                            <td>김컴공</td>
-                            <td>051-512-1234</td>
-                            <td>23</td>
-                            <td>322</td>
-                            <td>42</td>
-                        </tr>
-                        <tr>
-                            <td>31</td>
-                            <td>공과대학</td>
-                            <td>컴퓨터공학과</td>
-                            <td>김컴공</td>
-                            <td>051-512-1234</td>
-                            <td>23</td>
-                            <td>322</td>
-                            <td>42</td>
-                        </tr>
-                        <tr>
-                            <td>31</td>
-                            <td>공과대학</td>
-                            <td>컴퓨터공학과</td>
-                            <td>김컴공</td>
-                            <td>051-512-1234</td>
-                            <td>23</td>
-                            <td>322</td>
-                            <td>42</td>
-                        </tr>
-                       
-                        </tr>
-                       
+			        <!-- 바디 -->	
+						<c:forEach var="dto" items="${deptDtoList}">
+						    <tr>
+						        <td>${dto.dept_id}</td>
+						        <td>${dto.college_name}</td>
+						        <td>${dto.dept_name}</td>
+						        <td>${dto.chair_name}</td>
+						        <td>${dto.dept_phone}</td>
+						        <td>${dto.professor_count}</td>
+						        <td>${dto.student_count}</td>
+						        <td>${dto.course_count}</td>
+						    </tr>
+						</c:forEach>
                     </tbody>
                 </table>
                 <div class = "btnDiv">
-                    <div class="pagenation">
-                        <button><img src = "images/btn-first-page.png"></button>
-                        <button><img src = "images/btn-prev-page.png"></button>
-                        <button class="livepage">1</button>
-                        <button>2</button>
-                        <button>3</button>
-                        <button><img src = "images/btn-next-page.png"></button>
-                        <button><img src = "images/btn-last-page.png"></button>
-                    </div>
+						<div class="pagenation">
+						    <c:if test="${currentPage > 1}">
+						        <a href="?page=1">«</a>
+						        <a href="?page=${currentPage - 1}">‹</a>
+						    </c:if>
+						
+						    <c:forEach begin="1" end="${totalPages}" var="i">
+						        <a href="?page=${i}" class="${i == currentPage ? 'livepage' : ''}">${i}</a>
+						    </c:forEach>
+						
+						    <c:if test="${currentPage < totalPages}">
+						        <a href="?page=${currentPage + 1}">›</a>
+						        <a href="?page=${totalPages}">»</a>
+						    </c:if>
+						</div>
                     <div  class="registerbtn">  
                         <button>등록</button>
                     </div>

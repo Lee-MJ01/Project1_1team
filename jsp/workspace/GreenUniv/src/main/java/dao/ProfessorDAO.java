@@ -192,4 +192,27 @@ public class ProfessorDAO extends DBHelper {
         d.setDept_name(rs.getString(i++));
         return d;
     }
+    
+    public int findCodeByName(String profname) {
+        String sql = "SELECT p_code FROM professor WHERE name_ko=?";
+        int p_code = 0;
+        try {
+			conn= getConnection();
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, profname);
+			rs = psmt.executeQuery();
+			
+			if(rs.next()) {
+				p_code = rs.getInt(1);
+			}
+			closeAll();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+        
+        return p_code;
+    }
+
+    
 }
