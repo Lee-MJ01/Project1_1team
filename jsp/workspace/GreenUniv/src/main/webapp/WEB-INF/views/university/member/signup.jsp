@@ -89,8 +89,8 @@
 						<div class="row">
 							<div class="th">비밀번호<span class="req">*</span></div>
 							<div class="td">
-								<input type="password" id="pass1" name="pass1" minlength="8" maxlength="16" placeholder="비밀번호 입력" required>
-								<span id="passMsg" class="msg">비밀번호는 8~16자리 이내, 영문 · 숫자 · 특수문자 조합</span>
+								<input type="password" id="pass1" name="pass" minlength="8" maxlength="16" placeholder="비밀번호 입력" required>
+								<span id="pass1Msg" class="msg">비밀번호는 8~16자리 이내, 영문 · 숫자 · 특수문자 조합</span>
 							</div>
 						</div>
 	              
@@ -99,7 +99,7 @@
 							<div class="th">비밀번호 확인<span class="req">*</span></div>
 							<div class="td">
 								<input type="password" id="pass2" name="pass2" minlength="8" maxlength="16" placeholder="비밀번호 확인 입력" required>
-								<span id="passMsg" class="msg"></span>
+								<span id="pass2Msg" class="msg"></span>
 							</div>
 						</div>
 	              
@@ -214,14 +214,12 @@
 	// 간단 검증
 	document.getElementById('joinForm').addEventListener('submit', (e)=>{
 		const id = document.getElementById('uid').value.trim();
-		const pw = document.getElementById('pw').value;
-		const pw2 = document.getElementById('pw2').value;
+		const pw = document.getElementById('pass1').value.trim();
+		const pw2 = document.getElementById('pass2').value.trim();
 		
-		if(!/^[a-zA-Z0-9]{4,10}$/.test(id)){
-		  e.preventDefault(); alert('아이디는 영문/숫자 4~10자입니다.');
-		
-		} else if(pw !== pw2){
-		  e.preventDefault(); alert('비밀번호가 일치하지 않습니다.');
+		if(id.length === 0 || pw.length === 0 || pw2.length === 0){
+			e.preventDefault(); 
+			alert('아이디와 비밀번호를 모두 입력하세요.');
 		}
 	});
 	</script>
@@ -237,8 +235,8 @@
 		const val = uid.value.trim();
 	
 		if(val.length === 0){
-		  idMsg.textContent = "영문·숫자 조합 4~10자 이내";
-		  idMsg.className = "msg info";
+			idMsg.textContent = "영문·숫자 조합 4~10자 이내";
+			idMsg.className = "msg info";
 		
 		} else if(!/^[a-zA-Z0-9]{4,10}$/.test(val)){
 		  	idMsg.textContent = "아이디가 유효하지 않습니다.";
@@ -252,24 +250,41 @@
 	  
 	// Password 검증
 	const pass1 = document.getElementById('pass1');
-	const passMsg = document.getElementById('passMsg');
+	const pass2 = document.getElementById('pass2');
+	const passMsg = document.getElementById('pass1Msg');
+	const pass2Msg = document.getElementById('pass2Msg');
 	
+	const pwRule = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[!@#$%^&*]).{8,16}$/;
+	
+	// 비밀번호1 입력 시 규칙 검증 + 일치 여부 확인
 	pass1.addEventListener('input', () => {
 		const val = pass1.value.trim();
-		
+
 		if(val.length === 0){
-		  passMsg.textContent = "영문·숫자 조합 4~10자 이내";
-		  passMsg.className = "msg info";
-		
-		} else if(!/^[a-zA-Z0-9]{4,10}$/.test(val)){
-			passMsg.textContent = "아이디가 유효하지 않습니다.";
-		  	passMsg.className = "msg error";
-		
+			passMsg.textContent = "비밀번호는 8~16자리 이내, 영문 · 숫자 · 특수문자 조합";
+			passMsg.className = "msg info";
+		} else if(!pwRule.test(val)){
+		    passMsg.textContent = "조건에 맞지 않는 비밀번호입니다.";
+		    passMsg.className = "msg error";
 		} else {
-		  	passMsg.textContent = "사용 가능한 아이디입니다.";
-		  	passMsg.className = "msg success";
+		    passMsg.textContent = "사용 가능한 비밀번호입니다.";
+		    passMsg.className = "msg success";
 		}
 	});
+	
+	// 비밀번호2 → 타이핑할 때도 체크
+	pass2.addEventListener('input', checkPasswordMatch);
+	
+	// 비밀번호 일치 여부 확인 함수
+	function checkPasswordMatch(){
+		if(pass1.value.trim() !== pass2.value.trim()){
+			pass2Msg.textContent = "비밀번호가 일치하지 않습니다.";
+		    pass2Msg.className = "msg error";
+		} else {
+		    pass2Msg.textContent = "비밀번호가 일치합니다.";
+		    pass2Msg.className = "msg success";
+		}
+	}
 	</script>
   
 	<!-- 이메일 인증번호 전송 -->
@@ -281,9 +296,9 @@
 		  return;
 		}
 		
-		fetch("/member/email/sendCode.do", {
+		fetch("${pageContext.request.contextPath}/member/email/sendCode.do", {
 		  method: "POST",
-		  headers: {"Content-Type": "application/x-ww-form-urlencoded"},
+		  headers: {"Content-Type": "application/x-www-form-urlencoded"},
 		  body: "email=" + encodeURIComponent(email)
 		})
 		
@@ -315,7 +330,50 @@
 		}).open();
 	}
 	</script>
-  
+	
+	<script>
+	function checkId() {
+		  const userId = document.getElementById("uid").value;
+		  const idMsg = document.getElementById("idMsg");
+
+		  if (!userId) {
+		    idMsg.textContent = "아이디를 입력하세요.";
+		    idMsg.className = "msg error";
+		    return;
+		  }
+
+		  fetch("${pageContext.request.contextPath}/member/checkId.do?user_id=" + encodeURIComponent(userId))
+		    .then(res => res.text())
+		    .then(result => {
+		      if (result.includes("이미")) {
+		        idMsg.textContent = result;
+		        idMsg.className = "msg error";
+		      } else {
+		        idMsg.textContent = result;
+		        idMsg.className = "msg success";
+		      }
+		    })
+		    .catch(err => {
+		      console.error(err);
+		      idMsg.textContent = "서버 오류가 발생했습니다.";
+		      idMsg.className = "msg error";
+		    });
+		}
+	
+	function checkCode() {
+		  const code = document.getElementById("authCode").value;
+		  if (!code) {
+		    alert("인증코드를 입력하세요.");
+		    return;
+		  }
+
+		  fetch("${pageContext.request.contextPath}/member/email/verifyCode.do?code=" + encodeURIComponent(code))
+		    .then(res => res.text())
+		    .then(result => alert(result))  // "인증 성공" 또는 "인증 실패"
+		    .catch(err => console.error(err));
+		}
+	</script>
+
 	<!-- terms 페이지 연결 -->
 	<%
 		String agree = request.getParameter("agree");

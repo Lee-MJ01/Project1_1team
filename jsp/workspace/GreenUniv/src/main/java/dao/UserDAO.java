@@ -132,20 +132,24 @@ public class UserDAO extends DBHelper {
 	}
 	
 	// SELECT 메서드 (중복 조회, 제거)
-	public boolean existsById(String user_id) {
-		try {
-			conn = getConnection();
-			psmt = conn.prepareStatement("SELECT COUNT(*) FROM users WHERE user_id=?");
-			psmt.setString(1, user_id);
-			rs = psmt.executeQuery();
-			rs.next(); return rs.getInt(1) > 0;
-			
-		} catch (Exception e) {
-			throw new RuntimeException(e);
+	public boolean existsById(String userId) {
+	    boolean result = false;
+	    try {
+	        conn = getConnection();
+	        String sql = "SELECT COUNT(*) FROM users WHERE user_id = ?";
+	        psmt = conn.prepareStatement(sql);
+	        psmt.setString(1, userId);
 
-		} finally { try { closeAll(); 
-
-		} catch (Exception ignore) {} }
+	        rs = psmt.executeQuery();
+	        if (rs.next()) {
+	            result = rs.getInt(1) > 0;
+	        }
+	    } catch (Exception e) {
+	        e.printStackTrace();
+	    } finally {
+	        try { closeAll(); } catch (Exception ignored) {}
+	    }
+	    return result;
 	}
 	
 	public boolean existsByEmail(String email) {
@@ -178,5 +182,47 @@ public class UserDAO extends DBHelper {
 		} finally { try { closeAll(); 
 
 		} catch (Exception ignore) {} }
+	}
+	
+	// 아이디, 비밀번호 찾기
+	public Optional<String> findUserIdByNameEmail(String name, String email) {
+	    String sql = "SELECT user_id FROM users WHERE user_name=? AND email=?";
+	    try {
+	        conn = getConnection();
+	        psmt = conn.prepareStatement(sql);
+	        psmt.setString(1, name);
+	        psmt.setString(2, email);
+	        rs = psmt.executeQuery();
+	        if (rs.next()) return Optional.ofNullable(rs.getString(1));
+	    } catch(Exception e){ e.printStackTrace(); }
+	    finally { try { closeAll(); } catch(Exception ignore){} }
+	    return Optional.empty();
+	}
+
+	public boolean existsByIdAndEmail(String userId, String email) {
+	    String sql = "SELECT COUNT(*) FROM users WHERE user_id=? AND email=?";
+	    try {
+	        conn = getConnection();
+	        psmt = conn.prepareStatement(sql);
+	        psmt.setString(1, userId);
+	        psmt.setString(2, email);
+	        rs = psmt.executeQuery();
+	        if (rs.next()) return rs.getInt(1) > 0;
+	    } catch(Exception e){ e.printStackTrace(); }
+	    finally { try { closeAll(); } catch(Exception ignore){} }
+	    return false;
+	}
+
+	public int updatePassword(String userId, String encPass) {
+	    String sql = "UPDATE users SET pass=? WHERE user_id=?";
+	    try {
+	        conn = getConnection();
+	        psmt = conn.prepareStatement(sql);
+	        psmt.setString(1, encPass);
+	        psmt.setString(2, userId);
+	        return psmt.executeUpdate();
+	    } catch(Exception e){ e.printStackTrace(); }
+	    finally { try { closeAll(); } catch(Exception ignore){} }
+	    return 0;
 	}
 }

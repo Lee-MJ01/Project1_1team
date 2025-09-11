@@ -31,48 +31,50 @@
     </div>
 
     <!-- 메인 -->
-    <main>
-      <div class="terms-wrap">
-        <div class="container">
-          <h2 class="card__title">약관안내</h2>
-          <p class="terms-desc">
-            <strong>※</strong> 대학구성원(학생, 교직원)은 회원가입 없이 학번/교번 아이디로 로그인 가능합니다.<br>
-            <strong>※</strong> 만 14세 미만 아동은 홈페이지 회원가입이 제한됩니다.
-          </p>
+	<main>
+		<div class="terms-wrap">
+			<div class="container">
+				<h2 class="card__title">약관안내</h2>
+				<p class="terms-desc">
+					<strong>※</strong> 대학구성원(학생, 교직원)은 회원가입 없이 학번/교번 아이디로 로그인 가능합니다.<br>
+					<strong>※</strong> 만 14세 미만 아동은 홈페이지 회원가입이 제한됩니다.
+				</p>
 
-          <form id="termsForm" class="form-table" method="get" action="${pageContext.request.contextPath}/member/signup.do" novalidate>
-            <!-- 이용약관 -->
-            <div class="row">
-              <div class="th">이용약관</div>
-              <div class="td">
-              	<textarea readonly>${termsDTO.terms}</textarea>
-            </div>
-            <!-- 개인정보 수집안내 -->
-            <div class="row">
-              <div class="th">개인정보 수집안내</div>
+				<form id="termsForm" class="form-table" method="get" action="${pageContext.request.contextPath}/member/signup.do" novalidate>
+				
+					<!-- 이용약관 -->
+					<div class="row">
+						<div class="th">이용약관</div>
+						<div class="td">
+							<textarea readonly>${termsDTO.terms}</textarea>
+						</div>
+					</div>	
+            
+            		<!-- 개인정보 수집안내 -->
+            		<div class="row">
+						<div class="th">개인정보 수집안내</div>
+						<div class="td">
+							<textarea readonly>${termsDTO.privacy}</textarea>
+						</div>
+					</div>
 
-              <div class="td">
-              	<textarea readonly>${termsDTO.privacy}</textarea>
-              </div>
-            </div>
+					<!-- 동의 -->
+					<div class="terms-check">
+						<label>
+							<input type="checkbox" id="agree" name="agree" value="Y" required>
+							위의 홈페이지 이용에 따른 회원가입 약관 및 개인정보 수집·이용에 모두 동의합니다.
+						</label>
+					</div>
 
-            <!-- 동의 -->
-            <div class="terms-check">
-              <label>
-                <input type="checkbox" id="agree" name="agree" value="Y" required>
-                위의 홈페이지 이용에 따른 회원가입 약관 및 개인정보 수집·이용에 모두 동의합니다.
-              </label>
-            </div>
-
-            <!-- 버튼 -->
-            <div class="actions">
-              <button type="button" class="btn cancel" onclick="history.back()">취소</button>
-              <button type="submit" class="btn primary">다음</button>
-            </div>
-          </form>
-        </div>
-      </div>
-    </main>
+					<!-- 버튼 -->
+					<div class="actions">
+						<button type="button" class="btn cancel" onclick="history.back()">취소</button>
+						<button type="submit" class="btn primary">다음</button>
+					</div>
+          		</form>
+			</div>
+		</div>
+	</main>
 
     <%-- 푸터 부분 포함 --%>
 	<%@ include file="/WEB-INF/views/_footer.jsp" %>
