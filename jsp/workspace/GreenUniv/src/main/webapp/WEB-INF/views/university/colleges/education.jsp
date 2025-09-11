@@ -45,18 +45,14 @@
         <section class="content">
           <h3>사범대학</h3>
 
-          <div class="college-intro">
-            <img src="${pageContext.request.contextPath}/images/college-introduce-4.jpg" alt="사범대학" class="intro-img">
-            <div class="intro-text">
-              <p class="en-title">Education</p>
-              <p class="ko-title">미래를 움직이는 큰 인재, 세계의 주역!</p>
-              <p class="desc">
-                본교 사범대학은 현대 교육에 대한 학문적 주제와 지역 및 글로벌 인재 양성에 중점을 두고 있습니다.
-                강의실, 실험실, 실습동, 원격교육지원센터, 멀티미디어 강의실, 어학연습실,
-                슈먼연습 분석실 등 첨단 시설을 갖춘 교육지원센터를 운영하고 있습니다.
-                부속기관으로는 종합교육연구소, 과학교육연구소, 특수교육연구소 등이 있습니다.
-              </p>
-            </div>
+           <div class="college-intro">
+	        <img src="${pageContext.request.contextPath}${college.image_path}"
+	             alt="${college.college_name} 소개 이미지" class="intro-img">
+	        <div class="intro-text">
+	          <span class="eng-title">${college.college_name_en}</span>
+	          <h4>${college.intro_title}</h4>
+	          <p>${college.intro_body}</p>
+	        </div>
           </div>
 
           <h4 class="dept-title">학부 및 학과</h4>

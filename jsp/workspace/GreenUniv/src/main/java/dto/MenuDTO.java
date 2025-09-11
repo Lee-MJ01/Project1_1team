@@ -7,6 +7,12 @@ public class MenuDTO {
 	public String getComm_cd() {
 		return comm_cd;
 	}
+	
+	public MenuDTO(String comm_cd, String comm_nm) {
+        this.comm_cd = comm_cd;
+        this.comm_nm = comm_nm;
+    }
+	
 	public void setComm_cd(String comm_cd) {
 		this.comm_cd = comm_cd;
 	}

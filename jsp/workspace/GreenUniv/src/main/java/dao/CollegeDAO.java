@@ -55,6 +55,7 @@ public class CollegeDAO extends DBHelper {
         return dto;
     }
 
+
     public List<CollegeDTO> selectAll(int start) {
         List<CollegeDTO> list = new ArrayList<>();
         try {

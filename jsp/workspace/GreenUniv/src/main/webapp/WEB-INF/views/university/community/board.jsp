@@ -1,4 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -71,35 +73,27 @@
                             </tr>
                         </thead>
                     
-                        <tbody>
-                            <tr>
-                                <td>3</td>
-                                <td>
-                                    2024 하반기 도서관 이용자 만족도 조사(추첨을 통해 모···)
-                                </td>
-                                <td>담당자</td>
-                                <td><time datetime="2024-04-09">24.04.09</time></td>
-                                <td>160</td>
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>
-                                    2024 하반기 도서관 이용자 만족도 조사(추첨을 통해 모···)
-                                </td>
-                                <td>담당자</td>
-                                <td><time datetime="2024-04-09">24.04.09</time></td>
-                                <td>160</td>
-                            </tr>
-                            <tr>
-                                <td>1</td>
-                                <td>
-                                    2024 하반기 도서관 이용자 만족도 조사(추첨을 통해 모···)
-                                </td>
-                                <td>담당자</td>
-                                <td><time datetime="2024-04-09">24.04.09</time></td>
-                                <td>160</td>
-                            </tr>
-                        </tbody>
+				            <tbody>
+							  <c:if test="${empty dtoList}">
+							    <tr>
+							      <td colspan="5" style="text-align:center">등록된 게시글이 없습니다.</td>
+							    </tr>
+							  </c:if>
+							
+							  <c:forEach var="row" items="${dtoList}">
+							    <tr>
+							      <td>${row.number}</td>
+							      <td class="title">
+							        <a href="${pageContext.request.contextPath}/community/noticeview.do?no=${row.number}">
+							          <c:out value="${row.title}"/>
+							        </a>
+							      </td>
+							      <td><c:out value="${row.writer}"/></td>
+							      <td>${row.w_date}</td>
+							      <td>${row.view_count}</td>
+							    </tr>
+							  </c:forEach>
+							</tbody>
                     </table>
 
                     <div class="pagination">

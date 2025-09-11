@@ -27,16 +27,25 @@ public class NoticeViewController extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
-		String noparam = req.getParameter("no");
-		 int number;
-	        try {
-	            number = Integer.parseInt(noparam);
-	        } catch (NumberFormatException e) {
-	            resp.sendError(HttpServletResponse.SC_BAD_REQUEST, "no must be integer");
-	            return;
-	        }
-	    BoardDTO boardDTO = boardService.FindNoticeView(number);
-		logger.debug(boardDTO.toString());
+		String noParam = req.getParameter("no");
+        if (noParam == null) {
+            resp.sendError(HttpServletResponse.SC_BAD_REQUEST, "no parameter required");
+            return;
+        }
+
+        int number;
+        try {
+            number = Integer.parseInt(noParam);
+        } catch (NumberFormatException e) {
+            resp.sendError(HttpServletResponse.SC_BAD_REQUEST, "no must be integer");
+            return;
+        }
+
+        BoardDTO boardDTO = boardService.FindAdmissionNoticeView(number);
+        if (boardDTO == null) {
+            resp.sendError(HttpServletResponse.SC_NOT_FOUND, "article not found");
+            return;
+        }
 		
 		req.setAttribute("BoardDTO", boardDTO);
 		

@@ -46,19 +46,13 @@
           <h3>대학원</h3>
 
           <div class="college-intro">
-            <img src="${pageContext.request.contextPath}/images/college-introduce-5.jpg" alt="대학원" class="intro-img">
-            <div class="intro-text">
-              <p class="en-title">GRADUATE SCHOOL</p>
-              <p class="ko-title">학문의 이론과 응용방법을 한층 더 심오하게 연구, 교수 및 지도자적 인격을 도야하고 창의력을 함양</p>
-              <p class="desc">
-                대학원은 학문의 이론과 응용방법을 더욱 심오하게 연구·교수한다. 동시에 인격을 도야하고
-                창의력을 함양하여 전문적인 학문연구와 인재양성을 목표로 한다. 경영대학원, 컴퓨터대학원,
-                행정대학원, 교육대학원, 산업대학원 등 다양한 전공분야의 석·박사 과정이 개설되어 있으며,
-                첨단연구시설과 학문적 지원을 통해 전문성을 높이고 있다. 대학원은 국제적 경쟁력을 갖춘
-                인재 양성을 위해 활발한 연구 활동을 전개하고 있으며, 수시로 개최되는 세미나와 학술대회를
-                통해 연구자 간 교류와 학문적 발전을 도모하고 있다.
-              </p>
-            </div>
+	        <img src="${pageContext.request.contextPath}${college.image_path}"
+	             alt="${college.college_name} 소개 이미지" class="intro-img">
+	        <div class="intro-text">
+	          <span class="eng-title">${college.college_name_en}</span>
+	          <h4>${college.intro_title}</h4>
+	          <p>${college.intro_body}</p>
+	        </div>
           </div>
 
           <h4 class="dept-title">학부 및 학과</h4>
