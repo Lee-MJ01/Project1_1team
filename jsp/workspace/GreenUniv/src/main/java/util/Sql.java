@@ -77,69 +77,66 @@ public class Sql {
 	    "SELECT COUNT(*) FROM college";
 
 	
-	   // student 
-	   public static final String INSERT_STUDENT =
-	           "INSERT INTO student (" +
-	           " std_id, resident_number, name, e_name, gender, division, hp, email, address," +
-	           " entry_year, graduation_year, dept_id, entry_term, entry_grade, advisor, status" +
-	           ") VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+	// student 
+	public static final String INSERT_STUDENT =
+	        "INSERT INTO student (" +
+	        " std_id, resident_number, name, e_name, gender, division, hp, email, address," +
+	        " entry_year, graduation_year, dept_id, entry_term, entry_grade, advisor, status" +
+	        ") VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
-	   public static final String SELECT_STUDENT =
-	           "SELECT std_id, resident_number, name, e_name, gender, division, hp, email, address," +
-	           " entry_year, graduation_year, dept_id, entry_term, entry_grade, advisor, status " +
-	           "FROM student WHERE std_id=?";
+	public static final String SELECT_STUDENT =
+	        "SELECT std_id, resident_number, name, e_name, gender, division, hp, email, address," +
+	        " entry_year, graduation_year, dept_id, entry_term, entry_grade, advisor, status " +
+	        "FROM student WHERE std_id=?";
 
-	   public static final String SELECT_STUDENT_ALL_SIMPLE =
-	           "SELECT std_id, name, resident_number, hp, email, dept_id, entry_grade, entry_term, status " +
-	           "FROM student ORDER BY std_id DESC";
+	public static final String SELECT_STUDENT_ALL_SIMPLE =
+	        "SELECT std_id, name, resident_number, hp, email, dept_id, entry_grade, entry_term, status " +
+	        "FROM student ORDER BY std_id DESC";
 
-	    public static final String SELECT_STUDENT_LIST_COUNT =
-	           "SELECT COUNT(*) FROM student s LEFT JOIN department d ON d.dept_id = s.dept_id %s";
+    public static final String SELECT_STUDENT_LIST_COUNT =
+	        "SELECT COUNT(*) FROM student s LEFT JOIN department d ON d.dept_id = s.dept_id %s";
 
-	   public static final String SELECT_STUDENT_LIST_MYSQL =
-	           "SELECT s.std_id, s.name, s.resident_number, s.hp, s.email, " +
-	           "       d.dept_name AS dept_name, s.entry_grade, s.entry_term, s.status " +
-	           "FROM student s LEFT JOIN department d ON d.dept_id = s.dept_id %s " +
-	           "ORDER BY s.std_id DESC LIMIT ? OFFSET ?";
+	public static final String SELECT_STUDENT_LIST_MYSQL =
+	        "SELECT s.std_id, s.name, s.resident_number, s.hp, s.email, " +
+	        "       d.dept_name AS dept_name, s.entry_grade, s.entry_term, s.status " +
+	        "FROM student s LEFT JOIN department d ON d.dept_id = s.dept_id %s " +
+	        "ORDER BY s.std_id DESC LIMIT ? OFFSET ?";
 
-	   // 학번 시퀀스(연도+학과별)
-	   public static final String UPSERT_STUDENT_SEQ =
-	           "INSERT INTO student_seq(entry_year, dept_id, last_no) VALUES (?, ?, 1) " +
-	           "ON DUPLICATE KEY UPDATE last_no = LAST_INSERT_ID(last_no + 1)";
-	   public static final String SELECT_LAST_INSERT_ID =
-	           "SELECT LAST_INSERT_ID()";
+	// 학번 시퀀스(연도+학과별)
+	public static final String UPSERT_STUDENT_SEQ =
+	        "INSERT INTO student_seq(entry_year, dept_id, last_no) VALUES (?, ?, 1) " +
+	        "ON DUPLICATE KEY UPDATE last_no = LAST_INSERT_ID(last_no + 1)";
+  
+	// ===================== 교수 등록/조회/목록 =====================
 
+    public static final String INSERT_PROFESSOR =
+        "INSERT INTO professor (" +
+        " p_code, nation, name_ko, name_en, gender, jumin, hp, email," +
+        " addr_code, addr, addr_detail, dept_id, hire_date, status, univ, graduate_date, degree" +
+        ") VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
-   
-   // util/Sql.java 에 추가
+    public static final String SELECT_PROFESSOR =
+        "SELECT p.p_code, p.nation, p.name_ko, p.name_en, p.gender, p.jumin, p.hp, p.email," +
+        "       p.addr_code, p.addr, p.addr_detail, p.dept_id, p.hire_date, p.status," +
+        "       p.univ, p.graduate_date, p.degree, d.dept_name " +
+        "FROM professor p LEFT JOIN department d ON d.dept_id = p.dept_id WHERE p.p_code=?";
 
-   // ── professor ────
-   public static final String INSERT_PROFESSOR =
-     "INSERT INTO professor (" +
-     " prof_id, resident_number, name, e_name, gender, division, phone, email," +
-     " zip, addr1, addr2," +
-     " graduated_univ, graduation_date, major_field, degree, dept_id, hire_date" +
-     ") VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+    public static final String SELECT_PROFESSOR_LIST_MYSQL =
+        "SELECT p.p_code, p.name_ko, p.hp, p.email, d.dept_name, p.degree, p.status, p.hire_date " +
+        "FROM professor p LEFT JOIN department d ON d.dept_id = p.dept_id %s " +   // ★ LEFT JOIN
+        "ORDER BY p.p_code DESC LIMIT ? OFFSET ?";
 
-   public static final String SELECT_PROFESSOR =
-     "SELECT p.prof_id, p.resident_number, p.name, p.e_name, p.gender, p.division, p.phone, p.email," +
-     "       p.zip, p.addr1, p.addr2, p.graduated_univ, p.graduation_date, p.major_field, p.degree," +
-     "       p.dept_id, p.hire_date, d.dept_name " +
-     "FROM professor p JOIN department d ON d.dept_id = p.dept_id WHERE p.prof_id=?";
+    public static final String SELECT_PROFESSOR_LIST_COUNT =
+        "SELECT COUNT(*) FROM professor p LEFT JOIN department d ON d.dept_id = p.dept_id %s"; // ★ LEFT JOIN
 
-   // 총 개수
-   public static final String SELECT_PROFESSOR_LIST_COUNT =
-     "SELECT COUNT(*) FROM professor p JOIN department d ON d.dept_id = p.dept_id %s";
+    public static final String UPSERT_PROFESSOR_SEQ =
+        "INSERT INTO professor_seq(hire_year, dept_id, last_no) VALUES (?, ?, 1) " +
+        "ON DUPLICATE KEY UPDATE last_no = LAST_INSERT_ID(last_no + 1)";
 
-   // 목록 (MySQL LIMIT ? OFFSET ?)
-   public static final String SELECT_PROFESSOR_LIST_MYSQL =
-     "SELECT p.prof_id, p.name, p.phone, p.email, d.dept_name, p.degree, p.hire_date " +
-     "FROM professor p JOIN department d ON d.dept_id = p.dept_id %s " +
-     "ORDER BY p.prof_id DESC " +
-     "LIMIT ? OFFSET ?";
-
-	   
-	
+    //학생+교수 공통
+    public static final String SELECT_LAST_INSERT_ID = "SELECT LAST_INSERT_ID()";
+    
+    
 	
 	//Department --서현우
 	//	학과등록
