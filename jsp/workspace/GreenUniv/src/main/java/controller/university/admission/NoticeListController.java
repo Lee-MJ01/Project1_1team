@@ -1,28 +1,20 @@
 package controller.university.admission;
 
 import java.io.IOException;
-<<<<<<< HEAD
 import java.util.List;
 
 import dto.BoardDTO;
-=======
-
->>>>>>> f6337c0d2124f43b093d4f56a2e5113224c4ec0f
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-<<<<<<< HEAD
 import service.BoardService;
-=======
->>>>>>> f6337c0d2124f43b093d4f56a2e5113224c4ec0f
 
 @WebServlet("/admission/notice.do")
 public class NoticeListController extends HttpServlet{
 	private static final long serialVersionUID = 1L;
-<<<<<<< HEAD
 	
 	private BoardService boardService = BoardService.INSTANCE;
 
@@ -35,22 +27,10 @@ public class NoticeListController extends HttpServlet{
 		
 		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/university/admission/notice.jsp");
 		dispatcher.forward(req, resp);
-		
-=======
-
-	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/university/admission/notice.jsp");
-		dispatcher.forward(req, resp);
->>>>>>> f6337c0d2124f43b093d4f56a2e5113224c4ec0f
 	}
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
 	}
-<<<<<<< HEAD
-
-=======
->>>>>>> f6337c0d2124f43b093d4f56a2e5113224c4ec0f
 }

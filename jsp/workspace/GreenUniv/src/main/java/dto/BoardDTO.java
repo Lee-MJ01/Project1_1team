@@ -5,10 +5,7 @@ public class BoardDTO {
 	private String comm_cd;
 	private String title;
 	private String writer;
-<<<<<<< HEAD
 	private String content;
-=======
->>>>>>> f6337c0d2124f43b093d4f56a2e5113224c4ec0f
 	private String w_date;
 	private int view_count;
 	private String stat_1;
@@ -41,15 +38,12 @@ public class BoardDTO {
 	public void setWriter(String writer) {
 		this.writer = writer;
 	}
-<<<<<<< HEAD
 	public String getContent() {
 		return content;
 	}
 	public void setContent(String content) {
 		this.content = content;
 	}
-=======
->>>>>>> f6337c0d2124f43b093d4f56a2e5113224c4ec0f
 	public String getW_date() {
 		return w_date;
 	}
@@ -101,17 +95,10 @@ public class BoardDTO {
 	@Override
 	public String toString() {
 		return "BoardDTO [Number=" + Number + ", comm_cd=" + comm_cd + ", title=" + title + ", writer=" + writer
-<<<<<<< HEAD
 				+ ", content=" + content + ", w_date=" + w_date + ", view_count=" + view_count + ", stat_1=" + stat_1
 				+ ", division=" + division + ", stat_2=" + stat_2 + ", pass_yn=" + pass_yn + ", pwd=" + pwd
 				+ ", file_yn=" + file_yn + "]";
 	}
-
-=======
-				+ ", w_date=" + w_date + ", view_count=" + view_count + ", stat_1=" + stat_1 + ", division=" + division
-				+ ", stat_2=" + stat_2 + ", pass_yn=" + pass_yn + ", pwd=" + pwd + ", file_yn=" + file_yn + "]";
-	}
->>>>>>> f6337c0d2124f43b093d4f56a2e5113224c4ec0f
 	
 	
 

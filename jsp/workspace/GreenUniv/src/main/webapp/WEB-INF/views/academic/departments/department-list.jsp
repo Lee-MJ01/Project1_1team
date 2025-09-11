@@ -1,9 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<<<<<<< HEAD
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
-=======
->>>>>>> f6337c0d2124f43b093d4f56a2e5113224c4ec0f
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -239,7 +235,6 @@
                         <th>개설 강의 수</th>
                     </thead>
                     <tbody>
-<<<<<<< HEAD
         <!-- 바디 -->	
         				<c:forEach var="dto" items="${deptDtoList}">
 	        				<tr>
@@ -253,9 +248,6 @@
 								<td>x</td>        				
         					</tr>
         				</c:forEach>
-=======
-        <!-- 바디 -->
->>>>>>> f6337c0d2124f43b093d4f56a2e5113224c4ec0f
                         <tr>
                             <td>10</td>
                             <td>인문사회대학</td>

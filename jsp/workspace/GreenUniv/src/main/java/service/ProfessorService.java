@@ -14,10 +14,7 @@ public enum ProfessorService {
     public PageResult<ProfessorDTO> findPage(String cond, String kw, int page, int size){
         return dao.selectPage(cond, kw, page, size);
     }
-<<<<<<< HEAD
     public int findCodeByName(String profName) {
         return dao.findCodeByName(profName);
     }
-=======
->>>>>>> f6337c0d2124f43b093d4f56a2e5113224c4ec0f
 }

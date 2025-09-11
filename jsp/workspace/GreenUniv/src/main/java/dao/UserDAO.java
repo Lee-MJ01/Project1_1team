@@ -24,7 +24,6 @@ public class UserDAO extends DBHelper {
 	private Logger logger = LoggerFactory.getLogger(this.getClass());
 	
 	// INSERT 메서드 (회원 정보 입력)
-<<<<<<< HEAD
 	public void insert(UserDTO dto) {
 		try {
 			conn = getConnection();
@@ -43,31 +42,10 @@ public class UserDAO extends DBHelper {
 			closeAll();
 		
 		} catch (Exception e) {
-			e.printStackTrace();
-		} 
-=======
-	public int insert(UserDTO dto) {
-		try {
-			conn = getConnection();
-			psmt = conn.prepareStatement(Sql.INSERT_USER);
-			int i=1;
-			
-			psmt.setString(i++, dto.getUser_id());
-			psmt.setString(i++, dto.getPass());
-			psmt.setString(i++, dto.getUser_name());
-			psmt.setString(i++, dto.getHp());
-			psmt.setString(i++, dto.getEmail());
-			psmt.setString(i++, dto.getAddr1());
-			psmt.setString(i++, dto.getAddr2());
-			psmt.setString(i++, dto.getUser_role());
-			return psmt.executeUpdate();
-		
-		} catch (Exception e) {
 			logger.error("insert", e);
 			throw new RuntimeException(e);
 			
 		} finally { try { closeAll(); } catch (Exception ignore) {} }
->>>>>>> f6337c0d2124f43b093d4f56a2e5113224c4ec0f
 	}
 	
 	// mapping 정의
