@@ -15,7 +15,7 @@ public class ProfessorListController extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
 
-        String cond = req.getParameter("cond"); // prof_id|name|phone|email|dept|degree
+        String cond = req.getParameter("cond");
         String kw   = req.getParameter("kw");
         int page = toInt(req.getParameter("page"), 1);
         int size = toInt(req.getParameter("size"), 10);
@@ -31,5 +31,7 @@ public class ProfessorListController extends HttpServlet {
         req.getRequestDispatcher("/WEB-INF/views/academic/personnel/professors.jsp")
            .forward(req, resp);
     }
-    private int toInt(String s, int def){ try{ return Integer.parseInt(s);}catch(Exception e){ return def; } }
+    private int toInt(String s, int def){
+        try { return Integer.parseInt(s); } catch(Exception e){ return def; }
+    }
 }
