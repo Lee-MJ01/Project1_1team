@@ -22,3 +22,6 @@ public enum ProfessorService {
         return year * 1_000_000 + dept3 * 1_000 + seq3;
     }
 }
+
+
+

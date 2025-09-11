@@ -1,7 +1,7 @@
 package dto;
 
 public class StudentDTO {
-    private int    std_id;
+    private String    std_id;
     private String resident_number;
     private String name;
     private String e_name;
@@ -21,8 +21,8 @@ public class StudentDTO {
     // 목록 표시용
     private String dept_name;
 
-    public int getStd_id() { return std_id; }
-    public void setStd_id(int std_id) { this.std_id = std_id; }
+    public String getStd_id() { return std_id; }
+    public void setStd_id(String std_id) { this.std_id = std_id; }
     public String getResident_number() { return resident_number; }
     public void setResident_number(String resident_number) { this.resident_number = resident_number; }
     public String getName() { return name; }

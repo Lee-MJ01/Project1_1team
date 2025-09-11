@@ -142,7 +142,7 @@ public class DepartmentDAO extends DBHelper{
 				DepartmentDTO dto = new DepartmentDTO();
 				dto.setDept_id(rs.getInt(1));
 				dto.setCollege_name(rs.getString(2));
-				dto.setDept_name(rs.getString(2));
+				dto.setDept_name(rs.getString(3));
 				dto.setDept_name_en(rs.getString(4));
 				dto.setEstablished(rs.getString(5));
 				dto.setChair_name(rs.getString(6));
