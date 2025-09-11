@@ -55,7 +55,7 @@ public class BoardDAO extends DBHelper{
     }
     
     /**
-     * 게시판 종류(comm_cd)에 따라 페이지 시작점(limitStart)부터 10개의 게시글을 조회합니다.
+     * 게시판 종류(comm_cd)에 따라 페이지 시작점(limitStart)부터 5개의 게시글을 조회합니다.
      * @param commCd
      * @param limitStart
      * @return
@@ -371,7 +371,6 @@ public class BoardDAO extends DBHelper{
 		}
 		return dtoList;
 	}
-	
 	//커뮤니티 뉴스 및 칼럼
 	public List<BoardDTO> communityNewsSelectAll(int page, int pageSize){
 	    List<BoardDTO> dtoList = new ArrayList<>();
@@ -531,7 +530,6 @@ public class BoardDAO extends DBHelper{
 	    return r;
 	}
 
-	
 	public void insert() {}
 	public void update() {}
 	public void delete() {}

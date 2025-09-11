@@ -49,7 +49,7 @@ public class LectureRegisterController extends HttpServlet{
         String division    = req.getParameter("division");
         String crs_name    = req.getParameter("crs_name");
         String profName = req.getParameter("prof_name");
-        int p_code         = professorService.findCodeByName(profName);
+        //int p_code         = professorService.findCodeByName(profName);
         int credit         = Integer.parseInt(req.getParameter("credit"));
         String crs_desc    = req.getParameter("crs_desc");
         //String period_start= req.getParameter("period_start");
@@ -79,7 +79,7 @@ public class LectureRegisterController extends HttpServlet{
         dto.setSemester(semester);
         dto.setDivision(division);
         dto.setCrs_name(crs_name);
-        dto.setP_code(p_code);
+        //dto.setP_code(p_code);
         dto.setCredit(credit);
         dto.setCrs_desc(crs_desc);
         dto.setPeriod_start(period_start);

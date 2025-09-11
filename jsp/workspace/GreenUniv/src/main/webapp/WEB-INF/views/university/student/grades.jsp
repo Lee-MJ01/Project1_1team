@@ -23,11 +23,11 @@
     <p class="aside-title">학생지원</p>
     <nav aria-label="학생지원 사이드 메뉴">
       <ul>
-        <li><a href="/university/student/registration.html">수강신청</a></li>
-        <li><a href="/university/student/registered.html" >수강신청내역</a></li>
-        <li><a href="/university/student/curriculum.html">나의교육과정</a></li>
-        <li><a href="${pageContext.request.contextPath}/student/grades.do">성적조회</a></li>
-        <li><a href="/university/student/records.html">학적</a></li>
+      	<li><a href="${pageContext.request.contextPath}/student/registration.do" >수강신청</a></li>
+        <li><a href="${pageContext.request.contextPath}/student/registered.do" >수강신청내역</a></li>
+        <li><a href="${pageContext.request.contextPath}/student/curriculum.do">나의교육과정</a></li>
+        <li><a href="${pageContext.request.contextPath}/student/grades.do"  aria-current="page">성적조회</a></li>
+        <li><a href="${pageContext.request.contextPath}/student/records.do">학적</a></li>
       </ul>
     </nav>
   </aside>
