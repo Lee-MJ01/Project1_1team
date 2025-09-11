@@ -12,6 +12,15 @@ public class Sql {
 		    "WHERE comm_cd = ? " +
 		    "ORDER BY `Number` DESC";
   
+	// 게시판 전체 글 개수 조회
+    public static final String SELECT_NOTICE_COUNT_TOTAL =
+            "SELECT COUNT(*) FROM board WHERE comm_cd = ?";
+
+    // 게시판 페이지별 목록 조회
+    public static final String SELECT_NOTICE_LIST_PAGE =
+            "SELECT `Number` AS no, title, writer, DATE_FORMAT(w_date, '%Y.%m.%d') AS wdate, view_count AS views " +
+            		"FROM board WHERE comm_cd = ? ORDER BY `Number` DESC LIMIT ?, 5";
+	
 	// 식단표
 	public static final String SELECT_MEAL_FOOD_WEEK = 
 			"SELECT "
