@@ -57,33 +57,53 @@
                     </div>
 
                     <table class="cafeteria">
-                        <thead>
-                            <tr>
-                                <th>구분</th>
-                                <th>${weekDate[0]}(월)</th>
-                                <th>${weekDate[1]}(화)</th>
-                                <th>${weekDate[2]}(수)</th>
-                                <th>${weekDate[3]}(목)</th>
-                                <th>${weekDate[4]}(금)</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td class="strong"><strong>코너1</strong></td>
-                                
-                                <!-- DB 처리 -->
-                            </tr>
-                            <tr>
-                                <td class="strong"><strong>코너2</strong></td>
-                                <!-- DB 처리 -->
-                            </tr>
-                            <tr>
-                                <td class="strong"><strong>코너3</strong></td>
-                                
-                                <!-- DB 처리 -->
-                            </tr>
-                        </tbody>
-                    </table>
+					    <thead>
+					        <tr>
+					            <th>구분</th>
+					            <th>${weekDate[0]}(월)</th>
+					            <th>${weekDate[1]}(화)</th>
+					            <th>${weekDate[2]}(수)</th>
+					            <th>${weekDate[3]}(목)</th>
+					            <th>${weekDate[4]}(금)</th>
+					        </tr>
+					    </thead>
+					    <tbody>
+					        <tr>
+					            <td class="strong"><strong>코너1</strong></td>
+					            <%-- weekDate 리스트를 반복하며 월~금요일까지의 칸(<td>)을 생성 --%>
+					            <c:forEach var="day" items="${weekDate}">
+					                <td>
+					                    <%-- Map에서 [해당요일][코너1]의 메뉴 리스트를 꺼내 반복 --%>
+					                    <c:forEach var="foodName" items="${cafeList[day]['1']}">
+					                        ${foodName}<br>
+					                    </c:forEach>
+					                </td>
+					            </c:forEach>
+					        </tr>
+					        <tr>
+					            <td class="strong"><strong>코너2</strong></td>
+					            <c:forEach var="day" items="${weekDate}">
+					                <td>
+					                    <%-- Map에서 [해당요일][코너2]의 메뉴 리스트를 꺼내 반복 --%>
+					                    <c:forEach var="foodName" items="${cafeList[day]['2']}">
+					                        ${foodName}<br>
+					                    </c:forEach>
+					                </td>
+					            </c:forEach>
+					        </tr>
+					        <tr>
+					            <td class="strong"><strong>코너3</strong></td>
+					            <c:forEach var="day" items="${weekDate}">
+					                <td>
+					                    <%-- Map에서 [해당요일][코너3]의 메뉴 리스트를 꺼내 반복 --%>
+					                    <c:forEach var="foodName" items="${cafeList[day]['3']}">
+					                        ${foodName}<br>
+					                    </c:forEach>
+					                </td>
+					            </c:forEach>
+					        </tr>
+					    </tbody>
+					</table>
 
                     <p class="cafeteria-note">※ 항상 그린식당을 이용해 주셔서 감사합니다.</p>
                 </section>
