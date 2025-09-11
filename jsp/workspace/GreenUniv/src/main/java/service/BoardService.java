@@ -45,7 +45,7 @@ public enum BoardService {
 		return dao.admissionNoticeSelectAll();
 	}
 	
-	//입학안내 공지사항 뷰
+	//공지사항 뷰
 	public BoardDTO FindNoticeView(int number){
 		return dao.selectNoticeView(number);
 		
@@ -61,4 +61,17 @@ public enum BoardService {
 		return dao.communityNoticeSelectAll();
 
 	}
+	
+	//커뮤니티 공지사항 select
+	public List<BoardDTO> communitynewsFindAll(int page, int pageSize){
+		return dao.communityNewsSelectAll(page, pageSize);
+
+	}
+	
+	//커뮤니티 취업공지상담? select
+	public List<BoardDTO> communityjobsFindAll(int page, int pageSize){
+		return dao.communityjobsSelectAll(page, pageSize);
+
+	}
+	
 }

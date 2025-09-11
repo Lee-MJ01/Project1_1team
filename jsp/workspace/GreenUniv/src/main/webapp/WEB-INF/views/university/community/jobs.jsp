@@ -1,4 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -80,38 +82,34 @@
                             </tr>
                         </thead>
                     
-                        <tbody>
-                            <tr>
-                                <td>3</td>
-                                <td><span class="recruit" data-status="recruiting">모집중</span></td>
-                                <td>정석수학학원</td>
-                                <td>
-                                    고등 1학년 수학 (공통수학)만 지도 가능한···
-                                </td>
-                                <td><time datetime="2024-04-09">24.04.09 12:00</time></td>
-                                <td>160</td>
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td><span class="recruit" data-status="recruiting">모집중</span></td>
-                                <td>(주)삼성전자</td>
-                                <td>
-                                    2025 상반기 (주)삼성전자 대학원(석사) 신···
-                                </td>
-                                <td><time datetime="2024-04-09">24.04.09 12:00</time></td>
-                                <td>160</td>
-                            </tr>
-                            <tr>
-                                <td>1</td>
-                                <td><span class="recruit" data-status="deadline">마감</span></td>
-                                <td>(주)삼성전자</td>
-                                <td>
-                                    2025 상반기 (주)삼성전자 대학원(석사) 신···
-                                </td>
-                                <td><time datetime="2024-04-09">24.04.09 12:00</time></td>
-                                <td>160</td>
-                            </tr>
-                        </tbody>
+						<tbody>
+						<c:if test="${empty dtoList}">
+					    <tr>
+					      <td colspan="5" style="text-align:center">등록된 게시글이 없습니다.</td>
+					    </tr>
+						</c:if>
+					    <c:forEach var="row" items="${dtoList}">
+					      <tr>
+					        <td class="num">${row.number}</td>
+					        <td>
+					          <c:set var="badgeClass" value="${
+					              row.stat_2 == '모집중' ? 'badge--open' :
+					              (row.stat_2 == '보류' ? 'badge--hold' : 'badge--close')
+					          }"/>
+					          <span class="badge ${badgeClass}">${row.stat_2}</span>
+					        </td>
+					        <td class="company">${row.company}</td>
+					        <td class="title">
+					          <a href="${pageContext.request.contextPath}/jobs/noticeview.do?no=${row.number}">
+					            <c:out value="${row.title}" />
+					          </a>
+					        </td>
+					        <td>${row.deadline}</td>
+					        <td>${row.view_count}</td>
+					      </tr>
+					    </c:forEach>
+					  </tbody>
+                    </table>
                     </table>
 
                     <div class="pagination">

@@ -427,3 +427,18 @@ footer {
     border-top: 4px solid #A7A7A9;
     pointer-events: none;
 }
+
+.badge {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 6px;
+  font-size: 12px;
+  line-height: 18px;
+  color: #fff;
+}
+.badge--news {
+  background-color: #ef4444; /* 빨강 */
+}
+.badge--column {
+  background-color: #3b82f6; /* 파랑 */
+}

@@ -63,7 +63,6 @@ body{font-family:'Noto Sans KR', Arial, system-ui, sans-serif;color:var(--text);
 .page__path strong{color:#145074;font-weight:500}
 .page__path .path__sep svg{width:12px;height:6px;display:block}
 
-
 /* Section title */
 .section-title{display:flex;align-items:center;gap:8px;font-size:16px;font-weight:600;color:#145074;margin:0 0 10px}
 .section-title::before{content:"";width:6px;height:20px;background:var(--accent);border-radius:1px}
@@ -104,7 +103,7 @@ body{font-family:'Noto Sans KR', Arial, system-ui, sans-serif;color:var(--text);
 .addr-top .inp{width:180px}
 .btn-zip{height:32px;padding:0 12px;border:1px solid #cfd6df;background:#eee;cursor:pointer}
 
-/* 학적정보 표(우측 입력 폭 통일) */
+/* 학적정보 표 */
 .form-grid.edu{width:100%;border-collapse:separate;border-spacing:0;table-layout:fixed;font-size:14px;color:#333;border-top:1px solid #D8DEE8}
 .form-grid.edu th,.form-grid.edu td{height:44px;background:#fff;border-bottom:1px solid #E1E6EE;border-right:1px solid #E1E6EE;padding:8px 12px;vertical-align:middle}
 .form-grid.edu tr>*:first-child{border-left:1px solid #D8DEE8}
@@ -113,6 +112,15 @@ body{font-family:'Noto Sans KR', Arial, system-ui, sans-serif;color:var(--text);
 .form-grid.edu td .w180{width:180px;max-width:180px}
 .form-grid.edu .hstack .sel{width:180px}
 .form-grid.edu td .sel{-webkit-appearance:none;-moz-appearance:none;appearance:none;
+  background-image:
+    linear-gradient(45deg, transparent 50%, #666 50%),
+    linear-gradient(135deg, #666 50%, transparent 50%);
+  background-position: calc(100% - 16px) 16px, calc(100% - 10px) 16px;
+  background-size:6px 6px,6px 6px;background-repeat:no-repeat}
+
+/* Footer */
+.site-footer{background:#19202D;color:#cfd3db;height:60px;display:flex;align-items:center}
+.site-footer .footer-inner{width:min(1400px,96vw);margin:0 auto;padding:0 20px;font-size:12px;letter-spacing:.02em}
 </style>
 
 <!-- 카카오 우편번호 -->
@@ -140,7 +148,7 @@ body{font-family:'Noto Sans KR', Arial, system-ui, sans-serif;color:var(--text);
     </nav>
   </div>
 
-  <!-- Brand header (logo → academic index) -->
+  <!-- Brand header  -->
   <header class="brand-bar">
     <a href="${ctx}/academic/index.do">
       <img class="brand-logo" src="${ctx}/images/admin_logo.png" alt="그린대학교 학사관리시스템 로고">
@@ -173,7 +181,7 @@ body{font-family:'Noto Sans KR', Arial, system-ui, sans-serif;color:var(--text);
           </ul>
         </div>
 
-<        <!-- 인사관리 -->
+        <!-- 인사관리 -->
         <div class="menu-group">
           <h3><img src="${ctx}/images/ico-admin-persons.png" alt="" class="menu-icon">인사관리</h3>
           <ul>
@@ -243,9 +251,7 @@ body{font-family:'Noto Sans KR', Arial, system-ui, sans-serif;color:var(--text);
                   <th class="label" scope="row">교수번호</th>
                   <td class="pf-field">
                     <span class="note-red">연도 + 학과 코드 + 순번 조합 자동생성</span>
-                    <!-- 수동입력 필요 시
-                    <input class="inp" type="number" name="prof_id">
-                    -->
+                    
                   </td>
 
                   <th class="label" scope="row">주민등록번호</th>
