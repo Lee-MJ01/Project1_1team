@@ -21,4 +21,10 @@ public enum ProfessorService {
         int seq3  = Math.abs(seq) % 1000;
         return year * 1_000_000 + dept3 * 1_000 + seq3;
     }
+    
+    public int findCodeByName(String profname) {
+        return dao.findCodeByName(profname);
+    }
+
+    
 }

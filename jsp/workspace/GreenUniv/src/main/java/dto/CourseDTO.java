@@ -20,11 +20,26 @@ public class CourseDTO {
     private String textbook;     // 교재
     private String crs_room;     // 강의실
     private int capacity;        // 최대 수강 인원
-    
+
     // ▼▼▼ JOIN해서 가져올 추가 정보 필드 ▼▼▼
     private String dept_name;       // 개설 학과명 (department 테이블)
     private String professorName;   // 담당 교수명 (professor 테이블)
     private int enrolledCount;      // 현재 수강 인원 (enrollment 테이블에서 COUNT)
+    private String name_ko;
+    
+    public String getDept_name() {
+		return dept_name;
+	}
+    public void setDept_name(String dept_name) {
+		this.dept_name = dept_name;
+	}
+    public String getName_ko() {
+		return name_ko;
+	}
+    public void setName_ko(String name_ko) {
+		this.name_ko = name_ko;
+	}
+    
 	public int getCrs_cd() {
 		return crs_cd;
 	}
@@ -158,10 +173,9 @@ public class CourseDTO {
 				+ ", crs_desc=" + crs_desc + ", period_start=" + period_start + ", period_end=" + period_end
 				+ ", time_start=" + time_start + ", time_end=" + time_end + ", days=" + days + ", eval_method="
 				+ eval_method + ", textbook=" + textbook + ", crs_room=" + crs_room + ", capacity=" + capacity
-				+ ", dept_name=" + dept_name + ", professorName=" + professorName + ", enrolledCount=" + enrolledCount
-				+ "]";
+				+ ", dept_name=" + dept_name + ", name_ko=" + name_ko + "]";
 	}
-    
+
 	
 	
 	

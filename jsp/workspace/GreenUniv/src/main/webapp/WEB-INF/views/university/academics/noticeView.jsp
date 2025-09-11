@@ -26,7 +26,7 @@
       <div class="container">
         <!-- 좌측 사이드 메뉴 -->
         <aside class="side-nav">
-          <h2>입학안내</h2>
+          <h2>학사안내</h2>
           <ul>
             <li class="active"><a href="#">공지사항</a></li>
             <li><a href="#">수시모집</a></li>

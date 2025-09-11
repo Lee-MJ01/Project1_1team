@@ -79,7 +79,7 @@
                 <tr>
                   <td>${row.number}</td>
                   <td class="title">
-                    <a href="${pageContext.request.contextPath}/admission/noticeview.do?no=${row.number}&page=${currentPage}">
+				    <a href="${pageContext.request.contextPath}/admission/noticeview.do?no=${row.number}">
                       <c:out value="${row.title}"/>
                     </a>
                   </td>
@@ -108,9 +108,13 @@
 			    </c:if>
 			</div>
           
-          <div class="actions">
-            <a href="${pageContext.request.contextPath}/admission/write.do" class="btn primary">글쓰기</a>
-          </div>
+			<c:url var="writeUrl" value="/board/write.do">
+			  <c:param name="parent_cd" value="0002"/>  <!-- 입학안내 -->
+			  <c:param name="comm_cd"   value="2001"/>  <!-- 공지사항 -->
+			</c:url>
+			
+			<a href="${writeUrl}" class="btn btnWrite">글쓰기</a>
+
         </section>
       </div>
     </main>

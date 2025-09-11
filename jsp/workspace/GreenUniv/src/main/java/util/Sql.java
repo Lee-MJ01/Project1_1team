@@ -12,6 +12,14 @@ public class Sql {
 		    "WHERE comm_cd = ? " +
 		    "ORDER BY `Number` DESC";
 	
+	public static final String SELECT_NOTICE_ONE =
+		    "SELECT comm_cd, `Number` AS no, " +
+		    "       title, content, writer, " +
+		    "       DATE_FORMAT(w_date, '%Y.%m.%d %H:%i') AS wdate, " +
+		    "       view_count AS views " +
+		    "FROM board " +
+		    "WHERE comm_cd = ? AND `Number` = ?";
+	
 	public static final String SELECT_COMMUNITY_NEWS_ALL = 
 	    "SELECT `Number` AS no, division, title, writer, DATE_FORMAT(w_date, '%y.%m.%d') as wdate, view_count " +
 	    "FROM board " +
@@ -31,6 +39,25 @@ public class Sql {
 	    "LIMIT ?, ?";
 
 
+	// board -- 다음 글번호 조회
+    public static final String SELECT_NEXT_NO =
+        "SELECT COALESCE(MAX(`Number`),0)+1 AS nextNo FROM board WHERE comm_cd = ?";
+
+    // 보드 -- 글 저장
+    public static final String INSERT_BOARD =
+        "INSERT INTO board (comm_cd, `Number`, title, content, writer, w_date, view_count) " +
+        "VALUES (?, ?, ?, ?, ?, NOW(), 0)";
+    
+    // 메뉴
+    public static final String SELECT_PARENTS =
+        "SELECT comm_cd, comm_nm FROM Menu " +
+        "WHERE comm_cd IN ('0002','0004','0006') ORDER BY comm_cd";
+
+    public static final String SELECT_CHILDREN_ALL =
+        "SELECT comm_cd, up_comm_cd, comm_nm FROM Menu " +
+        "WHERE up_comm_cd IN ('0002','0004','0006') " +
+        "ORDER BY up_comm_cd, comm_cd";
+    
   
 	// 게시판 전체 글 개수 조회
     public static final String SELECT_NOTICE_COUNT_TOTAL =
@@ -56,15 +83,7 @@ public class Sql {
 			+ "ORDER BY "
 					+ "m.meal_date, m.meal_type";
 	
-	public static final String SELECT_NOTICE_ONE =
-		    "SELECT `Number` AS no, " +
-		    "       title, " +
-		    "       content, " +
-		    "       writer, " +
-		    "       DATE_FORMAT(w_date, '%Y.%m.%d %H:%i') AS wdate, " +
-		    "       view_count AS views " +
-		    "FROM board " +
-		    "WHERE `Number` = ?";
+
 	// college
 	public static final String INSERT_COLLEGE =
 	    "INSERT INTO college (college_name, college_name_en, intro_title, intro_body, image_path) VALUES (?, ?, ?, ?, ?)";
@@ -219,4 +238,11 @@ public class Sql {
 	public static final String SELECT_counsel = "SELECT number, comm_cd, title, writer, w_date, content FROM board WHERE number=?";
 	
 	public static final String SELECT_counsel_ALL = "SELECT * FROM board ";
+
+	//성적 조회 
+	public static final String INSERT_record = "INSERT INTO grades (crs_cd, crs_name, year, advisor, division, grade, Alpa, credit)"
+	+ "VALUES(?, ?, ?, ?, ?, ?, ?, ?)";
+
+
 }
+	

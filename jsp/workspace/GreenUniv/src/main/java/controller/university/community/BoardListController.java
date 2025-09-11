@@ -23,7 +23,7 @@ public class BoardListController extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
 		
-		List<BoardDTO> dtoList = boardService.communityNoticeFindAll();
+		List<BoardDTO> dtoList = boardService.communityBoardFindAll();
 		
 		req.setAttribute("dtoList", dtoList);
 		

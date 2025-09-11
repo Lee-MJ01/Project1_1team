@@ -1,20 +1,28 @@
 package controller.university.community;
 
 import java.io.IOException;
+import java.util.List;
 
+import dto.BoardDTO;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import service.BoardService;
 
 @WebServlet("/community/resources.do")
 public class ResourcesListController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	
+	private BoardService boardService = BoardService.INSTANCE;
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		
+		List<BoardDTO> dtoList = boardService.communityResourceFindAll();
+
 		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/university/community/resources.jsp");
 		dispatcher.forward(req, resp);
 	}

@@ -45,10 +45,17 @@ public enum BoardService {
 		return dao.admissionNoticeSelectAll();
 	}
 	
-	//공지사항 뷰
-	public BoardDTO FindNoticeView(int number){
-		return dao.selectNoticeView(number);
-		
+	//입학안내 공지사항 뷰
+	public BoardDTO FindAdmissionNoticeView(int number){
+	    return dao.selectAdmissionNoticeView(number);
+	}	
+	//학사안내 공지사항 뷰
+	public BoardDTO FindAcademicNoticeView(int number){
+	    return dao.selectAcademicNoticeView(number);
+	}	
+	//커뮤니티 공지사항 뷰
+	public BoardDTO FindCommunityNoticeView(int number){
+	    return dao.selectCommunityNoticeView(number);
 	}
 	
 	//입학안내 공지사항 select
@@ -69,9 +76,29 @@ public enum BoardService {
 //	}
 //	
 	//커뮤니티 취업공지상담? select
-//	public List<BoardDTO> communityjobsFindAll(int page, int pageSize){
-//		return dao.communityjobsSelectAll(page, pageSize);
-//
-//	}
+	public List<BoardDTO> communityjobsFindAll(int page, int pageSize){
+		return dao.communityjobsSelectAll(page, pageSize);
+
+	}
+	//커뮤니티 게시판 select
+	public List<BoardDTO> communityBoardFindAll(){
+		return dao.communityBoardSelectAll();
+	
+	}
+
+		
+	//커뮤니티 게시판 select
+	public List<BoardDTO> communityResourceFindAll(){
+		return dao.communityResourceSelectAll();
+
+	}
+	
+	//글쓰기
+	public int write(BoardDTO dto) {
+	    int newNo = dao.nextNumber(dto.getComm_cd());
+	    dto.setNumber(newNo);
+	    int r = dao.insertBoard(dto);
+	    return r > 0 ? newNo : 0;
+	}
 	
 }

@@ -45,16 +45,13 @@
           <h3>자연과학대학</h3>
 
           <div class="college-intro">
-            <img src="${pageContext.request.contextPath}/images/college-introduce-2.jpg" alt="자연과학대학" class="intro-img">
-            <div class="intro-text">
-              <p class="en-title">Natural Sciences</p>
-              <p class="ko-title">자연과학의 기초 이론 교수와 연구, 융합 및 응용과학의 토대 제공</p>
-              <p class="desc">
-                자연과학대학은 미래 첨단과학기술사회의 연구, 탐구, 산업의 든든한 주축으로써 인류의 나갈 길을 밝히고
-                생활의 질을 향상시키는 목표를 가지고 있다. 자연과학대학의 학문인 물리, 화학, 응용수학, 미생물학, 천연자원학
-                및 환경과학의 기초 이론을 교수·연구하고 창조적 응용 융합과학적 토대를 제공하고 있다.
-              </p>
-            </div>
+	        <img src="${pageContext.request.contextPath}${college.image_path}"
+	             alt="${college.college_name} 소개 이미지" class="intro-img">
+	        <div class="intro-text">
+	          <span class="eng-title">${college.college_name_en}</span>
+	          <h4>${college.intro_title}</h4>
+	          <p>${college.intro_body}</p>
+	        </div>
           </div>
 
           <h4 class="dept-title">학부 및 학과</h4>

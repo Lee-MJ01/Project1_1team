@@ -1,4 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <!DOCTYPE html>
 <html lang="ko">
@@ -236,7 +237,7 @@ body{font-family:'Noto Sans KR', Arial, system-ui, sans-serif;color:var(--text);
               <colgroup>
                 <col style="width:6%"><col style="width:6%"><col style="width:8%"><col style="width:8%">
                 <col style="width:6%"><col style="width:10%"><col style="width:10%"><col style="width:16%">
-                <col style="width:8%"><col style="width:8%"><col style="width:6%"><col style="width:8%">
+                <col style="width:8%"><col style="width:8%"><col style="width:6%"><col style="width:12%">
               </colgroup>
               <thead>
                 <tr>
@@ -244,47 +245,41 @@ body{font-family:'Noto Sans KR', Arial, system-ui, sans-serif;color:var(--text);
                   <th>과목코드</th><th>과목명</th><th>구분</th><th>교수</th><th>학점</th><th>수강 신청일</th>
                 </tr>
               </thead>
-<tbody>
-  <!-- 2025학년도 2학기 -->
-  <tr><td>2025</td><td>2</td><td>20230001</td><td>김가온</td><td>1</td><td>컴퓨터과학과</td><td>3025112</td><td>프로그래밍 개론</td><td>전공선택</td><td>김민정</td><td>3</td><td>2025-08-28</td></tr>
-  <tr><td>2025</td><td>2</td><td>20220012</td><td>박하린</td><td>2</td><td>컴퓨터과학과</td><td>3025113</td><td>자료구조</td><td>전공필수</td><td>김철수</td><td>3</td><td>2025-08-28</td></tr>
-  <tr><td>2025</td><td>2</td><td>20210007</td><td>이준호</td><td>3</td><td>컴퓨터과학과</td><td>3025201</td><td>데이터베이스</td><td>전공필수</td><td>한지수</td><td>3</td><td>2025-08-29</td></tr>
-  <tr><td>2025</td><td>2</td><td>20210033</td><td>최유나</td><td>3</td><td>컴퓨터과학과</td><td>3025304</td><td>운영체제</td><td>전공필수</td><td>정도현</td><td>3</td><td>2025-08-29</td></tr>
-  <tr><td>2025</td><td>2</td><td>20220045</td><td>문채원</td><td>2</td><td>컴퓨터과학과</td><td>3025402</td><td>알고리즘</td><td>전공선택</td><td>김상혁</td><td>3</td><td>2025-08-30</td></tr>
-  <tr><td>2025</td><td>2</td><td>20230024</td><td>정시우</td><td>1</td><td>컴퓨터과학과</td><td>3025105</td><td>웹프로그래밍</td><td>전공선택</td><td>박민아</td><td>3</td><td>2025-08-31</td></tr>
-  <tr><td>2025</td><td>2</td><td>20220078</td><td>강다연</td><td>2</td><td>컴퓨터과학과</td><td>3025503</td><td>컴퓨터네트워크</td><td>전공선택</td><td>오지훈</td><td>3</td><td>2025-08-31</td></tr>
-
-  <!-- 타 학과 혼합: 동일 테이블 컬럼 유지 -->
-  <tr><td>2025</td><td>2</td><td>20210088</td><td>배유진</td><td>3</td><td>경영학과</td><td>5012101</td><td>재무관리</td><td>전공필수</td><td>서미정</td><td>3</td><td>2025-08-28</td></tr>
-  <tr><td>2025</td><td>2</td><td>20210112</td><td>오세진</td><td>3</td><td>경영학과</td><td>5012302</td><td>마케팅원론</td><td>전공선택</td><td>이태경</td><td>3</td><td>2025-08-29</td></tr>
-  <tr><td>2025</td><td>2</td><td>20230045</td><td>김소은</td><td>1</td><td>영어영문학과</td><td>2101105</td><td>영문법</td><td>전공선택</td><td>최은주</td><td>2</td><td>2025-08-30</td></tr>
-  <tr><td>2025</td><td>2</td><td>20220091</td><td>장민규</td><td>2</td><td>영어영문학과</td><td>2101301</td><td>영미소설</td><td>전공선택</td><td>류성진</td><td>3</td><td>2025-08-31</td></tr>
-  <tr><td>2025</td><td>2</td><td>20210021</td><td>유가영</td><td>3</td><td>국어국문학과</td><td>120001</td><td>고전소설Ⅰ</td><td>전공선택</td><td>김국어</td><td>3</td><td>2025-08-29</td></tr>
-  <tr><td>2025</td><td>2</td><td>20230077</td><td>신현우</td><td>1</td><td>디자인학과</td><td>6402104</td><td>타이포그래피</td><td>전공선택</td><td>박도윤</td><td>3</td><td>2025-08-28</td></tr>
-  <tr><td>2025</td><td>2</td><td>20210145</td><td>하나린</td><td>3</td><td>기계공학과</td><td>7303201</td><td>열역학</td><td>전공필수</td><td>정하람</td><td>3</td><td>2025-08-30</td></tr>
-
-  <!-- 교양 과목 예시 -->
-  <tr><td>2025</td><td>2</td><td>20230012</td><td>서도현</td><td>1</td><td>컴퓨터과학과</td><td>9001001</td><td>대학영어</td><td>교양필수</td><td>박연주</td><td>2</td><td>2025-08-28</td></tr>
-  <tr><td>2025</td><td>2</td><td>20220018</td><td>임소민</td><td>2</td><td>경영학과</td><td>9002002</td><td>글쓰기</td><td>교양필수</td><td>김시온</td><td>2</td><td>2025-08-29</td></tr>
-  <tr><td>2025</td><td>2</td><td>20210058</td><td>노서준</td><td>3</td><td>영어영문학과</td><td>9003103</td><td>현대사회와윤리</td><td>교양선택</td><td>이소담</td><td>2</td><td>2025-08-31</td></tr>
-
-  <!-- 2025학년도 1학기(혼합) -->
-  <tr><td>2025</td><td>1</td><td>20230088</td><td>정은비</td><td>1</td><td>컴퓨터과학과</td><td>3025101</td><td>파이썬프로그래밍</td><td>전공선택</td><td>박지현</td><td>3</td><td>2025-03-05</td></tr>
-  <tr><td>2025</td><td>1</td><td>20220002</td><td>김태오</td><td>2</td><td>경영학과</td><td>5012405</td><td>경영정보시스템</td><td>전공선택</td><td>한서윤</td><td>3</td><td>2025-03-06</td></tr>
-  <tr><td>2025</td><td>1</td><td>20210005</td><td>이서하</td><td>3</td><td>국어국문학과</td><td>1202102</td><td>현대시강독</td><td>전공선택</td><td>박현우</td><td>3</td><td>2025-03-06</td></tr>
-</tbody>
+			  <c:forEach var="en" items="${enrollments2}">
+			    <tr>
+			      <td>${en.year}</td>
+			      <td>${en.semester}</td>
+			      <td>${en.stdId}</td>
+			      <td>${en.name}</td>
+			      <td>${en.grade}</td>
+			      <td>${en.deptName}</td>
+			      <td>${en.crsCd}</td>
+			      <td>${en.crsName}</td>
+			      <td>${en.division}</td>
+			      <td>${en.professor}</td>
+			      <td>${en.credit}</td>
+			      <td>${en.enrollDate}</td>
+			    </tr>
+			  </c:forEach>
 
             </table>
 
-            <nav class="gu-paging" aria-label="페이지 이동">
-              <button class="gu-page-btn gu-page-btn--square" title="처음">«</button>
-              <button class="gu-page-btn gu-page-btn--square" title="이전">‹</button>
-              <button class="gu-page-btn is-active" aria-current="page">1</button>
-              <button class="gu-page-btn">2</button>
-              <button class="gu-page-btn">3</button>
-              <button class="gu-page-btn gu-page-btn--square" title="다음">›</button>
-              <button class="gu-page-btn gu-page-btn--square" title="마지막">»</button>
-            </nav>
+			<nav class="gu-paging" aria-label="페이지 이동">
+			  <c:if test="${currentPage > 1}">
+			    <a href="?pg=1" class="gu-page-btn gu-page-btn--square" title="처음">«</a>
+			    <a href="?pg=${currentPage-1}" class="gu-page-btn gu-page-btn--square" title="이전">‹</a>
+			  </c:if>
+			
+			  <c:forEach var="i" begin="1" end="${lastPage}">
+			    <a href="?pg=${i}" class="gu-page-btn ${i == currentPage ? 'is-active' : ''}">${i}</a>
+			  </c:forEach>
+			
+			  <c:if test="${currentPage < lastPage}">
+			    <a href="?pg=${currentPage+1}" class="gu-page-btn gu-page-btn--square" title="다음">›</a>
+			    <a href="?pg=${lastPage}" class="gu-page-btn gu-page-btn--square" title="마지막">»</a>
+			  </c:if>
+			</nav>
+
           </div>
         </div>
       </section>

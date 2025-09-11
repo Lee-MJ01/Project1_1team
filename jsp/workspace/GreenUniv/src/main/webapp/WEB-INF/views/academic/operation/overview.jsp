@@ -1,4 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="jakarta.tags.core" %>
 
 <!DOCTYPE html>
 <html lang="ko">
@@ -239,30 +240,38 @@
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td>국어국문학과</td><td>120001</td><td>고전소설Ⅰ</td><td>2학년</td>
-                  <td>김국어</td><td>전공</td><td>3</td><td>인문관101</td><td>32/46</td><td>70%</td>
-                </tr>
-                <tr>
-                  <td>컴퓨터과학과</td><td>830003</td><td>자바프로그래밍</td><td>2학년</td>
-                  <td>김자바</td><td>전공</td><td>3</td><td>컴퓨터실</td><td>32/46</td><td>70%</td>
-                </tr>
-                <tr>
-                  <td>컴퓨터과학과</td><td>830001</td><td>프로그래밍의 이해</td><td>1학년</td>
-                  <td>김코딩</td><td>전공</td><td>3</td><td>공학관101</td><td>32/46</td><td>70%</td>
-                </tr>
+				  <c:forEach var="dto" items="${overviewList}">
+				    <tr>
+				      <td>${dto.deptName}</td>
+				      <td>${dto.crsCd}</td>
+				      <td>${dto.crsName}</td>
+				      <td>${dto.year}</td>
+				      <td>${dto.professor}</td>
+				      <td>${dto.division}</td>
+				      <td>${dto.credit}</td>
+				      <td>${dto.crsRoom}</td>
+				      <td>${dto.enrolled}/${dto.capacity}</td>
+    				  <td>${dto.enrollRate}%</td>
+				    </tr>
+				  </c:forEach>
               </tbody>
             </table>
 
-            <nav class="gu-paging" aria-label="페이지 이동">
-              <button class="gu-page-btn gu-page-btn--square is-disabled" aria-disabled="true" title="처음">«</button>
-              <button class="gu-page-btn gu-page-btn--square is-disabled" aria-disabled="true" title="이전">‹</button>
-              <button class="gu-page-btn is-active" aria-current="page">1</button>
-              <button class="gu-page-btn">2</button>
-              <button class="gu-page-btn">3</button>
-              <button class="gu-page-btn gu-page-btn--square" title="다음">›</button>
-              <button class="gu-page-btn gu-page-btn--square" title="마지막">»</button>
-            </nav>
+			<nav class="gu-paging" aria-label="페이지 이동">
+			  <c:if test="${currentPage > 1}">
+			    <a class="gu-page-btn gu-page-btn--square" href="?page=1">«</a>
+			    <a class="gu-page-btn gu-page-btn--square" href="?page=${currentPage - 1}">‹</a>
+			  </c:if>
+			
+			  <c:forEach var="i" begin="1" end="${totalPages}">
+			    <a class="gu-page-btn ${i == currentPage ? 'is-active' : ''}" href="?page=${i}">${i}</a>
+			  </c:forEach>
+			
+			  <c:if test="${currentPage < totalPages}">
+			    <a class="gu-page-btn gu-page-btn--square" href="?page=${currentPage + 1}">›</a>
+			    <a class="gu-page-btn gu-page-btn--square" href="?page=${totalPages}">»</a>
+			  </c:if>
+			</nav>
           </div>
         </div>
       </section>
