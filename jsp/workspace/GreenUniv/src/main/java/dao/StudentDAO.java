@@ -25,7 +25,7 @@ public class StudentDAO extends DBHelper {
             conn = getConnection();
             psmt = conn.prepareStatement(Sql.INSERT_STUDENT);
             int i = 1;
-            psmt.setString(i++,    d.getStd_id());
+            psmt.setInt(i++,    d.getStd_id());
             psmt.setString(i++, d.getResident_number());
             psmt.setString(i++, d.getName());
             psmt.setString(i++, d.getE_name());
@@ -116,7 +116,7 @@ public class StudentDAO extends DBHelper {
             if (rs.next()) {
                 d = new StudentDTO();
                 int i = 1;
-                d.setStd_id(rs.getString(i++));
+                d.setStd_id(rs.getInt(i++));
                 d.setResident_number(rs.getString(i++));
                 d.setName(rs.getString(i++));
                 d.setE_name(rs.getString(i++));
@@ -151,7 +151,7 @@ public class StudentDAO extends DBHelper {
             while (rs.next()) {
                 StudentDTO d = new StudentDTO();
                 int i = 1;
-                d.setStd_id(rs.getString(i++));
+                d.setStd_id(rs.getInt(i++));
                 d.setName(rs.getString(i++));
                 d.setResident_number(rs.getString(i++));
                 d.setPhone(rs.getString(i++));
@@ -224,7 +224,7 @@ public class StudentDAO extends DBHelper {
             while (rs2.next()) {
                 StudentDTO d = new StudentDTO();
                 int i = 1;
-                d.setStd_id(rs2.getString(i++));
+                d.setStd_id(rs2.getInt(i++));
                 d.setName(rs2.getString(i++));
                 d.setResident_number(rs2.getString(i++));
                 d.setPhone(rs2.getString(i++));

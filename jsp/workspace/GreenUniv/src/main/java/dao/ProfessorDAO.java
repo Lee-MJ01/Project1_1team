@@ -3,13 +3,9 @@ package dao;
 import dto.ProfessorDTO;
 import util.DBHelper;
 import util.PageResult;
-import util.Sql;
 
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
+import java.sql.*;
+import java.util.*;
 
 public class ProfessorDAO extends DBHelper {
 
@@ -17,98 +13,102 @@ public class ProfessorDAO extends DBHelper {
     public static ProfessorDAO getInstance(){ return INSTANCE; }
     private ProfessorDAO(){}
 
-    // 등록
+    // INSERT는 17컬럼( degree 포함 )으로 고정
+    private static final String INSERT_SQL =
+        "INSERT INTO professor (" +
+        " p_code, nation, name_ko, name_en, gender, jumin, hp, email," +
+        " addr_code, addr, addr_detail, dept_id, hire_date, status," +
+        " univ, graduate_date, degree" +
+        ") VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+
+    /** 등록 */
     public int insert(ProfessorDTO d){
-        int result = 0;
-        PreparedStatement ps = null;
-        try{
-            conn = getConnection();
-            ps = conn.prepareStatement(Sql.INSERT_PROFESSOR);
+        try (Connection con = connOrThrow();
+             PreparedStatement ps = con.prepareStatement(INSERT_SQL)) {
+
             int i = 1;
-            ps.setInt(i++,    d.getProf_id());          // p_code
-            ps.setString(i++, d.getDivision());         // nation
-            ps.setString(i++, d.getName());             // name_ko
-            ps.setString(i++, d.getE_name());           // name_en
-            ps.setString(i++, d.getGender());           // gender
-            ps.setString(i++, d.getResident_number());  // jumin
-            ps.setString(i++, d.getPhone());            // hp
-            ps.setString(i++, d.getEmail());            // email
-            ps.setString(i++, d.getZip());              // addr_code
-            ps.setString(i++, d.getAddr1());            // addr
-            ps.setString(i++, d.getAddr2());            // addr_detail
-            ps.setInt(i++,    d.getDept_id());          // dept_id
-            ps.setString(i++, d.getHire_date());        // hire_date
-            ps.setString(i++, d.getStatus());           // status
-            ps.setString(i++, d.getGraduated_univ());   // univ
-            ps.setString(i++, d.getGraduation_date());  // graduate_date
-            ps.setString(i++, d.getDegree());           // degree
+            ps.setInt(i++,    d.getProf_id());               // p_code
+            setNullable(ps, i++, d.getDivision());           // nation
+            setNullable(ps, i++, d.getName());               // name_ko
+            setNullable(ps, i++, d.getE_name());             // name_en
+            setNullable(ps, i++, d.getGender());             // gender
+            setNullable(ps, i++, d.getResident_number());    // jumin
+            setNullable(ps, i++, d.getPhone());              // hp
+            setNullable(ps, i++, d.getEmail());              // email
+            setNullableInt(ps, i++, d.getZip());             // addr_code (INT, nullable)
+            setNullable(ps, i++, d.getAddr1());              // addr
+            setNullable(ps, i++, d.getAddr2());              // addr_detail
+            ps.setInt(i++,    d.getDept_id());               // dept_id
+            setNullable(ps, i++, d.getHire_date());          // hire_date
+            setNullable(ps, i++, d.getStatus());             // status
+            setNullable(ps, i++, d.getGraduated_univ());     // univ
+            setNullable(ps, i++, d.getGraduation_date());    // graduate_date
+            setNullable(ps, i++, d.getDegree());             // degree
 
-            result = ps.executeUpdate();
-        }catch(Exception e){
-            e.printStackTrace();
-        }finally{
-            try{ if(ps!=null) ps.close(); }catch(Exception ignore){}
-            try{ closeAll(); }catch(Exception ignore){}
+            return ps.executeUpdate();
+
+        } catch (SQLException e) {
+            System.err.printf("[ProfessorDAO.insert] SQLState=%s, ErrorCode=%d, Message=%s%n",
+                    e.getSQLState(), e.getErrorCode(), e.getMessage());
+            throw new RuntimeException("Professor insert failed", e);
         }
-        return result;
     }
 
+    /** 연도+학과 prefix로 professor 테이블에서 다음 순번 계산(별도 seq 테이블 불필요) */
+    public int nextProfessorSeq(int year, int deptId) {
+        final int dept3 = Math.abs(deptId) % 1000;
+        final int base  = year * 1_000_000 + dept3 * 1_000;
+        final int upper = base + 999;
+        final String sql = "SELECT MAX(p_code) FROM professor WHERE p_code BETWEEN ? AND ?";
 
+        try (Connection con = connOrThrow();
+             PreparedStatement ps = con.prepareStatement(sql)) {
 
-    public int nextProfessorSeq(int year, int deptId){
-        PreparedStatement ps = null;
-        ResultSet rs = null;
-        int seq = 0;
-        try{
-            conn = getConnection();
-            ps = conn.prepareStatement(Sql.UPSERT_PROFESSOR_SEQ);
-            ps.setInt(1, year);
-            ps.setInt(2, deptId);
-            ps.executeUpdate();
-            if(ps!=null) ps.close();
+            ps.setInt(1, base);
+            ps.setInt(2, upper);
 
-            ps = conn.prepareStatement(Sql.SELECT_LAST_INSERT_ID);
-            rs = ps.executeQuery();
-            if(rs.next()) seq = rs.getInt(1);
-        }catch(Exception e){
-            e.printStackTrace();
-        }finally{
-            try{ if(rs!=null) rs.close(); }catch(Exception ignore){}
-            try{ if(ps!=null) ps.close(); }catch(Exception ignore){}
-            try{ closeAll(); }catch(Exception ignore){}
-        }
-        return seq;
-    }
-
-    // 단건
-    public ProfessorDTO selectOne(int pcode){
-        ProfessorDTO d = null;
-        PreparedStatement ps = null; ResultSet rs = null;
-        try{
-            conn = getConnection();
-            ps = conn.prepareStatement(Sql.SELECT_PROFESSOR);
-            ps.setInt(1, pcode);
-            rs = ps.executeQuery();
-            if(rs.next()){
-                d = mapDetail(rs);
+            try (ResultSet rs = ps.executeQuery()) {
+                int last = 0;
+                if (rs.next()) last = rs.getInt(1);
+                if (rs.wasNull()) last = 0;
+                return (last == 0) ? 1 : (last - base) + 1;
             }
-        }catch(Exception e){
-            e.printStackTrace();
-        }finally{
-            try{ if(rs!=null) rs.close(); }catch(Exception ignore){}
-            try{ if(ps!=null) ps.close(); }catch(Exception ignore){}
-            try{ closeAll(); }catch(Exception ignore){}
+
+        } catch (SQLException e) {
+            System.err.printf("[ProfessorDAO.nextProfessorSeq] SQLState=%s, ErrorCode=%d, Message=%s%n",
+                    e.getSQLState(), e.getErrorCode(), e.getMessage());
+            throw new RuntimeException("Professor next seq failed", e);
         }
-        return d;
     }
 
-    // 검색 + 페이지
+    /** 단건 조회(상세) */
+    public ProfessorDTO selectOne(int pcode){
+        final String sql =
+            "SELECT p.p_code, p.nation, p.name_ko, p.name_en, p.gender, p.jumin, p.hp, p.email," +
+            "       p.addr_code, p.addr, p.addr_detail, p.dept_id, p.hire_date, p.status," +
+            "       p.univ, p.graduate_date, p.degree, d.dept_name " +
+            "FROM professor p LEFT JOIN department d ON d.dept_id = p.dept_id WHERE p.p_code=?";
+
+        try (Connection con = connOrThrow();
+             PreparedStatement ps = con.prepareStatement(sql)) {
+
+            ps.setInt(1, pcode);
+            try (ResultSet rs = ps.executeQuery()) {
+                if (!rs.next()) return null;
+                return mapDetail(rs);
+            }
+
+        } catch (SQLException e) {
+            System.err.printf("[ProfessorDAO.selectOne] SQLState=%s, ErrorCode=%d, Message=%s%n",
+                    e.getSQLState(), e.getErrorCode(), e.getMessage());
+            throw new RuntimeException("Professor selectOne failed", e);
+        }
+    }
+
+    /** 검색 + 페이징 목록 */
     public PageResult<ProfessorDTO> selectPage(String cond, String kw, int page, int size){
         List<ProfessorDTO> list = new ArrayList<>();
         int total = 0;
-
-        String where = "";
-        List<Object> params = new ArrayList<>();
 
         Map<String,String> COL = Map.of(
             "prof_id",   "p.p_code",
@@ -120,56 +120,65 @@ public class ProfessorDAO extends DBHelper {
             "status",    "p.status",
             "hire_date", "p.hire_date"
         );
-        if(cond != null && kw != null && !kw.isBlank() && COL.containsKey(cond)){
+
+        String where = "";
+        List<Object> params = new ArrayList<>();
+        if (cond != null && kw != null && !kw.isBlank() && COL.containsKey(cond)) {
             where = " WHERE " + COL.get(cond) + " LIKE ? ";
             params.add("%" + kw.trim() + "%");
         }
 
-        PreparedStatement ps = null; ResultSet rs = null;
-        try{
-            conn = getConnection();
+        String countSql =
+            "SELECT COUNT(*) FROM professor p LEFT JOIN department d ON d.dept_id = p.dept_id" + where;
+        String listSql =
+            "SELECT p.p_code, p.name_ko, p.hp, p.email, d.dept_name, p.degree, p.status, p.hire_date " +
+            "FROM professor p LEFT JOIN department d ON d.dept_id = p.dept_id" + where +
+            " ORDER BY p.p_code DESC LIMIT ? OFFSET ?";
 
+        try (Connection con = connOrThrow()) {
             // count
-            ps = conn.prepareStatement(String.format(Sql.SELECT_PROFESSOR_LIST_COUNT, where));
-            for(int i=0;i<params.size();i++) ps.setObject(i+1, params.get(i));
-            rs = ps.executeQuery();
-            if(rs.next()) total = rs.getInt(1);
-            rs.close(); ps.close();
-
-            // rows
-            ps = conn.prepareStatement(String.format(Sql.SELECT_PROFESSOR_LIST_MYSQL, where));
-            int idx = 1;
-            for(Object p : params) ps.setObject(idx++, p);
-            int offset = Math.max(page,1);
-            offset = (offset-1) * size;
-            ps.setInt(idx++, size);
-            ps.setInt(idx,   offset);
-
-            rs = ps.executeQuery();
-            while(rs.next()){
-                ProfessorDTO row = new ProfessorDTO();
-                int i=1;
-                row.setProf_id(rs.getInt(i++));     // p_code
-                row.setName(rs.getString(i++));     // name_ko
-                row.setPhone(rs.getString(i++));    // hp
-                row.setEmail(rs.getString(i++));
-                row.setDept_name(rs.getString(i++));
-                row.setDegree(rs.getString(i++));
-                row.setStatus(rs.getString(i++));
-                row.setHire_date(rs.getString(i++));
-                list.add(row);
+            try (PreparedStatement ps = con.prepareStatement(countSql)) {
+                for (int i=0;i<params.size();i++) ps.setObject(i+1, params.get(i));
+                try (ResultSet rs = ps.executeQuery()) {
+                    if (rs.next()) total = rs.getInt(1);
+                }
             }
-        }catch(Exception e){
-            e.printStackTrace();
-        }finally{
-            try{ if(rs!=null) rs.close(); }catch(Exception ignore){}
-            try{ if(ps!=null) ps.close(); }catch(Exception ignore){}
-            try{ closeAll(); }catch(Exception ignore){}
+            // rows
+            try (PreparedStatement ps = con.prepareStatement(listSql)) {
+                int idx = 1;
+                for (Object p : params) ps.setObject(idx++, p);
+                int offset = Math.max(page,1);
+                offset = (offset-1) * size;
+                ps.setInt(idx++, size);
+                ps.setInt(idx,   offset);
+
+                try (ResultSet rs = ps.executeQuery()) {
+                    while (rs.next()) {
+                        ProfessorDTO row = new ProfessorDTO();
+                        int i=1;
+                        row.setProf_id(rs.getInt(i++));
+                        row.setName(rs.getString(i++));
+                        row.setPhone(rs.getString(i++));
+                        row.setEmail(rs.getString(i++));
+                        row.setDept_name(rs.getString(i++));
+                        row.setDegree(rs.getString(i++));
+                        row.setStatus(rs.getString(i++));
+                        row.setHire_date(rs.getString(i++));
+                        list.add(row);
+                    }
+                }
+            }
+        } catch (SQLException e) {
+            System.err.printf("[ProfessorDAO.selectPage] SQLState=%s, ErrorCode=%d, Message=%s%n",
+                    e.getSQLState(), e.getErrorCode(), e.getMessage());
+            throw new RuntimeException("Professor selectPage failed", e);
         }
         return new PageResult<>(list, Math.max(page,1), size, total, 5);
     }
 
-    private ProfessorDTO mapDetail(ResultSet rs) throws Exception {
+    // ---------- 내부 유틸 ----------
+
+    private ProfessorDTO mapDetail(ResultSet rs) throws SQLException {
         ProfessorDTO d = new ProfessorDTO();
         int i = 1;
         d.setProf_id(rs.getInt(i++));
@@ -180,7 +189,7 @@ public class ProfessorDAO extends DBHelper {
         d.setResident_number(rs.getString(i++));
         d.setPhone(rs.getString(i++));
         d.setEmail(rs.getString(i++));
-        d.setZip(rs.getString(i++));
+        int zip = rs.getInt(i++); if (rs.wasNull()) d.setZip(null); else d.setZip(String.valueOf(zip));
         d.setAddr1(rs.getString(i++));
         d.setAddr2(rs.getString(i++));
         d.setDept_id(rs.getInt(i++));
@@ -192,27 +201,44 @@ public class ProfessorDAO extends DBHelper {
         d.setDept_name(rs.getString(i++));
         return d;
     }
+
+    private void setNullable(PreparedStatement ps, int idx, String v) throws SQLException {
+        if (v == null || v.isBlank()) ps.setNull(idx, Types.VARCHAR);
+        else ps.setString(idx, v.trim());
+    }
+    private void setNullableInt(PreparedStatement ps, int idx, String v) throws SQLException {
+        if (v == null || v.isBlank()) ps.setNull(idx, Types.INTEGER);
+        else {
+            try { ps.setInt(idx, Integer.parseInt(v.trim())); }
+            catch (NumberFormatException nfe) { ps.setNull(idx, Types.INTEGER); }
+        }
+    }
+    private Connection connOrThrow() throws SQLException {
+        try { return getConnection(); } // DBHelper.getConnection()
+        catch (javax.naming.NamingException ne) {
+            throw new SQLException("JNDI lookup failed for DataSource 'jdbc/greendae1'", ne);
+        }
+    }
     
     public int findCodeByName(String profname) {
         String sql = "SELECT p_code FROM professor WHERE name_ko=?";
         int p_code = 0;
         try {
-			conn= getConnection();
-			psmt = conn.prepareStatement(sql);
-			psmt.setString(1, profname);
-			rs = psmt.executeQuery();
-			
-			if(rs.next()) {
-				p_code = rs.getInt(1);
-			}
-			closeAll();
-			
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+         conn= getConnection();
+         psmt = conn.prepareStatement(sql);
+         psmt.setString(1, profname);
+         rs = psmt.executeQuery();
+         
+         if(rs.next()) {
+            p_code = rs.getInt(1);
+         }
+         closeAll();
+         
+      } catch (Exception e) {
+         e.printStackTrace();
+      }
         
         return p_code;
     }
 
-    
 }

@@ -27,12 +27,7 @@ public class CourseDTO {
     private int enrolledCount;      // 현재 수강 인원 (enrollment 테이블에서 COUNT)
     private String name_ko;
     
-    public String getDept_name() {
-		return dept_name;
-	}
-    public void setDept_name(String dept_name) {
-		this.dept_name = dept_name;
-	}
+
     public String getName_ko() {
 		return name_ko;
 	}

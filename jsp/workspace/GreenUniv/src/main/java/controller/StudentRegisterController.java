@@ -35,7 +35,7 @@ public class StudentRegisterController extends HttpServlet {
             String entryYear = req.getParameter("entryyear");
             int deptId = Integer.parseInt(req.getParameter("dept_id"));
             int stdId = service.issueStdId(entryYear, deptId);
-            d.setStd_id(req.getParameter("stdId"));
+            d.setStd_id(stdId);
             d.setResident_number(req.getParameter("resident_number"));
             d.setName(req.getParameter("name"));
             d.setE_name(req.getParameter("e_name"));
