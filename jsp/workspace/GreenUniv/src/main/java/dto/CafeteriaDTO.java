@@ -6,6 +6,7 @@ public class CafeteriaDTO {
 	private String meal_type;
 	private String start_date;
 	private String end_date;
+	
 	public String getFood_name() {
 		return food_name;
 	}

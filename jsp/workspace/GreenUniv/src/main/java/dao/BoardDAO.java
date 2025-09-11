@@ -22,6 +22,75 @@ public class BoardDAO extends DBHelper{
 	
 	private Logger logger = LoggerFactory.getLogger(this.getClass());
 	
+	/**
+     * 게시판 종류(comm_cd)에 따른 전체 게시글 수를 조회합니다.
+     * @param commCd
+     * @return
+     */
+    public int selectCountNotices(String commCd) {
+        int total = 0;
+        conn = null;
+        psmt = null;
+        rs = null;
+        try {
+            conn = getConnection();
+            psmt = conn.prepareStatement(Sql.SELECT_NOTICE_COUNT_TOTAL);
+            psmt.setString(1, commCd);
+            rs = psmt.executeQuery();
+            if (rs.next()) {
+                total = rs.getInt(1);
+            }
+        } catch (Exception e) {
+            logger.error("selectCountNotices 오류: " + e.getMessage());
+        } finally {
+        	try {
+	        	closeAll();
+	        } catch (SQLException e) {
+	            logger.error("자원 해제 중 오류 발생", e);
+	        }
+        }
+        return total;
+    }
+    
+    /**
+     * 게시판 종류(comm_cd)에 따라 페이지 시작점(limitStart)부터 10개의 게시글을 조회합니다.
+     * @param commCd
+     * @param limitStart
+     * @return
+     */
+    public List<BoardDTO> selectNotices(String commCd, int limitStart) {
+        List<BoardDTO> dtoList = new ArrayList<>();
+        conn = null;
+        psmt = null;
+        rs = null;
+        try {
+            conn = getConnection();
+            psmt = conn.prepareStatement(Sql.SELECT_NOTICE_LIST_PAGE); // LIMIT ?, OFFSET ? 대신 LIMIT ? 사용
+            psmt.setString(1, commCd);
+            psmt.setInt(2, limitStart);
+            rs = psmt.executeQuery();
+            
+            while (rs.next()) {
+                BoardDTO dto = new BoardDTO();
+                dto.setNumber(rs.getInt("no"));
+                dto.setTitle(rs.getString("title"));
+                dto.setWriter(rs.getString("writer"));
+                dto.setW_date(rs.getString("wdate"));             
+                dto.setView_count(rs.getInt("views"));
+                dtoList.add(dto);
+            }
+        } catch (Exception e) {
+            logger.error("selectNotices 오류: " + e.getMessage());
+        } finally {
+        	try {
+	        	closeAll();
+	        } catch (SQLException e) {
+	            logger.error("자원 해제 중 오류 발생", e);
+	        }
+        }
+        return dtoList;
+    }
+	
 	public BoardDTO selectById(String file_yn) {
 		try {
 			conn = getConnection();

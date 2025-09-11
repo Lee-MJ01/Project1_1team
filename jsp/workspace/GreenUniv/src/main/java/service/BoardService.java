@@ -18,6 +18,16 @@ public enum BoardService {
 		return dtoList;
 	}
 	
+	// 게시판 종류(comm_cd)에 따른 전체 게시글 수 조회
+    public int selectCountNotices(String commCd) {
+        return dao.selectCountNotices(commCd);
+    }
+    
+    // 게시판 종류(comm_cd)에 따라 페이지 시작점부터 10개 게시글 조회
+    public List<BoardDTO> selectNotices(String commCd, int limitStart) {
+        return dao.selectNotices(commCd, limitStart);
+    }
+	
 	// index에 보여지는 공지사항 select
 	public List<BoardDTO> IndexCommunityfindAll() {
 		List<BoardDTO> dtoList = dao.IndexCommunitySelectAll(); 
