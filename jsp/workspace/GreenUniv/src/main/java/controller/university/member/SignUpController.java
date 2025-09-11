@@ -20,14 +20,17 @@ public class SignUpController extends HttpServlet {
 	private UserService userService = UserService.INSTANCE;
 
 	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
-		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/university/member/signup.jsp");
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) 
+		throws ServletException, IOException {
+		
+		RequestDispatcher dispatcher = 
+			req.getRequestDispatcher("/WEB-INF/views/university/member/signup.jsp");
 		dispatcher.forward(req, resp);
 	}
 	
 	@Override
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) 
+		throws ServletException, IOException {
 	
 		// 전송 데이터 수신
 		String user_id 	 = req.getParameter("user_id");

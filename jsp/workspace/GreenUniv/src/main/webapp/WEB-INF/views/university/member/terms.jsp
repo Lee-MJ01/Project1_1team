@@ -40,7 +40,7 @@
             <strong>※</strong> 만 14세 미만 아동은 홈페이지 회원가입이 제한됩니다.
           </p>
 
-          <form id="termsForm" class="form-table" method="get" action="${pageContext.request.contextPath}/member/terms.do" novalidate>
+          <form id="termsForm" class="form-table" method="get" action="${pageContext.request.contextPath}/member/signup.do" novalidate>
             <!-- 이용약관 -->
             <div class="row">
               <div class="th">이용약관</div>
@@ -59,7 +59,7 @@
             <!-- 동의 -->
             <div class="terms-check">
               <label>
-                <input type="checkbox" id="agree" required>
+                <input type="checkbox" id="agree" name="agree" value="Y" required>
                 위의 홈페이지 이용에 따른 회원가입 약관 및 개인정보 수집·이용에 모두 동의합니다.
               </label>
             </div>
@@ -80,7 +80,6 @@
 
   <!-- 스크립트 -->
   <script>
-  	const ctx = "${pageContext.request.contextPath}";
     // 주요사이트 이동
     document.getElementById('sites').addEventListener('change', function(){
       if(this.value){ window.open(this.value, '_blank'); this.selectedIndex = 0; }
@@ -88,13 +87,10 @@
 
     // 약관 동의 체크 후 다음으로
     document.getElementById('termsForm').addEventListener('submit', function(e){
-      e.preventDefault();
       if(!document.getElementById('agree').checked){
+    	e.preventDefault();
         alert('약관에 동의해야 합니다.');
-        return;
       }
-
-      location.href="/member/signup.do";
     });
   </script>
 </body>
