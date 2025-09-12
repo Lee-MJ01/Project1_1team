@@ -128,13 +128,13 @@
                     </table>
 
                     <div class="pagination">
-                        <a href="#" class="first"><img src="/images/btn-first-page.png" alt="처음"></a>
-                        <a href="#" class="prev"><img src="/images/btn-prev-page.png" alt="이전"></a>
+                        <a href="#" class="first"><img src="${pageContext.request.contextPath}/images/btn-first-page.png" alt="처음"></a>
+                        <a href="#" class="prev"><img src="${pageContext.request.contextPath}/images/btn-prev-page.png" alt="이전"></a>
                         <a href="#" class="active">1</a>
                         <a href="#">2</a>
                         <a href="#">3</a>
-                        <a href="#" class="next"><img src="/images/btn-next-page.png" alt="다음"></a>
-                        <a href="#" class="last"><img src="/images/btn-last-page.png" alt="끝"></a>
+                        <a href="#" class="next"><img src="${pageContext.request.contextPath}/images/btn-next-page.png" alt="다음"></a>
+                        <a href="#" class="last"><img src="${pageContext.request.contextPath}/images/btn-last-page.png" alt="끝"></a>
                     </div>
                 </section>
             </div>

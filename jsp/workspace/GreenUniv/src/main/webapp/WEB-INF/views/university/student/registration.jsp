@@ -18,7 +18,7 @@
     <p class="aside-title">학생지원</p>
     <nav aria-label="학생지원 사이드 메뉴">
       <ul>
-        <li class="active"><a href="${pageContext.request.contextPath}/student/registration.do">수강신청</a></li>
+        <li><a href="${pageContext.request.contextPath}/student/registration.do"  aria-current="page">수강신청</a></li>
         <li><a href="${pageContext.request.contextPath}/student/registered.do">수강신청내역</a></li>
         <li><a href="${pageContext.request.contextPath}/student/curriculum.do">나의교육과정</a></li>
         <li><a href="${pageContext.request.contextPath}/student/grades.do">성적조회</a></li>

@@ -24,13 +24,13 @@ public class JobsListController extends HttpServlet {
 		int page = Optional.ofNullable(req.getParameter("page"))
                 .map(Integer::parseInt).orElse(1);
 		
-//		List<BoardDTO> dtoList = boardService.communityjobsFindAll(page, 10);
-//		
-//		req.setAttribute("dtoList", dtoList);
-//		req.setAttribute("page", page);
-//
-//		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/university/community/jobs.jsp");
-//		dispatcher.forward(req, resp);
+		List<BoardDTO> dtoList = boardService.communityjobsFindAll(page, 10);
+		
+		req.setAttribute("dtoList", dtoList);
+		req.setAttribute("page", page);
+
+		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/university/community/jobs.jsp");
+		dispatcher.forward(req, resp);
 	}
 	
 	@Override

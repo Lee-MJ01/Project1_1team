@@ -23,15 +23,15 @@ public class NewsListController extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-//		int page = Optional.ofNullable(req.getParameter("page"))
-//                .map(Integer::parseInt).orElse(1);
-//		List<BoardDTO> dtoList = boardService.communitynewsFindAll(page, 10);
-//		req.setAttribute("dtoList", dtoList);
-//		req.setAttribute("page", page);
-//					
-//		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/university/community/news.jsp");
-//		
-//		dispatcher.forward(req, resp);
+		int page = Optional.ofNullable(req.getParameter("page"))
+                .map(Integer::parseInt).orElse(1);
+		List<BoardDTO> dtoList = boardService.communityNewsSelectAll(page, 5);
+		req.setAttribute("dtoList", dtoList);
+		req.setAttribute("page", page);
+					
+		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/university/community/news.jsp");
+		
+		dispatcher.forward(req, resp);
 	}
 	
 	@Override

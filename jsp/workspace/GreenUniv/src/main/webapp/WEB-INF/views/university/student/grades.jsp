@@ -1,5 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
 
@@ -83,13 +83,13 @@
 </table>
 
       <div class="pagination">
-        <a href="#" class=""><img src="/images/btn-first-page.png" alt="이전이전"></a>
-        <a href="#" class=""><img src="/images/btn-prev-page.png" alt="이전"></a>
+        <a href="#" class=""><img src="${pageContext.request.contextPath}/images/btn-first-page.png" alt="이전이전"></a>
+        <a href="#" class=""><img src="${pageContext.request.contextPath}/images/btn-prev-page.png" alt="이전"></a>
         <a href="#" class="">1</a>
         <a href="#" class="">2</a>
         <a href="#" class="">3</a>
-        <a href="#" class=""><img src="/images/btn-next-page.png" alt="다음"></a>
-        <a href="#" class=""><img src="/images/btn-last-page.png" alt="다음다음"></a>
+        <a href="#" class=""><img src="${pageContext.request.contextPath}/images/btn-next-page.png" alt="다음"></a>
+        <a href="#" class=""><img src="${pageContext.request.contextPath}/images/btn-last-page.png" alt="다음다음"></a>
       </div>
 
   </div>

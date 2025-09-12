@@ -17,10 +17,10 @@
     <div class="breadcrumb">
       <div class="container">
         <ul>
-          <li><a href="/"><img src="/images/ico-home.png" alt="홈"></a></li>
-          <li><img src="/images/bg-path-arrow.png" alt=">"></li>
+          <li><a href="/"><img src="${pageContext.request.contextPath}/images/ico-home.png" alt="홈"></a></li>
+          <li><img src="${pageContext.request.contextPath}/images/bg-path-arrow.png" alt=">"></li>
           <li><a href="#">대학·대학원</a></li>
-          <li><img src="/images/bg-path-arrow.png" alt=">"></li>
+          <li><img src="${pageContext.request.contextPath}/images/bg-path-arrow.png" alt=">"></li>
           <li class="active"><a href="#">인문사회대학</a></li>
         </ul>
       </div>
@@ -46,7 +46,7 @@
           <h3>인문사회대학</h3>
 
           <div class="college-intro">
-	        <img src="${pageContext.request.contextPath}${college.image_path}"
+	        <img src="${pageContext.request.contextPath}/images/college-introduce-1.jpg"
 	             alt="${college.college_name} 소개 이미지" class="intro-img">
 	        <div class="intro-text">
 	          <span class="eng-title">${college.college_name_en}</span>
