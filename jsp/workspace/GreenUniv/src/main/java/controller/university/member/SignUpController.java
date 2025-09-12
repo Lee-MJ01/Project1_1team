@@ -31,7 +31,7 @@ public class SignUpController extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) 
 		throws ServletException, IOException {
-	
+		
 		// 전송 데이터 수신
 		String user_id 	 = req.getParameter("user_id");
 		String pass 	 = req.getParameter("pass");
@@ -40,6 +40,8 @@ public class SignUpController extends HttpServlet {
 		String email 	 = req.getParameter("email");
 		String addr1 	 = req.getParameter("addr1");
 		String addr2 	 = req.getParameter("addr2");
+		
+		System.out.println("EMAIL="+email);
 		
 		// DTO 생성 및 초기화
 		UserDTO dto = new UserDTO();
@@ -53,9 +55,17 @@ public class SignUpController extends HttpServlet {
 		dto.setUser_role("VISITOR"); // 기본값
 		
 		// 등록 서비스 요청
-		userService.register(dto);
-		
-		// 이동
-		resp.sendRedirect("/GreenUniv/member/login.do?code="+ResultCode.REGISTER_SUCCESS.getCode());
+	    ResultCode code = userService.register(dto);
+
+	    if (code == ResultCode.REGISTER_SUCCESS) {
+	        // 성공 → 로그인 페이지로 이동
+	        resp.sendRedirect("/GreenUniv/member/login.do?code=" + code.getCode());
+	    } else {
+	        // 실패 → 다시 회원가입 페이지로 보내고 에러코드 전달
+	    	req.setAttribute("errorCode", code.name());
+	        RequestDispatcher dispatcher = 
+	            req.getRequestDispatcher("/WEB-INF/views/university/member/signup.jsp");
+	        dispatcher.forward(req, resp);
+	    }
 	}
 }

@@ -42,6 +42,7 @@ public class UserDAO extends DBHelper {
 			closeAll();
 		
 		} catch (Exception e) {
+			e.printStackTrace();
 			logger.error("insert", e);
 			throw new RuntimeException(e);
 			
