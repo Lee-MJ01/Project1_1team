@@ -56,11 +56,20 @@ GreenUniv 프로젝트는 **대학 홈페이지**와 **학사 관리 시스템**
 
 ---
 
-## ⚙️ 기술 스택
-- **Frontend**: HTML5, CSS3, JavaScript, JSP
-- **Backend**: Java (Servlet/JSP), Spring MVC (선택 가능)
-- **Database**: Oracle / MySQL
-- **Version Control**: Git, GitHub
+## ⚙️ 개발 환경
+
+### 🔗 협업 도구
+- **GitHub** : 버전 관리 및 협업 (Branch 전략, Pull Request, Code Review)
+- **Slack** : 팀 커뮤니케이션 및 알림 공유
+- **Figma** : UI/UX 설계, 와이어프레임 및 디자인 협업
+
+### 💻 개발 도구
+- **Java 17**, **Eclipse IDE** : 백엔드 로직 구현 (Servlet/JSP 기반)
+- **DBEaver**, **MySQL** : 데이터베이스 설계 및 연동
+- **HTML5 / CSS3 / JavaScript / JSP** : 프론트엔드 화면 개발
+
+### 🚀 서버 및 배포
+- **Apache Tomcat** : 애플리케이션 서버 배포 및 테스트 환경
 
 ---
 
