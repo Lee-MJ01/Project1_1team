@@ -47,9 +47,9 @@ public class CafeteriaPageController extends HttpServlet {
 		}
 		
 		for(CafeteriaDTO cafeDTO : dtoList) {
-			cafeList.get(cafeDTO.getMeal_date())
-					.computeIfAbsent(cafeDTO.getMeal_type(), k -> new ArrayList<>())
-					.add(cafeDTO.getFood_name());
+											cafeList.get(cafeDTO.getMeal_date())
+											.computeIfAbsent(cafeDTO.getMeal_type(), k -> new ArrayList<>())
+											.add(cafeDTO.getFood_name());
 		}
 		
 		req.setAttribute("cafeList", cafeList);

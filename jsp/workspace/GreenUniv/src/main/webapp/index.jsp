@@ -159,13 +159,13 @@
                 <div id="box-right">
                     <div>
                         <h3>공지사항</h3>
-                        <a href="${pageContext.request.contextPath}/academics/notice.do"">
+                        <a href="${pageContext.request.contextPath}/community/notice.do"">
                             <img src="${pageContext.request.contextPath}/images/bg-viewmore02.png" alt="">
                         </a>
                         <hr>
                         <ul>
                         	<c:forEach var="notice" items="${dtoCommunityList}" varStatus="loop">
-						        <a href="${pageContext.request.contextPath}/academics/notice.do">
+						        <a href="${pageContext.request.contextPath}/community/notice.do">
 						            <li>
 						                <span>${notice.title}</span>
 						                <span>
@@ -234,14 +234,16 @@
                     <div class="main-under-news">
                         <div class="news-header">
                             <h3>뉴스 및 칼럼</h3>
-                            <img src="${pageContext.request.contextPath}/images/bg-viewmore01.png" alt="더보기">
+                            <a href="${pageContext.request.contextPath}/community/news.do">
+                            	<img src="${pageContext.request.contextPath}/images/bg-viewmore01.png" alt="더보기">
+                            </a>
                         </div>
                         <hr>
                     </div>
                     <div class="news-page">
                         <ul>
                         	<c:forEach var="notice" items="${dtoCommuNewsList}" varStatus="loop">
-						        <a href="${pageContext.request.contextPath}/academics/notice.do">
+						        <a href="${pageContext.request.contextPath}/community/news.do">
 						            <li>
 						                <span>${notice.title}</span>
 						                <span>

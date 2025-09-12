@@ -33,10 +33,12 @@ public class CafeteriaDAO extends DBHelper{
 			// 오늘 날짜 구하기
 			LocalDate today = LocalDate.now();
 			
+//			today = LocalDate.of(2025, 9, 15);
+			
 			// 이번 주 월요일 구하기
 			LocalDate monday = today.with(TemporalAdjusters.previousOrSame(DayOfWeek.MONDAY));
 			
-			// 이번 주 월요일 구하기
+			// 이번 주 금요일 구하기
 			LocalDate friday = today.with(TemporalAdjusters.nextOrSame(DayOfWeek.FRIDAY));
 			
 			psmt.setObject(1, monday);
