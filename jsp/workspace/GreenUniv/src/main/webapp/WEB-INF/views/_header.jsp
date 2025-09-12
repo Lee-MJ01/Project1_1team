@@ -24,7 +24,7 @@
           <c:choose>
               <%-- 세션의 isStudent 값이 true일 때 (학부생일 때) --%>
               <c:when test="${sessionScope.isStudent}">
-                  <li class="topbar__item"><a href="${pageContext.request.contextPath}/student/curriculum.do">학생지원</a></li>
+                  <li class="topbar__item"><a href="${pageContext.request.contextPath}/student/registered.do">학생지원</a></li>
               </c:when>
               <%-- 학부생이 아닐 때 (교직원, 일반인, 비로그인) --%>
               <c:otherwise>

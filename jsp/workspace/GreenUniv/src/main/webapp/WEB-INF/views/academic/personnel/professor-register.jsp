@@ -91,7 +91,7 @@ body{font-family:'Noto Sans KR', Arial, system-ui, sans-serif;color:var(--text);
 .pf-grid th{width:110px;text-align:center;font-weight:600;background:#f7f7f7}
 .pf-grid th.photo{background:#fff;text-align:center}
 .photo-cell{vertical-align:middle;text-align:center;background:#fff}
-.pf-avatar{width:84px;height:84px;border-radius:50%;background:#eef1f5 url('${ctx}/images/icon-avatar.png') no-repeat center/40px;margin:0 auto}
+.pf-avatar{width:84px;height:84px;border-radius:50%;background:#eef1f5 url('${pageContext.request.contextPath}/images/icon-avatar.png') no-repeat center/40px;margin:0 auto}
 
 .pf-field .inp,.pf-field .sel{width:260px;max-width:260px;height:32px;padding:0 8px;border:1px solid #cfd6df;box-sizing:border-box}
 .pf-field .sel{-webkit-appearance:none;-moz-appearance:none;appearance:none}
@@ -142,16 +142,16 @@ body{font-family:'Noto Sans KR', Arial, system-ui, sans-serif;color:var(--text);
   <!-- Top menu -->
   <div class="top-menu">
     <nav class="top-menu__inner">
-      <a class="top-menu__link" href="${ctx}/">HOME</a>
-      <a class="top-menu__link" href="${ctx}/sitemap.jsp">사이트맵</a>
-      <a class="top-menu__link" href="${ctx}/user/login.do">로그인</a>
+      <a class="top-menu__link" href="${pageContext.request.contextPath}/">HOME</a>
+      <a class="top-menu__link" href="${pageContext.request.contextPath}/sitemap.jsp">사이트맵</a>
+      <a class="top-menu__link" href="${pageContext.request.contextPath}/user/login.do">로그인</a>
     </nav>
   </div>
 
   <!-- Brand header  -->
   <header class="brand-bar">
-    <a href="${ctx}/academic/index.do">
-      <img class="brand-logo" src="${ctx}/images/admin_logo.png" alt="그린대학교 학사관리시스템 로고">
+    <a href="${pageContext.request.contextPath}/academic/index.do">
+      <img class="brand-logo" src="${pageContext.request.contextPath}/images/admin_logo.png" alt="그린대학교 학사관리시스템 로고">
     </a>
   </header>
 
@@ -161,7 +161,7 @@ body{font-family:'Noto Sans KR', Arial, system-ui, sans-serif;color:var(--text);
       <nav class="sidebar-menu">
         <!-- 환경설정 -->
         <div class="menu-group">
-          <h3><img src="${ctx}/images/ico-admin-setting.png" alt="" class="menu-icon">환경설정</h3>
+          <h3><img src="${pageContext.request.contextPath}/images/ico-admin-setting.png" alt="" class="menu-icon">환경설정</h3>
           <ul>
             <li><span>기본환경정보</span></li>
             <li><span>약관관리</span></li>
@@ -170,42 +170,42 @@ body{font-family:'Noto Sans KR', Arial, system-ui, sans-serif;color:var(--text);
 
         <!-- 학사운영 -->
         <div class="menu-group">
-          <h3><img src="${ctx}/images/ico-admin-academic.png" alt="" class="menu-icon">학사운영</h3>
+          <h3><img src="${pageContext.request.contextPath}/images/ico-admin-academic.png" alt="" class="menu-icon">학사운영</h3>
           <ul>
-            <li><a href="${ctx}/academic/operation/overview.do">교육 운영 현황</a></li>
+            <li><a href="${pageContext.request.contextPath}/academic/operation/overview.do">교육 운영 현황</a></li>
             <li><span>학년별 학생 현황</span></li>
             <li><span>학과별 학생 현황</span></li>
-            <li><a href="${ctx}/academic/operation/lecture-list.do">강의 목록</a></li>
-            <li><a href="${ctx}/academic/operation/lecture-register.do">강의 등록</a></li>
-            <li><a href="${ctx}/academic/operation/enrollment.do">수강 현황</a></li>
+            <li><a href="${pageContext.request.contextPath}/academic/operation/lecture-list.do">강의 목록</a></li>
+            <li><a href="${pageContext.request.contextPath}/academic/operation/lecture-register.do">강의 등록</a></li>
+            <li><a href="${pageContext.request.contextPath}/academic/operation/enrollment.do">수강 현황</a></li>
           </ul>
         </div>
 
         <!-- 인사관리 -->
         <div class="menu-group">
-          <h3><img src="${ctx}/images/ico-admin-persons.png" alt="" class="menu-icon">인사관리</h3>
+          <h3><img src="${pageContext.request.contextPath}/images/ico-admin-persons.png" alt="" class="menu-icon">인사관리</h3>
           <ul>
-            <li><a href="${ctx}/student/list.do">학생 목록</a></li>
-            <li><a href="${ctx}/student/write.do">학생 등록</a></li>
-            <li><a href="${ctx}/professor/list.do">교수 목록</a></li>
-            <li><a href="${ctx}/professor/write.do">교수 등록</a></li>
+            <li><a href="${pageContext.request.contextPath}/student/list.do">학생 목록</a></li>
+            <li><a href="${pageContext.request.contextPath}/student/write.do">학생 등록</a></li>
+            <li><a href="${pageContext.request.contextPath}/professor/list.do">교수 목록</a></li>
+            <li><a href="${pageContext.request.contextPath}/professor/write.do">교수 등록</a></li>
             <li><span>임직원 목록 및 등록</span></li>
           </ul>
         </div>
 
         <!-- 대학 및 학과 -->
         <div class="menu-group">
-          <h3><img src="${ctx}/images/ico-admin-college.png" alt="" class="menu-icon">대학 및 학과</h3>
+          <h3><img src="${pageContext.request.contextPath}/images/ico-admin-college.png" alt="" class="menu-icon">대학 및 학과</h3>
           <ul>
-            <li><a href="${ctx}/department/list.do">학과 목록</a></li>
-            <li><a href="${ctx}/college/write.do">대학 등록</a></li>
-            <li><a href="${ctx}/academic/departments/department-register.do">학과 등록</a></li>
+            <li><a href="${pageContext.request.contextPath}/department/list.do">학과 목록</a></li>
+            <li><a href="${pageContext.request.contextPath}/college/write.do">대학 등록</a></li>
+            <li><a href="${pageContext.request.contextPath}/academic/departments/department-register.do">학과 등록</a></li>
           </ul>
         </div>
 
         <!-- 게시판관리 -->
         <div class="menu-group">
-          <h3><img src="${ctx}/images/ico-admin-board.png" alt="" class="menu-icon">게시판관리</h3>
+          <h3><img src="${pageContext.request.contextPath}/images/ico-admin-board.png" alt="" class="menu-icon">게시판관리</h3>
           <ul>
             <li><span>입학안내 공지사항</span></li>
             <li><span>학사안내 공지사항</span></li>
@@ -236,7 +236,7 @@ body{font-family:'Noto Sans KR', Arial, system-ui, sans-serif;color:var(--text);
         </div>
 
         <div class="page__body">
-          <form method="post" action="${ctx}/professor/write.do" autocomplete="off">
+          <form method="post" action="${pageContext.request.contextPath}/professor/write.do" autocomplete="off">
             <!-- 기본정보 -->
             <h4 class="section-title">기본정보 입력</h4>
             <table class="pf-grid" role="presentation">

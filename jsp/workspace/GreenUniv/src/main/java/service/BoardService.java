@@ -69,6 +69,11 @@ public enum BoardService {
 
 	}
 	
+	//커뮤니티 뉴스 및 칼럼
+	public List<BoardDTO> communityNewsSelectAll(int page, int pageSize){
+		return dao.communityNewsSelectAll(page, pageSize);
+	}
+	
 //	//커뮤니티 공지사항 select
 //	public List<BoardDTO> communitynewsFindAll(int page, int pageSize){
 //		return dao.communityNewsSelectAll(page, pageSize);
