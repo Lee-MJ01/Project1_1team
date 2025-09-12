@@ -4,7 +4,7 @@ public enum ResultCode {
 
     
 	// 1** : 인증/세션
-	LOGIN_SUCESS (100, "로그인에 성공했습니다."),
+	LOGIN_SUCCESS (100, "로그인에 성공했습니다."),
 	LOGIN_FAIL(101, "로그인에 실패하였습니다. 아이디/비밀번호를 확인해 주십시오."),
 	LOGOUT_SUCCESS(102, "로그아웃 하였습니다. 안녕히 가십시오."),
 	LOGIN_REQUIRE(103, "로그인이 필요합니다."),

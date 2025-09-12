@@ -1,4 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -146,6 +147,19 @@
 								<input type="text" id="addr2" name="addr2" placeholder="상세주소 입력">
 							</div>
 						</div>
+						
+						<!-- 에러 메시지 표시 영역 -->
+						<c:if test="${not empty errorCode}">
+						  <div class="error-msg" style="color:red; margin:10px 0;">
+						    <c:choose>
+						      <c:when test="${errorCode == 'REGISTER_DUP_USER_ID'}">이미 사용 중인 아이디입니다.</c:when>
+						      <c:when test="${errorCode == 'REGISTER_DUP_EMAIL'}">이미 등록된 이메일입니다.</c:when>
+						      <c:when test="${errorCode == 'REGISTER_DUP_HP'}">이미 등록된 휴대폰 번호입니다.</c:when>
+						      <c:when test="${errorCode == 'INVALID_INPUT'}">필수 입력값이 비어 있습니다.</c:when>
+						      <c:otherwise>회원가입에 실패했습니다. 입력값을 확인하세요.</c:otherwise>
+						    </c:choose>
+						  </div>
+						</c:if>
 	              
 						<!-- 하단 버튼 -->
 						<div class="actions">

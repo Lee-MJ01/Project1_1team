@@ -58,12 +58,12 @@ public class CourseDAO extends DBHelper {
             conn = getConnection();
             stmt = conn.createStatement();
             rs = stmt.executeQuery("SELECT c.crs_cd, d.dept_name, c.year, c.division, c.crs_name, "
-            		+ "       p.name_ko, c.credit, c.days, c.time_start, c.time_end, "
-            		+ "       c.crs_room, c.capacity "
-            		+ "FROM course c "
-            		+ "JOIN professor p ON c.p_code = p.p_code "
-            		+ "JOIN department d ON c.dept_id = d.dept_id "
-            		+ "ORDER BY c.crs_cd DESC ");
+                  + "       p.name_ko, c.credit, c.days, c.time_start, c.time_end, "
+                  + "       c.crs_room, c.capacity "
+                  + "FROM course c "
+                  + "JOIN professor p ON c.p_code = p.p_code "
+                  + "JOIN department d ON c.dept_id = d.dept_id "
+                  + "ORDER BY c.crs_cd DESC ");
 
             while (rs.next()) {
                 CourseDTO dto = new CourseDTO();
@@ -105,12 +105,12 @@ public class CourseDAO extends DBHelper {
             conn = getConnection();
             stmt = conn.createStatement();
             rs = stmt.executeQuery("SELECT c.crs_cd, d.dept_name, c.year, c.division, c.crs_name, "
-            		+ "       p.name_ko, c.credit, c.days, c.time_start, c.time_end, "
-            		+ "       c.crs_room, c.capacity "
-            		+ "FROM course c "
-            		+ "JOIN professor p ON c.p_code = p.p_code "
-            		+ "JOIN department d ON c.dept_id = d.dept_id "
-            		+ "ORDER BY c.crs_cd DESC ");
+                  + "       p.name_ko, c.credit, c.days, c.time_start, c.time_end, "
+                  + "       c.crs_room, c.capacity "
+                  + "FROM course c "
+                  + "JOIN professor p ON c.p_code = p.p_code "
+                  + "JOIN department d ON c.dept_id = d.dept_id "
+                  + "ORDER BY c.crs_cd DESC ");
 
             while (rs.next()) {
                 CourseDTO dto = new CourseDTO();
@@ -204,9 +204,9 @@ public class CourseDAO extends DBHelper {
         int seq = 1;
         String sql = "SELECT COUNT(*)+1 AS seq FROM course WHERE dept_id=? AND year=? AND semester=?";
         try {
-        	conn = getConnection();
-        	psmt = conn.prepareStatement(sql);
-        	psmt.setInt(1, deptId);
+           conn = getConnection();
+           psmt = conn.prepareStatement(sql);
+           psmt.setInt(1, deptId);
             psmt.setInt(2, year);
             psmt.setInt(3, semester);
             rs = psmt.executeQuery();
@@ -215,7 +215,7 @@ public class CourseDAO extends DBHelper {
             }
         }
         catch (Exception e) {
-        	e.printStackTrace();
+           e.printStackTrace();
         }
         
         return seq;
